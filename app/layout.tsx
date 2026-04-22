@@ -48,7 +48,7 @@ export default function RootLayout({
       className={`${jetbrainsMono.variable} ${inter.variable} h-full`}
       style={{ fontFamily: "var(--font-inter), ui-sans-serif, system-ui, sans-serif" }}
     >
-      <body className="min-h-full flex flex-col" style={{ backgroundColor: "#0a0a0a", color: "#f0f0f0" }}>
+      <body className="min-h-full flex flex-col" style={{ backgroundColor: "#000000", color: "#ffffff" }}>
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />

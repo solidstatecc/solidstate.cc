@@ -8,11 +8,11 @@ export const metadata: Metadata = {
 
 export default function SubmitPage() {
   return (
-    <div style={{ backgroundColor: "#0a0a0a", minHeight: "100vh" }}>
+    <div style={{ backgroundColor: "#000000", minHeight: "100vh" }}>
       {/* Header */}
       <div
         style={{
-          borderBottom: "1px solid #1a1a1a",
+          borderBottom: "1px solid #000000",
           padding: "40px 24px 32px",
         }}
       >
@@ -22,14 +22,14 @@ export default function SubmitPage() {
               fontFamily: "var(--font-jetbrains-mono), monospace",
               fontSize: "24px",
               fontWeight: 700,
-              color: "#f0f0f0",
+              color: "#ffffff",
               letterSpacing: "-0.02em",
               margin: "0 0 8px",
             }}
           >
             Submit a Skill
           </h1>
-          <p style={{ fontSize: "14px", color: "#888888", margin: 0, lineHeight: "1.6" }}>
+          <p style={{ fontSize: "14px", color: "#ffffff", margin: 0, lineHeight: "1.6" }}>
             Submit your skill for review. Verified skills appear in featured listings and
             receive the ✓ badge. Review typically takes 2–5 business days.
           </p>
@@ -39,8 +39,8 @@ export default function SubmitPage() {
       {/* Process */}
       <div
         style={{
-          borderBottom: "1px solid #1a1a1a",
-          backgroundColor: "#0d0d0d",
+          borderBottom: "1px solid #000000",
+          backgroundColor: "#000000",
         }}
       >
         <div
@@ -75,7 +75,7 @@ export default function SubmitPage() {
                 style={{
                   fontFamily: "var(--font-jetbrains-mono), monospace",
                   fontSize: "10px",
-                  color: "#47DE43",
+                  color: "#ffffff",
                   letterSpacing: "0.1em",
                   marginBottom: "4px",
                 }}
@@ -87,13 +87,13 @@ export default function SubmitPage() {
                   fontFamily: "var(--font-jetbrains-mono), monospace",
                   fontSize: "12px",
                   fontWeight: 600,
-                  color: "#f0f0f0",
+                  color: "#ffffff",
                   marginBottom: "4px",
                 }}
               >
                 {label}
               </div>
-              <div style={{ fontSize: "12px", color: "#555555", lineHeight: "1.5" }}>
+              <div style={{ fontSize: "12px", color: "#ffffff", lineHeight: "1.5" }}>
                 {desc}
               </div>
             </div>

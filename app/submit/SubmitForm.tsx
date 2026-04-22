@@ -26,10 +26,10 @@ export function SubmitForm() {
   const inputStyle = {
     display: "block",
     width: "100%",
-    backgroundColor: "#111111",
-    border: "1px solid #222222",
+    backgroundColor: "#000000",
+    border: "1px solid #000000",
     borderRadius: "4px",
-    color: "#f0f0f0",
+    color: "#ffffff",
     fontFamily: "var(--font-jetbrains-mono), monospace",
     fontSize: "13px",
     padding: "10px 12px",
@@ -42,7 +42,7 @@ export function SubmitForm() {
     fontFamily: "var(--font-jetbrains-mono), monospace",
     fontSize: "10px",
     fontWeight: 600,
-    color: "#555555",
+    color: "#ffffff",
     letterSpacing: "0.08em",
     textTransform: "uppercase",
     marginBottom: "6px",
@@ -55,7 +55,7 @@ export function SubmitForm() {
   const hintStyle = {
     fontFamily: "var(--font-jetbrains-mono), monospace",
     fontSize: "10px",
-    color: "#333333",
+    color: "#000000",
     marginTop: "5px",
   } as React.CSSProperties
 
@@ -65,8 +65,8 @@ export function SubmitForm() {
         style={{
           textAlign: "center",
           padding: "64px 24px",
-          backgroundColor: "#111111",
-          border: "1px solid #1a1a1a",
+          backgroundColor: "#000000",
+          border: "1px solid #000000",
           borderRadius: "8px",
         }}
       >
@@ -74,7 +74,7 @@ export function SubmitForm() {
           style={{
             fontFamily: "var(--font-jetbrains-mono), monospace",
             fontSize: "32px",
-            color: "#76b900",
+            color: "#ffffff",
             marginBottom: "16px",
           }}
         >
@@ -85,14 +85,14 @@ export function SubmitForm() {
             fontFamily: "var(--font-jetbrains-mono), monospace",
             fontSize: "18px",
             fontWeight: 700,
-            color: "#f0f0f0",
+            color: "#ffffff",
             letterSpacing: "-0.02em",
             margin: "0 0 8px",
           }}
         >
           Submission received.
         </h2>
-        <p style={{ fontSize: "14px", color: "#888888", margin: 0 }}>
+        <p style={{ fontSize: "14px", color: "#ffffff", margin: 0 }}>
           We'll review your skill and reach out via email within 2–5 business days.
         </p>
       </div>
@@ -107,7 +107,7 @@ export function SubmitForm() {
           fontFamily: "var(--font-jetbrains-mono), monospace",
           fontSize: "11px",
           fontWeight: 600,
-          color: "#76b900",
+          color: "#ffffff",
           letterSpacing: "0.08em",
           textTransform: "uppercase",
           marginBottom: "20px",
@@ -166,12 +166,12 @@ export function SubmitForm() {
           fontFamily: "var(--font-jetbrains-mono), monospace",
           fontSize: "11px",
           fontWeight: 600,
-          color: "#76b900",
+          color: "#ffffff",
           letterSpacing: "0.08em",
           textTransform: "uppercase",
           marginBottom: "20px",
           paddingTop: "24px",
-          borderTop: "1px solid #1a1a1a",
+          borderTop: "1px solid #000000",
         }}
       >
         Technical Details
@@ -221,9 +221,9 @@ export function SubmitForm() {
                 fontFamily: "var(--font-jetbrains-mono), monospace",
                 fontSize: "11px",
                 fontWeight: 500,
-                color: selectedPlatforms.includes(p) ? "#76b900" : "#888888",
-                backgroundColor: selectedPlatforms.includes(p) ? "rgba(118,185,0,0.1)" : "#111111",
-                border: `1px solid ${selectedPlatforms.includes(p) ? "rgba(118,185,0,0.3)" : "#222222"}`,
+                color: selectedPlatforms.includes(p) ? "#ffffff" : "#ffffff",
+                backgroundColor: selectedPlatforms.includes(p) ? "rgba(118,185,0,0.1)" : "#000000",
+                border: `1px solid ${selectedPlatforms.includes(p) ? "#ffffff" : "#000000"}`,
                 padding: "6px 12px",
                 borderRadius: "4px",
                 cursor: "pointer",
@@ -254,12 +254,12 @@ export function SubmitForm() {
           fontFamily: "var(--font-jetbrains-mono), monospace",
           fontSize: "11px",
           fontWeight: 600,
-          color: "#76b900",
+          color: "#ffffff",
           letterSpacing: "0.08em",
           textTransform: "uppercase",
           marginBottom: "20px",
           paddingTop: "24px",
-          borderTop: "1px solid #1a1a1a",
+          borderTop: "1px solid #000000",
         }}
       >
         Pricing
@@ -295,7 +295,7 @@ export function SubmitForm() {
       <div
         style={{
           paddingTop: "24px",
-          borderTop: "1px solid #1a1a1a",
+          borderTop: "1px solid #000000",
           display: "flex",
           alignItems: "center",
           gap: "16px",
@@ -309,8 +309,8 @@ export function SubmitForm() {
             fontFamily: "var(--font-jetbrains-mono), monospace",
             fontSize: "12px",
             fontWeight: 700,
-            color: "#0a0a0a",
-            backgroundColor: state === "submitting" ? "#4a7300" : "#76b900",
+            color: "#000000",
+            backgroundColor: state === "submitting" ? "#000000" : "#ffffff",
             border: "none",
             padding: "11px 24px",
             borderRadius: "4px",
@@ -326,7 +326,7 @@ export function SubmitForm() {
           style={{
             fontFamily: "var(--font-jetbrains-mono), monospace",
             fontSize: "10px",
-            color: "#333333",
+            color: "#000000",
           }}
         >
           All submissions are reviewed by the Solid State team.

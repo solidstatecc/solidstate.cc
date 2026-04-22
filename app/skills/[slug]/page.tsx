@@ -38,14 +38,14 @@ export default async function SkillDetailPage({ params }: Props) {
     .slice(0, 3)
 
   const priceLabel = skill.price === "free" ? "FREE" : `$${skill.price}`
-  const priceColor = skill.price === "free" ? "#47DE43" : "#f0f0f0"
+  const priceColor = skill.price === "free" ? "#ffffff" : "#ffffff"
 
   return (
-    <div style={{ backgroundColor: "#0a0a0a", minHeight: "100vh" }}>
+    <div style={{ backgroundColor: "#000000", minHeight: "100vh" }}>
       {/* Breadcrumb */}
       <div
         style={{
-          borderBottom: "1px solid #1a1a1a",
+          borderBottom: "1px solid #000000",
           padding: "14px 24px",
         }}
       >
@@ -54,17 +54,17 @@ export default async function SkillDetailPage({ params }: Props) {
             style={{
               fontFamily: "var(--font-jetbrains-mono), monospace",
               fontSize: "11px",
-              color: "#555555",
+              color: "#ffffff",
               display: "flex",
               alignItems: "center",
               gap: "6px",
             }}
           >
-            <Link href="/skills" style={{ color: "#555555", textDecoration: "none" }}>
+            <Link href="/skills" style={{ color: "#ffffff", textDecoration: "none" }}>
               Skills
             </Link>
             <span>›</span>
-            <span style={{ color: "#888888" }}>{skill.name}</span>
+            <span style={{ color: "#ffffff" }}>{skill.name}</span>
           </nav>
         </div>
       </div>
@@ -98,7 +98,7 @@ export default async function SkillDetailPage({ params }: Props) {
                   fontFamily: "var(--font-jetbrains-mono), monospace",
                   fontSize: "28px",
                   fontWeight: 700,
-                  color: "#f0f0f0",
+                  color: "#ffffff",
                   letterSpacing: "-0.02em",
                   margin: 0,
                   flex: 1,
@@ -113,14 +113,14 @@ export default async function SkillDetailPage({ params }: Props) {
                     display: "inline-flex",
                     alignItems: "center",
                     gap: "4px",
-                    backgroundColor: "rgba(118, 185, 0, 0.12)",
-                    color: "#47DE43",
+                    backgroundColor: "#000000",
+                    color: "#ffffff",
                     fontFamily: "var(--font-jetbrains-mono), monospace",
                     fontSize: "10px",
                     fontWeight: 600,
                     padding: "4px 10px",
                     borderRadius: "4px",
-                    border: "1px solid rgba(118, 185, 0, 0.25)",
+                    border: "1px solid #ffffff",
                     letterSpacing: "0.08em",
                     textTransform: "uppercase",
                     whiteSpace: "nowrap",
@@ -136,7 +136,7 @@ export default async function SkillDetailPage({ params }: Props) {
               style={{
                 fontFamily: "var(--font-jetbrains-mono), monospace",
                 fontSize: "11px",
-                color: "#555555",
+                color: "#ffffff",
                 marginBottom: "16px",
                 display: "flex",
                 flexWrap: "wrap",
@@ -153,7 +153,7 @@ export default async function SkillDetailPage({ params }: Props) {
             <p
               style={{
                 fontSize: "15px",
-                color: "#aaaaaa",
+                color: "#ffffff",
                 lineHeight: "1.6",
                 margin: "0 0 16px",
                 maxWidth: "640px",
@@ -173,8 +173,8 @@ export default async function SkillDetailPage({ params }: Props) {
           {/* Install command */}
           <div
             style={{
-              backgroundColor: "#0d0d0d",
-              border: "1px solid #1a1a1a",
+              backgroundColor: "#000000",
+              border: "1px solid #000000",
               borderRadius: "6px",
               padding: "16px 20px",
               marginBottom: "32px",
@@ -185,7 +185,7 @@ export default async function SkillDetailPage({ params }: Props) {
                 fontFamily: "var(--font-jetbrains-mono), monospace",
                 fontSize: "10px",
                 fontWeight: 600,
-                color: "#555555",
+                color: "#ffffff",
                 letterSpacing: "0.08em",
                 textTransform: "uppercase",
                 marginBottom: "10px",
@@ -204,7 +204,7 @@ export default async function SkillDetailPage({ params }: Props) {
                 style={{
                   fontFamily: "var(--font-jetbrains-mono), monospace",
                   fontSize: "13px",
-                  color: "#47DE43",
+                  color: "#ffffff",
                   flex: 1,
                   wordBreak: "break-all",
                 }}
@@ -218,7 +218,7 @@ export default async function SkillDetailPage({ params }: Props) {
           {/* Long description */}
           <div
             style={{
-              borderTop: "1px solid #1a1a1a",
+              borderTop: "1px solid #000000",
               paddingTop: "32px",
               marginBottom: "48px",
             }}
@@ -228,7 +228,7 @@ export default async function SkillDetailPage({ params }: Props) {
                 fontFamily: "var(--font-jetbrains-mono), monospace",
                 fontSize: "12px",
                 fontWeight: 600,
-                color: "#555555",
+                color: "#ffffff",
                 letterSpacing: "0.08em",
                 textTransform: "uppercase",
                 marginBottom: "20px",
@@ -239,14 +239,14 @@ export default async function SkillDetailPage({ params }: Props) {
             <div
               style={{
                 fontSize: "14px",
-                color: "#aaaaaa",
+                color: "#ffffff",
                 lineHeight: "1.75",
                 maxWidth: "640px",
               }}
               dangerouslySetInnerHTML={{
                 __html: skill.longDescription
                   .replace(/\n\n/g, "</p><p style=\"margin:0 0 16px\">")
-                  .replace(/\*\*([^*]+)\*\*/g, "<strong style=\"color:#f0f0f0\">$1</strong>")
+                  .replace(/\*\*([^*]+)\*\*/g, "<strong style=\"color:#ffffff\">$1</strong>")
                   .replace(/^- (.+)$/gm, "<li style=\"margin-bottom:4px\">$1</li>")
                   .replace(/<\/li>\n<li/g, "</li><li")
                   .replace(/(<li[^>]*>.*<\/li>)/gs, "<ul style=\"margin:0 0 16px;padding-left:20px;list-style:none\">$1</ul>")
@@ -264,7 +264,7 @@ export default async function SkillDetailPage({ params }: Props) {
                   fontFamily: "var(--font-jetbrains-mono), monospace",
                   fontSize: "10px",
                   fontWeight: 600,
-                  color: "#555555",
+                  color: "#ffffff",
                   letterSpacing: "0.08em",
                   textTransform: "uppercase",
                   marginBottom: "10px",
@@ -279,9 +279,9 @@ export default async function SkillDetailPage({ params }: Props) {
                     style={{
                       fontFamily: "var(--font-jetbrains-mono), monospace",
                       fontSize: "11px",
-                      color: "#888888",
-                      backgroundColor: "#111111",
-                      border: "1px solid #1a1a1a",
+                      color: "#ffffff",
+                      backgroundColor: "#000000",
+                      border: "1px solid #000000",
                       padding: "3px 8px",
                       borderRadius: "3px",
                     }}
@@ -301,12 +301,12 @@ export default async function SkillDetailPage({ params }: Props) {
                   fontFamily: "var(--font-jetbrains-mono), monospace",
                   fontSize: "12px",
                   fontWeight: 600,
-                  color: "#555555",
+                  color: "#ffffff",
                   letterSpacing: "0.08em",
                   textTransform: "uppercase",
                   marginBottom: "16px",
                   paddingTop: "32px",
-                  borderTop: "1px solid #1a1a1a",
+                  borderTop: "1px solid #000000",
                 }}
               >
                 Related
@@ -319,7 +319,7 @@ export default async function SkillDetailPage({ params }: Props) {
                 }}
               >
                 {related.map((s) => (
-                  <SkillCard key={s.id} skill={s} compact />
+                  <SkillCard key={s.id} skill={s} />
                 ))}
               </div>
             </div>
@@ -331,8 +331,8 @@ export default async function SkillDetailPage({ params }: Props) {
           {/* Price card */}
           <div
             style={{
-              backgroundColor: "#111111",
-              border: "1px solid #1a1a1a",
+              backgroundColor: "#000000",
+              border: "1px solid #000000",
               borderRadius: "6px",
               padding: "24px",
               marginBottom: "16px",
@@ -356,8 +356,8 @@ export default async function SkillDetailPage({ params }: Props) {
               style={{
                 display: "block",
                 textAlign: "center",
-                backgroundColor: "#47DE43",
-                color: "#0a0a0a",
+                backgroundColor: "#ffffff",
+                color: "#000000",
                 fontFamily: "var(--font-jetbrains-mono), monospace",
                 fontSize: "12px",
                 fontWeight: 700,
@@ -376,7 +376,7 @@ export default async function SkillDetailPage({ params }: Props) {
               style={{
                 fontFamily: "var(--font-jetbrains-mono), monospace",
                 fontSize: "10px",
-                color: "#555555",
+                color: "#ffffff",
                 textAlign: "center",
               }}
             >
@@ -387,8 +387,8 @@ export default async function SkillDetailPage({ params }: Props) {
           {/* Metadata */}
           <div
             style={{
-              backgroundColor: "#111111",
-              border: "1px solid #1a1a1a",
+              backgroundColor: "#000000",
+              border: "1px solid #000000",
               borderRadius: "6px",
               padding: "20px",
             }}
@@ -419,14 +419,14 @@ export default async function SkillDetailPage({ params }: Props) {
                   alignItems: "flex-start",
                   gap: "8px",
                   padding: "8px 0",
-                  borderBottom: "1px solid #1a1a1a",
+                  borderBottom: "1px solid #000000",
                 }}
               >
                 <span
                   style={{
                     fontFamily: "var(--font-jetbrains-mono), monospace",
                     fontSize: "10px",
-                    color: "#555555",
+                    color: "#ffffff",
                     letterSpacing: "0.06em",
                     textTransform: "uppercase",
                     flexShrink: 0,
@@ -438,7 +438,7 @@ export default async function SkillDetailPage({ params }: Props) {
                   style={{
                     fontFamily: "var(--font-jetbrains-mono), monospace",
                     fontSize: "11px",
-                    color: "#aaaaaa",
+                    color: "#ffffff",
                     textAlign: "right",
                   }}
                 >
@@ -457,7 +457,7 @@ export default async function SkillDetailPage({ params }: Props) {
                   style={{
                     fontFamily: "var(--font-jetbrains-mono), monospace",
                     fontSize: "11px",
-                    color: "#47DE43",
+                    color: "#ffffff",
                     textDecoration: "none",
                     display: "flex",
                     alignItems: "center",
@@ -475,7 +475,7 @@ export default async function SkillDetailPage({ params }: Props) {
                   style={{
                     fontFamily: "var(--font-jetbrains-mono), monospace",
                     fontSize: "11px",
-                    color: "#47DE43",
+                    color: "#ffffff",
                     textDecoration: "none",
                     display: "flex",
                     alignItems: "center",
