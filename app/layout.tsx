@@ -3,6 +3,7 @@ import { JetBrains_Mono, Inter } from "next/font/google"
 import "./globals.css"
 import { Nav } from "@/components/Nav"
 import { Footer } from "@/components/Footer"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
@@ -52,6 +53,7 @@ export default function RootLayout({
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />
+        <SpeedInsights />
       </body>
     </html>
   )
