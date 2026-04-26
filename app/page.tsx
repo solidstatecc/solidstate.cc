@@ -176,11 +176,11 @@ export default function HomePage() {
           textTransform: "uppercase",
           marginBottom: "32px",
         }}>
-          All Skills
+          More
         </div>
 
         <div>
-          {skills.map((skill, i) => (
+          {skills.filter(s => !s.featured).map((skill, i) => (
             <Link key={skill.id} href={`/skills/${skill.slug}`} style={{
               display: "grid",
               gridTemplateColumns: "1fr auto",

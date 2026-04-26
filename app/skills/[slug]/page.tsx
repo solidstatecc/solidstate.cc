@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import { skills, getSkillBySlug } from "@/lib/skills"
+import { agenticUrl } from "@/lib/x402"
 import { PlatformBadge } from "@/components/PlatformBadge"
 import { CopyButton } from "@/components/CopyButton"
 import { SkillCard } from "@/components/SkillCard"
@@ -351,8 +352,10 @@ export default async function SkillDetailPage({ params }: Props) {
               {priceLabel}
             </div>
 
-            <Link
-              href="#"
+            <a
+              href={agenticUrl(skill)}
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 display: "block",
                 textAlign: "center",
@@ -369,8 +372,8 @@ export default async function SkillDetailPage({ params }: Props) {
                 marginBottom: "12px",
               }}
             >
-              {skill.price === "free" ? "Install Free →" : "Purchase →"}
-            </Link>
+              {skill.price === "free" ? "Install Free →" : "View on Agentic Market →"}
+            </a>
 
             <div
               style={{
