@@ -30,8 +30,8 @@ export default function SubmitPage() {
             Submit a Skill
           </h1>
           <p style={{ fontSize: "14px", color: "#ffffff", margin: 0, lineHeight: "1.6" }}>
-            Submit your skill for review. Verified skills appear in featured listings and
-            receive the ✓ badge. Review typically takes 2–5 business days.
+            Every submission gets reviewed. Approved skills get the ✓ badge and a featured slot.
+            Two to five business days.
           </p>
         </div>
       </div>

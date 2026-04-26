@@ -501,7 +501,7 @@ Meta-capability: an agent with ClawHub can autonomously expand its own skill set
 - One-command publish to ClawHub
 - Versioning and changelog generation
 
-The ultimate self-improvement tool for autonomous agent systems.`,
+The self-improvement loop for agent infrastructure.`,
     author: "visionairelabs",
     version: "0.8.2",
     platforms: ["openclaw"],
@@ -530,7 +530,7 @@ The ultimate self-improvement tool for autonomous agent systems.`,
 - Color format conversion (hex, RGB, HSL)
 - JSON formatting and validation
 
-Zero external dependencies. Blazing fast. Ships in 12kb.`,
+Zero dependencies. Fast. Ships in 12kb.`,
     author: "openclaw-community",
     version: "3.2.1",
     platforms: ["openclaw", "hermes", "antigravity", "aura", "generic"],

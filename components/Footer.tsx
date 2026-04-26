@@ -60,15 +60,19 @@ export function Footer() {
                 gap: "10px",
               }}
             >
-              <span
+              <svg
                 aria-hidden
-                style={{
-                  display: "inline-block",
-                  width: "10px",
-                  height: "10px",
-                  backgroundColor: "#ffffff",
-                }}
-              />
+                width="14"
+                height="18"
+                viewBox="0 0 18 24"
+                fill="#ffffff"
+                xmlns="http://www.w3.org/2000/svg"
+                style={{ display: "block", flexShrink: 0 }}
+              >
+                <rect x="0" y="0" width="4" height="24" rx="1" />
+                <rect x="7" y="0" width="4" height="24" rx="1" />
+                <rect x="14" y="0" width="4" height="24" rx="1" />
+              </svg>
               SolidState
             </div>
             <p
@@ -80,7 +84,7 @@ export function Footer() {
                 maxWidth: "300px",
               }}
             >
-              Hyper-rational AI market intelligence. Skills, directory, glossary. Built by Visionaire Labs.
+              Working skills for AI agents. Verified. Operator-grade. Built by Visionaire Labs.
             </p>
           </div>
 

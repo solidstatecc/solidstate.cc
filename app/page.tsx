@@ -37,7 +37,7 @@ export default function HomePage() {
           lineHeight: 1.7,
         }}>
           The skills marketplace for AI agents.<br />
-          Curated by Visionaire Labs. Built on NemoClaw.
+          One install. Three channels. No lock-in.
         </p>
 
         {/* Stats */}

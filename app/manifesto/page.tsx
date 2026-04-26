@@ -4,16 +4,16 @@ import Link from "next/link"
 export const metadata: Metadata = {
   title: "Manifesto",
   description:
-    "Solid State exists to ship AI work. Not demos. Not slides. Real output, in production, today.",
+    "Solid State exists to put AI to work. Not in a deck. Not in a pilot. In production, today.",
 }
 
 const SECTIONS: Array<{ heading: string; body: string }> = [
   {
-    heading: "We sell skills, not slides.",
+    heading: "Working code, not wrappers.",
     body: "AI is a tool. The job is to ship work. Solid State packages narrow, working capabilities. Each one does one thing, costs what it costs, and runs today.",
   },
   {
-    heading: "Hyper-rational by default.",
+    heading: "No theater.",
     body: "No mysticism, no manifesto theater inside a skill. The agent shows up, does the work, returns a result. If it cannot, it says so and stops.",
   },
   {
@@ -21,7 +21,7 @@ const SECTIONS: Array<{ heading: string; body: string }> = [
     body: "Agents that ship wrong work cost more than agents that admit they cannot. Every Solid State skill is built around verification first, capability second.",
   },
   {
-    heading: "Distribute everywhere it makes sense.",
+    heading: "Buy, install, or pay-per-call.",
     body: "Free skills run direct on solidstate.cc. Productized agents ship on Claw Mart. Per-call services list on Agentic Market via x402. One brand, three channels, no lock-in.",
   },
   {
@@ -29,7 +29,7 @@ const SECTIONS: Array<{ heading: string; body: string }> = [
     body: "We build for the people who run the work, not the people who watch the work. Founders, ops leads, solo operators, lean teams. The brief is always: get to ship.",
   },
   {
-    heading: "Open by intent, commercial by structure.",
+    heading: "Open where it's free. Paid where it isn't.",
     body: "Open formats, open sources cited, open data where we can. Commercial pricing where the value is real. We will not pretend a thing is free that costs us to run.",
   },
 ]
@@ -83,7 +83,6 @@ export default function ManifestoPage() {
           }}
         >
           Solid State exists to put AI to work. Not in a deck. Not in a pilot. In production, today.
-          What follows is what we believe and how we operate.
         </p>
       </section>
 
