@@ -48,8 +48,8 @@ export default function HomePage() {
         }}>
           {[
             { n: STATS.totalSkills, label: "skills" },
-            { n: STATS.totalPlatforms, label: "platforms" },
-            { n: STATS.totalInstalls.toLocaleString(), label: "installs" },
+            { n: STATS.originals, label: "originals" },
+            { n: STATS.listings, label: "listings" },
           ].map((s, i) => (
             <div key={i} style={{
               flex: 1,
