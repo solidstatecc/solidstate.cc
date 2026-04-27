@@ -66,12 +66,12 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
     }
 
     if (verifiedOnly) {
-      result = result.filter((s) => s.verified)
+      result = result.filter((s) => s.provenance === "first-party" || s.provenance === "audited")
     }
 
     result.sort((a, b) => {
-      if (sortBy === "installs") return b.stats.installs - a.stats.installs
-      if (sortBy === "stars") return b.stats.stars - a.stats.stars
+      if (sortBy === "installs") return (b.stats?.installs ?? 0) - (a.stats?.installs ?? 0)
+      if (sortBy === "stars") return (b.stats?.stars ?? 0) - (a.stats?.stars ?? 0)
       if (sortBy === "name") return a.name.localeCompare(b.name)
       if (sortBy === "newest") return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
       return 0
@@ -228,7 +228,7 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
               onChange={(e) => setVerifiedOnly(e.target.checked)}
               style={{ accentColor: "#ffffff" }}
             />
-            ✓ Verified only
+            ✓ Trusted only
           </label>
         </div>
 

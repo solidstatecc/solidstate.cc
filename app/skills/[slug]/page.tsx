@@ -108,7 +108,7 @@ export default async function SkillDetailPage({ params }: Props) {
               >
                 {skill.name}
               </h1>
-              {skill.verified && (
+              {(skill.provenance === "first-party" || skill.provenance === "audited") && (
                 <div
                   style={{
                     display: "inline-flex",
@@ -210,9 +210,9 @@ export default async function SkillDetailPage({ params }: Props) {
                   wordBreak: "break-all",
                 }}
               >
-                {skill.installCommand}
+                {skill.installCommand ?? "(no install command published)"}
               </code>
-              <CopyButton text={skill.installCommand} label="Copy" />
+              {skill.installCommand && <CopyButton text={skill.installCommand} label="Copy" />}
             </div>
           </div>
 
@@ -402,9 +402,9 @@ export default async function SkillDetailPage({ params }: Props) {
               { label: "Category", value: skill.categories.join(", ") },
               {
                 label: "Installs",
-                value: skill.stats.installs.toLocaleString(),
+                value: skill.stats?.installs?.toLocaleString() ?? "—",
               },
-              { label: "Stars", value: skill.stats.stars.toLocaleString() },
+              { label: "Stars", value: skill.stats?.stars?.toLocaleString() ?? "—" },
               {
                 label: "Published",
                 value: new Date(skill.createdAt).toLocaleDateString("en-US", {
