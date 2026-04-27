@@ -36,8 +36,9 @@ Use when you're standing up a new affiliate site, expanding an existing one into
     version: "0.0.0",
     platforms: ["openclaw", "nemoclaw", "antigravity", "generic"],
     categories: ["Research", "Marketing"],
+    repoUrl: "https://github.com/solidstatecc/skill-niche-hunter",
     license: "MIT",
-    status: "planned",
+    status: "alpha",
     provenance: "first-party",
     featured: true,
     tags: ["affiliate", "seo", "research", "niche", "marketing"],
@@ -61,8 +62,9 @@ Use when you need to publish a comparison post that survives reader scrutiny, or
     version: "0.0.0",
     platforms: ["openclaw", "nemoclaw", "antigravity", "generic"],
     categories: ["Research", "Marketing"],
+    repoUrl: "https://github.com/solidstatecc/skill-ai-tool-compare",
     license: "MIT",
-    status: "planned",
+    status: "alpha",
     provenance: "first-party",
     featured: true,
     tags: ["comparison", "ai-tools", "research", "review"],
@@ -86,8 +88,9 @@ Use for competitive briefs, market sizings, decision memos, or any moment you'd 
     version: "0.0.0",
     platforms: ["openclaw", "nemoclaw", "antigravity", "generic"],
     categories: ["Research", "Writing"],
+    repoUrl: "https://github.com/solidstatecc/skill-hyper-rational-brief",
     license: "MIT",
-    status: "planned",
+    status: "alpha",
     provenance: "first-party",
     featured: true,
     tags: ["research", "brief", "writing", "voice", "anti-slop"],
@@ -486,7 +489,7 @@ const listings: Skill[] = [
     categories: ["Productivity", "Writing"],
     repoUrl: "https://github.com/makenotion/claude-code-notion-plugin",
     docsUrl: "https://claude.com/connectors/notion",
-    license: "unknown", // TODO: verify before listing publicly
+    license: "unknown", // checked 2026-04-27: no LICENSE file upstream; kept as indexed link only
     status: "stable",
     provenance: "indexed",
     featured: false,
@@ -510,7 +513,7 @@ const listings: Skill[] = [
     platforms: ["antigravity", "generic"],
     categories: ["AI"],
     repoUrl: "https://github.com/ComposioHQ/awesome-claude-skills",
-    license: "unknown", // TODO: verify before listing publicly
+    license: "unknown", // checked 2026-04-27: no LICENSE file upstream; kept as indexed link only
     status: "stable",
     provenance: "indexed",
     featured: false,
@@ -580,7 +583,7 @@ const listings: Skill[] = [
     categories: ["Coding", "DevOps", "AI"],
     repoUrl: "https://github.com/anthropics/claude-plugins-official",
     docsUrl: "https://code.claude.com/docs/en/plugins",
-    license: "unknown", // per-plugin licenses; flag for verification before mirroring any individual plugin
+    license: "unknown", // checked 2026-04-27: no top-level LICENSE; per-plugin licenses vary — verify each before mirroring
     status: "stable",
     provenance: "indexed",
     featured: false,
@@ -670,7 +673,7 @@ const listings: Skill[] = [
     platforms: ["openclaw", "nemoclaw"],
     categories: ["AI"],
     repoUrl: "https://github.com/VoltAgent/awesome-openclaw-skills",
-    license: "unknown", // TODO: verify before listing publicly
+    license: "MIT", // verified 2026-04-27 via GitHub API
     status: "stable",
     provenance: "indexed",
     featured: false,
@@ -691,7 +694,7 @@ const listings: Skill[] = [
     platforms: ["antigravity", "generic"],
     categories: ["AI"],
     repoUrl: "https://github.com/sickn33/antigravity-awesome-skills",
-    license: "unknown", // TODO: verify before listing publicly
+    license: "MIT", // verified 2026-04-27 via GitHub API
     status: "stable",
     provenance: "indexed",
     featured: false,
