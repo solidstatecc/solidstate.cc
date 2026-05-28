@@ -1,9 +1,12 @@
 "use client"
 import Link from "next/link"
 import type { Skill } from "@/lib/types"
+import { priceDisplay, isUnpriced } from "@/lib/x402"
 
 export function SkillCard({ skill }: { skill: Skill }) {
-  const price = skill.price === 0 || skill.price === "free" ? "Free" : `$${skill.price}`
+  const price = priceDisplay(skill)
+  const isFree = price === "Free"
+  const unpriced = isUnpriced(skill)
 
   return (
     <Link href={`/skills/${skill.slug}`} style={{
@@ -33,7 +36,7 @@ export function SkillCard({ skill }: { skill: Skill }) {
         <span style={{
           fontFamily: "monospace",
           fontSize: "11px",
-          color: skill.price === 0 || skill.price === "free" ? "#ffffff" : "#555555",
+          color: isFree ? "#ffffff" : unpriced ? "#333333" : "#555555",
           letterSpacing: "0.06em",
           textTransform: "uppercase",
           marginLeft: "12px",
@@ -41,6 +44,16 @@ export function SkillCard({ skill }: { skill: Skill }) {
         }}>
           {price}
         </span>
+      </div>
+
+      <div style={{
+        fontFamily: "monospace",
+        fontSize: "10px",
+        color: "#888888",
+        letterSpacing: "0.04em",
+        marginBottom: "12px",
+      }}>
+        by {skill.author}
       </div>
 
       <p style={{

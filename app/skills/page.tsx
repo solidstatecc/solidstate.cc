@@ -5,7 +5,7 @@ import { SkillsBrowser } from "./SkillsBrowser"
 
 export const metadata: Metadata = {
   title: "Browse Skills",
-  description: "Browse and filter AI agent skills for OpenClaw, Hermes, Antigravity, Aura, and more.",
+  description: "Browse and filter AI agent skills for OpenClaw, NemoClaw, Antigravity, and any agent runtime.",
 }
 
 export default function SkillsPage() {

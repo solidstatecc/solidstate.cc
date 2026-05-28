@@ -1,6 +1,7 @@
 "use client"
 import Link from "next/link"
 import { skills, getFeaturedSkills, STATS } from "@/lib/skills"
+import { priceDisplay } from "@/lib/x402"
 
 export default function HomePage() {
   const featured = getFeaturedSkills()
@@ -121,10 +122,19 @@ export default function HomePage() {
                 fontFamily: "monospace",
                 fontSize: "13px",
                 fontWeight: 700,
-                marginBottom: "8px",
+                marginBottom: "4px",
                 letterSpacing: "-0.01em",
               }}>
                 {skill.name}
+              </div>
+              <div style={{
+                fontFamily: "monospace",
+                fontSize: "10px",
+                color: "#888888",
+                letterSpacing: "0.04em",
+                marginBottom: "16px",
+              }}>
+                by {skill.author}
               </div>
               <div style={{
                 fontSize: "13px",
@@ -148,15 +158,20 @@ export default function HomePage() {
               }}>
                 {skill.installCommand}
               </div>
-              <div style={{
-                fontFamily: "monospace",
-                fontSize: "11px",
-                color: skill.price === 0 ? "#ffffff" : "#555555",
-                letterSpacing: "0.06em",
-                textTransform: "uppercase",
-              }}>
-                {skill.price === 0 ? "Free" : `$${skill.price}`}
-              </div>
+              {(() => {
+                const label = priceDisplay(skill)
+                return (
+                  <div style={{
+                    fontFamily: "monospace",
+                    fontSize: "11px",
+                    color: label === "Free" ? "#ffffff" : label === "—" ? "#333333" : "#555555",
+                    letterSpacing: "0.06em",
+                    textTransform: "uppercase",
+                  }}>
+                    {label}
+                  </div>
+                )
+              })()}
             </Link>
           ))}
         </div>
@@ -194,9 +209,17 @@ export default function HomePage() {
                   fontFamily: "monospace",
                   fontSize: "14px",
                   fontWeight: 600,
-                  marginRight: "16px",
+                  marginRight: "12px",
                 }}>
                   {skill.name}
+                </span>
+                <span style={{
+                  fontFamily: "monospace",
+                  fontSize: "11px",
+                  color: "#888888",
+                  marginRight: "16px",
+                }}>
+                  by {skill.author}
                 </span>
                 <span style={{
                   fontSize: "13px",
@@ -205,15 +228,20 @@ export default function HomePage() {
                   {skill.description}
                 </span>
               </div>
-              <div style={{
-                fontFamily: "monospace",
-                fontSize: "11px",
-                color: "#555555",
-                letterSpacing: "0.06em",
-                whiteSpace: "nowrap",
-              }}>
-                {skill.price === 0 ? "Free" : `$${skill.price}`}
-              </div>
+              {(() => {
+                const label = priceDisplay(skill)
+                return (
+                  <div style={{
+                    fontFamily: "monospace",
+                    fontSize: "11px",
+                    color: label === "Free" ? "#bbbbbb" : label === "—" ? "#333333" : "#555555",
+                    letterSpacing: "0.06em",
+                    whiteSpace: "nowrap",
+                  }}>
+                    {label}
+                  </div>
+                )
+              })()}
             </Link>
           ))}
         </div>

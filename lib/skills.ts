@@ -744,6 +744,124 @@ const listings: Skill[] = [
     tags: ["email", "cli", "imap", "smtp"],
     createdAt: "2026-04-26",
   },
+  // -------------------------------------------------------------------------
+  // GOOGLE — github.com/google/skills (Apache 2.0). Indexed 2026-05-28.
+  // Curated subset: LLM (Gemini), data (BigQuery), compute (Cloud Run),
+  // app platform (Firebase), governance (WAF: Cost Optimization).
+  // Skipped: AlloyDB, Cloud SQL, GKE, the recipes, WAF Security/Reliability.
+  // Position: Solid State is the runtime layer. Google's open skills run
+  // here, first-class. Not featured — originals keep the hero.
+  // -------------------------------------------------------------------------
+  {
+    id: "google-gemini-api",
+    name: "Gemini API in Agent Platform",
+    slug: "google-gemini-api",
+    kind: "listing",
+    description:
+      "Google's first-party skill for calling the Gemini API from agents. Apache 2.0.",
+    longDescription:
+      "Reference for invoking Gemini models inside an agent loop — request shape, streaming, tool use, error handling. Maintained by Google as part of github.com/google/skills. Runs on Solid State alongside OpenClaw and Antigravity skills with no format conversion.",
+    author: "google",
+    version: "see upstream",
+    platforms: ["antigravity", "generic"],
+    categories: ["AI"],
+    repoUrl: "https://github.com/google/skills/blob/main/skills/cloud/gemini-api",
+    installCommand: "npx skills add google/skills",
+    license: "Apache-2.0",
+    status: "stable",
+    provenance: "indexed",
+    featured: false,
+    tags: ["google", "gemini", "llm", "api", "agent-platform"],
+    createdAt: "2026-05-28",
+  },
+  {
+    id: "google-bigquery-basics",
+    name: "BigQuery Basics",
+    slug: "google-bigquery-basics",
+    kind: "listing",
+    description:
+      "Google's first-party skill for agents working with BigQuery. Apache 2.0.",
+    longDescription:
+      "Teaches an agent how to write, run, and reason about BigQuery jobs — dataset shape, SQL idioms, pricing-aware query patterns, common pitfalls. Maintained by Google as part of github.com/google/skills. Pairs with Solid State's data-analysis originals.",
+    author: "google",
+    version: "see upstream",
+    platforms: ["antigravity", "generic"],
+    categories: ["AI", "DevOps"],
+    repoUrl: "https://github.com/google/skills/blob/main/skills/cloud/bigquery-basics",
+    installCommand: "npx skills add google/skills",
+    license: "Apache-2.0",
+    status: "stable",
+    provenance: "indexed",
+    featured: false,
+    tags: ["google", "bigquery", "data", "sql", "cloud"],
+    createdAt: "2026-05-28",
+  },
+  {
+    id: "google-cloud-run-basics",
+    name: "Cloud Run Basics",
+    slug: "google-cloud-run-basics",
+    kind: "listing",
+    description:
+      "Google's first-party skill for deploying and managing Cloud Run services. Apache 2.0.",
+    longDescription:
+      "Reference for an agent operating Cloud Run — service definitions, revisions, env vars, scaling, IAM. Maintained by Google as part of github.com/google/skills. The fast path for agents that need to ship a container without becoming Kubernetes engineers.",
+    author: "google",
+    version: "see upstream",
+    platforms: ["antigravity", "generic"],
+    categories: ["DevOps", "Coding"],
+    repoUrl: "https://github.com/google/skills/blob/main/skills/cloud/cloud-run-basics",
+    installCommand: "npx skills add google/skills",
+    license: "Apache-2.0",
+    status: "stable",
+    provenance: "indexed",
+    featured: false,
+    tags: ["google", "cloud-run", "serverless", "deploy", "containers"],
+    createdAt: "2026-05-28",
+  },
+  {
+    id: "google-firebase-basics",
+    name: "Firebase Basics",
+    slug: "google-firebase-basics",
+    kind: "listing",
+    description:
+      "Google's first-party skill for agents building on Firebase. Apache 2.0.",
+    longDescription:
+      "Teaches an agent the Firebase surface area — Auth, Firestore, Cloud Functions, Hosting. Maintained by Google as part of github.com/google/skills. Useful when the agent's job is to scaffold an app, not just describe one.",
+    author: "google",
+    version: "see upstream",
+    platforms: ["antigravity", "generic"],
+    categories: ["Coding", "DevOps"],
+    repoUrl: "https://github.com/google/skills/blob/main/skills/cloud/firebase-basics",
+    installCommand: "npx skills add google/skills",
+    license: "Apache-2.0",
+    status: "stable",
+    provenance: "indexed",
+    featured: false,
+    tags: ["google", "firebase", "auth", "firestore", "app-dev"],
+    createdAt: "2026-05-28",
+  },
+  {
+    id: "google-waf-cost-optimization",
+    name: "Well-Architected Framework: Cost Optimization",
+    slug: "google-waf-cost-optimization",
+    kind: "listing",
+    description:
+      "Google's first-party skill for agents auditing and reducing GCP spend. Apache 2.0.",
+    longDescription:
+      "The cost-optimization pillar of Google's Well-Architected Framework, productized as an agent skill. Scan a project for waste, surface right-sizing opportunities, propose concrete spend cuts. The most operationally useful of Google's three WAF skills.",
+    author: "google",
+    version: "see upstream",
+    platforms: ["antigravity", "generic"],
+    categories: ["DevOps", "Productivity"],
+    repoUrl: "https://github.com/google/skills/blob/main/skills/cloud/google-cloud-waf-cost-optimization",
+    installCommand: "npx skills add google/skills",
+    license: "Apache-2.0",
+    status: "stable",
+    provenance: "indexed",
+    featured: false,
+    tags: ["google", "finops", "cost", "waf", "audit"],
+    createdAt: "2026-05-28",
+  },
 ]
 
 // ---------------------------------------------------------------------------

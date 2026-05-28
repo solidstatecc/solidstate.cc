@@ -36,7 +36,7 @@ export function agenticUrl(skill: Skill): string {
 
 /**
  * Display the lowest-friction price across channels.
- * Free wins, then per-use, then one-time.
+ * Free wins, then per-use, then one-time. Unpriced returns "—".
  */
 export function bestPrice(skill: Skill): {
   display: string
@@ -44,8 +44,11 @@ export function bestPrice(skill: Skill): {
   channel: ChannelListing["channel"] | null
 } {
   if (!skill.channels?.length) {
-    if (skill.price === "free") return { display: "Free", unit: "free", channel: "self" }
-    return { display: `$${skill.price}`, unit: "one-time", channel: null }
+    if (skill.price === 0 || skill.price === "free")
+      return { display: "Free", unit: "free", channel: "self" }
+    if (typeof skill.price === "number" && skill.price > 0)
+      return { display: `$${skill.price}`, unit: "one-time", channel: null }
+    return { display: "—", unit: null, channel: null }
   }
   const free = skill.channels.find((c) => c.unit === "free")
   if (free) return { display: "Free", unit: "free", channel: free.channel }
@@ -64,4 +67,19 @@ export function bestPrice(skill: Skill): {
       channel: oneTime.channel,
     }
   return { display: "—", unit: null, channel: null }
+}
+
+/**
+ * Plain price label for a skill, with safe fallback for unpriced rows.
+ *   undefined → "—"
+ *   "free" / 0 → "Free"
+ *   number > 0 → "$N"
+ */
+export function priceDisplay(skill: Skill): string {
+  return bestPrice(skill).display
+}
+
+/** True when the skill has no concrete price. Used to dim/hide labels. */
+export function isUnpriced(skill: Skill): boolean {
+  return priceDisplay(skill) === "—"
 }

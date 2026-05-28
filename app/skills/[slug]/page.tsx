@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import { skills, getSkillBySlug } from "@/lib/skills"
-import { agenticUrl } from "@/lib/x402"
+import { agenticUrl, priceDisplay } from "@/lib/x402"
 import { PlatformBadge } from "@/components/PlatformBadge"
 import { CopyButton } from "@/components/CopyButton"
 import { SkillCard } from "@/components/SkillCard"
@@ -38,8 +38,11 @@ export default async function SkillDetailPage({ params }: Props) {
     )
     .slice(0, 3)
 
-  const priceLabel = skill.price === "free" ? "FREE" : `$${skill.price}`
-  const priceColor = skill.price === "free" ? "#ffffff" : "#ffffff"
+  const priceLabel = priceDisplay(skill)
+  const isFreeLabel = priceLabel === "Free"
+  const isUnpricedLabel = priceLabel === "—"
+  const priceDisplayLabel = isFreeLabel ? "FREE" : priceLabel
+  const priceColor = isUnpricedLabel ? "#666666" : "#ffffff"
 
   return (
     <div style={{ backgroundColor: "#000000", minHeight: "100vh" }}>
@@ -349,11 +352,11 @@ export default async function SkillDetailPage({ params }: Props) {
                 letterSpacing: "-0.02em",
               }}
             >
-              {priceLabel}
+              {priceDisplayLabel}
             </div>
 
             <a
-              href={agenticUrl(skill)}
+              href={skill.repoUrl ?? agenticUrl(skill)}
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -372,7 +375,11 @@ export default async function SkillDetailPage({ params }: Props) {
                 marginBottom: "12px",
               }}
             >
-              {skill.price === "free" ? "Install Free →" : "View on Agentic Market →"}
+              {isFreeLabel
+                ? "Install Free →"
+                : isUnpricedLabel
+                ? "View Source →"
+                : "View on Agentic Market →"}
             </a>
 
             <div
@@ -383,7 +390,11 @@ export default async function SkillDetailPage({ params }: Props) {
                 textAlign: "center",
               }}
             >
-              {skill.price !== "free" ? "One-time purchase · unlimited installs" : "No account required"}
+              {isFreeLabel
+                ? "No account required"
+                : isUnpricedLabel
+                ? "Hosted upstream · follow repo for install"
+                : "One-time purchase · unlimited installs"}
             </div>
           </div>
 
