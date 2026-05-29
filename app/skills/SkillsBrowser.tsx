@@ -310,9 +310,15 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
               fontFamily: "var(--font-jetbrains-mono), monospace",
               fontSize: "12px",
               color: "#ffffff",
+              display: "flex",
+              flexDirection: "column",
+              gap: "2px",
             }}
           >
             {filtered.length} results
+            <span style={{ fontSize: "10px", color: "#666666" }}>
+              Install &amp; star counts are periodic snapshots, not live
+            </span>
           </span>
           <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
             {/* View toggle */}

@@ -540,6 +540,25 @@ export default async function SkillDetailPage({ params }: Props) {
               </div>
             ))}
 
+            {skill.stats?.fetchedAt && (
+              <div
+                style={{
+                  marginTop: "10px",
+                  fontFamily: "var(--font-jetbrains-mono), monospace",
+                  fontSize: "9px",
+                  color: "#666666",
+                  letterSpacing: "0.04em",
+                }}
+              >
+                Stats as of{" "}
+                {new Date(skill.stats.fetchedAt).toLocaleDateString("en-US", {
+                  month: "short",
+                  day: "numeric",
+                  year: "numeric",
+                })}
+              </div>
+            )}
+
             {/* Links */}
             <div style={{ marginTop: "12px", display: "flex", flexDirection: "column", gap: "6px" }}>
               {skill.repoUrl && (

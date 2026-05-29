@@ -1,0 +1,43 @@
+name: Refresh ClawHub stats
+
+# Weekly stats-only refresh of lib/clawhub.ts (installs/stars/fetchedAt) so the
+# catalog numbers stay current without a manual push. Membership is NOT changed
+# here — new skills are still staged for human review separately.
+
+on:
+  schedule:
+    - cron: "0 6 * * 1" # Mondays 06:00 UTC (~08:00 Paris)
+  workflow_dispatch: {} # allow manual "Run workflow"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-clawhub-stats
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Refresh stats from ClawHub
+        run: node scripts/refresh-clawhub-stats.mjs
+
+      - name: Commit if changed
+        run: |
+          if [ -n "$(git status --porcelain lib/clawhub.ts)" ]; then
+            git config user.name "solidstate-bot"
+            git config user.email "bot@users.noreply.github.com"
+            git add lib/clawhub.ts
+            git commit -m "chore: refresh ClawHub install/star stats [skip ci]"
+            git push
+            echo "Pushed refreshed stats."
+          else
+            echo "No stat changes this run."
+          fi
