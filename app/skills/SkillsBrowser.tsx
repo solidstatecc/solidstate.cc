@@ -266,9 +266,9 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
               type="checkbox"
               checked={trendingOnly}
               onChange={(e) => setTrendingOnly(e.target.checked)}
-              style={{ accentColor: "#3ad17e" }}
+              style={{ accentColor: "#ffffff" }}
             />
-            ▲ Trending now
+            ↑ Trending now
           </label>
         </div>
 
@@ -365,7 +365,7 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
                 }}
               >
                 <option value="installs">Most installed</option>
-                <option value="trend">Trending ▲</option>
+                <option value="trend">Trending ↑</option>
                 <option value="stars">Most starred</option>
                 <option value="name">Name A–Z</option>
                 <option value="newest">Newest</option>

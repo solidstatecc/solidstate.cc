@@ -117,8 +117,8 @@ export default function BuyPage() {
         {error && (
           <div
             style={{
-              border: "1px solid #ff5555",
-              color: "#ff8888",
+              border: "1px solid #ffffff",
+              color: "#ffffff",
               padding: "12px 16px",
               marginBottom: "32px",
               fontFamily: "var(--font-jetbrains-mono), monospace",

@@ -177,7 +177,7 @@ summary:focus-visible {
 }
 
 /* Leaderboard (Board view): fit the phone instead of scrolling sideways.
-   Tighten rank/gaps and collapse the "Trending" pill to just its ▲ glyph. */
+   Tighten rank/gaps and collapse the "Trending" pill to just its ↑ glyph. */
 @media (max-width: 560px) {
   .ss-lb-row {
     grid-template-columns: 26px 1fr auto auto !important;

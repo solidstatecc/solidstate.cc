@@ -426,9 +426,9 @@ export function SubmitForm() {
           style={{
             fontFamily: "var(--font-jetbrains-mono), monospace",
             fontSize: "12px",
-            color: "#ff6b6b",
-            backgroundColor: "rgba(255,107,107,0.05)",
-            border: "1px solid rgba(255,107,107,0.3)",
+            color: "#ffffff",
+            backgroundColor: "rgba(255,255,255,0.05)",
+            border: "1px solid rgba(255,255,255,0.3)",
             padding: "10px 12px",
             borderRadius: "4px",
             marginBottom: "16px",

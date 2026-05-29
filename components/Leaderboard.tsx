@@ -102,15 +102,15 @@ export function Leaderboard({ skills }: { skills: Skill[] }) {
                   style={{
                     fontFamily: "var(--font-jetbrains-mono), monospace",
                     fontSize: "10px",
-                    color: "#3ad17e",
-                    border: "1px solid #1c4a30",
+                    color: "#ffffff",
+                    border: "1px solid #333333",
                     borderRadius: "3px",
                     padding: "2px 6px",
                     letterSpacing: "0.04em",
                     whiteSpace: "nowrap",
                   }}
                 >
-                  ▲<span className="ss-lb-trendword"> Trending</span>
+                  ↑<span className="ss-lb-trendword"> Trending</span>
                 </span>
               ) : (
                 <span style={{ color: "#333333", fontSize: "11px" }}>—</span>

@@ -9,16 +9,18 @@ export const metadata: Metadata = {
 
 const mono = "var(--font-jetbrains-mono), monospace"
 
+// Monochrome severity ramp: benign recedes, risk brightens so it still pops.
+// The text label ("Low Risk", "High Risk", etc.) carries the meaning.
 const RISK_COLOR: Record<string, string> = {
-  low: "#3ad17e",
-  medium: "#d8b24a",
-  high: "#e0864f",
-  critical: "#e0564f",
+  low: "#777777",
+  medium: "#aaaaaa",
+  high: "#dddddd",
+  critical: "#ffffff",
   unknown: "#777777",
 }
 
 function genColor(v: string) {
-  return v.toLowerCase().includes("safe") ? "#3ad17e" : "#e0864f"
+  return v.toLowerCase().includes("safe") ? "#777777" : "#ffffff"
 }
 
 export default function AuditsPage() {
@@ -138,7 +140,7 @@ export default function AuditsPage() {
 
               <span style={{ fontFamily: mono, fontSize: "12px", color: genColor(a.gen) }}>{a.gen}</span>
 
-              <span style={{ fontFamily: mono, fontSize: "12px", color: a.socketAlerts === 0 ? "#888888" : "#e0864f" }}>
+              <span style={{ fontFamily: mono, fontSize: "12px", color: a.socketAlerts === 0 ? "#777777" : "#ffffff" }}>
                 {a.socketAlerts} {a.socketAlerts === 1 ? "alert" : "alerts"}
               </span>
 

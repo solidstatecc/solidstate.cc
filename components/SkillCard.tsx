@@ -112,13 +112,13 @@ export function SkillCard({ skill }: { skill: Skill }) {
               <span style={{
                 fontFamily: "monospace",
                 fontSize: "10px",
-                color: "#3ad17e",
-                border: "1px solid #1c4a30",
+                color: "#ffffff",
+                border: "1px solid #333333",
                 borderRadius: "3px",
                 padding: "2px 6px",
                 letterSpacing: "0.04em",
               }}>
-                ▲ Trending
+                ↑ Trending
               </span>
             )}
           </span>
