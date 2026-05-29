@@ -57,13 +57,13 @@ export function Nav() {
           textTransform: "uppercase",
           display: "flex",
           alignItems: "center",
-          gap: "10px",
+          gap: "7px",
         }}
       >
         <svg
           aria-hidden
-          width="16"
-          height="16"
+          width="20"
+          height="20"
           viewBox="0 0 32 32"
           fill="#ffffff"
           xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +74,7 @@ export function Nav() {
           <rect x="22" y="6" width="6" height="20" rx="1" />
         </svg>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/logo-white.png" alt="Solid State" style={{ display: "block", height: "15px", width: "auto" }} />
+        <img src="/logo-white.png" alt="Solid State" style={{ display: "block", height: "19px", width: "auto" }} />
       </Link>
 
       <nav aria-label="Primary" style={{ display: "flex", alignItems: "center" }}>

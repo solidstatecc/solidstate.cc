@@ -38,7 +38,7 @@ export default function HomePage() {
           lineHeight: 1.7,
         }}>
           The skills marketplace for AI agents.<br />
-          One install. Three channels. No lock-in.
+          Real sources. Verified. No fake installs.
         </p>
 
         {/* Stats */}
