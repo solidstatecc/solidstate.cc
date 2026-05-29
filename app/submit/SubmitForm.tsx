@@ -117,7 +117,7 @@ export function SubmitForm() {
           textAlign: "center",
           padding: "64px 24px",
           backgroundColor: "#000000",
-          border: "1px solid #000000",
+          border: "1px solid #222222",
           borderRadius: "8px",
         }}
       >
@@ -252,7 +252,7 @@ export function SubmitForm() {
           textTransform: "uppercase",
           marginBottom: "20px",
           paddingTop: "24px",
-          borderTop: "1px solid #000000",
+          borderTop: "1px solid #222222",
         }}
       >
         Technical Details
@@ -369,7 +369,7 @@ export function SubmitForm() {
           textTransform: "uppercase",
           marginBottom: "20px",
           paddingTop: "24px",
-          borderTop: "1px solid #000000",
+          borderTop: "1px solid #222222",
         }}
       >
         Pricing
@@ -442,7 +442,7 @@ export function SubmitForm() {
       <div
         style={{
           paddingTop: "24px",
-          borderTop: "1px solid #000000",
+          borderTop: "1px solid #222222",
           display: "flex",
           alignItems: "center",
           gap: "16px",
