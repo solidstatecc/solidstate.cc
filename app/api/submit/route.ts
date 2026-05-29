@@ -92,7 +92,7 @@ async function notify(row: Record<string, unknown>) {
       <h2 style="font-family:monospace">New skill submission</h2>
       <table style="border-collapse:collapse">
         ${line("Skill", row.skill_name)}
-        ${line("From", `${row.submitter_name} &lt;${row.submitter_email}&gt;`)}
+        ${line("From", `${row.submitter_name} <${row.submitter_email}>`)}
         ${line("Category", row.category)}
         ${line("Platforms", (row.platforms as string[]).join(", "))}
         ${line("Pricing", `${row.pricing_model}${row.price_usd ? ` ($${row.price_usd})` : ""}`)}
