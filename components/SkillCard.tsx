@@ -98,7 +98,7 @@ export function SkillCard({ skill }: { skill: Skill }) {
         ))}
       </div>
 
-      {(skill.stats?.installs || skill.trending) && (
+      {(skill.stats?.installs || skill.stats?.stars || skill.trending) && (
         <div style={{
           display: "flex",
           alignItems: "center",
@@ -122,15 +122,21 @@ export function SkillCard({ skill }: { skill: Skill }) {
               </span>
             )}
           </span>
-          {skill.stats?.installs && (
-            <span style={{
-              fontFamily: "monospace",
-              fontSize: "11px",
-              color: "#888888",
-            }}>
-              {formatInstalls(skill.stats.installs)} installs
-            </span>
-          )}
+          <span style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "10px",
+            fontFamily: "monospace",
+            fontSize: "11px",
+            color: "#888888",
+          }}>
+            {skill.stats?.stars ? (
+              <span title="ClawHub stars">★ {formatInstalls(skill.stats.stars)}</span>
+            ) : null}
+            {skill.stats?.installs ? (
+              <span>{formatInstalls(skill.stats.installs)} installs</span>
+            ) : null}
+          </span>
         </div>
       )}
     </Link>
