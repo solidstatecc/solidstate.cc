@@ -205,18 +205,49 @@ export default async function SkillDetailPage({ params }: Props) {
                 gap: "12px",
               }}
             >
-              <code
-                style={{
-                  fontFamily: "var(--font-jetbrains-mono), monospace",
-                  fontSize: "13px",
-                  color: "#ffffff",
-                  flex: 1,
-                  wordBreak: "break-all",
-                }}
-              >
-                {skill.installCommand ?? "(no install command published)"}
-              </code>
-              {skill.installCommand && <CopyButton text={skill.installCommand} label="Copy" />}
+              {skill.installCommand ? (
+                <>
+                  <code
+                    style={{
+                      fontFamily: "var(--font-jetbrains-mono), monospace",
+                      fontSize: "13px",
+                      color: "#ffffff",
+                      flex: 1,
+                      wordBreak: "break-all",
+                    }}
+                  >
+                    {skill.installCommand}
+                  </code>
+                  <CopyButton text={skill.installCommand} label="Copy" />
+                </>
+              ) : skill.repoUrl ? (
+                <a
+                  href={skill.repoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    fontFamily: "var(--font-jetbrains-mono), monospace",
+                    fontSize: "13px",
+                    color: "#888888",
+                    flex: 1,
+                    wordBreak: "break-all",
+                    textDecoration: "none",
+                  }}
+                >
+                  Install from the source repository ↗
+                </a>
+              ) : (
+                <code
+                  style={{
+                    fontFamily: "var(--font-jetbrains-mono), monospace",
+                    fontSize: "13px",
+                    color: "#888888",
+                    flex: 1,
+                  }}
+                >
+                  Not yet published for one-line install
+                </code>
+              )}
             </div>
           </div>
 
