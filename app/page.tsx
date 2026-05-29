@@ -31,7 +31,7 @@ export default function HomePage() {
         <p style={{
           fontFamily: "monospace",
           fontSize: "14px",
-          color: "#555555",
+          color: "var(--muted)",
           letterSpacing: "0.04em",
           marginBottom: "64px",
           maxWidth: "480px",
@@ -42,7 +42,7 @@ export default function HomePage() {
         </p>
 
         {/* Stats */}
-        <div style={{
+        <div className="ss-stats" style={{
           display: "flex",
           gap: "0",
           borderTop: "1px solid #222222",
@@ -52,7 +52,7 @@ export default function HomePage() {
             { n: STATS.originals, label: "originals" },
             { n: STATS.listings, label: "listings" },
           ].map((s, i) => (
-            <div key={i} style={{
+            <div key={i} className="ss-stat" style={{
               flex: 1,
               padding: "24px 0",
               borderRight: i < 2 ? "1px solid #222222" : "none",
@@ -71,7 +71,7 @@ export default function HomePage() {
               <div style={{
                 fontFamily: "monospace",
                 fontSize: "11px",
-                color: "#555555",
+                color: "var(--muted)",
                 letterSpacing: "0.06em",
                 textTransform: "uppercase",
                 marginTop: "4px",
@@ -93,7 +93,7 @@ export default function HomePage() {
         <div style={{
           fontFamily: "monospace",
           fontSize: "11px",
-          color: "#555555",
+          color: "var(--muted)",
           letterSpacing: "0.1em",
           textTransform: "uppercase",
           marginBottom: "32px",
@@ -138,7 +138,7 @@ export default function HomePage() {
               </div>
               <div style={{
                 fontSize: "13px",
-                color: "#555555",
+                color: "var(--muted)",
                 lineHeight: 1.6,
                 marginBottom: "24px",
               }}>
@@ -147,7 +147,7 @@ export default function HomePage() {
               <div style={{
                 fontFamily: "monospace",
                 fontSize: "11px",
-                color: "#333333",
+                color: "var(--muted-dim)",
                 backgroundColor: "#0d0d0d",
                 padding: "8px 12px",
                 letterSpacing: "0.02em",
@@ -164,7 +164,7 @@ export default function HomePage() {
                   <div style={{
                     fontFamily: "monospace",
                     fontSize: "11px",
-                    color: label === "Free" ? "#ffffff" : label === "—" ? "#333333" : "#555555",
+                    color: label === "Free" ? "#ffffff" : label === "—" ? "var(--muted-dim)" : "var(--muted)",
                     letterSpacing: "0.06em",
                     textTransform: "uppercase",
                   }}>
@@ -186,7 +186,7 @@ export default function HomePage() {
         <div style={{
           fontFamily: "monospace",
           fontSize: "11px",
-          color: "#555555",
+          color: "var(--muted)",
           letterSpacing: "0.1em",
           textTransform: "uppercase",
           marginBottom: "32px",
@@ -194,9 +194,10 @@ export default function HomePage() {
           More
         </div>
 
-        <div>
+        <ul role="list" style={{ listStyle: "none", margin: 0, padding: 0 }}>
           {skills.filter(s => !s.featured).map((skill, i) => (
-            <Link key={skill.id} href={`/skills/${skill.slug}`} style={{
+            <li key={skill.id}>
+            <Link href={`/skills/${skill.slug}`} style={{
               display: "grid",
               gridTemplateColumns: "1fr auto",
               alignItems: "baseline",
@@ -223,7 +224,7 @@ export default function HomePage() {
                 </span>
                 <span style={{
                   fontSize: "13px",
-                  color: "#555555",
+                  color: "var(--muted)",
                 }}>
                   {skill.description}
                 </span>
@@ -234,7 +235,7 @@ export default function HomePage() {
                   <div style={{
                     fontFamily: "monospace",
                     fontSize: "11px",
-                    color: label === "Free" ? "#bbbbbb" : label === "—" ? "#333333" : "#555555",
+                    color: label === "Free" ? "#bbbbbb" : label === "—" ? "var(--muted-dim)" : "var(--muted)",
                     letterSpacing: "0.06em",
                     whiteSpace: "nowrap",
                   }}>
@@ -243,8 +244,9 @@ export default function HomePage() {
                 )
               })()}
             </Link>
+            </li>
           ))}
-        </div>
+        </ul>
       </section>
 
     </div>

@@ -49,8 +49,9 @@ export default function RootLayout({
       style={{ fontFamily: "var(--font-inter), ui-sans-serif, system-ui, sans-serif" }}
     >
       <body className="min-h-full flex flex-col" style={{ backgroundColor: "#000000", color: "#ffffff" }}>
+        <a className="ss-skip-link" href="#main">Skip to content</a>
         <Nav />
-        <main className="flex-1">{children}</main>
+        <main id="main" className="flex-1">{children}</main>
         <Footer />
       </body>
     </html>

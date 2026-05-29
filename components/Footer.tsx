@@ -78,7 +78,7 @@ export function Footer() {
             <p
               style={{
                 fontSize: "13px",
-                color: "#555555",
+                color: "var(--muted)",
                 lineHeight: 1.7,
                 marginTop: "16px",
                 maxWidth: "300px",
@@ -94,7 +94,7 @@ export function Footer() {
                 style={{
                   fontFamily: "var(--font-jetbrains-mono), monospace",
                   fontSize: "10px",
-                  color: "#555555",
+                  color: "var(--muted)",
                   letterSpacing: "0.12em",
                   textTransform: "uppercase",
                   marginBottom: "16px",
@@ -134,7 +134,7 @@ export function Footer() {
             style={{
               fontFamily: "var(--font-jetbrains-mono), monospace",
               fontSize: "11px",
-              color: "#555555",
+              color: "var(--muted)",
               letterSpacing: "0.06em",
               textTransform: "uppercase",
             }}
@@ -145,7 +145,7 @@ export function Footer() {
             style={{
               fontFamily: "var(--font-jetbrains-mono), monospace",
               fontSize: "11px",
-              color: "#555555",
+              color: "var(--muted)",
               letterSpacing: "0.06em",
               textTransform: "uppercase",
             }}

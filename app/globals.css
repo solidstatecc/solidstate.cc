@@ -5,7 +5,9 @@
   --fg: #ffffff;
   --border: #222222;
   --border-active: #ffffff;
-  --muted: #555555;
+  /* muted text on #000: #a3a3a3 ~= 6.5:1 (WCAG AA). #555 was 2.82:1 (fail). */
+  --muted: #a3a3a3;
+  --muted-dim: #8a8a8a; /* ~5.0:1 — for de-emphasized labels/placeholders */
 }
 
 * {
@@ -40,4 +42,96 @@ a:hover {
 ::selection {
   background: #ffffff;
   color: #000000;
+}
+
+/* Visible focus for keyboard users (was relying on UA default only) */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* Skip-to-content link — visible only when focused */
+.ss-skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: #ffffff;
+  color: #000000;
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 10px 16px;
+}
+.ss-skip-link:focus {
+  left: 8px;
+  top: 8px;
+}
+
+/* Primary nav: desktop link row vs mobile disclosure menu.
+   display lives here (not inline) so the breakpoint can override it. */
+.ss-nav-desktop {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.ss-nav-mobile {
+  display: none;
+  position: relative;
+}
+.ss-nav-mobile > summary {
+  cursor: pointer;
+  list-style: none;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 8px;
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.ss-nav-mobile > summary::-webkit-details-marker { display: none; }
+.ss-nav-mobile[open] > .ss-nav-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 12px);
+  display: flex;
+  flex-direction: column;
+  min-width: 220px;
+  background: #000000;
+  border: 1px solid #222222;
+  z-index: 60;
+}
+.ss-nav-menu a {
+  display: block;
+  padding: 14px 16px;
+  min-height: 44px;
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #1a1a1a;
+}
+.ss-nav-menu a:last-child { border-bottom: none; }
+
+@media (max-width: 768px) {
+  .ss-nav-desktop { display: none; }
+  .ss-nav-mobile { display: block; }
+}
+
+/* Hero stats: stack instead of clipping on narrow screens */
+@media (max-width: 560px) {
+  .ss-stats { flex-direction: column; }
+  .ss-stats > .ss-stat {
+    border-right: none !important;
+    border-bottom: 1px solid #222222;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .ss-stats > .ss-stat:last-child { border-bottom: none; }
 }

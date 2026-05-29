@@ -10,9 +10,29 @@ const LINKS = [
   { href: "/manifesto", label: "Manifesto" },
 ]
 
+const linkStyle = {
+  fontFamily: "var(--font-jetbrains-mono), monospace",
+  fontSize: "12px",
+  color: "#ffffff",
+  letterSpacing: "0.08em",
+  textTransform: "uppercase",
+  padding: "6px 10px",
+} as const
+
+const ctaStyle = {
+  fontFamily: "var(--font-jetbrains-mono), monospace",
+  fontSize: "12px",
+  color: "#000000",
+  backgroundColor: "#ffffff",
+  letterSpacing: "0.08em",
+  textTransform: "uppercase",
+  padding: "8px 14px",
+  marginLeft: "8px",
+} as const
+
 export function Nav() {
   return (
-    <nav
+    <header
       style={{
         borderBottom: "1px solid #222222",
         padding: "0 32px",
@@ -28,6 +48,7 @@ export function Nav() {
     >
       <Link
         href="/"
+        aria-label="Solid State — home"
         style={{
           fontFamily: "var(--font-jetbrains-mono), monospace",
           fontSize: "13px",
@@ -55,39 +76,32 @@ export function Nav() {
         SolidState
       </Link>
 
-      <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-        {LINKS.map((l) => (
-          <Link
-            key={l.href}
-            href={l.href}
-            style={{
-              fontFamily: "var(--font-jetbrains-mono), monospace",
-              fontSize: "12px",
-              color: "#ffffff",
-              letterSpacing: "0.08em",
-              textTransform: "uppercase",
-              padding: "6px 10px",
-            }}
-          >
-            {l.label}
+      <nav aria-label="Primary" style={{ display: "flex", alignItems: "center" }}>
+        {/* Desktop link row (hidden ≤768px via .ss-nav-desktop) */}
+        <div className="ss-nav-desktop">
+          {LINKS.map((l) => (
+            <Link key={l.href} href={l.href} style={linkStyle}>
+              {l.label}
+            </Link>
+          ))}
+          <Link href="/submit" style={ctaStyle}>
+            Submit →
           </Link>
-        ))}
-        <Link
-          href="/submit"
-          style={{
-            fontFamily: "var(--font-jetbrains-mono), monospace",
-            fontSize: "12px",
-            color: "#000000",
-            backgroundColor: "#ffffff",
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-            padding: "8px 14px",
-            marginLeft: "8px",
-          }}
-        >
-          Submit →
-        </Link>
-      </div>
-    </nav>
+        </div>
+
+        {/* Mobile disclosure menu (shown ≤768px via .ss-nav-mobile) */}
+        <details className="ss-nav-mobile">
+          <summary aria-label="Open menu">Menu</summary>
+          <div className="ss-nav-menu">
+            {LINKS.map((l) => (
+              <Link key={l.href} href={l.href}>
+                {l.label}
+              </Link>
+            ))}
+            <Link href="/submit">Submit →</Link>
+          </div>
+        </details>
+      </nav>
+    </header>
   )
 }
