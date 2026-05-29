@@ -1,6 +1,7 @@
 import { Platform } from "@/lib/types"
 
 const PLATFORM_CONFIG: Record<Platform, { label: string }> = {
+  claude: { label: "Claude" },
   openclaw: { label: "OpenClaw" },
   nemoclaw: { label: "NemoClaw" },
   antigravity: { label: "Antigravity" },

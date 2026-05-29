@@ -41,7 +41,7 @@ export function buildLlmsIndex(): string {
   const lines: string[] = []
   lines.push("# Solid State", "")
   lines.push(
-    "> The skills marketplace for AI agents. Browse, install, and publish skills for OpenClaw, NemoClaw, Google Antigravity, and any agent runtime. Multi-platform. Verified. Operator-grade.",
+    "> The skills marketplace for AI agents. Browse, install, and publish skills for Claude, OpenClaw, NemoClaw, Google Antigravity, and any agent runtime. Multi-platform. Verified. Operator-grade.",
     ""
   )
   lines.push(
@@ -86,7 +86,7 @@ export function buildLlmsFull(): string {
   const lines: string[] = []
   lines.push("# Solid State — Full Index", "")
   lines.push(
-    "> The skills marketplace for AI agents. Browse, install, and publish skills for OpenClaw, NemoClaw, Google Antigravity, and any agent runtime.",
+    "> The skills marketplace for AI agents. Browse, install, and publish skills for Claude, OpenClaw, NemoClaw, Google Antigravity, and any agent runtime.",
     ""
   )
   lines.push(`Generated ${today}. Source: solidstate.cc. ${totalSkills} skill records, ${glossary.length} glossary terms.`, "")

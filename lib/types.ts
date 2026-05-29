@@ -12,7 +12,7 @@
 //   5. Stats are now optional. No record may carry a non-zero install count
 //      that isn't backed by a real telemetry source.
 
-export type Platform = "openclaw" | "nemoclaw" | "antigravity" | "generic"
+export type Platform = "claude" | "openclaw" | "nemoclaw" | "antigravity" | "generic"
 
 export type Kind = "original" | "listing"
 

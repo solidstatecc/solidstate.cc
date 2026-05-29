@@ -21,8 +21,8 @@ export const metadata: Metadata = {
     template: "%s | Solid State",
   },
   description:
-    "The skills marketplace for AI agents. Browse, install, and publish skills for OpenClaw, NemoClaw, Google Antigravity, and any agent runtime.",
-  keywords: ["AI agent skills", "OpenClaw", "NemoClaw", "Antigravity", "skills marketplace", "agent tools"],
+    "The skills marketplace for AI agents. Browse, install, and publish skills for Claude, OpenClaw, NemoClaw, Google Antigravity, and any agent runtime.",
+  keywords: ["AI agent skills", "Claude skills", "Claude Code", "OpenClaw", "NemoClaw", "Antigravity", "skills marketplace", "agent tools"],
   metadataBase: new URL("https://solidstate.cc"),
   openGraph: {
     type: "website",
