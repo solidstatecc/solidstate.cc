@@ -69,8 +69,8 @@ export function SubmitForm() {
   const inputStyle = {
     display: "block",
     width: "100%",
-    backgroundColor: "#000000",
-    border: "1px solid #000000",
+    backgroundColor: "#0a0a0a",
+    border: "1px solid #333333",
     borderRadius: "4px",
     color: "#ffffff",
     fontFamily: "var(--font-jetbrains-mono), monospace",
@@ -79,6 +79,14 @@ export function SubmitForm() {
     outline: "none",
     transition: "border-color 0.15s",
   } as React.CSSProperties
+
+  // Visible focus state: brighten the border when a field is active.
+  const focusBorder = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    e.currentTarget.style.borderColor = "#ffffff"
+  }
+  const blurBorder = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    e.currentTarget.style.borderColor = "#333333"
+  }
 
   const labelStyle = {
     display: "block",
@@ -98,7 +106,7 @@ export function SubmitForm() {
   const hintStyle = {
     fontFamily: "var(--font-jetbrains-mono), monospace",
     fontSize: "10px",
-    color: "#000000",
+    color: "#666666",
     marginTop: "5px",
   } as React.CSSProperties
 
@@ -167,6 +175,8 @@ export function SubmitForm() {
           type="text"
           placeholder="e.g. Deep Research Pro"
           style={inputStyle}
+          onFocus={focusBorder}
+          onBlur={blurBorder}
         />
       </div>
 
@@ -179,6 +189,8 @@ export function SubmitForm() {
             type="text"
             placeholder="e.g. solidstate"
             style={inputStyle}
+          onFocus={focusBorder}
+          onBlur={blurBorder}
           />
         </div>
         <div>
@@ -189,6 +201,8 @@ export function SubmitForm() {
             type="email"
             placeholder="you@example.com"
             style={inputStyle}
+          onFocus={focusBorder}
+          onBlur={blurBorder}
           />
         </div>
       </div>
@@ -202,6 +216,8 @@ export function SubmitForm() {
           maxLength={120}
           placeholder="One-line summary of what the skill does"
           style={inputStyle}
+          onFocus={focusBorder}
+          onBlur={blurBorder}
         />
         <div style={hintStyle}>Max 120 characters</div>
       </div>
@@ -219,6 +235,8 @@ export function SubmitForm() {
             lineHeight: "1.6",
             minHeight: "120px",
           }}
+          onFocus={focusBorder}
+          onBlur={blurBorder}
         />
         <div style={hintStyle}>Markdown supported. Be specific about what the skill does.</div>
       </div>
@@ -249,6 +267,8 @@ export function SubmitForm() {
             type="text"
             placeholder="e.g. 1.0.0"
             style={inputStyle}
+          onFocus={focusBorder}
+          onBlur={blurBorder}
           />
         </div>
         <div>
@@ -258,6 +278,8 @@ export function SubmitForm() {
             name="category"
             defaultValue=""
             style={{ ...inputStyle, cursor: "pointer" }}
+            onFocus={focusBorder}
+            onBlur={blurBorder}
           >
             <option value="" disabled>Select category</option>
             {CATEGORIES.map((c) => (
@@ -278,6 +300,8 @@ export function SubmitForm() {
           type="text"
           placeholder="e.g. openclaw skill install my-skill"
           style={{ ...inputStyle, fontFamily: "var(--font-jetbrains-mono), monospace" }}
+          onFocus={focusBorder}
+          onBlur={blurBorder}
         />
       </div>
 
@@ -317,6 +341,8 @@ export function SubmitForm() {
             type="url"
             placeholder="https://github.com/…"
             style={inputStyle}
+          onFocus={focusBorder}
+          onBlur={blurBorder}
           />
         </div>
         <div>
@@ -326,6 +352,8 @@ export function SubmitForm() {
             type="url"
             placeholder="https://docs.example.com/…"
             style={inputStyle}
+          onFocus={focusBorder}
+          onBlur={blurBorder}
           />
         </div>
       </div>
@@ -355,6 +383,8 @@ export function SubmitForm() {
             name="pricing_model"
             defaultValue="free"
             style={{ ...inputStyle, cursor: "pointer" }}
+            onFocus={focusBorder}
+            onBlur={blurBorder}
           >
             <option value="free">Free</option>
             <option value="paid">Paid</option>
@@ -369,6 +399,8 @@ export function SubmitForm() {
             max="999"
             placeholder="e.g. 29"
             style={inputStyle}
+          onFocus={focusBorder}
+          onBlur={blurBorder}
           />
           <div style={hintStyle}>Leave blank for free skills</div>
         </div>
@@ -382,6 +414,8 @@ export function SubmitForm() {
           type="text"
           placeholder="e.g. research, web-search, citations (comma separated)"
           style={inputStyle}
+          onFocus={focusBorder}
+          onBlur={blurBorder}
         />
         <div style={hintStyle}>Comma-separated. Helps with discoverability.</div>
       </div>
