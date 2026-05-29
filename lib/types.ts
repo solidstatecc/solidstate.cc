@@ -99,6 +99,12 @@ export interface Skill {
   createdAt: string
   /** Optional. If present, must include fetchedAt. */
   stats?: Stats
+  /** Origin repo/owner for indexed listings (e.g. "vercel-labs/skills"). */
+  source?: string
+  /** True for skills indexed from the open skills.sh ecosystem rather than first-party. */
+  external?: boolean
+  /** Real fact: present on skills.sh's live 24h trending board at capture time. Not a modeled metric. */
+  trending?: boolean
 }
 
 // ---------------------------------------------------------------------------

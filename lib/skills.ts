@@ -9,6 +9,7 @@
 //   - "Originals" are Solid State / Visionaire authored, status reflects reality.
 
 import { Skill } from "./types"
+import { skillsSh } from "./skillsSh"
 
 // ---------------------------------------------------------------------------
 // ORIGINALS — Solid State authored. Start with the three flagships from the
@@ -866,7 +867,9 @@ const listings: Skill[] = [
 
 // ---------------------------------------------------------------------------
 
-export const skills: Skill[] = [...originals, ...listings]
+// Solid State originals + curated listings + the top 200 indexed from skills.sh,
+// ranked together by real install count.
+export const skills: Skill[] = [...originals, ...listings, ...skillsSh]
 
 export function getSkillBySlug(slug: string): Skill | undefined {
   return skills.find((s) => s.slug === slug)
@@ -906,4 +909,6 @@ export const STATS = {
   originals: getOriginals().length,
   listings: getListings().length,
   totalPlatforms: PLATFORMS.length,
+  // Real, summed from skills.sh telemetry across indexed listings only.
+  indexedInstalls: skillsSh.reduce((sum, s) => sum + (s.stats?.installs ?? 0), 0),
 }

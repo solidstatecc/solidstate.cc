@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect } from "react"
 import { useSearchParams, useRouter, usePathname } from "next/navigation"
 import { Skill, Platform } from "@/lib/types"
 import { SkillCard } from "@/components/SkillCard"
+import { Leaderboard } from "@/components/Leaderboard"
 
 interface SkillsBrowserProps {
   skills: Skill[]
@@ -21,7 +22,11 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
   const [selectedPlatform, setSelectedPlatform] = useState(searchParams.get("platform") ?? "")
   const [priceFilter, setPriceFilter] = useState(searchParams.get("price") ?? "")
   const [verifiedOnly, setVerifiedOnly] = useState(searchParams.get("verified") === "1")
+  const [trendingOnly, setTrendingOnly] = useState(searchParams.get("trending") === "1")
   const [sortBy, setSortBy] = useState(searchParams.get("sort") ?? "installs")
+  const [view, setView] = useState<"leaderboard" | "grid">(
+    searchParams.get("view") === "grid" ? "grid" : "leaderboard"
+  )
 
   // Sync URL params
   useEffect(() => {
@@ -31,10 +36,12 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
     if (selectedPlatform) params.set("platform", selectedPlatform)
     if (priceFilter) params.set("price", priceFilter)
     if (verifiedOnly) params.set("verified", "1")
+    if (trendingOnly) params.set("trending", "1")
     if (sortBy !== "installs") params.set("sort", sortBy)
+    if (view !== "leaderboard") params.set("view", view)
     const query = params.toString()
     router.replace(pathname + (query ? "?" + query : ""), { scroll: false })
-  }, [search, selectedCategory, selectedPlatform, priceFilter, verifiedOnly, sortBy, router, pathname])
+  }, [search, selectedCategory, selectedPlatform, priceFilter, verifiedOnly, trendingOnly, sortBy, view, router, pathname])
 
   const filtered = useMemo(() => {
     let result = [...skills]
@@ -69,8 +76,16 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
       result = result.filter((s) => s.provenance === "first-party" || s.provenance === "audited")
     }
 
+    if (trendingOnly) {
+      result = result.filter((s) => s.trending)
+    }
+
     result.sort((a, b) => {
       if (sortBy === "installs") return (b.stats?.installs ?? 0) - (a.stats?.installs ?? 0)
+      if (sortBy === "trend") {
+        const t = Number(b.trending ?? false) - Number(a.trending ?? false)
+        return t !== 0 ? t : (b.stats?.installs ?? 0) - (a.stats?.installs ?? 0)
+      }
       if (sortBy === "stars") return (b.stats?.stars ?? 0) - (a.stats?.stars ?? 0)
       if (sortBy === "name") return a.name.localeCompare(b.name)
       if (sortBy === "newest") return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
@@ -78,7 +93,7 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
     })
 
     return result
-  }, [skills, search, selectedCategory, selectedPlatform, priceFilter, verifiedOnly, sortBy])
+  }, [skills, search, selectedCategory, selectedPlatform, priceFilter, verifiedOnly, trendingOnly, sortBy])
 
   function clearFilters() {
     setSearch("")
@@ -86,10 +101,11 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
     setSelectedPlatform("")
     setPriceFilter("")
     setVerifiedOnly(false)
+    setTrendingOnly(false)
     setSortBy("installs")
   }
 
-  const hasFilters = search || selectedCategory || selectedPlatform || priceFilter || verifiedOnly
+  const hasFilters = search || selectedCategory || selectedPlatform || priceFilter || verifiedOnly || trendingOnly
 
   const inputStyle = {
     backgroundColor: "#000000",
@@ -232,6 +248,29 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
           </label>
         </div>
 
+        {/* Trending */}
+        <div style={{ marginBottom: "24px" }}>
+          <label
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              cursor: "pointer",
+              fontFamily: "var(--font-jetbrains-mono), monospace",
+              fontSize: "12px",
+              color: "#ffffff",
+            }}
+          >
+            <input
+              type="checkbox"
+              checked={trendingOnly}
+              onChange={(e) => setTrendingOnly(e.target.checked)}
+              style={{ accentColor: "#3ad17e" }}
+            />
+            ▲ Trending now
+          </label>
+        </div>
+
         {/* Clear */}
         {hasFilters && (
           <button
@@ -274,37 +313,63 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
           >
             {filtered.length} results
           </span>
-          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-            <span
-              style={{
-                fontFamily: "var(--font-jetbrains-mono), monospace",
-                fontSize: "10px",
-                color: "#ffffff",
-                letterSpacing: "0.06em",
-              }}
-            >
-              SORT
-            </span>
-            <select
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value)}
-              style={{
-                backgroundColor: "#000000",
-                border: "1px solid #000000",
-                borderRadius: "4px",
-                color: "#ffffff",
-                fontFamily: "var(--font-jetbrains-mono), monospace",
-                fontSize: "11px",
-                padding: "5px 8px",
-                cursor: "pointer",
-                outline: "none",
-              }}
-            >
-              <option value="installs">Most installed</option>
-              <option value="stars">Most starred</option>
-              <option value="name">Name A–Z</option>
-              <option value="newest">Newest</option>
-            </select>
+          <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
+            {/* View toggle */}
+            <div style={{ display: "flex", border: "1px solid #222222", borderRadius: "4px", overflow: "hidden" }}>
+              {(["leaderboard", "grid"] as const).map((v) => (
+                <button
+                  key={v}
+                  onClick={() => setView(v)}
+                  style={{
+                    fontFamily: "var(--font-jetbrains-mono), monospace",
+                    fontSize: "10px",
+                    letterSpacing: "0.06em",
+                    textTransform: "uppercase",
+                    padding: "5px 10px",
+                    cursor: "pointer",
+                    border: "none",
+                    backgroundColor: view === v ? "#ffffff" : "transparent",
+                    color: view === v ? "#000000" : "#888888",
+                  }}
+                >
+                  {v === "leaderboard" ? "Board" : "Grid"}
+                </button>
+              ))}
+            </div>
+
+            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+              <span
+                style={{
+                  fontFamily: "var(--font-jetbrains-mono), monospace",
+                  fontSize: "10px",
+                  color: "#ffffff",
+                  letterSpacing: "0.06em",
+                }}
+              >
+                SORT
+              </span>
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+                style={{
+                  backgroundColor: "#000000",
+                  border: "1px solid #000000",
+                  borderRadius: "4px",
+                  color: "#ffffff",
+                  fontFamily: "var(--font-jetbrains-mono), monospace",
+                  fontSize: "11px",
+                  padding: "5px 8px",
+                  cursor: "pointer",
+                  outline: "none",
+                }}
+              >
+                <option value="installs">Most installed</option>
+                <option value="trend">Trending ▲</option>
+                <option value="stars">Most starred</option>
+                <option value="name">Name A–Z</option>
+                <option value="newest">Newest</option>
+              </select>
+            </div>
           </div>
         </div>
 
@@ -342,6 +407,8 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
               Clear filters →
             </button>
           </div>
+        ) : view === "leaderboard" ? (
+          <Leaderboard skills={filtered} />
         ) : (
           <div
             style={{

@@ -2,6 +2,7 @@
 import Link from "next/link"
 import type { Skill } from "@/lib/types"
 import { priceDisplay, isUnpriced } from "@/lib/x402"
+import { formatInstalls } from "@/lib/format"
 
 export function SkillCard({ skill }: { skill: Skill }) {
   const price = priceDisplay(skill)
@@ -96,6 +97,42 @@ export function SkillCard({ skill }: { skill: Skill }) {
           </span>
         ))}
       </div>
+
+      {(skill.stats?.installs || skill.trending) && (
+        <div style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          marginTop: "16px",
+          paddingTop: "14px",
+          borderTop: "1px solid #161616",
+        }}>
+          <span>
+            {skill.trending && (
+              <span style={{
+                fontFamily: "monospace",
+                fontSize: "10px",
+                color: "#3ad17e",
+                border: "1px solid #1c4a30",
+                borderRadius: "3px",
+                padding: "2px 6px",
+                letterSpacing: "0.04em",
+              }}>
+                ▲ Trending
+              </span>
+            )}
+          </span>
+          {skill.stats?.installs && (
+            <span style={{
+              fontFamily: "monospace",
+              fontSize: "11px",
+              color: "#888888",
+            }}>
+              {formatInstalls(skill.stats.installs)} installs
+            </span>
+          )}
+        </div>
+      )}
     </Link>
   )
 }
