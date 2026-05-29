@@ -65,16 +65,16 @@ export function Footer() {
             >
               <svg
                 aria-hidden
-                width="14"
-                height="18"
-                viewBox="0 0 18 24"
+                width="16"
+                height="16"
+                viewBox="0 0 32 32"
                 fill="#ffffff"
                 xmlns="http://www.w3.org/2000/svg"
                 style={{ display: "block", flexShrink: 0 }}
               >
-                <rect x="0" y="0" width="4" height="24" rx="1" />
-                <rect x="7" y="0" width="4" height="24" rx="1" />
-                <rect x="14" y="0" width="4" height="24" rx="1" />
+                <rect x="4" y="6" width="6" height="20" rx="1" />
+                <rect x="13" y="6" width="6" height="20" rx="1" />
+                <rect x="22" y="6" width="6" height="20" rx="1" />
               </svg>
               SolidState
             </div>
