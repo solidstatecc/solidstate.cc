@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import { CATEGORIES, PLATFORMS } from "@/lib/skills"
-import { supabase } from "@/lib/supabase"
 
 type FormState = "idle" | "submitting" | "success" | "error"
 
@@ -54,11 +53,20 @@ export function SubmitForm() {
         : [],
     }
 
-    const { error } = await supabase.from("submissions").insert(submission)
-
-    if (error) {
-      console.error("submission insert failed:", error)
-      setErrorMsg(error.message || "Something went wrong. Try again.")
+    try {
+      const res = await fetch("/api/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(submission),
+      })
+      if (!res.ok) {
+        const { error } = await res.json().catch(() => ({ error: null }))
+        setErrorMsg(error || "Something went wrong. Try again.")
+        setState("error")
+        return
+      }
+    } catch {
+      setErrorMsg("Network error. Try again.")
       setState("error")
       return
     }
@@ -144,7 +152,7 @@ export function SubmitForm() {
           Submission received.
         </h2>
         <p style={{ fontSize: "14px", color: "#ffffff", margin: 0 }}>
-          We'll review your skill and reach out via email within 2–5 business days.
+          We’ll review your skill and reach out via email within 2–5 business days.
         </p>
       </div>
     )
