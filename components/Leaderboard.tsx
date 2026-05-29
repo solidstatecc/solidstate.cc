@@ -11,9 +11,9 @@ import { formatInstalls } from "@/lib/format"
  */
 export function Leaderboard({ skills }: { skills: Skill[] }) {
   return (
-    <div className="ss-table-scroll">
-    <div style={{ border: "1px solid #222222", minWidth: "480px" }}>
+    <div className="ss-lb" style={{ border: "1px solid #222222" }}>
       <div
+        className="ss-lb-row"
         style={{
           display: "grid",
           gridTemplateColumns: "44px 1fr 110px 84px",
@@ -40,6 +40,7 @@ export function Leaderboard({ skills }: { skills: Skill[] }) {
           <Link
             key={skill.id}
             href={`/skills/${skill.slug}`}
+            className="ss-lb-row"
             style={{
               display: "grid",
               gridTemplateColumns: "44px 1fr 110px 84px",
@@ -109,7 +110,7 @@ export function Leaderboard({ skills }: { skills: Skill[] }) {
                     whiteSpace: "nowrap",
                   }}
                 >
-                  ▲ Trending
+                  ▲<span className="ss-lb-trendword"> Trending</span>
                 </span>
               ) : (
                 <span style={{ color: "#333333", fontSize: "11px" }}>—</span>
@@ -130,7 +131,6 @@ export function Leaderboard({ skills }: { skills: Skill[] }) {
           </Link>
         )
       })}
-    </div>
     </div>
   )
 }

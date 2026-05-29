@@ -175,3 +175,15 @@ summary:focus-visible {
 @media (max-width: 480px) {
   .ss-audits-h1 { font-size: 34px !important; }
 }
+
+/* Leaderboard (Board view): fit the phone instead of scrolling sideways.
+   Tighten rank/gaps and collapse the "Trending" pill to just its ▲ glyph. */
+@media (max-width: 560px) {
+  .ss-lb-row {
+    grid-template-columns: 26px 1fr auto auto !important;
+    gap: 10px !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+  .ss-lb-trendword { display: none; }
+}
