@@ -88,7 +88,15 @@ export function Footer() {
                 maxWidth: "300px",
               }}
             >
-              Working skills for AI agents. Verified. Operator-grade. Built by Visionaire Labs.
+              Working skills for AI agents. Verified. Operator-grade. Built by{" "}
+              <a
+                href="https://visionaire.co"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "#ffffff", textDecoration: "none" }}
+              >
+                Visionaire Labs
+              </a>.
             </p>
           </div>
 
@@ -143,7 +151,15 @@ export function Footer() {
               textTransform: "uppercase",
             }}
           >
-            © {new Date().getFullYear()} Solid State · Visionaire Labs
+            © {new Date().getFullYear()} Solid State ·{" "}
+            <a
+              href="https://visionaire.co"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              Visionaire Labs ↗
+            </a>
           </span>
           <span
             style={{
