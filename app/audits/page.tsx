@@ -46,6 +46,7 @@ export default function AuditsPage() {
           Security Audits
         </div>
         <h1
+          className="ss-audits-h1"
           style={{
             fontFamily: mono,
             fontSize: "clamp(40px, 7vw, 72px)",
@@ -72,7 +73,8 @@ export default function AuditsPage() {
 
       {/* Table */}
       <section style={{ maxWidth: "1100px", margin: "0 auto", padding: "32px 24px 96px" }}>
-        <div style={{ border: "1px solid #222222" }}>
+        <div className="ss-table-scroll">
+        <div style={{ border: "1px solid #222222", minWidth: "560px" }}>
           <div
             style={{
               display: "grid",
@@ -143,6 +145,7 @@ export default function AuditsPage() {
               <span style={{ fontFamily: mono, fontSize: "12px", color: RISK_COLOR[a.snykRisk] }}>{a.snyk}</span>
             </a>
           ))}
+        </div>
         </div>
       </section>
     </div>

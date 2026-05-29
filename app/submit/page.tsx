@@ -44,6 +44,7 @@ export default function SubmitPage() {
         }}
       >
         <div
+          className="ss-steps-grid"
           style={{
             maxWidth: "720px",
             margin: "0 auto",

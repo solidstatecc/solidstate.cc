@@ -40,6 +40,7 @@ export function Footer() {
     >
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "56px 32px 32px" }}>
         <div
+          className="ss-footer-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "1.4fr repeat(3, 1fr)",

@@ -132,6 +132,7 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
 
   return (
     <div
+      className="ss-browse-grid"
       style={{
         maxWidth: "1200px",
         margin: "0 auto",

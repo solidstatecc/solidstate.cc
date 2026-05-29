@@ -135,3 +135,43 @@ summary:focus-visible {
   }
   .ss-stats > .ss-stat:last-child { border-bottom: none; }
 }
+
+/* ---- Inner-page responsive layout ----
+   These grids are set via inline styles, so the breakpoint overrides
+   need !important to win over the element's inline grid-template-columns. */
+
+/* Footer: 4-up → 2-up → 1-up */
+@media (max-width: 760px) {
+  .ss-footer-grid { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 460px) {
+  .ss-footer-grid { grid-template-columns: 1fr !important; }
+}
+
+/* Browse Skills: filter sidebar stacks above results */
+@media (max-width: 768px) {
+  .ss-browse-grid { grid-template-columns: 1fr !important; }
+  .ss-browse-grid > aside { position: static !important; }
+}
+
+/* Skill detail: meta sidebar drops below the main content */
+@media (max-width: 900px) {
+  .ss-detail-grid { grid-template-columns: 1fr !important; }
+}
+
+/* Submit "how it works" steps stack */
+@media (max-width: 640px) {
+  .ss-steps-grid { grid-template-columns: 1fr !important; }
+}
+
+/* Wide leaderboard / audits tables scroll horizontally instead of
+   blowing out the page (which made columns overlap on phones). */
+.ss-table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Audits hero stays inside the viewport on the smallest screens */
+@media (max-width: 480px) {
+  .ss-audits-h1 { font-size: 34px !important; }
+}

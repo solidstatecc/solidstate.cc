@@ -11,7 +11,8 @@ import { formatInstalls } from "@/lib/format"
  */
 export function Leaderboard({ skills }: { skills: Skill[] }) {
   return (
-    <div style={{ border: "1px solid #222222" }}>
+    <div className="ss-table-scroll">
+    <div style={{ border: "1px solid #222222", minWidth: "480px" }}>
       <div
         style={{
           display: "grid",
@@ -129,6 +130,7 @@ export function Leaderboard({ skills }: { skills: Skill[] }) {
           </Link>
         )
       })}
+    </div>
     </div>
   )
 }
