@@ -26,10 +26,12 @@ export type License =
   | "AGPL-3.0"
   | "MPL-2.0"
   | "ISC"
+  | "MIT-0"
   | "Unlicense"
   | "CC0-1.0"
   | "source-available"
   | "proprietary"
+  | "undeclared"
   | "unknown"
 
 export type Status = "planned" | "alpha" | "beta" | "stable" | "deprecated"
@@ -130,10 +132,12 @@ export const LICENSE_LABEL: Record<License, string> = {
   "AGPL-3.0": "AGPL 3.0",
   "MPL-2.0": "MPL 2.0",
   ISC: "ISC",
+  "MIT-0": "MIT-0",
   Unlicense: "Unlicense",
   "CC0-1.0": "CC0 1.0",
   "source-available": "Source-available",
   proprietary: "Proprietary",
+  undeclared: "License not stated",
   unknown: "License unknown",
 }
 

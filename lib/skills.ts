@@ -8,8 +8,9 @@
 //   - "Listings" link to upstream repos. We don't claim authorship.
 //   - "Originals" are Solid State / Visionaire authored, status reflects reality.
 
-import { Skill } from "./types"
+import { Skill, License } from "./types"
 import { skillsSh } from "./skillsSh"
+import { clawhubListings } from "./clawhub"
 
 // ---------------------------------------------------------------------------
 // ORIGINALS — Solid State authored. Start with the three flagships from the
@@ -884,9 +885,9 @@ const listings: Skill[] = [
 
 // ---------------------------------------------------------------------------
 
-// Solid State originals + curated listings + the top 200 indexed from skills.sh,
-// ranked together by real install count.
-export const skills: Skill[] = [...originals, ...listings, ...skillsSh]
+// Solid State originals + curated listings + the top 200 indexed from skills.sh
+// + the ClawHub top-50 (rec=list) indexed listings, ranked together.
+export const skills: Skill[] = [...originals, ...listings, ...skillsSh, ...clawhubListings]
 
 export function getSkillBySlug(slug: string): Skill | undefined {
   return skills.find((s) => s.slug === slug)
@@ -904,9 +905,25 @@ export function getListings(): Skill[] {
   return skills.filter((s) => s.kind === "listing")
 }
 
+/**
+ * Licenses that do NOT grant us the right to host, mirror, bundle, or sell a skill.
+ * "undeclared" = upstream author stated nothing (all rights reserved by default).
+ * "unknown"    = we couldn't determine it.
+ * Either way: index + link out is fine, hosting is not.
+ */
+export const HOSTING_BLOCKED_LICENSES: License[] = ["undeclared", "unknown"]
+
+/**
+ * Guard: may Solid State host / mirror / sell this skill?
+ * Indexing and linking out are always allowed; this gates the `mirrored`/paid path only.
+ */
+export function canMirrorOrSell(s: Skill): boolean {
+  return !HOSTING_BLOCKED_LICENSES.includes(s.license)
+}
+
 /** Strict filter: only list things whose license we've actually verified. */
 export function getPublishableListings(): Skill[] {
-  return getListings().filter((s) => s.license !== "unknown")
+  return getListings().filter((s) => !HOSTING_BLOCKED_LICENSES.includes(s.license))
 }
 
 export const CATEGORIES = Array.from(

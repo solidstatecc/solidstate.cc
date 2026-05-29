@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import { skills, getSkillBySlug } from "@/lib/skills"
+import { LICENSE_LABEL } from "@/lib/types"
 import { agenticUrl, priceDisplay } from "@/lib/x402"
 import { PlatformBadge } from "@/components/PlatformBadge"
 import { CopyButton } from "@/components/CopyButton"
@@ -37,6 +38,10 @@ export default async function SkillDetailPage({ params }: Props) {
         s.categories.some((c) => skill.categories.includes(c))
     )
     .slice(0, 3)
+
+  const isClawhub = skill.source?.startsWith("clawhub:") ?? false
+  const licenseUnstated = skill.license === "undeclared" || skill.license === "unknown"
+  const showProvenanceNote = skill.provenance === "indexed" && (licenseUnstated || isClawhub)
 
   const priceLabel = priceDisplay(skill)
   const isFreeLabel = priceLabel === "Free"
@@ -251,6 +256,47 @@ export default async function SkillDetailPage({ params }: Props) {
             </div>
           </div>
 
+          {/* Provenance / license honesty note (indexed third-party skills) */}
+          {showProvenanceNote && (
+            <div
+              style={{
+                border: "1px solid #333333",
+                borderRadius: "6px",
+                padding: "14px 18px",
+                marginBottom: "32px",
+              }}
+            >
+              {isClawhub && (
+                <div
+                  style={{
+                    fontFamily: "var(--font-jetbrains-mono), monospace",
+                    fontSize: "10px",
+                    fontWeight: 600,
+                    color: "#ffffff",
+                    letterSpacing: "0.08em",
+                    textTransform: "uppercase",
+                    marginBottom: "8px",
+                  }}
+                >
+                  Indexed from ClawHub · not audited by Solid State
+                </div>
+              )}
+              {licenseUnstated && (
+                <p
+                  style={{
+                    fontSize: "12px",
+                    color: "#888888",
+                    lineHeight: 1.6,
+                    margin: 0,
+                  }}
+                >
+                  The author hasn&apos;t declared a license upstream. No usage rights are
+                  granted by default — verify with the source before commercial use.
+                </p>
+              )}
+            </div>
+          )}
+
           {/* Long description */}
           <div
             style={{
@@ -443,6 +489,7 @@ export default async function SkillDetailPage({ params }: Props) {
               { label: "Author", value: skill.author },
               { label: "Version", value: `v${skill.version}` },
               { label: "Category", value: skill.categories.join(", ") },
+              { label: "License", value: LICENSE_LABEL[skill.license] },
               {
                 label: "Installs",
                 value: skill.stats?.installs?.toLocaleString() ?? "—",
@@ -528,7 +575,7 @@ export default async function SkillDetailPage({ params }: Props) {
                     gap: "4px",
                   }}
                 >
-                  ↗ Documentation
+                  ↗ {isClawhub ? "ClawHub listing" : "Documentation"}
                 </a>
               )}
             </div>
