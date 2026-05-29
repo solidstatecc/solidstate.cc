@@ -11,6 +11,8 @@ const COLS: Array<{
       { href: "/glossary", label: "Glossary" },
       { href: "/manifesto", label: "Manifesto" },
       { href: "/submit", label: "Submit a skill" },
+      { href: "/llms.txt", label: "llms.txt", external: true },
+      { href: "/llms-full.txt", label: "llms-full.txt", external: true },
     ],
   },
   {
