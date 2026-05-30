@@ -48,6 +48,12 @@ export default async function SkillDetailPage({ params }: Props) {
   const isUnpricedLabel = priceLabel === "—"
   const priceDisplayLabel = isFreeLabel ? "FREE" : priceLabel
   const priceColor = isUnpricedLabel ? "#666666" : "#ffffff"
+  const isPaidLabel = !isFreeLabel && !isUnpricedLabel
+  // Only paid skills go to Agentic Market. Free + indexed listings link to the
+  // real source (repo, then ClawHub listing) — never the payment marketplace.
+  const ctaHref = isPaidLabel
+    ? agenticUrl(skill)
+    : skill.repoUrl ?? skill.docsUrl ?? agenticUrl(skill)
 
   return (
     <div style={{ backgroundColor: "#000000", minHeight: "100vh" }}>
@@ -434,7 +440,7 @@ export default async function SkillDetailPage({ params }: Props) {
             </div>
 
             <a
-              href={skill.repoUrl ?? agenticUrl(skill)}
+              href={ctaHref}
               target="_blank"
               rel="noopener noreferrer"
               style={{

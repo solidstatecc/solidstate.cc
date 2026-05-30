@@ -3,6 +3,7 @@
 import { useState, useMemo, useEffect } from "react"
 import { useSearchParams, useRouter, usePathname } from "next/navigation"
 import { Skill, Platform } from "@/lib/types"
+import { priceDisplay, isUnpriced } from "@/lib/x402"
 import { SkillCard } from "@/components/SkillCard"
 import { Leaderboard } from "@/components/Leaderboard"
 
@@ -67,9 +68,11 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
     }
 
     if (priceFilter === "free") {
-      result = result.filter((s) => s.price === "free")
+      result = result.filter((s) => priceDisplay(s) === "Free")
     } else if (priceFilter === "paid") {
-      result = result.filter((s) => s.price !== "free")
+      // Paid = a concrete non-free price. Unpriced/indexed listings are neither
+      // free nor paid — they must not be swept into "Paid only".
+      result = result.filter((s) => !isUnpriced(s) && priceDisplay(s) !== "Free")
     }
 
     if (verifiedOnly) {
