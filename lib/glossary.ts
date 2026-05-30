@@ -95,6 +95,20 @@ The same base model can be a sales operator, a chief of staff, or a research ana
     readMinutes: 3,
     related: ["token", "base-model"],
   },
+  {
+    slug: "channel",
+    term: "Channel",
+    short:
+      "The surface an agent talks through. Slack, iMessage, the web, your terminal.",
+    level: "beginner",
+    readMinutes: 3,
+    related: ["agent", "gateway"],
+    long: `A channel is where the conversation happens, not what runs it. The same agent can answer in Slack, over iMessage, or in a browser tab.
+
+One agent, many channels. The agent doesn't change. The doorway does.
+
+The best channel is the one your work already lives in.`,
+  },
 
   // ======================
   // Level 2: Intermediate
@@ -176,6 +190,48 @@ Think of it as the USB of agents.`,
     readMinutes: 6,
     related: ["fine-tuning", "guardrails"],
   },
+  {
+    slug: "session",
+    term: "Session",
+    short:
+      "One conversation's working state. The thread the agent is holding right now.",
+    level: "intermediate",
+    readMinutes: 4,
+    related: ["context-window", "memory"],
+    long: `A session is the live thread: this conversation, its history, its open context. It starts when you begin and ends when you walk away.
+
+Don't confuse it with memory. Memory is what survives the session. The session is what's in hand.
+
+Two senders, two sessions. Good systems keep them isolated so one user's context never bleeds into another's.`,
+  },
+  {
+    slug: "plugin",
+    term: "Plugin",
+    short:
+      "A bundled add-on that extends an agent. New channels, new tools, dropped in.",
+    level: "intermediate",
+    readMinutes: 4,
+    related: ["skill", "tool-use", "gateway"],
+    long: `A plugin extends the runtime. It adds a channel, a tool, or a capability the core didn't ship with.
+
+A skill is a job the agent does. A plugin is plumbing the agent runs on. Related, not the same.
+
+Skills teach the agent. Plugins wire it up.`,
+  },
+  {
+    slug: "self-hosted",
+    term: "Self-Hosted",
+    short:
+      "Running the agent on your own hardware. Your data, your rules, no vendor in the middle.",
+    level: "intermediate",
+    readMinutes: 4,
+    related: ["sandboxing", "guardrails"],
+    long: `Self-hosted means the agent runs where you control it. Your machine, your server, your keys.
+
+The trade is real. You own the uptime, the updates, the security. Nobody can read your data, and nobody will fix it for you either.
+
+Hosted is convenience. Self-hosted is control. Pick the one that matches the stakes.`,
+  },
 
   // ==================
   // Level 3: Advanced
@@ -215,6 +271,11 @@ Think of it as the USB of agents.`,
     level: "advanced",
     readMinutes: 7,
     related: ["sandboxing", "human-in-the-loop"],
+    long: `Guardrails are the hard limits. What the agent may touch, what it may emit, where it may run, and when it must stop for a human.
+
+The simplest one is an allowlist: only these senders, only these tools. In OpenClaw that's a single \`allowFrom\` line.
+
+Open by default is a liability. Closed by default is a feature.`,
   },
   {
     slug: "sandboxing",
@@ -251,6 +312,48 @@ Think of it as the USB of agents.`,
     level: "advanced",
     readMinutes: 6,
     related: ["inference", "evals"],
+  },
+  {
+    slug: "gateway",
+    term: "Gateway",
+    short:
+      "One process bridging every channel to the agent. The single door messages pass through.",
+    level: "advanced",
+    readMinutes: 7,
+    related: ["harness", "channel", "multi-agent-routing"],
+    long: `A gateway is the bridge layer. Chat apps on one side, the agent on the other, every message routed through one process.
+
+It's the single source of truth for sessions, routing, and connections. One gateway can serve Slack, iMessage, and the web at once.
+
+The harness runs the model. The gateway runs the traffic. Different jobs, same stack.`,
+  },
+  {
+    slug: "multi-agent-routing",
+    term: "Multi-Agent Routing",
+    short:
+      "Sending each request to the right agent, with isolated sessions per workspace or sender.",
+    level: "advanced",
+    readMinutes: 7,
+    related: ["model-routing", "session", "gateway"],
+    long: `Multi-agent routing decides which agent handles what. One sender gets the assistant, another gets the coder, each in its own sandboxed session.
+
+Don't confuse it with model routing. Model routing picks the cheapest model for a task. Multi-agent routing picks the right operator for a request.
+
+Isolation is the point. One agent's context never leaks into another's.`,
+  },
+  {
+    slug: "node",
+    term: "Node",
+    short:
+      "A paired device that extends an agent's reach. Camera, mic, and screen on your phone.",
+    level: "advanced",
+    readMinutes: 6,
+    related: ["gateway", "computer-use"],
+    long: `A node is an edge device wired into the agent. Your phone becomes eyes, ears, and a second screen.
+
+The agent stays central. The node gives it senses it didn't have. Snap a photo, capture audio, act on the device.
+
+Gateway is the brain. Nodes are the hands.`,
   },
 
   // ================
@@ -314,6 +417,20 @@ Solid State exposes a subset of skills as x402 services on Agentic Market.`,
     level: "expert",
     readMinutes: 9,
     related: ["base-model", "inference"],
+  },
+  {
+    slug: "daemon",
+    term: "Daemon",
+    short:
+      "A background process that keeps the agent always-on. Survives logout, restarts itself.",
+    level: "expert",
+    readMinutes: 7,
+    related: ["gateway", "harness"],
+    long: `A daemon is the agent that never sleeps. It runs in the background, outlives your terminal session, and comes back after a crash.
+
+This is what turns a script you launch into a service that's just there. Message it at 3am and it answers.
+
+A command runs once. A daemon runs until you stop it.`,
   },
 ]
 
