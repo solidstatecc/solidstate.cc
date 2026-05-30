@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   description: "Browse and filter AI agent skills for Claude, OpenClaw, NemoClaw, Antigravity, and any agent runtime.",
 }
 
+// Counts come from lib/skills.ts (bundled at build). Defaulting to fully-static
+// emits s-maxage=31536000, so a CDN can serve year-old counts after a deploy.
+// ISR caps the edge TTL at one hour and regenerates against the deployed bundle.
+export const revalidate = 3600
+
 export default function SkillsPage() {
   return (
     <div style={{ backgroundColor: "#000000", minHeight: "100vh" }}>
