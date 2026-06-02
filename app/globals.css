@@ -136,6 +136,9 @@ summary:focus-visible {
   .ss-stats > .ss-stat:last-child { border-bottom: none; }
 }
 
+/* Home featured cards: CSS hover (keeps the page a Server Component). */
+.ss-featured-card:hover { background: #0a0a0a; }
+
 /* ---- Inner-page responsive layout ----
    These grids are set via inline styles, so the breakpoint overrides
    need !important to win over the element's inline grid-template-columns. */

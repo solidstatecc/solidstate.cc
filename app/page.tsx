@@ -1,7 +1,11 @@
-"use client"
 import Link from "next/link"
 import { skills, getFeaturedSkills, STATS } from "@/lib/skills"
 import { priceDisplay } from "@/lib/x402"
+
+// Stats come from lib/skills.ts (bundled at build). Defaulting to fully-static
+// emits s-maxage=31536000, so a CDN can serve year-old counts after a deploy.
+// ISR caps the edge TTL at one hour and regenerates against the deployed bundle.
+export const revalidate = 3600
 
 export default function HomePage() {
   const featured = getFeaturedSkills()
@@ -107,7 +111,7 @@ export default function HomePage() {
           gap: "0",
         }}>
           {featured.map((skill, i) => (
-            <Link key={skill.id} href={`/skills/${skill.slug}`} style={{
+            <Link key={skill.id} href={`/skills/${skill.slug}`} className="ss-featured-card" style={{
               display: "block",
               padding: "32px",
               borderRight: "1px solid #222222",
@@ -115,8 +119,6 @@ export default function HomePage() {
               borderLeft: i === 0 ? "1px solid #222222" : "none",
               transition: "background 0.1s",
             }}
-            onMouseEnter={e => (e.currentTarget.style.background = "#0a0a0a")}
-            onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
             >
               <div style={{
                 fontFamily: "monospace",

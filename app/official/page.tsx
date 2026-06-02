@@ -7,6 +7,9 @@ export const metadata: Metadata = {
     "Official agent skills from the companies that build the technology — the makers teaching you how to use their product. Indexed from skills.sh.",
 }
 
+// Match /skills: cap edge TTL so maker/skill counts refresh within an hour of a deploy.
+export const revalidate = 3600
+
 const mono = "var(--font-jetbrains-mono), monospace"
 
 export default function OfficialPage() {
