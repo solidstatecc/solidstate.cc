@@ -2,30 +2,37 @@
 
 import { useState } from "react"
 import { CATEGORIES, PLATFORMS } from "@/lib/skills"
+import {
+  validateSubmission,
+  hasErrors,
+  type FieldErrors,
+  type SubmissionInput,
+} from "@/lib/submission"
 
 type FormState = "idle" | "submitting" | "success" | "error"
 
 export function SubmitForm() {
   const [state, setState] = useState<FormState>("idle")
   const [errorMsg, setErrorMsg] = useState<string | null>(null)
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({})
   const [selectedPlatforms, setSelectedPlatforms] = useState<string[]>([])
 
   function togglePlatform(p: string) {
     setSelectedPlatforms((prev) =>
       prev.includes(p) ? prev.filter((x) => x !== p) : [...prev, p]
     )
+    // Clear the platform error the moment the user acts on it.
+    setFieldErrors((prev) => {
+      if (!prev.platforms) return prev
+      const next = { ...prev }
+      delete next.platforms
+      return next
+    })
   }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setErrorMsg(null)
-
-    if (selectedPlatforms.length === 0) {
-      setErrorMsg("Pick at least one compatible platform.")
-      return
-    }
-
-    setState("submitting")
 
     const form = e.currentTarget
     const data = new FormData(form)
@@ -34,7 +41,7 @@ export function SubmitForm() {
     const priceRaw = get("price_usd")
     const tagsRaw = get("tags")
 
-    const submission = {
+    const submission: SubmissionInput = {
       submitter_name: get("submitter_name"),
       submitter_email: get("submitter_email"),
       skill_name: get("skill_name"),
@@ -53,6 +60,18 @@ export function SubmitForm() {
         : [],
     }
 
+    // Same rules the server enforces — fail fast, no round-trip.
+    const clientErrors = validateSubmission(submission)
+    if (hasErrors(clientErrors)) {
+      setFieldErrors(clientErrors)
+      setErrorMsg("A few fields need fixing before this can ship.")
+      setState("error")
+      return
+    }
+
+    setFieldErrors({})
+    setState("submitting")
+
     try {
       const res = await fetch("/api/submit", {
         method: "POST",
@@ -60,13 +79,16 @@ export function SubmitForm() {
         body: JSON.stringify(submission),
       })
       if (!res.ok) {
-        const { error } = await res.json().catch(() => ({ error: null }))
+        const { error, errors } = await res
+          .json()
+          .catch(() => ({ error: null, errors: null }))
+        if (errors) setFieldErrors(errors as FieldErrors)
         setErrorMsg(error || "Something went wrong. Try again.")
         setState("error")
         return
       }
     } catch {
-      setErrorMsg("Network error. Try again.")
+      setErrorMsg("Network dropped. Check your connection and try again.")
       setState("error")
       return
     }
@@ -117,6 +139,17 @@ export function SubmitForm() {
     color: "#666666",
     marginTop: "5px",
   } as React.CSSProperties
+
+  const errStyle = {
+    fontFamily: "var(--font-jetbrains-mono), monospace",
+    fontSize: "10px",
+    color: "#ff5c5c",
+    marginTop: "5px",
+  } as React.CSSProperties
+
+  // Inline, field-level error under an input. Renders nothing when clean.
+  const fieldError = (name: keyof FieldErrors) =>
+    fieldErrors[name] ? <div style={errStyle}>{fieldErrors[name]}</div> : null
 
   if (state === "success") {
     return (
@@ -186,6 +219,7 @@ export function SubmitForm() {
           onFocus={focusBorder}
           onBlur={blurBorder}
         />
+        {fieldError("skill_name")}
       </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "24px" }}>
@@ -200,6 +234,7 @@ export function SubmitForm() {
           onFocus={focusBorder}
           onBlur={blurBorder}
           />
+          {fieldError("submitter_name")}
         </div>
         <div>
           <label style={labelStyle}>Email *</label>
@@ -212,6 +247,7 @@ export function SubmitForm() {
           onFocus={focusBorder}
           onBlur={blurBorder}
           />
+          {fieldError("submitter_email")}
         </div>
       </div>
 
@@ -228,6 +264,7 @@ export function SubmitForm() {
           onBlur={blurBorder}
         />
         <div style={hintStyle}>Max 120 characters</div>
+        {fieldError("short_description")}
       </div>
 
       <div style={fieldStyle}>
@@ -247,6 +284,7 @@ export function SubmitForm() {
           onBlur={blurBorder}
         />
         <div style={hintStyle}>Markdown supported. Be specific about what the skill does.</div>
+        {fieldError("long_description")}
       </div>
 
       {/* Technical */}
@@ -278,6 +316,7 @@ export function SubmitForm() {
           onFocus={focusBorder}
           onBlur={blurBorder}
           />
+          {fieldError("version")}
         </div>
         <div>
           <label style={labelStyle}>Category *</label>
@@ -297,6 +336,7 @@ export function SubmitForm() {
             ))}
             <option value="Other">Other</option>
           </select>
+          {fieldError("category")}
         </div>
       </div>
 
@@ -311,6 +351,7 @@ export function SubmitForm() {
           onFocus={focusBorder}
           onBlur={blurBorder}
         />
+        {fieldError("install_command")}
       </div>
 
       <div style={fieldStyle}>
@@ -339,6 +380,7 @@ export function SubmitForm() {
             </button>
           ))}
         </div>
+        {fieldError("platforms")}
       </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "24px" }}>
@@ -352,6 +394,7 @@ export function SubmitForm() {
           onFocus={focusBorder}
           onBlur={blurBorder}
           />
+          {fieldError("repo_url")}
         </div>
         <div>
           <label style={labelStyle}>Documentation URL</label>
@@ -363,6 +406,7 @@ export function SubmitForm() {
           onFocus={focusBorder}
           onBlur={blurBorder}
           />
+          {fieldError("docs_url")}
         </div>
       </div>
 
@@ -411,6 +455,7 @@ export function SubmitForm() {
           onBlur={blurBorder}
           />
           <div style={hintStyle}>Leave blank for free skills</div>
+          {fieldError("price_usd")}
         </div>
       </div>
 
@@ -426,17 +471,19 @@ export function SubmitForm() {
           onBlur={blurBorder}
         />
         <div style={hintStyle}>Comma-separated. Helps with discoverability.</div>
+        {fieldError("tags")}
       </div>
 
       {/* Error */}
       {errorMsg && (
         <div
+          role="alert"
           style={{
             fontFamily: "var(--font-jetbrains-mono), monospace",
             fontSize: "12px",
-            color: "#ffffff",
-            backgroundColor: "rgba(255,255,255,0.05)",
-            border: "1px solid rgba(255,255,255,0.3)",
+            color: "#ff5c5c",
+            backgroundColor: "rgba(255,92,92,0.08)",
+            border: "1px solid rgba(255,92,92,0.4)",
             padding: "10px 12px",
             borderRadius: "4px",
             marginBottom: "16px",
