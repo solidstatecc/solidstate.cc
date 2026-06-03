@@ -3,9 +3,25 @@ import { Suspense } from "react"
 import { skills, CATEGORIES, PLATFORMS } from "@/lib/skills"
 import { SkillsBrowser } from "./SkillsBrowser"
 
+const SKILLS_DESCRIPTION =
+  "Browse and filter AI agent skills for Claude, OpenClaw, NemoClaw, Antigravity, and any agent runtime."
+
 export const metadata: Metadata = {
   title: "Browse Skills",
-  description: "Browse and filter AI agent skills for Claude, OpenClaw, NemoClaw, Antigravity, and any agent runtime.",
+  description: SKILLS_DESCRIPTION,
+  alternates: { canonical: "/skills" },
+  openGraph: {
+    type: "website",
+    title: "Browse Skills | Solid State",
+    description: SKILLS_DESCRIPTION,
+    url: "/skills",
+    siteName: "Solid State",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Browse Skills | Solid State",
+    description: SKILLS_DESCRIPTION,
+  },
 }
 
 export default function SkillsPage() {

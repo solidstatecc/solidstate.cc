@@ -20,9 +20,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const skill = getSkillBySlug(slug)
   if (!skill) return {}
+
+  const canonical = `/skills/${skill.slug}`
+  const title = `${skill.name} — ${skill.author}`
+
   return {
     title: skill.name,
     description: skill.description,
+    alternates: { canonical },
+    openGraph: {
+      type: "article",
+      title,
+      description: skill.description,
+      url: canonical,
+      siteName: "Solid State",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: skill.description,
+    },
   }
 }
 
