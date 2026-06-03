@@ -8,7 +8,7 @@
 //   - "Listings" link to upstream repos. We don't claim authorship.
 //   - "Originals" are Solid State / Visionaire authored, status reflects reality.
 
-import { Skill, License } from "./types"
+import type { Skill, License } from "./types"
 import { skillsSh } from "./skillsSh"
 import { clawhubListings } from "./clawhub"
 

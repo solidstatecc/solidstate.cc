@@ -3,7 +3,7 @@
 // `trending` = present on skills.sh's live 24h board at capture time (a real fact,
 // not a modeled curve). kind=listing / provenance=indexed per the honest-directory rules.
 // Regenerate via outputs/compile_skills.py.
-import { Skill } from "./types"
+import type { Skill } from "./types"
 
 export const skillsSh: Skill[] = [
   {
