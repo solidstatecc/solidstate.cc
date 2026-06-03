@@ -150,8 +150,9 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
       <aside style={{ position: "sticky", top: "72px" }}>
         {/* Search */}
         <div style={{ marginBottom: "24px" }}>
-          <label style={labelStyle}>Search</label>
+          <label style={labelStyle} htmlFor="skills-search">Search</label>
           <input
+            id="skills-search"
             type="text"
             placeholder="skill name, tag, author…"
             value={search}
@@ -162,8 +163,9 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
 
         {/* Category */}
         <div style={{ marginBottom: "24px" }}>
-          <label style={labelStyle}>Category</label>
+          <label style={labelStyle} htmlFor="skills-category">Category</label>
           <select
+            id="skills-category"
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
             style={{ ...inputStyle, cursor: "pointer" }}
@@ -179,8 +181,9 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
 
         {/* Platform */}
         <div style={{ marginBottom: "24px" }}>
-          <label style={labelStyle}>Platform</label>
+          <label style={labelStyle} htmlFor="skills-platform">Platform</label>
           <select
+            id="skills-platform"
             value={selectedPlatform}
             onChange={(e) => setSelectedPlatform(e.target.value)}
             style={{ ...inputStyle, cursor: "pointer" }}
@@ -196,8 +199,8 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
 
         {/* Price */}
         <div style={{ marginBottom: "24px" }}>
-          <label style={labelStyle}>Price</label>
-          <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+          <span style={labelStyle} id="price-filter-label">Price</span>
+          <div role="radiogroup" aria-labelledby="price-filter-label" style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
             {[
               { value: "", label: "Any price" },
               { value: "free", label: "Free only" },
@@ -319,17 +322,19 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
             }}
           >
             {filtered.length} results
-            <span style={{ fontSize: "10px", color: "#666666" }}>
+            <span style={{ fontSize: "10px", color: "#8a8a8a" }}>
               Install &amp; star counts are periodic snapshots, not live
             </span>
           </span>
           <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
             {/* View toggle */}
-            <div style={{ display: "flex", border: "1px solid #222222", borderRadius: "4px", overflow: "hidden" }}>
+            <div role="group" aria-label="View layout" style={{ display: "flex", border: "1px solid #222222", borderRadius: "4px", overflow: "hidden" }}>
               {(["leaderboard", "grid"] as const).map((v) => (
                 <button
                   key={v}
                   onClick={() => setView(v)}
+                  aria-pressed={view === v}
+                  aria-label={v === "leaderboard" ? "Board view" : "Grid view"}
                   style={{
                     fontFamily: "var(--font-jetbrains-mono), monospace",
                     fontSize: "10px",
@@ -359,6 +364,7 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
                 SORT
               </span>
               <select
+                aria-label="Sort skills by"
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
                 style={{
