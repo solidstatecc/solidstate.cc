@@ -25,7 +25,7 @@ export function Leaderboard({ skills }: { skills: Skill[] }) {
           fontSize: "10px",
           letterSpacing: "0.08em",
           textTransform: "uppercase",
-          color: "#666666",
+          color: "#8a8a8a",
         }}
       >
         <span>#</span>
@@ -59,7 +59,7 @@ export function Leaderboard({ skills }: { skills: Skill[] }) {
               style={{
                 fontFamily: "var(--font-jetbrains-mono), monospace",
                 fontSize: "12px",
-                color: i < 3 ? "#ffffff" : "#555555",
+                color: i < 3 ? "#ffffff" : "#a3a3a3",
                 fontWeight: i < 3 ? 700 : 400,
               }}
             >
@@ -86,7 +86,7 @@ export function Leaderboard({ skills }: { skills: Skill[] }) {
                   display: "block",
                   fontFamily: "var(--font-jetbrains-mono), monospace",
                   fontSize: "11px",
-                  color: "#666666",
+                  color: "#8a8a8a",
                   overflow: "hidden",
                   textOverflow: "ellipsis",
                   whiteSpace: "nowrap",
@@ -113,7 +113,7 @@ export function Leaderboard({ skills }: { skills: Skill[] }) {
                   ↑<span className="ss-lb-trendword"> Trending</span>
                 </span>
               ) : (
-                <span style={{ color: "#333333", fontSize: "11px" }}>—</span>
+                <span style={{ color: "#8a8a8a", fontSize: "11px" }}>—</span>
               )}
             </span>
 
@@ -121,7 +121,7 @@ export function Leaderboard({ skills }: { skills: Skill[] }) {
               style={{
                 fontFamily: "var(--font-jetbrains-mono), monospace",
                 fontSize: "13px",
-                color: installs ? "#ffffff" : "#444444",
+                color: installs ? "#ffffff" : "#8a8a8a",
                 textAlign: "right",
                 fontVariantNumeric: "tabular-nums",
               }}

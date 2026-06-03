@@ -47,7 +47,7 @@ export default async function SkillDetailPage({ params }: Props) {
   const isFreeLabel = priceLabel === "Free"
   const isUnpricedLabel = priceLabel === "—"
   const priceDisplayLabel = isFreeLabel ? "FREE" : priceLabel
-  const priceColor = isUnpricedLabel ? "#666666" : "#ffffff"
+  const priceColor = isUnpricedLabel ? "#8a8a8a" : "#ffffff"
   const isPaidLabel = !isFreeLabel && !isUnpricedLabel
   // Only paid skills go to Agentic Market. Free + indexed listings link to the
   // real source (repo, then ClawHub listing) — never the payment marketplace.
@@ -552,7 +552,7 @@ export default async function SkillDetailPage({ params }: Props) {
                   marginTop: "10px",
                   fontFamily: "var(--font-jetbrains-mono), monospace",
                   fontSize: "9px",
-                  color: "#666666",
+                  color: "#8a8a8a",
                   letterSpacing: "0.04em",
                 }}
               >

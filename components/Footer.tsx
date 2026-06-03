@@ -93,7 +93,7 @@ export function Footer() {
                 href="https://visionaire.co"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ color: "#ffffff", textDecoration: "none" }}
+                style={{ color: "#ffffff", textDecoration: "underline" }}
               >
                 Visionaire Labs
               </a>.
@@ -156,7 +156,7 @@ export function Footer() {
               href="https://visionaire.co"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ color: "inherit", textDecoration: "none" }}
+              style={{ color: "inherit", textDecoration: "underline" }}
             >
               Visionaire Labs ↗
             </a>
