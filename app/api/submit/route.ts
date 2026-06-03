@@ -1,74 +1,62 @@
 import { NextResponse } from "next/server"
 import { supabase } from "@/lib/supabase"
+import {
+  validateSubmission,
+  hasErrors,
+  type SubmissionInput,
+} from "@/lib/submission"
 
-// Submission intake: insert into Supabase, then email a notification.
+// Submission intake: validate, insert into Supabase, then email a notification.
 // Insert is the source of truth — if the email fails, the submission is
 // still saved and we return success. Email needs RESEND_API_KEY (Vercel env).
 
 const NOTIFY_TO = process.env.SUBMISSION_NOTIFY_TO || "hello@vhq.co"
 const NOTIFY_FROM = process.env.SUBMISSION_NOTIFY_FROM || "Solid State <onboarding@resend.dev>"
 
-type SubmissionInput = {
-  submitter_name?: string
-  submitter_email?: string
-  skill_name?: string
-  short_description?: string
-  long_description?: string
-  version?: string
-  category?: string
-  install_command?: string
-  platforms?: string[]
-  repo_url?: string | null
-  docs_url?: string | null
-  pricing_model?: string
-  price_usd?: number | null
-  tags?: string[]
-}
-
-const required: (keyof SubmissionInput)[] = [
-  "submitter_name", "submitter_email", "skill_name",
-  "short_description", "long_description", "version",
-  "category", "install_command",
-]
+const str = (v: unknown) => (typeof v === "string" ? v.trim() : "")
 
 export async function POST(req: Request) {
   let body: SubmissionInput
   try {
     body = await req.json()
   } catch {
-    return NextResponse.json({ error: "Invalid request body." }, { status: 400 })
+    return NextResponse.json({ error: "We couldn't read that submission." }, { status: 400 })
   }
 
-  for (const f of required) {
-    if (!body[f] || String(body[f]).trim() === "") {
-      return NextResponse.json({ error: `Missing field: ${f}` }, { status: 400 })
-    }
-  }
-  if (!Array.isArray(body.platforms) || body.platforms.length === 0) {
-    return NextResponse.json({ error: "Pick at least one compatible platform." }, { status: 400 })
+  // Authoritative validation — the client runs the same rules for fast
+  // feedback, but the server never trusts that it did.
+  const errors = validateSubmission(body)
+  if (hasErrors(errors)) {
+    const first = Object.values(errors)[0]
+    return NextResponse.json({ error: first, errors }, { status: 400 })
   }
 
+  const pricingModel = str(body.pricing_model) || "free"
   const row = {
-    submitter_name: body.submitter_name,
-    submitter_email: body.submitter_email,
-    skill_name: body.skill_name,
-    short_description: body.short_description,
-    long_description: body.long_description,
-    version: body.version,
-    category: body.category,
-    install_command: body.install_command,
+    submitter_name: str(body.submitter_name),
+    submitter_email: str(body.submitter_email),
+    skill_name: str(body.skill_name),
+    short_description: str(body.short_description),
+    long_description: str(body.long_description),
+    version: str(body.version),
+    category: str(body.category),
+    install_command: str(body.install_command),
     platforms: body.platforms,
-    repo_url: body.repo_url || null,
-    docs_url: body.docs_url || null,
-    pricing_model: body.pricing_model || "free",
-    price_usd: body.price_usd ?? null,
+    repo_url: str(body.repo_url) || null,
+    docs_url: str(body.docs_url) || null,
+    pricing_model: pricingModel,
+    price_usd: pricingModel === "paid" ? (body.price_usd ?? null) : null,
     tags: Array.isArray(body.tags) ? body.tags : [],
   }
 
   const { error } = await supabase.from("submissions").insert(row)
   if (error) {
     console.error("submission insert failed:", error)
-    return NextResponse.json({ error: error.message || "Could not save submission." }, { status: 500 })
+    // Don't leak DB internals to the client — log them, return brand voice.
+    return NextResponse.json(
+      { error: "Something broke on our end saving that. Try again in a moment." },
+      { status: 500 }
+    )
   }
 
   // Fire-and-forget notification. Never blocks or fails the submission.
