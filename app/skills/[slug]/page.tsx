@@ -4,6 +4,7 @@ import Link from "next/link"
 import { skills, getSkillBySlug } from "@/lib/skills"
 import { LICENSE_LABEL } from "@/lib/types"
 import { agenticUrl, priceDisplay } from "@/lib/x402"
+import { skillJsonLd } from "@/lib/jsonLd"
 import { PlatformBadge } from "@/components/PlatformBadge"
 import { CopyButton } from "@/components/CopyButton"
 import { SkillCard } from "@/components/SkillCard"
@@ -57,6 +58,12 @@ export default async function SkillDetailPage({ params }: Props) {
 
   return (
     <div style={{ backgroundColor: "#000000", minHeight: "100vh" }}>
+      {/* schema.org SoftwareApplication structured data for rich results */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(skillJsonLd(skill)) }}
+      />
+
       {/* Breadcrumb */}
       <div
         style={{
