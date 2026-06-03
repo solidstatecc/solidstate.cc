@@ -2,7 +2,7 @@
 name: skill-auditor
 slug: skill-auditor
 version: 1.0.0
-description: Audit a skill folder against ClawHub publish rules before `clawhub skill publish`. Reads files, reasons, prints a line-by-line report ending in READY or FIX FIRST. No network, no credentials. Use this when the user is about to publish a skill, asks "is my skill ready," "audit my skill," "check publish-readiness," "ClawHub publish checklist," or mentions `clawhub skill publish`.
+description: Audit a skill folder against ClawHub publish rules before `clawhub skill publish`. Reads files and prints a line-by-line report ending in READY or FIX FIRST. No network, no credentials. Use this when the user is about to publish a skill, asks "is my skill ready," or "audit my skill."
 license: MIT-0
 author: solidstatecc
 provenance: first-party
