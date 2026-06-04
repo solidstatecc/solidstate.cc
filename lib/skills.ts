@@ -131,6 +131,33 @@ Live on [ClawHub](https://clawhub.ai/solidstate/publish-audit). Free, MIT-0.`,
     tags: ["audit", "publish", "clawhub", "trust", "meta"],
     createdAt: "2026-06-04",
   },
+  {
+    id: "deal-desk",
+    name: "Deal Desk",
+    slug: "deal-desk",
+    kind: "original",
+    description:
+      "A sales CRM that lives in your chat. Track deals through stages, log calls, get a ranked daily priority list, review pipeline, and forecast revenue.",
+    longDescription: `Deal Desk runs a real sales pipeline from the conversation — no CRM tab, no login, no data leaving the chat.
+
+**Stages:** lead → qualified → demo → proposal → negotiation → closed-won (and closed-lost), with stage history on every deal.
+
+**What it does:** add and move deals, log calls / emails / meetings, set the next action, get a daily priority list (what's overdue or stalled, ranked with reasons), review the whole pipeline (value by stage, weighted pipeline, win rate), and forecast revenue (commit / weighted / best-case, scoped to a month).
+
+The engine is a single deterministic Python script — JSON in, JSON out. No network, no credentials, no file writes. Your agent holds the pipeline state and passes it back each turn, so the math is reproducible and the data stays in your conversation.
+
+Pay-once, no subscription. Queued for the Solid State audit → test gate before it lists on Claw Mart.`,
+    author: "solidstatecc",
+    version: "1.0.0",
+    platforms: ["claude", "openclaw", "generic"],
+    categories: ["Sales", "Productivity"],
+    license: "MIT-0",
+    status: "alpha",
+    provenance: "first-party",
+    featured: true,
+    tags: ["sales", "crm", "pipeline", "forecast", "deals"],
+    createdAt: "2026-06-04",
+  },
 ]
 
 // ---------------------------------------------------------------------------
