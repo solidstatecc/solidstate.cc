@@ -117,7 +117,7 @@ Every skill Solid State lists passes this gate before shipping. The first skill 
 
 Live on [ClawHub](https://clawhub.ai/solidstate/publish-audit). Free, MIT-0.`,
     author: "solidstatecc",
-    version: "0.2.0",
+    version: "0.3.0",
     platforms: ["openclaw", "claude", "generic"],
     categories: ["DevOps", "AI"],
     installCommand: "openclaw skills install publish-audit",
