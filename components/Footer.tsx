@@ -20,6 +20,7 @@ const COLS: Array<{
     links: [
       { href: "https://agentic.market/", label: "Agentic Market", external: true },
       { href: "https://www.shopclawmart.com/", label: "Claw Mart", external: true },
+      { href: "https://clawhub.ai/user/solidstate", label: "ClawHub", external: true },
       { href: "https://x.com/solidstate_cc", label: "X", external: true },
       { href: "https://github.com/solidstatecc", label: "GitHub", external: true },
       { href: "https://solidstate.beehiiv.com/subscribe", label: "Newsletter", external: true },
