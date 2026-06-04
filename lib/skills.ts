@@ -131,6 +131,35 @@ Live on [ClawHub](https://clawhub.ai/solidstate/publish-audit). Free, MIT-0.`,
     tags: ["audit", "publish", "clawhub", "trust", "meta"],
     createdAt: "2026-06-04",
   },
+  {
+    id: "content-engine",
+    name: "Content Engine",
+    slug: "content-engine",
+    kind: "original",
+    description:
+      "One brief becomes a full multi-platform package — video scripts, social posts, blog, newsletter, clips, thumbnails — in your voice, white-label ready.",
+    longDescription: `Content Engine fans one idea out into an entire content package, in a voice you define and control.
+
+**One brief in:** topic, angle, audience, goal, key points. **A full package out:** by default 5 video scripts, 5 social posts, a blog post, a newsletter, 5 thumbnail concepts, and 5 short-form clips — the mix is configurable.
+
+**How it works:** the engine is a single deterministic Python script (JSON in, JSON out) that does the production *operations* — planning the package, atomizing a long piece into platform-fit derivatives, enforcing each channel's character limits, applying branding, and assembling the deliverable. It hands your agent a voice-aware prompt and structure for every asset; the agent writes the prose; the engine packages it. Structure is reproducible, the words are yours. No network, no credentials, no file writes.
+
+**Voice:** define tone, point of view, register, banned words, and signature phrases once — optionally fingerprinted from your own samples — and every asset is written in it. A built-in list of AI-tell words is always excluded.
+
+**White-label / agency tier:** set agency + client branding and a resale flag; the package ships with your byline, footer, and CTA plus a license to edit, brand, publish, and resell the assets as your own. One brief in, a client-ready package out.
+
+Planned at $49–99 pay-once with a white-label resale tier. Queued for the Solid State audit → test gate before it lists on Claw Mart.`,
+    author: "solidstatecc",
+    version: "1.0.0",
+    platforms: ["claude", "openclaw", "generic"],
+    categories: ["Marketing", "Content"],
+    license: "MIT-0",
+    status: "alpha",
+    provenance: "first-party",
+    featured: true,
+    tags: ["content", "repurposing", "social", "video-scripts", "newsletter", "white-label"],
+    createdAt: "2026-06-04",
+  },
 ]
 
 // ---------------------------------------------------------------------------
