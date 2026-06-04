@@ -11,8 +11,6 @@ const COLS: Array<{
       { href: "/glossary", label: "Glossary" },
       { href: "/manifesto", label: "Manifesto" },
       { href: "/submit", label: "Submit a skill" },
-      { href: "/llms.txt", label: "llms.txt", external: true },
-      { href: "/llms-full.txt", label: "llms-full.txt", external: true },
     ],
   },
   {
@@ -30,6 +28,8 @@ const COLS: Array<{
       { href: "https://x.com/solidstate_cc", label: "X", external: true },
       { href: "https://solidstate.beehiiv.com/subscribe", label: "Newsletter", external: true },
       { href: "mailto:hi@solidstate.cc", label: "hi@solidstate.cc" },
+      { href: "/llms.txt", label: "llms.txt", external: true },
+      { href: "/llms-full.txt", label: "llms-full.txt", external: true },
     ],
   },
 ]
