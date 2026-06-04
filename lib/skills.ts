@@ -98,6 +98,39 @@ Use for competitive briefs, market sizings, decision memos, or any moment you'd 
     tags: ["research", "brief", "writing", "voice", "anti-slop"],
     createdAt: "2026-04-26",
   },
+  {
+    id: "publish-audit",
+    name: "Skill Auditor",
+    slug: "publish-audit",
+    kind: "original",
+    description:
+      "Pre-publish audit for ClawHub skills. Nine checks, one verdict: READY or FIX FIRST. Pass the security scan on the first upload.",
+    longDescription: `Skill Auditor is the check before you publish. Not after the rejection.
+
+ClawHub scans every release, and new releases stay hidden until the scan clears. The most common hold: code that reads a credential the frontmatter never declared. This skill catches that — and eight checks more — while you can still fix it.
+
+**The nine checks:** structure, slug, required frontmatter, runtime metadata reconciliation (every env var and binary the code touches vs. what's declared), secrets, license + pricing, instructions quality, trigger quality (IF/THEN descriptions, negative triggers), and staleness resistance.
+
+**Output:** a line-by-line report with the exact fix per failure, ending in one verdict — READY or FIX FIRST. No network calls. No credentials. It reads files and reasons.
+
+Every skill Solid State lists passes this gate before shipping. The first skill through it: itself — scan Pass on the first upload.
+
+Live on [ClawHub](https://clawhub.ai/solidstate/publish-audit). Free, MIT-0.`,
+    author: "solidstatecc",
+    version: "0.2.0",
+    platforms: ["openclaw", "claude", "generic"],
+    categories: ["DevOps", "AI"],
+    installCommand: "openclaw skills install publish-audit",
+    repoUrl: "https://github.com/solidstatecc/skills",
+    docsUrl: "https://clawhub.ai/solidstate/publish-audit",
+    license: "MIT-0",
+    status: "stable",
+    provenance: "first-party",
+    price: "free",
+    featured: true,
+    tags: ["audit", "publish", "clawhub", "trust", "meta"],
+    createdAt: "2026-06-04",
+  },
 ]
 
 // ---------------------------------------------------------------------------
