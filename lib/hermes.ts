@@ -44,7 +44,7 @@ export const hermesListings: Skill[] = [
     featured: false,
     tags: ["hermes", "youtube", "transcripts", "content"],
     createdAt: "2026-06-07",
-    source: "hermes:skills/media/youtube-content",
+    source: "NousResearch/hermes-agent",
     external: true,
   },
   {
@@ -68,7 +68,7 @@ export const hermesListings: Skill[] = [
     featured: false,
     tags: ["hermes", "debugging", "engineering", "workflow"],
     createdAt: "2026-06-07",
-    source: "hermes:skills/software-development/systematic-debugging",
+    source: "NousResearch/hermes-agent",
     external: true,
   },
   {
@@ -92,7 +92,7 @@ export const hermesListings: Skill[] = [
     featured: false,
     tags: ["hermes", "tdd", "testing", "engineering"],
     createdAt: "2026-06-07",
-    source: "hermes:skills/software-development/test-driven-development",
+    source: "NousResearch/hermes-agent",
     external: true,
   },
   {
@@ -116,7 +116,7 @@ export const hermesListings: Skill[] = [
     featured: false,
     tags: ["hermes", "diagrams", "excalidraw", "design"],
     createdAt: "2026-06-07",
-    source: "hermes:skills/creative/excalidraw",
+    source: "NousResearch/hermes-agent",
     external: true,
   },
   {
@@ -140,7 +140,7 @@ export const hermesListings: Skill[] = [
     featured: false,
     tags: ["hermes", "design-systems", "html", "css"],
     createdAt: "2026-06-07",
-    source: "hermes:skills/creative/popular-web-designs",
+    source: "NousResearch/hermes-agent",
     external: true,
   },
   {
@@ -164,7 +164,7 @@ export const hermesListings: Skill[] = [
     featured: false,
     tags: ["hermes", "manim", "video", "math"],
     createdAt: "2026-06-07",
-    source: "hermes:skills/creative/manim-video",
+    source: "NousResearch/hermes-agent",
     external: true,
   },
   {
@@ -188,7 +188,7 @@ export const hermesListings: Skill[] = [
     featured: false,
     tags: ["hermes", "ocr", "pdf", "documents"],
     createdAt: "2026-06-07",
-    source: "hermes:skills/productivity/ocr-and-documents",
+    source: "NousResearch/hermes-agent",
     external: true,
   },
   {
@@ -212,7 +212,7 @@ export const hermesListings: Skill[] = [
     featured: false,
     tags: ["hermes", "maps", "geocoding", "openstreetmap"],
     createdAt: "2026-06-07",
-    source: "hermes:skills/productivity/maps",
+    source: "NousResearch/hermes-agent",
     external: true,
   },
   {
@@ -236,7 +236,7 @@ export const hermesListings: Skill[] = [
     featured: false,
     tags: ["hermes", "arxiv", "research", "papers"],
     createdAt: "2026-06-07",
-    source: "hermes:skills/research/arxiv",
+    source: "NousResearch/hermes-agent",
     external: true,
   },
   // ---- optional (hermes skills install official/<category>/<name>) --------
@@ -262,7 +262,7 @@ export const hermesListings: Skill[] = [
     featured: false,
     tags: ["hermes", "search", "duckduckgo", "research"],
     createdAt: "2026-06-07",
-    source: "hermes:optional-skills/research/duckduckgo-search",
+    source: "NousResearch/hermes-agent",
     external: true,
   },
   {
@@ -287,7 +287,7 @@ export const hermesListings: Skill[] = [
     featured: false,
     tags: ["hermes", "domains", "osint", "dns"],
     createdAt: "2026-06-07",
-    source: "hermes:optional-skills/research/domain-intel",
+    source: "NousResearch/hermes-agent",
     external: true,
   },
   {
@@ -312,7 +312,7 @@ export const hermesListings: Skill[] = [
     featured: false,
     tags: ["hermes", "security", "supply-chain", "forensics"],
     createdAt: "2026-06-07",
-    source: "hermes:optional-skills/security/oss-forensics",
+    source: "NousResearch/hermes-agent",
     external: true,
   },
   {
@@ -337,7 +337,7 @@ export const hermesListings: Skill[] = [
     featured: false,
     tags: ["hermes", "mcp", "fastmcp", "python"],
     createdAt: "2026-06-07",
-    source: "hermes:optional-skills/mcp/fastmcp",
+    source: "NousResearch/hermes-agent",
     external: true,
   },
   {
@@ -362,7 +362,7 @@ export const hermesListings: Skill[] = [
     featured: false,
     tags: ["hermes", "memes", "images", "creative"],
     createdAt: "2026-06-07",
-    source: "hermes:optional-skills/creative/meme-generation",
+    source: "NousResearch/hermes-agent",
     external: true,
   },
   {
@@ -387,7 +387,7 @@ export const hermesListings: Skill[] = [
     featured: false,
     tags: ["hermes", "solana", "crypto", "onchain"],
     createdAt: "2026-06-07",
-    source: "hermes:optional-skills/blockchain/solana",
+    source: "NousResearch/hermes-agent",
     external: true,
   },
 ]
