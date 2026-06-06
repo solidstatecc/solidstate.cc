@@ -9,8 +9,25 @@
     "dark": "#0A0A0A"
   },
   "appearance": {
-    "default": "dark"
+    "default": "dark",
+    "strict": true
   },
+  "background": {
+    "color": {
+      "light": "#FFFFFF",
+      "dark": "#000000"
+    }
+  },
+  "fonts": {
+    "heading": {
+      "family": "JetBrains Mono"
+    },
+    "body": {
+      "family": "Geist"
+    }
+  },
+  "logo": "/logo/logo-dark.png",
+  "favicon": "/favicon.svg",
   "navigation": {
     "groups": [
       {

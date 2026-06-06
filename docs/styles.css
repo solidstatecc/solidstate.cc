@@ -1,0 +1,74 @@
+/* Solid State — match solidstate.cc
+   bg #000 · fg #fff · border #222 · muted #a3a3a3
+   JetBrains Mono labels, uppercase, tracked */
+
+:root {
+  --ss-border: #222222;
+  --ss-muted: #a3a3a3;
+}
+
+/* Selection: inverse, like the main site */
+::selection {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* Navbar + sidebar labels: mono, uppercase, tracked — the site's nav grammar */
+#navbar a,
+#navbar button {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+#sidebar [data-group] > div:first-child,
+#sidebar h5,
+#sidebar-content h5 {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ss-muted);
+}
+
+/* Borders: the site's #222 hairline */
+html.dark #navbar,
+html.dark #sidebar {
+  border-color: var(--ss-border);
+}
+
+html.dark hr {
+  border-color: var(--ss-border);
+}
+
+/* Tables: hairline borders, no zebra fills */
+html.dark table,
+html.dark th,
+html.dark td {
+  border-color: var(--ss-border);
+}
+
+/* Code blocks: near-black surface, hairline border */
+html.dark pre {
+  background-color: #0a0a0a;
+  border: 1px solid var(--ss-border);
+}
+
+/* Links in prose: white, dim on hover — site behavior */
+html.dark .prose a {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+html.dark .prose a:hover {
+  opacity: 0.7;
+}
+
+/* Focus ring: white, like the site */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
