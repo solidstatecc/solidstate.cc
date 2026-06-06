@@ -2,5 +2,15 @@
   "framework": "nextjs",
   "buildCommand": "npm run build",
   "devCommand": "npm run dev",
-  "outputDirectory": ".next"
+  "outputDirectory": ".next",
+  "rewrites": [
+    {
+      "source": "/docs",
+      "destination": "https://solidstate.mintlify.dev/docs"
+    },
+    {
+      "source": "/docs/:match*",
+      "destination": "https://solidstate.mintlify.dev/docs/:match*"
+    }
+  ]
 }
