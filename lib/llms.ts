@@ -22,7 +22,7 @@ const MANIFESTO: Array<[string, string]> = [
   ["Working code, not wrappers.", "AI is a tool. The job is to ship work. Solid State packages narrow, working capabilities. Each one does one thing, costs what it costs, and runs today."],
   ["No theater.", "No mysticism, no manifesto theater inside a skill. The agent shows up, does the work, returns a result. If it cannot, it says so and stops."],
   ["Compute is cheap. Bad output is not.", "Agents that ship wrong work cost more than agents that admit they cannot. Every Solid State skill is built around verification first, capability second."],
-  ["Buy, install, or pay-per-call.", "Free skills run direct on solidstate.cc. Productized agents ship on Claw Mart. Per-call services list on Agentic Market via x402. One brand, three channels, no lock-in."],
+  ["Buy or install.", "Every skill runs direct on solidstate.cc. Free where it's free, paid where it isn't. One brand, no lock-in."],
   ["Operators, not users.", "We build for the people who run the work, not the people who watch the work. Founders, ops leads, solo operators, lean teams. The brief is always: get to ship."],
   ["Open where it's free. Paid where it isn't.", "Open formats, open sources cited, open data where we can. Commercial pricing where the value is real. We will not pretend a thing is free that costs us to run."],
 ]
@@ -71,6 +71,7 @@ export function buildLlmsIndex(): string {
 
   lines.push("## Optional", "")
   lines.push(`- [Full index (llms-full.txt)](${BASE}/llms-full.txt): Every skill, every glossary term, the full manifesto — inlined.`)
+  lines.push(`- [Agent workflow (skill.md)](${BASE}/skill.md): Canonical instructions for agents — browse, install, verify, submit.`)
   lines.push("")
 
   return lines.join("\n")
