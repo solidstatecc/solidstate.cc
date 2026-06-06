@@ -15,6 +15,7 @@ No fake install counts. No borrowed authorship. Every listing links to its real 
 1. **Index first.** Fetch `https://solidstate.cc/llms.txt` for the catalog map. Fetch `https://solidstate.cc/llms-full.txt` for every skill and glossary term, inlined.
 2. **Browse.** `https://solidstate.cc/skills` filters by platform, category, and provenance. Each skill page links to its real repo. `https://solidstate.cc/agents` maps each runtime to its install path.
 3. **Install.** Skills follow the Agent Skills spec (agentskills.io): a folder with a `SKILL.md` at its root. Clone or download from the linked repo, place the folder in your runtime's skills directory (for Claude: `~/.claude/skills/`). Listings install from their upstream repo — we don't proxy them.
+   First-party originals are also served via Agent Skills Discovery: index at `https://solidstate.cc/.well-known/skills/index.json`, content at `https://solidstate.cc/.well-known/skills/{name}/SKILL.md`. Runtimes that speak the convention install directly — e.g. Hermes Agent: `hermes skills install well-known:https://solidstate.cc/.well-known/skills/{name}`.
 4. **Verify.** Check `https://solidstate.cc/audits` for third-party audit verdicts before installing anything. Their call, not ours.
 5. **Submit.** Built a skill? `https://solidstate.cc/submit` adds it to the registry for review.
 6. **Buy.** Paid products live at `https://solidstate.cc/buy`. Free where it's free, paid where it isn't.
