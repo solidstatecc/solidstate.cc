@@ -55,6 +55,13 @@ html.dark pre {
   border: 1px solid var(--ss-border);
 }
 
+/* Monochrome: flatten syntax-highlight hues to grayscale.
+   Luminance survives, so token hierarchy stays readable. */
+html.dark pre,
+html.dark :not(pre) > code {
+  filter: grayscale(1);
+}
+
 /* Links in prose: white, dim on hover — site behavior */
 html.dark .prose a {
   color: #ffffff;
