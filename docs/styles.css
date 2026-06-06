@@ -62,6 +62,16 @@ html.dark :not(pre) > code {
   filter: grayscale(1);
 }
 
+/* Prose scale: match the main site's density (body 14px, code 13px) */
+.prose :where(p, li) {
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+html.dark pre code {
+  font-size: 13px;
+}
+
 /* Links in prose: white, dim on hover — site behavior */
 html.dark .prose a {
   color: #ffffff;

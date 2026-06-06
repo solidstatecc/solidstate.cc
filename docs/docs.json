@@ -23,7 +23,7 @@
       "family": "JetBrains Mono"
     },
     "body": {
-      "family": "Geist"
+      "family": "Inter"
     }
   },
   "logo": "/logo/logo-dark.png",
@@ -37,7 +37,8 @@
           "authoring",
           "submitting",
           "licensing",
-          "for-agents"
+          "for-agents",
+          "terms"
         ]
       }
     ]
