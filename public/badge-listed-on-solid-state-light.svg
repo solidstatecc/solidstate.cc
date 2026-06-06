@@ -1,0 +1,11 @@
+<svg width="184" height="30" viewBox="0 0 184 30" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Listed on Solid State">
+  <rect width="184" height="30" fill="#ffffff"/>
+  <rect x="0.5" y="0.5" width="183" height="29" stroke="#dddddd"/>
+  <g fill="#000000">
+    <rect x="10" y="8" width="3" height="14" rx="0.5"/>
+    <rect x="15" y="8" width="3" height="14" rx="0.5"/>
+    <rect x="20" y="8" width="3" height="14" rx="0.5"/>
+  </g>
+  <text x="32" y="19.5" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" letter-spacing="0.08em" fill="#777777">LISTED ON</text>
+  <text x="96" y="19.5" font-family="JetBrains Mono, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" font-weight="700" letter-spacing="0.08em" fill="#000000">SOLID STATE</text>
+</svg>

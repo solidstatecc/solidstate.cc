@@ -106,6 +106,55 @@ export default function SubmitPage() {
       <div style={{ maxWidth: "720px", margin: "0 auto", padding: "40px 24px" }}>
         <SubmitForm />
       </div>
+
+      {/* Badge */}
+      <div style={{ borderTop: "1px solid #222222" }}>
+        <div style={{ maxWidth: "720px", margin: "0 auto", padding: "40px 24px 64px" }}>
+          <h2
+            style={{
+              fontFamily: "var(--font-jetbrains-mono), monospace",
+              fontSize: "14px",
+              fontWeight: 700,
+              color: "#ffffff",
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+              margin: "0 0 8px",
+            }}
+          >
+            Listed? Show it.
+          </h2>
+          <p style={{ fontSize: "13px", color: "#999999", margin: "0 0 20px", lineHeight: 1.6 }}>
+            Drop the badge in your README. Links back to your listing.
+          </p>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/badge-listed-on-solid-state.svg"
+            alt="Listed on Solid State"
+            width={184}
+            height={30}
+            style={{ display: "block", marginBottom: "20px" }}
+          />
+          <pre
+            style={{
+              fontFamily: "var(--font-jetbrains-mono), monospace",
+              fontSize: "12px",
+              color: "#cccccc",
+              backgroundColor: "#111111",
+              border: "1px solid #222222",
+              padding: "16px 20px",
+              overflowX: "auto",
+              whiteSpace: "pre-wrap",
+              wordBreak: "break-all",
+              margin: 0,
+            }}
+          >
+            {`[![Listed on Solid State](https://solidstate.cc/badge-listed-on-solid-state.svg)](https://solidstate.cc/skills/YOUR-SKILL-SLUG)`}
+          </pre>
+          <p style={{ fontSize: "12px", color: "#555555", margin: "12px 0 0", lineHeight: 1.6 }}>
+            Light variant: /badge-listed-on-solid-state-light.svg
+          </p>
+        </div>
+      </div>
     </div>
   )
 }

@@ -56,6 +56,24 @@ export const agents: AgentRuntime[] = [
     openSource: false,
   },
   {
+    id: "hermes",
+    slug: "hermes",
+    name: "Hermes Agent",
+    vendor: "Nous Research",
+    surfaces: ["terminal", "desktop", "cloud"],
+    description:
+      "The self-improving agent from Nous Research. Built-in learning loop: it creates skills from experience, improves them during use, and remembers across sessions. Runs local, Docker, SSH, or serverless (Daytona, Modal), and talks through 20+ messaging platforms.",
+    skillInstall:
+      "Drop a skill folder into ~/.hermes/skills/ — one folder, one SKILL.md. Hermes is agentskills.io-compatible and also writes its own skills as it works.",
+    skillsDir: "~/.hermes/skills/",
+    catalogPlatform: "generic",
+    specCompliant: true,
+    siteUrl: "https://hermes-agent.nousresearch.com",
+    repoUrl: "https://github.com/NousResearch/hermes-agent",
+    docsUrl: "https://hermes-agent.nousresearch.com/docs",
+    openSource: true,
+  },
+  {
     id: "openclaw",
     slug: "openclaw",
     name: "OpenClaw",
