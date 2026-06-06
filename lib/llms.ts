@@ -57,6 +57,7 @@ export function buildLlmsIndex(): string {
   lines.push("## Skills", "")
   lines.push(`- [Browse Skills](${BASE}/skills): Filter every indexed skill by platform, category, and provenance.`)
   for (const s of originals) lines.push(`- [${s.name}](${BASE}/skills/${s.slug}): ${oneLine(s.description)}`)
+  lines.push(`- [Agent Directory](${BASE}/agents): The runtimes that run skills — what each one is and how skills install on it.`)
   lines.push(`- [Official Makers](${BASE}/official): Skills from the companies that build the tech — the makers teaching you their product.`)
   lines.push(`- [Security Audits](${BASE}/audits): Third-party audit verdicts from Gen Agent Trust Hub, Socket, and Snyk. Their call, not ours.`)
   lines.push(`- [Submit a Skill](${BASE}/submit): Add your skill to the registry for review.`, "")
