@@ -2,8 +2,9 @@ import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import { skills, getSkillBySlug } from "@/lib/skills"
+import { getSourceForSkill } from "@/lib/sources"
 import { LICENSE_LABEL } from "@/lib/types"
-import { agenticUrl, priceDisplay } from "@/lib/x402"
+import { priceDisplay } from "@/lib/x402"
 import { PlatformBadge } from "@/components/PlatformBadge"
 import { CopyButton } from "@/components/CopyButton"
 import { SkillCard } from "@/components/SkillCard"
@@ -40,6 +41,8 @@ export default async function SkillDetailPage({ params }: Props) {
     .slice(0, 3)
 
   const isClawhub = skill.source?.startsWith("clawhub:") ?? false
+  // Pack page for this skill's upstream source, if it has one.
+  const sourceGroup = getSourceForSkill(skill)
   const licenseUnstated = skill.license === "undeclared" || skill.license === "unknown"
   const showProvenanceNote = skill.provenance === "indexed" && (licenseUnstated || isClawhub)
 
@@ -48,12 +51,9 @@ export default async function SkillDetailPage({ params }: Props) {
   const isUnpricedLabel = priceLabel === "—"
   const priceDisplayLabel = isFreeLabel ? "FREE" : priceLabel
   const priceColor = isUnpricedLabel ? "#666666" : "#ffffff"
-  const isPaidLabel = !isFreeLabel && !isUnpricedLabel
-  // Only paid skills go to Agentic Market. Free + indexed listings link to the
-  // real source (repo, then ClawHub listing) — never the payment marketplace.
-  const ctaHref = isPaidLabel
-    ? agenticUrl(skill)
-    : skill.repoUrl ?? skill.docsUrl ?? agenticUrl(skill)
+  // Every skill links to its real source (repo, then docs). Falls back to the
+  // skills directory if neither is set.
+  const ctaHref = skill.repoUrl ?? skill.docsUrl ?? "/skills"
 
   return (
     <div style={{ backgroundColor: "#000000", minHeight: "100vh" }}>
@@ -159,7 +159,20 @@ export default async function SkillDetailPage({ params }: Props) {
                 gap: "12px",
               }}
             >
-              <span>by {skill.author}</span>
+              {sourceGroup ? (
+                <span>
+                  by{" "}
+                  <Link
+                    href={`/source/${sourceGroup.slug}`}
+                    style={{ color: "#ffffff", textDecoration: "underline" }}
+                    title={`All ${sourceGroup.skills.length} skills from ${sourceGroup.source}`}
+                  >
+                    {skill.author}
+                  </Link>
+                </span>
+              ) : (
+                <span>by {skill.author}</span>
+              )}
               <span>·</span>
               <span>v{skill.version}</span>
               <span>·</span>
@@ -459,11 +472,7 @@ export default async function SkillDetailPage({ params }: Props) {
                 marginBottom: "12px",
               }}
             >
-              {isFreeLabel
-                ? "Install Free →"
-                : isUnpricedLabel
-                ? "View Source →"
-                : "View on Agentic Market →"}
+              {isFreeLabel ? "Install Free →" : "View Source →"}
             </a>
 
             <div

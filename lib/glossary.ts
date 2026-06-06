@@ -381,15 +381,13 @@ Gateway is the brain. Nodes are the hands.`,
     slug: "x402",
     term: "x402",
     short:
-      "HTTP 402 Payment Required, revived as a per-call payment protocol for agents. Powers Agentic Market.",
+      "HTTP 402 Payment Required, revived as a per-call payment protocol for agents.",
     level: "expert",
     readMinutes: 7,
     related: ["agent", "tool-use"],
     long: `x402 turns the dormant HTTP 402 status code into a working micropayment handshake. An agent calls a service, gets a 402 with payment instructions, settles the payment, retries the call with proof, and gets the response.
 
-The protocol is custodied infrastructure (Coinbase Developer Platform, Linux Foundation governance). Agents pay per request. No account, no signup, no rotating API keys to manage.
-
-Solid State exposes a subset of skills as x402 services on Agentic Market.`,
+The protocol is custodied infrastructure (Coinbase Developer Platform, Linux Foundation governance). Agents pay per request. No account, no signup, no rotating API keys to manage.`,
   },
   {
     slug: "harness",

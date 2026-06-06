@@ -5,6 +5,7 @@ import type { MetadataRoute } from "next"
 import { skills } from "@/lib/skills"
 import { glossary } from "@/lib/glossary"
 import { agents } from "@/lib/agents"
+import { sourceGroups } from "@/lib/sources"
 
 const BASE = "https://solidstate.cc"
 
@@ -43,5 +44,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.5,
   }))
 
-  return [...statics, ...skillPages, ...agentPages, ...glossaryPages]
+  const sourcePages: MetadataRoute.Sitemap = sourceGroups.map((g) => ({
+    url: `${BASE}/source/${g.slug}`,
+    changeFrequency: "weekly" as const,
+    priority: 0.7,
+  }))
+
+  return [...statics, ...skillPages, ...agentPages, ...glossaryPages, ...sourcePages]
 }

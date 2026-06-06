@@ -52,7 +52,6 @@ const SKUS: Sku[] = [
     hook: "forest + audit + oracle. One run. One dollar.",
     bullets: [
       "Run as a one-off here.",
-      "Or call via x402 on Agentic Market.",
       "Use it before pitching anything.",
     ],
   },

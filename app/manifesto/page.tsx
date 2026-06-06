@@ -21,8 +21,8 @@ const SECTIONS: Array<{ heading: string; body: string }> = [
     body: "Agents that ship wrong work cost more than agents that admit they cannot. Every Solid State skill is built around verification first, capability second.",
   },
   {
-    heading: "Buy, install, or pay-per-call.",
-    body: "Free skills run direct on solidstate.cc. Productized agents ship on Claw Mart. Per-call services list on Agentic Market via x402. One brand, three channels, no lock-in.",
+    heading: "Buy or install.",
+    body: "Every skill runs direct on solidstate.cc. Free where it's free, paid where it isn't. One brand, no lock-in.",
   },
   {
     heading: "Operators, not users.",

@@ -1,0 +1,200 @@
+import type { Metadata } from "next"
+import { notFound } from "next/navigation"
+import Link from "next/link"
+import { sourceGroups, getSourceBySlug } from "@/lib/sources"
+import { formatInstalls } from "@/lib/format"
+import { CopyButton } from "@/components/CopyButton"
+import { SkillCard } from "@/components/SkillCard"
+
+type Props = {
+  params: Promise<{ slug: string }>
+}
+
+export async function generateStaticParams() {
+  return sourceGroups.map((g) => ({ slug: g.slug }))
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params
+  const group = getSourceBySlug(slug)
+  if (!group) return {}
+  return {
+    title: `${group.source} — skill pack`,
+    description: `All ${group.skills.length} agent skills from ${group.source}, indexed on Solid State. One install command, every skill listed.`,
+  }
+}
+
+const mono = "var(--font-jetbrains-mono), monospace"
+
+export default async function SourcePage({ params }: Props) {
+  const { slug } = await params
+  const group = getSourceBySlug(slug)
+  if (!group) notFound()
+
+  const fetchedAt = group.skills.find((s) => s.stats?.fetchedAt)?.stats?.fetchedAt
+
+  return (
+    <div style={{ backgroundColor: "#000000", minHeight: "100vh" }}>
+      {/* Breadcrumb */}
+      <div style={{ borderBottom: "1px solid #000000", padding: "14px 24px" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <nav
+            style={{
+              fontFamily: mono,
+              fontSize: "11px",
+              color: "#ffffff",
+              display: "flex",
+              alignItems: "center",
+              gap: "6px",
+            }}
+          >
+            <Link href="/skills" style={{ color: "#ffffff", textDecoration: "none" }}>
+              Skills
+            </Link>
+            <span>›</span>
+            <span style={{ color: "#888888" }}>Source</span>
+            <span>›</span>
+            <span style={{ color: "#ffffff" }}>{group.source}</span>
+          </nav>
+        </div>
+      </div>
+
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "40px 24px" }}>
+        {/* Header */}
+        <div style={{ marginBottom: "40px", maxWidth: "720px" }}>
+          <div
+            style={{
+              fontFamily: mono,
+              fontSize: "10px",
+              color: "#888888",
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+              marginBottom: "12px",
+            }}
+          >
+            Skill pack · Indexed
+          </div>
+          <h1
+            style={{
+              fontFamily: mono,
+              fontSize: "28px",
+              fontWeight: 700,
+              color: "#ffffff",
+              letterSpacing: "-0.02em",
+              margin: "0 0 16px",
+            }}
+          >
+            {group.source}
+          </h1>
+
+          <div
+            style={{
+              fontFamily: mono,
+              fontSize: "11px",
+              color: "#888888",
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "12px",
+              marginBottom: "20px",
+            }}
+          >
+            <span style={{ color: "#ffffff" }}>{group.skills.length} skills</span>
+            {group.totalInstalls > 0 && (
+              <>
+                <span>·</span>
+                <span>{formatInstalls(group.totalInstalls)} installs across the pack</span>
+              </>
+            )}
+            {group.trendingCount > 0 && (
+              <>
+                <span>·</span>
+                <span>{group.trendingCount} trending</span>
+              </>
+            )}
+            {group.repoUrl && (
+              <>
+                <span>·</span>
+                <a
+                  href={group.repoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: "#ffffff", textDecoration: "underline" }}
+                >
+                  Source repo →
+                </a>
+              </>
+            )}
+          </div>
+
+          {/* Pack-level install */}
+          {group.installCommand && (
+            <div
+              style={{
+                backgroundColor: "#080808",
+                border: "1px solid #222222",
+                borderRadius: "6px",
+                padding: "16px 20px",
+              }}
+            >
+              <div
+                style={{
+                  fontFamily: mono,
+                  fontSize: "10px",
+                  fontWeight: 600,
+                  color: "#888888",
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                  marginBottom: "10px",
+                }}
+              >
+                Install the pack
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                <code
+                  style={{
+                    fontFamily: mono,
+                    fontSize: "13px",
+                    color: "#ffffff",
+                    flex: 1,
+                    wordBreak: "break-all",
+                  }}
+                >
+                  {group.installCommand}
+                </code>
+                <CopyButton text={group.installCommand} label="Copy" />
+              </div>
+            </div>
+          )}
+
+          <p
+            style={{
+              fontFamily: mono,
+              fontSize: "11px",
+              color: "#555555",
+              lineHeight: 1.6,
+              marginTop: "16px",
+            }}
+          >
+            Indexed for discovery — not audited or authored by Solid State.
+            {group.totalInstalls > 0 && fetchedAt && (
+              <> Install counts are real, sourced from skills.sh public telemetry (fetched {fetchedAt}).</>
+            )}
+          </p>
+        </div>
+
+        {/* Member skills */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
+            gap: "16px",
+          }}
+        >
+          {group.skills.map((s) => (
+            <SkillCard key={s.id} skill={s} />
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
