@@ -30,7 +30,10 @@ export default async function AgentPage({ params }: Props) {
   const agent = getAgentBySlug(slug)
   if (!agent) notFound()
 
-  const matching = skills.filter((s) => s.platforms.includes(agent.catalogPlatform))
+  // "generic" skills run on any spec-compliant runtime, so they count for every agent.
+  const matching = skills.filter(
+    (s) => s.platforms.includes(agent.catalogPlatform) || s.platforms.includes("generic")
+  )
 
   return (
     <div style={{ backgroundColor: "#000000", minHeight: "100vh" }}>
@@ -173,10 +176,8 @@ export default async function AgentPage({ params }: Props) {
               maxWidth: "640px",
             }}
           >
-            {matching.length} indexed skills are tagged for this runtime
-            {agent.catalogPlatform === "generic"
-              ? " (spec-compliant, runtime-agnostic)."
-              : "."}
+            {matching.length} indexed skills run on this runtime, including
+            spec-compliant runtime-agnostic skills.
           </p>
           <Link
             href={`/skills?platform=${agent.catalogPlatform}`}

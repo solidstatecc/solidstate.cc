@@ -1,12 +1,4 @@
-import { Platform } from "@/lib/types"
-
-const PLATFORM_CONFIG: Record<Platform, { label: string }> = {
-  claude: { label: "Claude" },
-  openclaw: { label: "OpenClaw" },
-  nemoclaw: { label: "NemoClaw" },
-  antigravity: { label: "Antigravity" },
-  generic: { label: "Generic" },
-}
+import { Platform, PLATFORM_LABEL } from "@/lib/types"
 
 interface PlatformBadgeProps {
   platform: Platform
@@ -14,7 +6,7 @@ interface PlatformBadgeProps {
 }
 
 export function PlatformBadge({ platform, size = "sm" }: PlatformBadgeProps) {
-  const config = PLATFORM_CONFIG[platform]
+  const label = PLATFORM_LABEL[platform] ?? platform
   const fontSize = size === "md" ? "11px" : "10px"
   const padding = size === "md" ? "3px 8px" : "2px 6px"
 
@@ -34,7 +26,7 @@ export function PlatformBadge({ platform, size = "sm" }: PlatformBadgeProps) {
         whiteSpace: "nowrap",
       }}
     >
-      {config.label}
+      {label}
     </span>
   )
 }

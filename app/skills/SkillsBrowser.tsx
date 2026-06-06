@@ -2,7 +2,7 @@
 
 import { useState, useMemo, useEffect } from "react"
 import { useSearchParams, useRouter, usePathname } from "next/navigation"
-import { Skill, Platform } from "@/lib/types"
+import { Skill, Platform, PLATFORM_LABEL } from "@/lib/types"
 import { priceDisplay, isUnpriced } from "@/lib/x402"
 import { SkillCard } from "@/components/SkillCard"
 import { Leaderboard } from "@/components/Leaderboard"
@@ -64,7 +64,12 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
     }
 
     if (selectedPlatform) {
-      result = result.filter((s) => s.platforms.includes(selectedPlatform as Platform))
+      // "generic" skills run on any spec-compliant runtime, so they match every platform.
+      result = result.filter(
+        (s) =>
+          s.platforms.includes(selectedPlatform as Platform) ||
+          s.platforms.includes("generic")
+      )
     }
 
     if (priceFilter === "free") {
@@ -188,7 +193,7 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
             <option value="">All platforms</option>
             {platforms.map((p) => (
               <option key={p} value={p}>
-                {p.charAt(0).toUpperCase() + p.slice(1)}
+                {PLATFORM_LABEL[p as Platform] ?? p}
               </option>
             ))}
           </select>

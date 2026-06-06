@@ -12,7 +12,34 @@
 //   5. Stats are now optional. No record may carry a non-zero install count
 //      that isn't backed by a real telemetry source.
 
-export type Platform = "claude" | "openclaw" | "nemoclaw" | "antigravity" | "generic"
+export type Platform =
+  | "claude"
+  | "hermes"
+  | "openclaw"
+  | "nemoclaw"
+  | "antigravity"
+  | "codex"
+  | "cursor"
+  | "opencode"
+  | "cline"
+  | "generic"
+
+/**
+ * Display names for platforms — the real agent names, matching lib/agents.ts.
+ * "generic" is a skill tag (runs on any spec-compliant runtime), not a runtime.
+ */
+export const PLATFORM_LABEL: Record<Platform, string> = {
+  claude: "Claude Code",
+  hermes: "Hermes Agent",
+  openclaw: "OpenClaw",
+  nemoclaw: "NemoClaw",
+  antigravity: "Antigravity",
+  codex: "Codex",
+  cursor: "Cursor",
+  opencode: "OpenCode",
+  cline: "Cline",
+  generic: "Generic",
+}
 
 export type Kind = "original" | "listing"
 
@@ -46,23 +73,6 @@ export type Status = "planned" | "alpha" | "beta" | "stable" | "deprecated"
  */
 export type Provenance = "first-party" | "audited" | "indexed" | "mirrored"
 
-/**
- * Distribution channel = where a buyer can get the skill.
- * Different from Platform = where the skill runs.
- */
-export type DistributionChannel = "self" | "clawmart" | "agentic"
-
-export interface ChannelListing {
-  channel: DistributionChannel
-  url?: string
-  /** "free" for self-hosted free skills, number = USD. */
-  price: number | "free"
-  /** "per-use" for x402, "one-time" for clawmart, "free" for self. */
-  unit: "one-time" | "per-use" | "free"
-  /** Display label, optional override. */
-  label?: string
-}
-
 export interface Stats {
   /** Real install count from a telemetry source. Omit if unknown. */
   installs?: number
@@ -92,9 +102,7 @@ export interface Skill {
   license: License
   status: Status
   provenance: Provenance
-  /** Where this skill can be bought / installed. */
-  channels?: ChannelListing[]
-  /** Legacy single price field. Prefer `channels` for new listings. */
+  /** "free", 0, or a USD amount. Omit if unpriced. */
   price?: "free" | number
   featured: boolean
   tags: string[]
@@ -110,18 +118,6 @@ export interface Skill {
 }
 
 // ---------------------------------------------------------------------------
-
-export const CHANNEL_LABEL: Record<DistributionChannel, string> = {
-  self: "Solid State",
-  clawmart: "Claw Mart",
-  agentic: "Agentic Market",
-}
-
-export const CHANNEL_URL: Record<DistributionChannel, string> = {
-  self: "https://solidstate.cc",
-  clawmart: "https://www.shopclawmart.com/",
-  agentic: "https://agentic.market/",
-}
 
 export const LICENSE_LABEL: Record<License, string> = {
   MIT: "MIT",

@@ -963,7 +963,22 @@ export const CATEGORIES = Array.from(
   new Set(skills.flatMap((s) => s.categories))
 ).sort()
 
-export const PLATFORMS = ["claude", "openclaw", "nemoclaw", "antigravity", "generic"] as const
+/**
+ * The 9 agent runtimes from lib/agents.ts, in directory order.
+ * "generic" is intentionally not listed here — it's a skill tag meaning
+ * "any spec-compliant runtime", and generic skills match every platform filter.
+ */
+export const PLATFORMS = [
+  "claude",
+  "hermes",
+  "openclaw",
+  "nemoclaw",
+  "antigravity",
+  "codex",
+  "cursor",
+  "opencode",
+  "cline",
+] as const
 
 /**
  * Real, computable stats. No fabricated install counts.

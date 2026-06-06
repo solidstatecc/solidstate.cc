@@ -41,7 +41,7 @@ export function buildLlmsIndex(): string {
   const lines: string[] = []
   lines.push("# Solid State", "")
   lines.push(
-    "> The skills marketplace for AI agents. Browse, install, and publish skills for Claude, OpenClaw, NemoClaw, Google Antigravity, and any agent runtime. Multi-platform. Verified. Operator-grade.",
+    "> The skills marketplace for AI agents. Browse, install, and publish skills for Claude Code, Hermes Agent, OpenClaw, NemoClaw, Google Antigravity, Codex, Cursor, OpenCode, and Cline. Multi-platform. Verified. Operator-grade.",
     ""
   )
   lines.push(

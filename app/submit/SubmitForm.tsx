@@ -2,6 +2,10 @@
 
 import { useState } from "react"
 import { CATEGORIES, PLATFORMS } from "@/lib/skills"
+import { Platform, PLATFORM_LABEL } from "@/lib/types"
+
+// Submitters can also tag a skill "generic" (any spec-compliant runtime).
+const SUBMIT_PLATFORMS: Platform[] = [...PLATFORMS, "generic"]
 
 type FormState = "idle" | "submitting" | "success" | "error"
 
@@ -316,7 +320,7 @@ export function SubmitForm() {
       <div style={fieldStyle}>
         <label style={labelStyle}>Compatible platforms *</label>
         <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginTop: "4px" }}>
-          {PLATFORMS.map((p) => (
+          {SUBMIT_PLATFORMS.map((p) => (
             <button
               key={p}
               type="button"
@@ -335,7 +339,7 @@ export function SubmitForm() {
                 letterSpacing: "0.03em",
               }}
             >
-              {p.charAt(0).toUpperCase() + p.slice(1)}
+              {PLATFORM_LABEL[p]}
             </button>
           ))}
         </div>

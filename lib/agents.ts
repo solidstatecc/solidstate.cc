@@ -8,7 +8,8 @@
 //   - Every record links to its real home.
 //
 // `catalogPlatform` ties a runtime to the /skills?platform= filter.
-// Spec clients we don't tag skills for yet map to "generic".
+// Every runtime has its own slug; skills tagged "generic" (any spec-compliant
+// runtime) match every platform filter.
 
 import { Platform } from "./types"
 
@@ -64,9 +65,9 @@ export const agents: AgentRuntime[] = [
     description:
       "The self-improving agent from Nous Research. Built-in learning loop: it creates skills from experience, improves them during use, and remembers across sessions. Runs local, Docker, SSH, or serverless (Daytona, Modal), and talks through 20+ messaging platforms.",
     skillInstall:
-      "Drop a skill folder into ~/.hermes/skills/ — one folder, one SKILL.md. Hermes is agentskills.io-compatible and also writes its own skills as it works.",
-    skillsDir: "~/.hermes/skills/",
-    catalogPlatform: "generic",
+      "Five verified rails (Hermes skills docs, 2026-06-06). Skills Hub: `hermes skills install clawhub/<skill>` — Solid State originals publish to ClawHub, an integrated Hermes source. Well-known: `hermes skills install well-known:https://solidstate.cc/.well-known/skills/<name>` serves our first-party catalog directly. Direct URL: `hermes skills install https://solidstate.cc/.well-known/skills/<name>/SKILL.md`. GitHub tap: `hermes skills tap add solidstatecc/skills`. Or drop a folder into ~/.hermes/skills/ — one folder, one SKILL.md. Hub installs run Hermes' security scan; community-source warnings are normal.",
+    skillsDir: "~/.hermes/skills/ · skills.external_dirs in config.yaml",
+    catalogPlatform: "hermes",
     specCompliant: true,
     siteUrl: "https://hermes-agent.nousresearch.com",
     repoUrl: "https://github.com/NousResearch/hermes-agent",
@@ -128,7 +129,7 @@ export const agents: AgentRuntime[] = [
     skillInstall:
       "Codex reads skills from .codex/skills/ in a project. Same spec, same layout: folder plus SKILL.md.",
     skillsDir: ".codex/skills/",
-    catalogPlatform: "generic",
+    catalogPlatform: "codex",
     specCompliant: true,
     repoUrl: "https://github.com/openai/codex",
     openSource: true,
@@ -143,7 +144,7 @@ export const agents: AgentRuntime[] = [
       "AI-native code editor. Multi-file agent edits, tab autocomplete, background agents, codebase indexing.",
     skillInstall:
       "Cursor consumes agent instructions through its rules system and is among the clients adopting the Agent Skills spec. Check upstream docs for current skill support before relying on it.",
-    catalogPlatform: "generic",
+    catalogPlatform: "cursor",
     specCompliant: true,
     siteUrl: "https://cursor.com",
     docsUrl: "https://cursor.com/docs",
@@ -159,7 +160,7 @@ export const agents: AgentRuntime[] = [
       "Open-source coding agent that runs across terminal, editor, and desktop. Provider-agnostic — works with hosted models and local ones (Ollama included).",
     skillInstall:
       "Skills follow the Agent Skills spec layout. Check upstream docs for the current skills directory.",
-    catalogPlatform: "generic",
+    catalogPlatform: "opencode",
     specCompliant: true,
     repoUrl: "https://github.com/sst/opencode",
     openSource: true,
@@ -174,7 +175,7 @@ export const agents: AgentRuntime[] = [
       "Open-source coding agent for VS Code, JetBrains, and Cursor. Plan/Act workflow, checkpoints, built-in MCP support and an MCP marketplace.",
     skillInstall:
       "Skills follow the Agent Skills spec layout. Check upstream docs for the current skills directory.",
-    catalogPlatform: "generic",
+    catalogPlatform: "cline",
     specCompliant: true,
     repoUrl: "https://github.com/cline/cline",
     siteUrl: "https://cline.bot",
