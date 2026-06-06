@@ -1,0 +1,77 @@
+---
+title: "Author a skill"
+description: "Write a SKILL.md that triggers reliably and runs anywhere. Spec constraints, description craft, progressive disclosure, validation."
+---
+
+A skill teaches an agent a procedure. Once.
+
+The format is the [Agent Skills spec](https://agentskills.io/specification) — adopted by ~40 runtimes including Claude Code, Hermes, Codex, and Cursor. Write to the spec and your skill runs everywhere.
+
+## The anatomy
+
+```
+my-skill/
+├── SKILL.md        # required — frontmatter + instructions
+├── scripts/        # optional — executable helpers
+├── references/     # optional — docs loaded on demand
+└── assets/         # optional — templates, examples
+```
+
+## Frontmatter
+
+```yaml
+---
+name: pdf-data-extract
+description: Extract financial data from PDF statements into CSV. Use when the user uploads bank or card statements and wants structured output. Not for scanned images without text layers.
+license: MIT
+---
+```
+
+The rules:
+
+| Field | Constraint |
+|---|---|
+| `name` | Required. ≤64 chars, lowercase a-z0-9 + hyphens. Must match the folder name. |
+| `description` | Required. ≤1024 chars. Decides whether your skill ever fires. |
+| `license` | Optional. SPDX name or bundled file reference. Required for a Solid State listing. |
+| `compatibility` | Optional. ≤500 chars of environment requirements. |
+
+## The description is the product
+
+Agents load two things at startup: name and description. ~100 tokens. Everything else loads only on match.
+
+So the description does all the triggering work. It needs:
+
+- **Specific verbs.** "Extract financial data from PDFs" beats "help with documents."
+- **Concrete triggers.** Name the situations: "when the user uploads bank statements."
+- **Explicit boundaries.** "Not for scanned images." Negative triggers prevent false fires.
+
+One skill, one job. "SEO optimization for blog posts" — not "content marketing helper" (too broad), not "add meta descriptions" (too narrow).
+
+## The body
+
+Structure for scanning: overview → prerequisites → steps → examples → error handling → limitations.
+
+Keep `SKILL.md` under 500 lines. Under 5,000 tokens is the recommendation.
+
+Need more? Use the menu approach: SKILL.md lists what's available, relative paths point to separate files. The agent reads only what the task needs. That's progressive disclosure — the spec's three load tiers (metadata → instructions → resources) exist so your skill costs nothing until it's used.
+
+## Test before you ship
+
+Three scenario classes:
+
+1. **Normal operations.** Typical requests. Must work.
+2. **Edge cases.** Missing data, odd formats. Degrade gracefully or say what's needed.
+3. **Out-of-scope.** Related-but-wrong requests. The skill must stay dormant.
+
+Triggering and execution fail separately. No activation → broaden the description. Wrong output → tighten the instructions.
+
+Validate the structure:
+
+```bash
+npx skills-ref validate ./my-skill
+```
+
+## Ship it
+
+Push the folder to a public repo. Then [submit it](/docs/submitting) to the catalog.

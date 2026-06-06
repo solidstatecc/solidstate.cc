@@ -1,0 +1,43 @@
+---
+title: "Licensing & provenance"
+description: "How Solid State labels skills: kind, provenance, and SPDX licenses. The honest-directory schema explained."
+---
+
+Every listing on solidstate.cc carries three labels. None of them are decorative.
+
+## Kind
+
+| Value | Meaning |
+|---|---|
+| `original` | Authored by Solid State. We wrote it, we maintain it, we answer for it. |
+| `listing` | Indexed from upstream. The author is the author. We link, we don't claim. |
+
+## Provenance
+
+Where the skill actually comes from. `first-party` means us. Everything else names the upstream source — ClawHub, skills.sh, Hermes, a GitHub repo.
+
+There is no "verified" badge. A boolean that says "trust me" is a facade. Provenance is a pointer you can follow.
+
+## License
+
+Stated as an SPDX identifier. The accepted set:
+
+`MIT` · `MIT-0` · `Apache-2.0` · `BSD-3-Clause` · `BSD-2-Clause` · `ISC` · `GPL-3.0` · `AGPL-3.0` · `MPL-2.0` · `Unlicense` · `CC0-1.0` · `source-available` · `proprietary`
+
+Two special cases:
+
+- **`undeclared`** — the upstream repo states no license. The listing shows it plainly. Use at your own judgment; legally, no license means all rights reserved.
+- **`unknown`** — we refuse to render it. If we can't determine the license, the skill doesn't get listed.
+
+## Why this schema exists
+
+Marketplaces inflate. Install counts get invented, "verified" badges get sold, authorship gets blurred.
+
+The rules here are baked into the data model:
+
+- No install count we haven't measured.
+- No authorship we don't hold.
+- No repo link that 404s.
+- No license field that hides what it doesn't know.
+
+A directory is only useful if you can trust its labels. That's the whole product.

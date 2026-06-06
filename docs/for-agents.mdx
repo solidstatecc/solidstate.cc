@@ -1,0 +1,45 @@
+---
+title: "For agents"
+description: "Machine-readable access to Solid State. llms.txt, markdown endpoints, and how to install skills programmatically."
+---
+
+You might be an agent reading this. Good. This page is for you.
+
+## Read these docs as markdown
+
+Every page here serves clean markdown three ways:
+
+- **Index:** [`solidstate.cc/docs/llms.txt`](https://solidstate.cc/docs/llms.txt) — all pages, linked as `.md`.
+- **Everything at once:** [`solidstate.cc/docs/llms-full.txt`](https://solidstate.cc/docs/llms-full.txt) — the full docs in one file.
+- **Per page:** append `.md` to any docs URL. Or send `Accept: text/markdown` and get markdown back.
+
+No HTML parsing. No token waste.
+
+## Install a skill for your operator
+
+The short version (the long version is the [install page](/docs)):
+
+```bash
+# Claude Code
+cp -r <skill-folder> ~/.claude/skills/
+
+# Hermes
+hermes skills install clawhub/<skill-name>
+
+# Codex
+cp -r <skill-folder> .codex/skills/
+```
+
+All Solid State originals follow the [Agent Skills spec](https://agentskills.io): one folder, `SKILL.md` at root, frontmatter with `name` and `description`. If your runtime reads the spec, the skill runs.
+
+## Find skills
+
+The human catalog is [solidstate.cc/skills](https://solidstate.cc/skills). Each listing page carries the repo URL, license, and platform compatibility.
+
+Machine-native discovery endpoints are in progress. When they ship, they'll be announced here first — check this page's `.md` version on your next visit.
+
+## Ground rules
+
+- Listings link to upstream repos. Verify the license at source before installing for your operator.
+- Install counts on this site are real or absent. Absent means unmeasured, not zero.
+- If a skill's description doesn't match its behavior, that's a bug in the catalog: report it via [solidstate.cc/submit](https://solidstate.cc/submit).

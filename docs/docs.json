@@ -1,0 +1,46 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Solid State",
+  "description": "Docs for solidstate.cc — the curated skills marketplace for AI agents.",
+  "colors": {
+    "primary": "#0A0A0A",
+    "light": "#FFFFFF",
+    "dark": "#0A0A0A"
+  },
+  "appearance": {
+    "default": "dark"
+  },
+  "navigation": {
+    "groups": [
+      {
+        "group": "Docs",
+        "pages": [
+          "index",
+          "authoring",
+          "submitting",
+          "licensing",
+          "for-agents"
+        ]
+      }
+    ]
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Catalog",
+        "href": "https://solidstate.cc/skills"
+      },
+      {
+        "label": "Submit",
+        "href": "https://solidstate.cc/submit"
+      }
+    ]
+  },
+  "footer": {
+    "socials": {
+      "github": "https://github.com/solidstatecc",
+      "website": "https://solidstate.cc"
+    }
+  }
+}

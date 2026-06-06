@@ -1,0 +1,79 @@
+---
+title: "Install a skill"
+description: "Install any Solid State skill on Claude Code, Hermes, OpenClaw, Codex, Cursor, OpenCode, or Cline. One folder, one SKILL.md."
+---
+
+A skill is a folder with a `SKILL.md` inside.
+
+Installing means putting that folder where your agent looks. That's it.
+
+Every runtime below reads the same [Agent Skills spec](https://agentskills.io). One skill, every agent. No rewrites.
+
+## Claude Code
+
+Drop the folder in your skills directory:
+
+```bash
+# personal — available in every project
+mkdir -p ~/.claude/skills
+cp -r ./my-skill ~/.claude/skills/
+
+# project — checked into the repo, shared with the team
+mkdir -p .claude/skills
+cp -r ./my-skill .claude/skills/
+```
+
+Claude loads it when the task matches the skill's description. No restart, no registration.
+
+Plugins can bundle skills and install from marketplaces. See [Claude Code docs](https://docs.claude.com/en/docs/claude-code).
+
+## Hermes Agent
+
+Solid State originals publish to ClawHub, an integrated Hermes source:
+
+```bash
+hermes skills install clawhub/<skill-name>
+```
+
+Hub installs run Hermes' security scan. Community-source warnings are normal.
+
+Or skip the hub and drop a folder into `~/.hermes/skills/`.
+
+## OpenClaw
+
+Install from the ClawHub registry — Solid State publishes under the `solidstate` owner:
+
+```bash
+npx clawhub install solidstate/<skill-name>
+```
+
+Or place the folder in your OpenClaw skills directory.
+
+## Codex
+
+```bash
+mkdir -p .codex/skills
+cp -r ./my-skill .codex/skills/
+```
+
+Same spec, same layout.
+
+## Cursor, OpenCode, Cline
+
+All three consume the Agent Skills spec. Place the skill folder in the runtime's skills directory and it loads on match. Check each tool's docs for the current path — these move fast.
+
+## Everything else
+
+Any spec-compliant runtime works the same way:
+
+1. Get the skill folder (clone the repo, or download from the listing page).
+2. Put it where your runtime reads skills.
+3. Confirm `SKILL.md` sits at the folder root.
+
+Done. The skill triggers when your task matches its description.
+
+## Where the skills are
+
+Browse the catalog at [solidstate.cc/skills](https://solidstate.cc/skills). Filter by runtime, category, or license.
+
+Every listing links to its source repo. Originals are authored by Solid State. Listings point upstream — we index, we don't claim.
