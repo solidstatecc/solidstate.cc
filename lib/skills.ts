@@ -11,6 +11,7 @@
 import { Skill, License } from "./types"
 import { skillsSh } from "./skillsSh"
 import { clawhubListings } from "./clawhub"
+import { hermesListings } from "./hermes"
 
 // ---------------------------------------------------------------------------
 // ORIGINALS — Solid State authored. Start with the three flagships from the
@@ -919,8 +920,9 @@ const listings: Skill[] = [
 // ---------------------------------------------------------------------------
 
 // Solid State originals + curated listings + the top 200 indexed from skills.sh
-// + the ClawHub top-50 (rec=list) indexed listings, ranked together.
-export const skills: Skill[] = [...originals, ...listings, ...skillsSh, ...clawhubListings]
+// + the ClawHub top-50 (rec=list) indexed listings + the Hermes Agent
+// first-party curated 15 (lib/hermes.ts, indexed 2026-06-07), ranked together.
+export const skills: Skill[] = [...originals, ...listings, ...skillsSh, ...clawhubListings, ...hermesListings]
 
 export function getSkillBySlug(slug: string): Skill | undefined {
   return skills.find((s) => s.slug === slug)
