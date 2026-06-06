@@ -34,7 +34,7 @@ const originals: Skill[] = [
 Built on Solid State's own niche-discovery workflow. Does not invent commission data — pulls from public affiliate-network listings and is explicit when a number is estimated vs. observed.
 
 Use when you're standing up a new affiliate site, expanding an existing one into adjacent verticals, or sanity-checking a niche idea before committing to content production.`,
-    author: "solidstatecc",
+    author: "Solid State",
     version: "0.0.0",
     platforms: ["claude", "openclaw", "nemoclaw", "antigravity", "generic"],
     categories: ["Research", "Marketing"],
@@ -60,7 +60,7 @@ Use when you're standing up a new affiliate site, expanding an existing one into
 Pairs cleanly with Niche Hunter (find the niche, then write the comparisons that own it) and with Hyper-Rational Brief (apply the same evidentiary standard to category-level analysis).
 
 Use when you need to publish a comparison post that survives reader scrutiny, or when evaluating tools internally before committing to a vendor.`,
-    author: "solidstatecc",
+    author: "Solid State",
     version: "0.0.0",
     platforms: ["claude", "openclaw", "nemoclaw", "antigravity", "generic"],
     categories: ["Research", "Marketing"],
@@ -86,7 +86,7 @@ Every claim is graded: **observed** (primary source), **inferred** (reasoning ch
 **Outputs:** a markdown brief structured as Question → Answer → Evidence → Caveats → Open threads. Includes an inline source list and a confidence score per major claim.
 
 Use for competitive briefs, market sizings, decision memos, or any moment you'd otherwise reach for a "research" tool that pads thin findings with confident prose.`,
-    author: "solidstatecc",
+    author: "Solid State",
     version: "0.0.0",
     platforms: ["claude", "openclaw", "nemoclaw", "antigravity", "generic"],
     categories: ["Research", "Writing"],
@@ -116,7 +116,7 @@ ClawHub scans every release, and new releases stay hidden until the scan clears.
 Every skill Solid State lists passes this gate before shipping. The first skill through it: itself — scan Pass on the first upload.
 
 Live on [ClawHub](https://clawhub.ai/solidstate/publish-audit). Free, MIT-0.`,
-    author: "solidstatecc",
+    author: "Solid State",
     version: "0.3.0",
     platforms: ["openclaw", "claude", "generic"],
     categories: ["DevOps", "AI"],
