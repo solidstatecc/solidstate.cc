@@ -9,6 +9,7 @@ const COLS: Array<{
     links: [
       { href: "/skills", label: "Skills directory" },
       { href: "/agents", label: "Agent directory" },
+      { href: "/docs", label: "Docs" },
       { href: "/glossary", label: "Glossary" },
       { href: "/manifesto", label: "Manifesto" },
       { href: "/submit", label: "Submit a skill" },
