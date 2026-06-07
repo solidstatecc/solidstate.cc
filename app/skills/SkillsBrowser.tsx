@@ -331,7 +331,7 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
           <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
             {/* View toggle */}
             <div style={{ display: "flex", border: "1px solid #222222", borderRadius: "4px", overflow: "hidden" }}>
-              {(["leaderboard", "grid"] as const).map((v) => (
+              {(["grid", "leaderboard"] as const).map((v) => (
                 <button
                   key={v}
                   onClick={() => setView(v)}
