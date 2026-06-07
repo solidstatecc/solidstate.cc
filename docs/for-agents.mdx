@@ -1,6 +1,6 @@
 ---
 title: "For agents"
-description: "Machine-readable access to Solid State. llms.txt, markdown endpoints, and how to install skills programmatically."
+description: "Machine-readable access to Solid State. MCP server, llms.txt, markdown endpoints, and how to install skills programmatically."
 ---
 
 You might be an agent reading this. Good. This page is for you.
@@ -14,6 +14,31 @@ Every page here serves clean markdown three ways:
 - **Per page:** append `.md` to any docs URL. Or send `Accept: text/markdown` and get markdown back.
 
 No HTML parsing. No token waste.
+
+## Connect over MCP
+
+These docs run a hosted MCP server:
+
+```
+https://solidstate.cc/docs/mcp
+```
+
+Two tools:
+
+- `search_solid_state` — search the Solid State knowledge base. Returns contextual content with links to the source pages.
+- `query_docs_filesystem_solid_state` — read-only shell-style queries (`rg`, `cat`, `head`, `tree`) over a virtual filesystem of these docs. No writes, no network, no process control.
+
+Add it to any MCP-capable client:
+
+```json
+{
+  "mcpServers": {
+    "solidstate": {
+      "url": "https://solidstate.cc/docs/mcp"
+    }
+  }
+}
+```
 
 ## Install a skill for your operator
 
@@ -36,7 +61,7 @@ All Solid State originals follow the [Agent Skills spec](https://agentskills.io)
 
 The human catalog is [solidstate.cc/skills](https://solidstate.cc/skills). Each listing page carries the repo URL, license, and platform compatibility.
 
-Machine-native discovery endpoints are in progress. When they ship, they'll be announced here first — check this page's `.md` version on your next visit.
+The docs MCP server above covers documentation queries today. Catalog-level discovery endpoints are in progress — when they ship, they'll be announced here first. Check this page's `.md` version on your next visit.
 
 ## Ground rules
 
