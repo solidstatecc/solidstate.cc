@@ -12,6 +12,7 @@ import { Skill, License } from "./types"
 import { skillsSh } from "./skillsSh"
 import { clawhubListings } from "./clawhub"
 import { hermesListings } from "./hermes"
+import { mcpServers } from "./mcp"
 
 // ---------------------------------------------------------------------------
 // ORIGINALS — Solid State authored. Start with the three flagships from the
@@ -200,7 +201,7 @@ const listings: Skill[] = [
     author: "anthropics",
     version: "see upstream",
     platforms: ["claude", "generic"],
-    categories: ["DevOps", "AI"],
+    categories: ["MCP", "DevOps", "AI"],
     installCommand: "npx skills add anthropics/skills --skill mcp-builder",
     repoUrl: "https://github.com/anthropics/skills/tree/main/skills/mcp-builder",
     license: "Apache-2.0",
@@ -921,8 +922,9 @@ const listings: Skill[] = [
 
 // Solid State originals + curated listings + the top 200 indexed from skills.sh
 // + the ClawHub top-50 (rec=list) indexed listings + the Hermes Agent
-// first-party curated 15 (lib/hermes.ts, indexed 2026-06-07), ranked together.
-export const skills: Skill[] = [...originals, ...listings, ...skillsSh, ...clawhubListings, ...hermesListings]
+// first-party curated 15 + the self-evolution tool (lib/hermes.ts, indexed
+// 2026-06-07), ranked together.
+export const skills: Skill[] = [...originals, ...listings, ...skillsSh, ...clawhubListings, ...hermesListings, ...mcpServers]
 
 export function getSkillBySlug(slug: string): Skill | undefined {
   return skills.find((s) => s.slug === slug)

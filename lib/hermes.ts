@@ -2,7 +2,8 @@
 // Source: github.com/NousResearch/hermes-agent (184K★, #1 OpenRouter app).
 // License MIT verified against the repo's actual LICENSE file (Copyright (c) 2025
 // Nous Research) — not a badge. All skills below live in that repo, so the
-// repo-level grant covers them.
+// repo-level grant covers them. Exception: hermes-self-evolution lives in its
+// own repo (NousResearch/hermes-agent-self-evolution, MIT, added 2026-06-07).
 //
 // Curation (top of the bundled + optional catalogs, safety-filtered):
 //   - EXCLUDED red-teaming (godmode) and refusal-removal (obliteratus).
@@ -388,6 +389,37 @@ export const hermesListings: Skill[] = [
     tags: ["hermes", "solana", "crypto", "onchain"],
     createdAt: "2026-06-07",
     source: "NousResearch/hermes-agent",
+    external: true,
+  },
+  // ---- tooling ------------------------------------------------------------
+  // NOT a SKILL.md — a Python tool that evolves Hermes skills. Lives in its
+  // own repo (NousResearch/hermes-agent-self-evolution, MIT verified against
+  // the README's license section 2026-06-07, 3.3K★). Indexed because it
+  // operates ON the skill layer this directory exists for.
+  {
+    id: "hermes-self-evolution",
+    name: "Hermes Self-Evolution",
+    slug: "hermes-self-evolution",
+    kind: "listing",
+    description:
+      "Evolve Hermes skills and prompts with DSPy + GEPA. No GPU — API calls only, ~$2-10 per run.",
+    longDescription:
+      "Evolutionary self-improvement for Hermes Agent. Uses DSPy + GEPA (Genetic-Pareto Prompt Evolution, ICLR 2026 Oral) to mutate, evaluate, and select better versions of skills, tool descriptions, and prompts — reading execution traces to understand why variants fail. Phase 1 (SKILL.md evolution) is implemented; tool descriptions, system prompts, and code evolution are planned. Guardrails: full test suite must pass, size limits enforced, every change ships as a PR for human review — never a direct commit. Not a SKILL.md skill — a Python tool that operates on them. Install: clone the repo, `pip install -e \".[dev]\"`, point HERMES_AGENT_REPO at your hermes-agent checkout. Indexed from the NousResearch/hermes-agent-self-evolution repo for discovery — Solid State has not audited this tool.",
+    author: "NousResearch",
+    version: "see upstream",
+    platforms: ["hermes"],
+    categories: ["AI", "Engineering"],
+    installCommand:
+      "git clone https://github.com/NousResearch/hermes-agent-self-evolution && cd hermes-agent-self-evolution && pip install -e \".[dev]\"",
+    repoUrl: "https://github.com/NousResearch/hermes-agent-self-evolution",
+    license: "MIT",
+    status: "alpha",
+    provenance: "indexed",
+    price: "free",
+    featured: false,
+    tags: ["hermes", "evolution", "dspy", "gepa", "optimization", "tooling"],
+    createdAt: "2026-06-07",
+    source: "NousResearch/hermes-agent-self-evolution",
     external: true,
   },
 ]
