@@ -37,7 +37,7 @@ export function SkillCard({ skill }: { skill: Skill }) {
         <span style={{
           fontFamily: "monospace",
           fontSize: "11px",
-          color: isFree ? "#ffffff" : unpriced ? "#333333" : "#555555",
+          color: isFree ? "#ffffff" : unpriced ? "#8a8a8a" : "#a3a3a3",
           letterSpacing: "0.06em",
           textTransform: "uppercase",
           marginLeft: "12px",
@@ -59,7 +59,7 @@ export function SkillCard({ skill }: { skill: Skill }) {
 
       <p style={{
         fontSize: "13px",
-        color: "#555555",
+        color: "#a3a3a3",
         lineHeight: 1.6,
         marginBottom: "20px",
       }}>
@@ -69,7 +69,7 @@ export function SkillCard({ skill }: { skill: Skill }) {
       <div style={{
         fontFamily: "monospace",
         fontSize: "11px",
-        color: "#333333",
+        color: "#8a8a8a",
         backgroundColor: "#080808",
         padding: "7px 10px",
         overflow: "hidden",
@@ -89,7 +89,7 @@ export function SkillCard({ skill }: { skill: Skill }) {
           <span key={p} style={{
             fontFamily: "monospace",
             fontSize: "10px",
-            color: "#444444",
+            color: "#8a8a8a",
             letterSpacing: "0.04em",
             textTransform: "uppercase",
           }}>
