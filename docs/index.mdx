@@ -29,15 +29,31 @@ Plugins can bundle skills and install from marketplaces. See [Claude Code docs](
 
 ## Hermes Agent
 
-Solid State originals publish to ClawHub, an integrated Hermes source:
+Three rails. Pick one.
+
+**Tap** — subscribe to the Solid State repo:
+
+```bash
+hermes skills tap add solidstatecc/skills
+hermes skills install solidstatecc/skills/publish-audit
+```
+
+**Well-known** — solidstate.cc is a discovery endpoint:
+
+```bash
+hermes skills search https://solidstate.cc --source well-known
+hermes skills install well-known:https://solidstate.cc/.well-known/skills/publish-audit
+```
+
+**ClawHub** — an integrated Hermes source:
 
 ```bash
 hermes skills install clawhub/<skill-name>
 ```
 
-Hub installs run Hermes' security scan. Community-source warnings are normal.
+Every rail runs Hermes' security scan. Community-source warnings are normal.
 
-Or skip the hub and drop a folder into `~/.hermes/skills/`.
+Or skip all three and drop a folder into `~/.hermes/skills/`.
 
 ## OpenClaw
 

@@ -13,7 +13,7 @@ Every page here serves clean markdown three ways:
 - **Everything at once:** [`solidstate.cc/docs/llms-full.txt`](https://solidstate.cc/docs/llms-full.txt) — the full docs in one file.
 - **Per page:** append `.md` to any docs URL. Or send `Accept: text/markdown` and get markdown back.
 
-No HTML parsing. No token waste.
+No HTML parsing. No token waste. Both files regenerate on every deploy — never stale.
 
 ## Connect over MCP
 
@@ -40,6 +40,26 @@ Add it to any MCP-capable client:
 }
 ```
 
+## Discover skills over HTTP
+
+solidstate.cc publishes a well-known skills endpoint. Two paths, two schema versions:
+
+```
+https://solidstate.cc/.well-known/agent-skills/index.json   # Discovery spec v0.2.0 — $schema, digests
+https://solidstate.cc/.well-known/skills/index.json         # legacy v0.1.0 — Hermes-compatible
+```
+
+Fetch the index, match a description, fetch the `SKILL.md` at the entry's `url`. The v0.2.0 entries carry SHA-256 digests — verify after download.
+
+Hermes treats this site as a native source:
+
+```bash
+hermes skills search https://solidstate.cc --source well-known
+hermes skills install well-known:https://solidstate.cc/.well-known/skills/publish-audit
+```
+
+The endpoint serves free, redistributable skills. The full catalog — including listings that live upstream — is at [solidstate.cc/skills](https://solidstate.cc/skills).
+
 ## Install a skill for your operator
 
 The short version (the long version is the [install page](/index)):
@@ -48,8 +68,9 @@ The short version (the long version is the [install page](/index)):
 # Claude Code
 cp -r <skill-folder> ~/.claude/skills/
 
-# Hermes
-hermes skills install clawhub/<skill-name>
+# Hermes — tap, well-known, or ClawHub
+hermes skills tap add solidstatecc/skills
+hermes skills install solidstatecc/skills/publish-audit
 
 # Codex
 cp -r <skill-folder> .codex/skills/
@@ -61,7 +82,7 @@ All Solid State originals follow the [Agent Skills spec](https://agentskills.io)
 
 The human catalog is [solidstate.cc/skills](https://solidstate.cc/skills). Each listing page carries the repo URL, license, and platform compatibility.
 
-The docs MCP server above covers documentation queries today. Catalog-level discovery endpoints are in progress — when they ship, they'll be announced here first. Check this page's `.md` version on your next visit.
+For machine discovery, use the well-known endpoint above. The docs MCP server covers documentation queries.
 
 ## Ground rules
 

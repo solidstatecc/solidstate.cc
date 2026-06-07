@@ -7367,6 +7367,7 @@ export const skillsSh: Skill[] = [
       "generic"
     ],
     "categories": [
+      "MCP",
       "Design & UI",
       "Agent Workflows",
       "Engineering",

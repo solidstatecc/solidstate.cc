@@ -620,7 +620,7 @@ export const clawhubListings: Skill[] = [
     author: "steipete",
     version: "1.0.0",
     platforms: ["openclaw", "generic"],
-    categories: ["DevOps"],
+    categories: ["MCP", "DevOps"],
     installCommand: "openclaw skills install mcporter",
     docsUrl: "https://clawhub.ai/steipete/mcporter",
     license: "undeclared",

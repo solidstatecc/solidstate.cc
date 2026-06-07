@@ -1,0 +1,11 @@
+{
+  "skills": [
+    {
+      "name": "publish-audit",
+      "description": "Audit a skill folder before you publish to ClawHub. Catches the frontmatter-vs-code mismatches, missing metadata, leaked secrets, and file-limit problems that hide or reject a release — so it passes the scan on first upload. Not for vetting a skill you're about to install (see skill-vetter).",
+      "files": [
+        "SKILL.md"
+      ]
+    }
+  ]
+}
