@@ -278,7 +278,7 @@ export default function HomePage() {
           letterSpacing: "0.04em",
           marginTop: "24px",
         }}>
-          {AGENT_STATS.totalAgents} runtimes · {AGENT_STATS.openSource} open source · counts = catalog skills that run on each runtime. No usage numbers we haven&apos;t measured.
+          {`${AGENT_STATS.totalAgents} runtimes · ${AGENT_STATS.openSource} open source · counts = catalog skills that run on each runtime. No usage numbers we haven't measured.`}
         </div>
       </section>
 
