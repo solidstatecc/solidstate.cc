@@ -28,6 +28,14 @@
   },
   "logo": "/logo/logo-dark.png",
   "favicon": "/favicon.svg",
+  "seo": {
+    "metatags": {
+      "og:image": "https://solidstate.cc/og-docs.png",
+      "og:site_name": "Solid State Docs",
+      "twitter:card": "summary_large_image",
+      "twitter:image": "https://solidstate.cc/og-docs.png"
+    }
+  },
   "navigation": {
     "groups": [
       {
@@ -58,7 +66,39 @@
   "footer": {
     "socials": {
       "github": "https://github.com/solidstatecc",
+      "x": "https://x.com/solidstate_cc",
       "website": "https://solidstate.cc"
-    }
+    },
+    "links": [
+      {
+        "header": "Product",
+        "items": [
+          { "label": "Skills directory", "href": "https://solidstate.cc/skills" },
+          { "label": "Agent directory", "href": "https://solidstate.cc/agents" },
+          { "label": "Glossary", "href": "https://solidstate.cc/glossary" },
+          { "label": "Manifesto", "href": "https://solidstate.cc/manifesto" },
+          { "label": "Submit a skill", "href": "https://solidstate.cc/submit" },
+          { "label": "Terms", "href": "https://solidstate.cc/docs/terms" }
+        ]
+      },
+      {
+        "header": "Channels",
+        "items": [
+          { "label": "Agentic Market", "href": "https://agentic.market/" },
+          { "label": "Claw Mart", "href": "https://www.shopclawmart.com/" },
+          { "label": "ClawHub", "href": "https://clawhub.ai/user/solidstate" },
+          { "label": "GitHub", "href": "https://github.com/solidstatecc" }
+        ]
+      },
+      {
+        "header": "Signal",
+        "items": [
+          { "label": "Newsletter", "href": "https://solidstate.beehiiv.com/subscribe" },
+          { "label": "hi@solidstate.cc", "href": "mailto:hi@solidstate.cc" },
+          { "label": "llms.txt", "href": "https://solidstate.cc/llms.txt" },
+          { "label": "llms-full.txt", "href": "https://solidstate.cc/llms-full.txt" }
+        ]
+      }
+    ]
   }
 }
