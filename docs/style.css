@@ -1,0 +1,11 @@
+/* Solid State — footer replica responsive grid (pairs with footer.js) */
+@media (max-width: 768px) {
+  .ss-footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+@media (max-width: 480px) {
+  .ss-footer-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
