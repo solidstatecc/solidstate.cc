@@ -187,6 +187,27 @@ export function getAgentBySlug(slug: string): AgentRuntime | undefined {
   return agents.find((a) => a.slug === slug)
 }
 
+/**
+ * Honest ranking metric: how many catalog skills run on each runtime.
+ * Skills tagged "generic" run on any spec-compliant runtime, so they
+ * count toward every agent. Computed from lib/skills.ts — no usage
+ * numbers we haven't measured.
+ */
+export function getRankedAgents(
+  skills: { platforms: Platform[] }[]
+): { agent: AgentRuntime; skillCount: number }[] {
+  return agents
+    .map((agent) => ({
+      agent,
+      skillCount: skills.filter(
+        (s) =>
+          s.platforms.includes(agent.catalogPlatform) ||
+          s.platforms.includes("generic")
+      ).length,
+    }))
+    .sort((a, b) => b.skillCount - a.skillCount)
+}
+
 export const AGENT_STATS = {
   totalAgents: agents.length,
   openSource: agents.filter((a) => a.openSource).length,
