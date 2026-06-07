@@ -64,11 +64,6 @@
     ]
   },
   "footer": {
-    "socials": {
-      "github": "https://github.com/solidstatecc",
-      "x": "https://x.com/solidstate_cc",
-      "website": "https://solidstate.cc"
-    },
     "links": [
       {
         "header": "Product",
