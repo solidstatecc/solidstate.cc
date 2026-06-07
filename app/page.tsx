@@ -1,12 +1,18 @@
 "use client"
 import Link from "next/link"
-import { skills, getFeaturedSkills, STATS } from "@/lib/skills"
+import { skills, getFeaturedSkills, getTopByCategory, STATS } from "@/lib/skills"
 import { getRankedAgents, AGENT_STATS, SURFACE_LABEL } from "@/lib/agents"
 import { priceDisplay } from "@/lib/x402"
+import { formatInstalls } from "@/lib/format"
+
+const BOARD_CATEGORIES = ["Engineering", "Marketing", "Productivity", "Design & UI"]
 
 export default function HomePage() {
   const featured = getFeaturedSkills()
   const rankedAgents = getRankedAgents(skills)
+  const heroAgents = rankedAgents.slice(0, 4)
+  const boards = BOARD_CATEGORIES.map(c => ({ category: c, top: getTopByCategory(c, 5) }))
+    .filter(b => b.top.length >= 3)
 
   return (
     <div style={{ backgroundColor: "#000000", minHeight: "100vh" }}>
@@ -213,6 +219,69 @@ export default function HomePage() {
           </Link>
         </div>
 
+        {/* Hero cards — top 4 runtimes */}
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))",
+          gap: "1px",
+          backgroundColor: "#222222",
+          border: "1px solid #222222",
+          marginBottom: "48px",
+        }}>
+          {heroAgents.map(({ agent, skillCount }) => (
+            <Link key={agent.id} href={`/agents/${agent.slug}`} style={{
+              display: "block",
+              backgroundColor: "#000000",
+              padding: "24px",
+              transition: "background 0.1s",
+            }}
+            onMouseEnter={e => (e.currentTarget.style.background = "#0a0a0a")}
+            onMouseLeave={e => (e.currentTarget.style.background = "#000000")}
+            >
+              <div style={{
+                fontFamily: "monospace",
+                fontSize: "10px",
+                color: "#555555",
+                letterSpacing: "0.12em",
+                textTransform: "uppercase",
+                marginBottom: "12px",
+              }}>
+                {agent.vendor}{agent.openSource ? " · OSS" : ""}
+              </div>
+              <div style={{
+                fontFamily: "monospace",
+                fontSize: "16px",
+                fontWeight: 700,
+                color: "#ffffff",
+                letterSpacing: "-0.01em",
+                marginBottom: "8px",
+              }}>
+                {agent.name}
+              </div>
+              <div style={{
+                fontSize: "12px",
+                color: "var(--muted)",
+                lineHeight: 1.6,
+                marginBottom: "16px",
+                display: "-webkit-box",
+                WebkitLineClamp: 3,
+                WebkitBoxOrient: "vertical",
+                overflow: "hidden",
+              }}>
+                {agent.description}
+              </div>
+              <div style={{
+                fontFamily: "monospace",
+                fontSize: "11px",
+                color: "var(--muted)",
+                letterSpacing: "0.04em",
+              }}>
+                {skillCount} <span style={{ color: "var(--muted-dim)", fontSize: "10px" }}>skills</span>
+              </div>
+            </Link>
+          ))}
+        </div>
+
         <div style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fill, minmax(420px, 1fr))",
@@ -279,6 +348,121 @@ export default function HomePage() {
           marginTop: "24px",
         }}>
           {`${AGENT_STATS.totalAgents} runtimes · ${AGENT_STATS.openSource} open source · counts = catalog skills that run on each runtime. No usage numbers we haven't measured.`}
+        </div>
+      </section>
+
+      {/* Category boards — top skills by measured installs */}
+      <section style={{
+        maxWidth: "1200px",
+        margin: "0 auto",
+        padding: "64px 32px",
+        borderBottom: "1px solid #222222",
+      }}>
+        <div style={{
+          fontFamily: "monospace",
+          fontSize: "11px",
+          color: "var(--muted)",
+          letterSpacing: "0.1em",
+          textTransform: "uppercase",
+          marginBottom: "32px",
+        }}>
+          Top skills by category — skills.sh installs
+        </div>
+
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(420px, 1fr))",
+          gap: "1px",
+          backgroundColor: "#222222",
+          border: "1px solid #222222",
+        }}>
+          {boards.map(({ category, top }) => (
+            <div key={category} style={{ backgroundColor: "#000000", padding: "32px" }}>
+              <div style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "baseline",
+                marginBottom: "20px",
+              }}>
+                <span style={{
+                  fontFamily: "monospace",
+                  fontSize: "13px",
+                  fontWeight: 700,
+                  color: "#ffffff",
+                  letterSpacing: "0.02em",
+                }}>
+                  Top {category}
+                </span>
+                <Link href={`/skills?category=${encodeURIComponent(category)}`} style={{
+                  fontFamily: "monospace",
+                  fontSize: "10px",
+                  color: "var(--muted-dim)",
+                  letterSpacing: "0.06em",
+                  textTransform: "uppercase",
+                }}>
+                  View all →
+                </Link>
+              </div>
+              {top.map((skill, i) => (
+                <Link key={skill.id} href={`/skills/${skill.slug}`} style={{
+                  display: "grid",
+                  gridTemplateColumns: "24px 1fr auto",
+                  alignItems: "baseline",
+                  gap: "12px",
+                  padding: "10px 0",
+                  borderBottom: i < top.length - 1 ? "1px solid #1a1a1a" : "none",
+                  transition: "background 0.1s",
+                }}
+                onMouseEnter={e => (e.currentTarget.style.background = "#0a0a0a")}
+                onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
+                >
+                  <span style={{
+                    fontFamily: "monospace",
+                    fontSize: "11px",
+                    color: "var(--muted-dim)",
+                  }}>
+                    {i + 1}.
+                  </span>
+                  <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                    <span style={{
+                      fontFamily: "monospace",
+                      fontSize: "13px",
+                      fontWeight: 600,
+                      color: "#ffffff",
+                      marginRight: "10px",
+                    }}>
+                      {skill.name}
+                    </span>
+                    <span style={{
+                      fontFamily: "monospace",
+                      fontSize: "10px",
+                      color: "#888888",
+                    }}>
+                      {skill.author}
+                    </span>
+                  </span>
+                  <span style={{
+                    fontFamily: "monospace",
+                    fontSize: "11px",
+                    color: "var(--muted)",
+                    whiteSpace: "nowrap",
+                  }}>
+                    {formatInstalls(skill.stats!.installs!)} <span style={{ color: "var(--muted-dim)", fontSize: "10px" }}>installs</span>
+                  </span>
+                </Link>
+              ))}
+            </div>
+          ))}
+        </div>
+
+        <div style={{
+          fontFamily: "monospace",
+          fontSize: "11px",
+          color: "var(--muted-dim)",
+          letterSpacing: "0.04em",
+          marginTop: "24px",
+        }}>
+          {`Install counts are real — skills.sh public telemetry. Skills without telemetry don't rank.`}
         </div>
       </section>
 

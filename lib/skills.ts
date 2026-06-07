@@ -943,6 +943,17 @@ export function getListings(): Skill[] {
 }
 
 /**
+ * Top skills in a category, ranked by measured installs (skills.sh telemetry).
+ * Only skills with real install counts qualify — no telemetry, no rank.
+ */
+export function getTopByCategory(category: string, n = 5): Skill[] {
+  return skills
+    .filter((s) => (s.stats?.installs ?? 0) > 0 && s.categories.includes(category))
+    .sort((a, b) => (b.stats!.installs ?? 0) - (a.stats!.installs ?? 0))
+    .slice(0, n)
+}
+
+/**
  * Licenses that do NOT grant us the right to host, mirror, bundle, or sell a skill.
  * "undeclared" = upstream author stated nothing (all rights reserved by default).
  * "unknown"    = we couldn't determine it.
