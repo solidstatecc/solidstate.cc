@@ -26,7 +26,7 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
   const [trendingOnly, setTrendingOnly] = useState(searchParams.get("trending") === "1")
   const [sortBy, setSortBy] = useState(searchParams.get("sort") ?? "installs")
   const [view, setView] = useState<"leaderboard" | "grid">(
-    searchParams.get("view") === "grid" ? "grid" : "leaderboard"
+    searchParams.get("view") === "leaderboard" ? "leaderboard" : "grid"
   )
 
   // Sync URL params
@@ -39,7 +39,7 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
     if (verifiedOnly) params.set("verified", "1")
     if (trendingOnly) params.set("trending", "1")
     if (sortBy !== "installs") params.set("sort", sortBy)
-    if (view !== "leaderboard") params.set("view", view)
+    if (view !== "grid") params.set("view", view)
     const query = params.toString()
     router.replace(pathname + (query ? "?" + query : ""), { scroll: false })
   }, [search, selectedCategory, selectedPlatform, priceFilter, verifiedOnly, trendingOnly, sortBy, view, router, pathname])
