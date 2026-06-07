@@ -45,8 +45,11 @@ Add it to any MCP-capable client:
 solidstate.cc publishes a well-known skills endpoint. Two paths, two schema versions:
 
 ```
-https://solidstate.cc/.well-known/agent-skills/index.json   # Discovery spec v0.2.0 — $schema, digests
-https://solidstate.cc/.well-known/skills/index.json         # legacy v0.1.0 — Hermes-compatible
+# Discovery spec v0.2.0 — $schema, digests
+https://solidstate.cc/.well-known/agent-skills/index.json
+
+# legacy v0.1.0 — Hermes-compatible
+https://solidstate.cc/.well-known/skills/index.json
 ```
 
 Fetch the index, match a description, fetch the `SKILL.md` at the entry's `url`. The v0.2.0 entries carry SHA-256 digests — verify after download.
@@ -55,7 +58,8 @@ Hermes treats this site as a native source:
 
 ```bash
 hermes skills search https://solidstate.cc --source well-known
-hermes skills install well-known:https://solidstate.cc/.well-known/skills/publish-audit
+hermes skills install \
+  well-known:https://solidstate.cc/.well-known/skills/publish-audit
 ```
 
 The endpoint serves free, redistributable skills. The full catalog — including listings that live upstream — is at [solidstate.cc/skills](https://solidstate.cc/skills).
