@@ -28,6 +28,12 @@
   },
   "logo": "/logo/logo-dark.png",
   "favicon": "/favicon.svg",
+  "contextual": {
+    "options": ["copy", "view", "chatgpt", "claude"]
+  },
+  "feedback": {
+    "thumbsRating": true
+  },
   "seo": {
     "metatags": {
       "og:image": "https://solidstate.cc/og-docs.png",
