@@ -1,14 +1,6 @@
 <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .bg { fill: #ffffff; }
-    .bar { fill: #000000; }
-    @media (prefers-color-scheme: dark) {
-      .bg { fill: #000000; }
-      .bar { fill: #ffffff; }
-    }
-  </style>
-  <rect class="bg" width="32" height="32"/>
-  <rect class="bar" x="9.6" y="9.34" width="3.33" height="13.32" rx="0.73"/>
-  <rect class="bar" x="14.34" y="9.34" width="3.33" height="13.32" rx="0.73"/>
-  <rect class="bar" x="19.07" y="9.34" width="3.33" height="13.32" rx="0.73"/>
+  <rect width="32" height="32" fill="#000000"/>
+  <rect x="9.6" y="9.34" width="3.33" height="13.32" rx="0.73" fill="#ffffff"/>
+  <rect x="14.34" y="9.34" width="3.33" height="13.32" rx="0.73" fill="#ffffff"/>
+  <rect x="19.07" y="9.34" width="3.33" height="13.32" rx="0.73" fill="#ffffff"/>
 </svg>
