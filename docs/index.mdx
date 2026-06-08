@@ -81,9 +81,22 @@ cp -r ./my-skill .codex/skills/
 
 Same spec, same layout.
 
-## Cursor, OpenCode, Cline
+## OpenCode
 
-All three consume the Agent Skills spec. Place the skill folder in the runtime's skills directory and it loads on match. Check each tool's docs for the current path — these move fast.
+OpenCode reads Claude's skill paths directly. If a skill is in `.claude/skills/` or `~/.claude/skills/`, it already works.
+
+Native paths also work:
+
+```bash
+mkdir -p .opencode/skills
+cp -r ./my-skill .opencode/skills/
+```
+
+Global: `~/.config/opencode/skills/`. It also reads `.agents/skills/`. No conversion, no config.
+
+## Cursor, Cline
+
+Both consume the Agent Skills spec. Place the skill folder in the runtime's skills directory and it loads on match. Check each tool's docs for the current path — these move fast.
 
 ## Everything else
 
