@@ -9,7 +9,9 @@ Using an agent? Paste this and walk away:
 Read https://solidstate.cc/docs/llms-full.txt and install a skill for me.
 ```
 
-A skill is a folder with a `SKILL.md` inside.
+A skill is packaged judgment. Instructions that tell an agent how to think when it hits a task it's seen before.
+
+Physically: a folder with a `SKILL.md` inside.
 
 Installing means putting that folder where your agent looks. That's it.
 
@@ -108,8 +110,31 @@ Any spec-compliant runtime works the same way:
 
 Done. The skill triggers when your task matches its description.
 
+## Skills vs. MCP
+
+Skills teach. MCP connects.
+
+A skill is knowledge — how to think about a problem.
+MCP is a tool channel — what the agent can reach.
+
+You want both. They don't compete.
+
+## Before you install
+
+Skills are code. Treat them like code.
+
+In February 2026, a popular skill pack shipped with planted instructions that stole API keys from the agents that installed it. Registries added scanners after. Scanners miss things.
+
+Read the `SKILL.md`. Read every file that ships with it. Then install.
+
+Every listing here shows its [provenance](/licensing) for exactly this reason. It's a pointer you can follow. Follow it.
+
 ## Where the skills are
 
 Browse the catalog at [solidstate.cc/skills](https://solidstate.cc/skills). Filter by runtime, category, or license.
 
 Every listing links to its source repo. Originals are authored by Solid State. Listings point upstream — we index, we don't claim.
+
+---
+
+Installed one? Write one. → [Author a skill](/authoring)
