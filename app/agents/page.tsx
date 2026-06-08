@@ -13,21 +13,21 @@ const sans = "var(--font-inter), system-ui, sans-serif"
 
 export default function AgentsPage() {
   return (
-    <div style={{ backgroundColor: "#000000", minHeight: "100vh" }}>
+    <div style={{ backgroundColor: "var(--bg)", minHeight: "100vh" }}>
       {/* Header */}
       <section
         style={{
           maxWidth: "1200px",
           margin: "0 auto",
           padding: "120px 32px 64px",
-          borderBottom: "1px solid #222222",
+          borderBottom: "1px solid var(--border)",
         }}
       >
         <div
           style={{
             fontFamily: mono,
             fontSize: "11px",
-            color: "#555555",
+            color: "var(--ink-1)",
             letterSpacing: "0.16em",
             textTransform: "uppercase",
             marginBottom: "24px",
@@ -42,7 +42,7 @@ export default function AgentsPage() {
             fontWeight: 700,
             lineHeight: 0.95,
             letterSpacing: "-0.03em",
-            color: "#ffffff",
+            color: "var(--fg)",
             marginBottom: "32px",
           }}
         >
@@ -56,7 +56,7 @@ export default function AgentsPage() {
           style={{
             fontFamily: sans,
             fontSize: "15px",
-            color: "#999999",
+            color: "var(--ink-5)",
             lineHeight: 1.7,
             maxWidth: "560px",
           }}
@@ -74,8 +74,8 @@ export default function AgentsPage() {
             display: "grid",
             gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
             gap: "1px",
-            backgroundColor: "#222222",
-            border: "1px solid #222222",
+            backgroundColor: "var(--border)",
+            border: "1px solid var(--border)",
           }}
         >
           {agents.map((a) => (
@@ -84,7 +84,7 @@ export default function AgentsPage() {
               href={`/agents/${a.slug}`}
               style={{
                 display: "block",
-                backgroundColor: "#000000",
+                backgroundColor: "var(--bg)",
                 padding: "32px",
                 textDecoration: "none",
               }}
@@ -93,7 +93,7 @@ export default function AgentsPage() {
                 style={{
                   fontFamily: mono,
                   fontSize: "10px",
-                  color: "#555555",
+                  color: "var(--ink-1)",
                   letterSpacing: "0.12em",
                   textTransform: "uppercase",
                   marginBottom: "16px",
@@ -106,7 +106,7 @@ export default function AgentsPage() {
                   fontFamily: mono,
                   fontSize: "22px",
                   fontWeight: 700,
-                  color: "#ffffff",
+                  color: "var(--fg)",
                   letterSpacing: "-0.02em",
                   marginBottom: "12px",
                 }}
@@ -117,7 +117,7 @@ export default function AgentsPage() {
                 style={{
                   fontFamily: sans,
                   fontSize: "13px",
-                  color: "#999999",
+                  color: "var(--ink-5)",
                   lineHeight: 1.7,
                   marginBottom: "20px",
                 }}
@@ -128,7 +128,7 @@ export default function AgentsPage() {
                 style={{
                   fontFamily: mono,
                   fontSize: "11px",
-                  color: "#ffffff",
+                  color: "var(--fg)",
                   letterSpacing: "0.08em",
                   textTransform: "uppercase",
                 }}

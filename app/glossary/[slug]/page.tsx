@@ -32,11 +32,11 @@ export default async function GlossaryTermPage({ params }: Props) {
     .filter((t): t is NonNullable<typeof t> => Boolean(t))
 
   return (
-    <div style={{ backgroundColor: "#000000", minHeight: "100vh" }}>
+    <div style={{ backgroundColor: "var(--bg)", minHeight: "100vh" }}>
       {/* Breadcrumb */}
       <div
         style={{
-          borderBottom: "1px solid #222222",
+          borderBottom: "1px solid var(--border)",
           padding: "14px 24px",
         }}
       >
@@ -45,17 +45,17 @@ export default async function GlossaryTermPage({ params }: Props) {
             style={{
               fontFamily: "var(--font-jetbrains-mono), monospace",
               fontSize: "11px",
-              color: "#555555",
+              color: "var(--ink-1)",
               display: "flex",
               alignItems: "center",
               gap: "8px",
             }}
           >
-            <Link href="/glossary" style={{ color: "#ffffff" }}>
+            <Link href="/glossary" style={{ color: "var(--fg)" }}>
               Glossary
             </Link>
             <span>›</span>
-            <span style={{ color: "#999999" }}>{term.term}</span>
+            <span style={{ color: "var(--ink-5)" }}>{term.term}</span>
           </nav>
         </div>
       </div>
@@ -77,7 +77,7 @@ export default async function GlossaryTermPage({ params }: Props) {
             style={{
               fontFamily: "var(--font-jetbrains-mono), monospace",
               fontSize: "11px",
-              color: "#555555",
+              color: "var(--ink-1)",
               letterSpacing: "0.12em",
               textTransform: "uppercase",
               marginBottom: "16px",
@@ -94,7 +94,7 @@ export default async function GlossaryTermPage({ params }: Props) {
               fontWeight: 700,
               lineHeight: 0.95,
               letterSpacing: "-0.03em",
-              color: "#ffffff",
+              color: "var(--fg)",
               marginBottom: "32px",
             }}
           >
@@ -106,7 +106,7 @@ export default async function GlossaryTermPage({ params }: Props) {
               fontFamily: "var(--font-inter), system-ui, sans-serif",
               fontSize: "20px",
               lineHeight: 1.55,
-              color: "#ffffff",
+              color: "var(--fg)",
               maxWidth: "640px",
               marginBottom: "32px",
             }}
@@ -120,10 +120,10 @@ export default async function GlossaryTermPage({ params }: Props) {
                 fontFamily: "var(--font-inter), system-ui, sans-serif",
                 fontSize: "16px",
                 lineHeight: 1.75,
-                color: "#cccccc",
+                color: "var(--ink-8)",
                 maxWidth: "640px",
                 paddingTop: "32px",
-                borderTop: "1px solid #222222",
+                borderTop: "1px solid var(--border)",
                 whiteSpace: "pre-wrap",
               }}
             >
@@ -137,7 +137,7 @@ export default async function GlossaryTermPage({ params }: Props) {
           {related.length > 0 && (
             <div
               style={{
-                border: "1px solid #222222",
+                border: "1px solid var(--border)",
                 padding: "20px",
               }}
             >
@@ -145,7 +145,7 @@ export default async function GlossaryTermPage({ params }: Props) {
                 style={{
                   fontFamily: "var(--font-jetbrains-mono), monospace",
                   fontSize: "10px",
-                  color: "#555555",
+                  color: "var(--ink-1)",
                   letterSpacing: "0.12em",
                   textTransform: "uppercase",
                   marginBottom: "16px",
@@ -160,7 +160,7 @@ export default async function GlossaryTermPage({ params }: Props) {
                     style={{
                       paddingBottom: "10px",
                       marginBottom: "10px",
-                      borderBottom: "1px solid #1a1a1a",
+                      borderBottom: "1px solid var(--bg-4)",
                     }}
                   >
                     <Link
@@ -170,13 +170,13 @@ export default async function GlossaryTermPage({ params }: Props) {
                         fontFamily: "var(--font-jetbrains-mono), monospace",
                         fontSize: "13px",
                         fontWeight: 600,
-                        color: "#ffffff",
+                        color: "var(--fg)",
                         marginBottom: "4px",
                       }}
                     >
                       {r.term}
                     </Link>
-                    <span style={{ fontSize: "12px", color: "#777777", lineHeight: 1.5 }}>
+                    <span style={{ fontSize: "12px", color: "var(--ink-3)", lineHeight: 1.5 }}>
                       {r.short}
                     </span>
                   </li>
@@ -191,7 +191,7 @@ export default async function GlossaryTermPage({ params }: Props) {
               style={{
                 fontFamily: "var(--font-jetbrains-mono), monospace",
                 fontSize: "11px",
-                color: "#999999",
+                color: "var(--ink-5)",
                 letterSpacing: "0.08em",
                 textTransform: "uppercase",
               }}

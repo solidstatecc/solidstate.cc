@@ -1,10 +1,12 @@
 "use client"
 
 import Link from "next/link"
+import { ThemeToggle } from "@/components/ThemeToggle"
 
 const LINKS = [
   { href: "/skills", label: "Skills" },
   { href: "/agents", label: "Agents" },
+  { href: "/models", label: "Models" },
   { href: "/docs", label: "Docs" },
   { href: "/official", label: "Official" },
   { href: "/audits", label: "Audits" },
@@ -15,7 +17,7 @@ const LINKS = [
 const linkStyle = {
   fontFamily: "var(--font-jetbrains-mono), monospace",
   fontSize: "12px",
-  color: "#ffffff",
+  color: "var(--fg)",
   letterSpacing: "0.08em",
   textTransform: "uppercase",
   padding: "6px 10px",
@@ -24,8 +26,8 @@ const linkStyle = {
 const ctaStyle = {
   fontFamily: "var(--font-jetbrains-mono), monospace",
   fontSize: "12px",
-  color: "#000000",
-  backgroundColor: "#ffffff",
+  color: "var(--bg)",
+  backgroundColor: "var(--fg)",
   letterSpacing: "0.08em",
   textTransform: "uppercase",
   padding: "8px 14px",
@@ -36,7 +38,7 @@ export function Nav() {
   return (
     <header
       style={{
-        borderBottom: "1px solid #222222",
+        borderBottom: "1px solid var(--border)",
         padding: "0 32px",
         display: "flex",
         alignItems: "center",
@@ -44,7 +46,7 @@ export function Nav() {
         height: "56px",
         position: "sticky",
         top: 0,
-        backgroundColor: "#000000",
+        backgroundColor: "var(--bg)",
         zIndex: 50,
       }}
     >
@@ -67,7 +69,7 @@ export function Nav() {
           width="20"
           height="20"
           viewBox="0 0 32 32"
-          fill="#ffffff"
+          fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
           style={{ display: "block", flexShrink: 0 }}
         >
@@ -76,7 +78,7 @@ export function Nav() {
           <rect x="22" y="6" width="6" height="20" rx="1" />
         </svg>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/logo-white.png" alt="Solid State" style={{ display: "block", height: "19px", width: "auto" }} />
+        <img src="/logo-white.png" alt="Solid State" className="ss-invertible" style={{ display: "block", height: "19px", width: "auto" }} />
       </Link>
 
       <nav aria-label="Primary" style={{ display: "flex", alignItems: "center" }}>
@@ -90,9 +92,10 @@ export function Nav() {
           <Link href="/submit" style={ctaStyle}>
             Submit →
           </Link>
+          <ThemeToggle />
         </div>
 
-        {/* Mobile disclosure menu (shown ≤768px via .ss-nav-mobile) */}
+        {/* Mobile: toggle sits beside the disclosure menu (shown ≤768px) */}
         <details className="ss-nav-mobile">
           <summary aria-label="Open menu">Menu</summary>
           <div className="ss-nav-menu">
@@ -104,6 +107,9 @@ export function Nav() {
             <Link href="/submit">Submit →</Link>
           </div>
         </details>
+        <span className="ss-nav-mobile-toggle">
+          <ThemeToggle />
+        </span>
       </nav>
     </header>
   )

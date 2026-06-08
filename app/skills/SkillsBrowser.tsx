@@ -116,10 +116,10 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
   const hasFilters = search || selectedCategory || selectedPlatform || priceFilter || verifiedOnly || trendingOnly
 
   const inputStyle = {
-    backgroundColor: "#000000",
-    border: "1px solid #000000",
+    backgroundColor: "var(--bg)",
+    border: "1px solid var(--bg)",
     borderRadius: "4px",
-    color: "#ffffff",
+    color: "var(--fg)",
     fontFamily: "var(--font-jetbrains-mono), monospace",
     fontSize: "12px",
     padding: "7px 10px",
@@ -131,7 +131,7 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
     fontFamily: "var(--font-jetbrains-mono), monospace",
     fontSize: "10px",
     fontWeight: 600,
-    color: "#ffffff",
+    color: "var(--fg)",
     letterSpacing: "0.08em",
     textTransform: "uppercase",
     display: "block",
@@ -217,7 +217,7 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
                   cursor: "pointer",
                   fontFamily: "var(--font-jetbrains-mono), monospace",
                   fontSize: "12px",
-                  color: priceFilter === opt.value ? "#ffffff" : "#ffffff",
+                  color: priceFilter === opt.value ? "var(--fg)" : "var(--fg)",
                 }}
               >
                 <input
@@ -226,7 +226,7 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
                   value={opt.value}
                   checked={priceFilter === opt.value}
                   onChange={() => setPriceFilter(opt.value)}
-                  style={{ accentColor: "#ffffff" }}
+                  style={{ accentColor: "var(--fg)" }}
                 />
                 {opt.label}
               </label>
@@ -244,14 +244,14 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
               cursor: "pointer",
               fontFamily: "var(--font-jetbrains-mono), monospace",
               fontSize: "12px",
-              color: verifiedOnly ? "#ffffff" : "#ffffff",
+              color: verifiedOnly ? "var(--fg)" : "var(--fg)",
             }}
           >
             <input
               type="checkbox"
               checked={verifiedOnly}
               onChange={(e) => setVerifiedOnly(e.target.checked)}
-              style={{ accentColor: "#ffffff" }}
+              style={{ accentColor: "var(--fg)" }}
             />
             ✓ Trusted only
           </label>
@@ -267,14 +267,14 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
               cursor: "pointer",
               fontFamily: "var(--font-jetbrains-mono), monospace",
               fontSize: "12px",
-              color: "#ffffff",
+              color: "var(--fg)",
             }}
           >
             <input
               type="checkbox"
               checked={trendingOnly}
               onChange={(e) => setTrendingOnly(e.target.checked)}
-              style={{ accentColor: "#ffffff" }}
+              style={{ accentColor: "var(--fg)" }}
             />
             ↑ Trending now
           </label>
@@ -287,9 +287,9 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
             style={{
               fontFamily: "var(--font-jetbrains-mono), monospace",
               fontSize: "11px",
-              color: "#ffffff",
+              color: "var(--fg)",
               backgroundColor: "transparent",
-              border: "1px solid #000000",
+              border: "1px solid var(--bg)",
               borderRadius: "4px",
               padding: "6px 12px",
               cursor: "pointer",
@@ -317,20 +317,20 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
             style={{
               fontFamily: "var(--font-jetbrains-mono), monospace",
               fontSize: "12px",
-              color: "#ffffff",
+              color: "var(--fg)",
               display: "flex",
               flexDirection: "column",
               gap: "2px",
             }}
           >
             {filtered.length} results
-            <span style={{ fontSize: "10px", color: "#666666" }}>
+            <span style={{ fontSize: "10px", color: "var(--ink-2)" }}>
               Install &amp; star counts are periodic snapshots, not live
             </span>
           </span>
           <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
             {/* View toggle */}
-            <div style={{ display: "flex", border: "1px solid #222222", borderRadius: "4px", overflow: "hidden" }}>
+            <div style={{ display: "flex", border: "1px solid var(--border)", borderRadius: "4px", overflow: "hidden" }}>
               {(["grid", "leaderboard"] as const).map((v) => (
                 <button
                   key={v}
@@ -343,8 +343,8 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
                     padding: "5px 10px",
                     cursor: "pointer",
                     border: "none",
-                    backgroundColor: view === v ? "#ffffff" : "transparent",
-                    color: view === v ? "#000000" : "#888888",
+                    backgroundColor: view === v ? "var(--fg)" : "transparent",
+                    color: view === v ? "var(--bg)" : "var(--ink-4)",
                   }}
                 >
                   {v === "leaderboard" ? "Board" : "Grid"}
@@ -357,7 +357,7 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
                 style={{
                   fontFamily: "var(--font-jetbrains-mono), monospace",
                   fontSize: "10px",
-                  color: "#ffffff",
+                  color: "var(--fg)",
                   letterSpacing: "0.06em",
                 }}
               >
@@ -367,10 +367,10 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
                 style={{
-                  backgroundColor: "#000000",
-                  border: "1px solid #000000",
+                  backgroundColor: "var(--bg)",
+                  border: "1px solid var(--bg)",
                   borderRadius: "4px",
-                  color: "#ffffff",
+                  color: "var(--fg)",
                   fontFamily: "var(--font-jetbrains-mono), monospace",
                   fontSize: "11px",
                   padding: "5px 8px",
@@ -394,14 +394,14 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
               padding: "64px 0",
               textAlign: "center",
               borderRadius: "6px",
-              border: "1px solid #000000",
+              border: "1px solid var(--bg)",
             }}
           >
             <div
               style={{
                 fontFamily: "var(--font-jetbrains-mono), monospace",
                 fontSize: "13px",
-                color: "#ffffff",
+                color: "var(--fg)",
                 marginBottom: "12px",
               }}
             >
@@ -412,7 +412,7 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
               style={{
                 fontFamily: "var(--font-jetbrains-mono), monospace",
                 fontSize: "11px",
-                color: "#ffffff",
+                color: "var(--fg)",
                 backgroundColor: "transparent",
                 border: "none",
                 cursor: "pointer",

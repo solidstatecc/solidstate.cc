@@ -81,10 +81,10 @@ export function SubmitForm() {
   const inputStyle = {
     display: "block",
     width: "100%",
-    backgroundColor: "#0a0a0a",
-    border: "1px solid #333333",
+    backgroundColor: "var(--bg-2)",
+    border: "1px solid var(--border-2)",
     borderRadius: "4px",
-    color: "#ffffff",
+    color: "var(--fg)",
     fontFamily: "var(--font-jetbrains-mono), monospace",
     fontSize: "13px",
     padding: "10px 12px",
@@ -94,10 +94,10 @@ export function SubmitForm() {
 
   // Visible focus state: brighten the border when a field is active.
   const focusBorder = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    e.currentTarget.style.borderColor = "#ffffff"
+    e.currentTarget.style.borderColor = "var(--fg)"
   }
   const blurBorder = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    e.currentTarget.style.borderColor = "#333333"
+    e.currentTarget.style.borderColor = "var(--border-2)"
   }
 
   const labelStyle = {
@@ -105,7 +105,7 @@ export function SubmitForm() {
     fontFamily: "var(--font-jetbrains-mono), monospace",
     fontSize: "10px",
     fontWeight: 600,
-    color: "#ffffff",
+    color: "var(--fg)",
     letterSpacing: "0.08em",
     textTransform: "uppercase",
     marginBottom: "6px",
@@ -118,7 +118,7 @@ export function SubmitForm() {
   const hintStyle = {
     fontFamily: "var(--font-jetbrains-mono), monospace",
     fontSize: "10px",
-    color: "#666666",
+    color: "var(--ink-2)",
     marginTop: "5px",
   } as React.CSSProperties
 
@@ -128,8 +128,8 @@ export function SubmitForm() {
         style={{
           textAlign: "center",
           padding: "64px 24px",
-          backgroundColor: "#000000",
-          border: "1px solid #222222",
+          backgroundColor: "var(--bg)",
+          border: "1px solid var(--border)",
           borderRadius: "8px",
         }}
       >
@@ -137,7 +137,7 @@ export function SubmitForm() {
           style={{
             fontFamily: "var(--font-jetbrains-mono), monospace",
             fontSize: "32px",
-            color: "#ffffff",
+            color: "var(--fg)",
             marginBottom: "16px",
           }}
         >
@@ -148,14 +148,14 @@ export function SubmitForm() {
             fontFamily: "var(--font-jetbrains-mono), monospace",
             fontSize: "18px",
             fontWeight: 700,
-            color: "#ffffff",
+            color: "var(--fg)",
             letterSpacing: "-0.02em",
             margin: "0 0 8px",
           }}
         >
           Submission received.
         </h2>
-        <p style={{ fontSize: "14px", color: "#ffffff", margin: 0 }}>
+        <p style={{ fontSize: "14px", color: "var(--fg)", margin: 0 }}>
           We’ll review your skill and reach out via email within 2–5 business days.
         </p>
       </div>
@@ -170,7 +170,7 @@ export function SubmitForm() {
           fontFamily: "var(--font-jetbrains-mono), monospace",
           fontSize: "11px",
           fontWeight: 600,
-          color: "#ffffff",
+          color: "var(--fg)",
           letterSpacing: "0.08em",
           textTransform: "uppercase",
           marginBottom: "20px",
@@ -259,12 +259,12 @@ export function SubmitForm() {
           fontFamily: "var(--font-jetbrains-mono), monospace",
           fontSize: "11px",
           fontWeight: 600,
-          color: "#ffffff",
+          color: "var(--fg)",
           letterSpacing: "0.08em",
           textTransform: "uppercase",
           marginBottom: "20px",
           paddingTop: "24px",
-          borderTop: "1px solid #222222",
+          borderTop: "1px solid var(--border)",
         }}
       >
         Technical Details
@@ -329,9 +329,9 @@ export function SubmitForm() {
                 fontFamily: "var(--font-jetbrains-mono), monospace",
                 fontSize: "11px",
                 fontWeight: 500,
-                color: "#ffffff",
-                backgroundColor: selectedPlatforms.includes(p) ? "rgba(255,255,255,0.1)" : "#000000",
-                border: `1px solid ${selectedPlatforms.includes(p) ? "#ffffff" : "#222222"}`,
+                color: "var(--fg)",
+                backgroundColor: selectedPlatforms.includes(p) ? "rgba(var(--fg-rgb), 0.1)" : "var(--bg)",
+                border: `1px solid ${selectedPlatforms.includes(p) ? "var(--fg)" : "var(--border)"}`,
                 padding: "6px 12px",
                 borderRadius: "4px",
                 cursor: "pointer",
@@ -376,12 +376,12 @@ export function SubmitForm() {
           fontFamily: "var(--font-jetbrains-mono), monospace",
           fontSize: "11px",
           fontWeight: 600,
-          color: "#ffffff",
+          color: "var(--fg)",
           letterSpacing: "0.08em",
           textTransform: "uppercase",
           marginBottom: "20px",
           paddingTop: "24px",
-          borderTop: "1px solid #222222",
+          borderTop: "1px solid var(--border)",
         }}
       >
         Pricing
@@ -438,9 +438,9 @@ export function SubmitForm() {
           style={{
             fontFamily: "var(--font-jetbrains-mono), monospace",
             fontSize: "12px",
-            color: "#ffffff",
-            backgroundColor: "rgba(255,255,255,0.05)",
-            border: "1px solid rgba(255,255,255,0.3)",
+            color: "var(--fg)",
+            backgroundColor: "rgba(var(--fg-rgb), 0.05)",
+            border: "1px solid rgba(var(--fg-rgb), 0.3)",
             padding: "10px 12px",
             borderRadius: "4px",
             marginBottom: "16px",
@@ -454,7 +454,7 @@ export function SubmitForm() {
       <div
         style={{
           paddingTop: "24px",
-          borderTop: "1px solid #222222",
+          borderTop: "1px solid var(--border)",
           display: "flex",
           alignItems: "center",
           gap: "16px",
@@ -468,8 +468,8 @@ export function SubmitForm() {
             fontFamily: "var(--font-jetbrains-mono), monospace",
             fontSize: "12px",
             fontWeight: 700,
-            color: "#000000",
-            backgroundColor: state === "submitting" ? "#666666" : "#ffffff",
+            color: "var(--bg)",
+            backgroundColor: state === "submitting" ? "var(--ink-2)" : "var(--fg)",
             border: "none",
             padding: "11px 24px",
             borderRadius: "4px",
@@ -485,7 +485,7 @@ export function SubmitForm() {
           style={{
             fontFamily: "var(--font-jetbrains-mono), monospace",
             fontSize: "10px",
-            color: "#ffffff",
+            color: "var(--fg)",
           }}
         >
           Every submission is reviewed by the Solid State team.

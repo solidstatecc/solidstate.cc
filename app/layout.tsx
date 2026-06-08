@@ -45,10 +45,22 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-theme="dark"
+      suppressHydrationWarning
       className={`${jetbrainsMono.variable} ${inter.variable} h-full`}
       style={{ fontFamily: "var(--font-inter), ui-sans-serif, system-ui, sans-serif" }}
     >
-      <body className="min-h-full flex flex-col" style={{ backgroundColor: "#000000", color: "#ffffff" }}>
+      <head>
+        {/* Theme is applied pre-paint to avoid a flash. Dark is the default;
+            light only when the visitor chose it. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{if(localStorage.getItem('ss-theme')==='light')document.documentElement.dataset.theme='light'}catch(e){}",
+          }}
+        />
+      </head>
+      <body className="min-h-full flex flex-col" style={{ backgroundColor: "var(--bg)", color: "var(--fg)" }}>
         <a className="ss-skip-link" href="#main">Skip to content</a>
         <Nav />
         <main id="main" className="flex-1">{children}</main>

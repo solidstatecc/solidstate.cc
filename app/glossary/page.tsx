@@ -22,21 +22,21 @@ export default function GlossaryPage() {
   const lettersWithTerms = new Set(Object.keys(byLetter))
 
   return (
-    <div style={{ backgroundColor: "#000000", minHeight: "100vh" }}>
+    <div style={{ backgroundColor: "var(--bg)", minHeight: "100vh" }}>
       {/* Header */}
       <section
         style={{
           maxWidth: "1200px",
           margin: "0 auto",
           padding: "120px 32px 64px",
-          borderBottom: "1px solid #222222",
+          borderBottom: "1px solid var(--border)",
         }}
       >
         <div
           style={{
             fontFamily: "var(--font-jetbrains-mono), monospace",
             fontSize: "11px",
-            color: "#555555",
+            color: "var(--ink-1)",
             letterSpacing: "0.16em",
             textTransform: "uppercase",
             marginBottom: "24px",
@@ -51,7 +51,7 @@ export default function GlossaryPage() {
             fontWeight: 700,
             lineHeight: 0.95,
             letterSpacing: "-0.03em",
-            color: "#ffffff",
+            color: "var(--fg)",
             marginBottom: "32px",
           }}
         >
@@ -65,7 +65,7 @@ export default function GlossaryPage() {
           style={{
             fontFamily: "var(--font-inter), system-ui, sans-serif",
             fontSize: "15px",
-            color: "#999999",
+            color: "var(--ink-5)",
             lineHeight: 1.7,
             maxWidth: "560px",
             marginBottom: "48px",
@@ -80,7 +80,7 @@ export default function GlossaryPage() {
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(2, 1fr)",
-            borderTop: "1px solid #222222",
+            borderTop: "1px solid var(--border)",
           }}
         >
           {[
@@ -91,7 +91,7 @@ export default function GlossaryPage() {
               key={i}
               style={{
                 padding: "24px 0",
-                borderRight: i === 0 ? "1px solid #222222" : "none",
+                borderRight: i === 0 ? "1px solid var(--border)" : "none",
                 paddingRight: i === 0 ? "32px" : "0",
                 paddingLeft: i > 0 ? "32px" : "0",
               }}
@@ -101,7 +101,7 @@ export default function GlossaryPage() {
                   fontFamily: "var(--font-jetbrains-mono), monospace",
                   fontSize: "clamp(24px, 4vw, 48px)",
                   fontWeight: 700,
-                  color: "#ffffff",
+                  color: "var(--fg)",
                   letterSpacing: "-0.02em",
                 }}
               >
@@ -111,7 +111,7 @@ export default function GlossaryPage() {
                 style={{
                   fontFamily: "var(--font-jetbrains-mono), monospace",
                   fontSize: "11px",
-                  color: "#555555",
+                  color: "var(--ink-1)",
                   letterSpacing: "0.06em",
                   textTransform: "uppercase",
                   marginTop: "4px",
@@ -130,7 +130,7 @@ export default function GlossaryPage() {
           maxWidth: "1200px",
           margin: "0 auto",
           padding: "64px 32px 32px",
-          borderBottom: "1px solid #222222",
+          borderBottom: "1px solid var(--border)",
         }}
       >
         <div
@@ -145,7 +145,7 @@ export default function GlossaryPage() {
             style={{
               fontFamily: "var(--font-jetbrains-mono), monospace",
               fontSize: "11px",
-              color: "#555555",
+              color: "var(--ink-1)",
               letterSpacing: "0.12em",
               textTransform: "uppercase",
             }}
@@ -157,7 +157,7 @@ export default function GlossaryPage() {
             style={{
               fontFamily: "var(--font-jetbrains-mono), monospace",
               fontSize: "11px",
-              color: "#999999",
+              color: "var(--ink-5)",
               letterSpacing: "0.08em",
               textTransform: "uppercase",
             }}
@@ -178,14 +178,14 @@ export default function GlossaryPage() {
                   gap: "16px",
                   marginBottom: "16px",
                   paddingBottom: "12px",
-                  borderBottom: "1px solid #ffffff",
+                  borderBottom: "1px solid var(--fg)",
                 }}
               >
                 <div
                   style={{
                     fontFamily: "var(--font-jetbrains-mono), monospace",
                     fontSize: "11px",
-                    color: "#555555",
+                    color: "var(--ink-1)",
                     letterSpacing: "0.12em",
                     textTransform: "uppercase",
                   }}
@@ -197,7 +197,7 @@ export default function GlossaryPage() {
                     fontFamily: "var(--font-jetbrains-mono), monospace",
                     fontSize: "20px",
                     fontWeight: 700,
-                    color: "#ffffff",
+                    color: "var(--fg)",
                     letterSpacing: "-0.02em",
                   }}
                 >
@@ -208,7 +208,7 @@ export default function GlossaryPage() {
                     marginLeft: "auto",
                     fontFamily: "var(--font-jetbrains-mono), monospace",
                     fontSize: "11px",
-                    color: "#555555",
+                    color: "var(--ink-1)",
                     letterSpacing: "0.08em",
                   }}
                 >
@@ -238,7 +238,7 @@ export default function GlossaryPage() {
           style={{
             fontFamily: "var(--font-jetbrains-mono), monospace",
             fontSize: "11px",
-            color: "#555555",
+            color: "var(--ink-1)",
             letterSpacing: "0.12em",
             textTransform: "uppercase",
             marginBottom: "32px",
@@ -255,7 +255,7 @@ export default function GlossaryPage() {
             gap: "0",
             marginBottom: "48px",
             paddingBottom: "24px",
-            borderBottom: "1px solid #222222",
+            borderBottom: "1px solid var(--border)",
           }}
         >
           {ALPHABET.map((letter) => {
@@ -271,8 +271,8 @@ export default function GlossaryPage() {
                   fontFamily: "var(--font-jetbrains-mono), monospace",
                   fontSize: "12px",
                   fontWeight: 600,
-                  color: has ? "#ffffff" : "#333333",
-                  borderRight: "1px solid #222222",
+                  color: has ? "var(--fg)" : "var(--border-2)",
+                  borderRight: "1px solid var(--border)",
                   letterSpacing: "0.04em",
                 }}
               >
@@ -307,7 +307,7 @@ export default function GlossaryPage() {
                   gap: "16px",
                   marginBottom: "8px",
                   paddingBottom: "12px",
-                  borderBottom: "1px solid #ffffff",
+                  borderBottom: "1px solid var(--fg)",
                 }}
               >
                 <h2
@@ -315,7 +315,7 @@ export default function GlossaryPage() {
                     fontFamily: "var(--font-jetbrains-mono), monospace",
                     fontSize: "32px",
                     fontWeight: 700,
-                    color: "#ffffff",
+                    color: "var(--fg)",
                     letterSpacing: "-0.02em",
                   }}
                 >
@@ -326,7 +326,7 @@ export default function GlossaryPage() {
                     marginLeft: "auto",
                     fontFamily: "var(--font-jetbrains-mono), monospace",
                     fontSize: "11px",
-                    color: "#555555",
+                    color: "var(--ink-1)",
                     letterSpacing: "0.08em",
                   }}
                 >

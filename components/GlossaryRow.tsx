@@ -17,7 +17,7 @@ export function GlossaryRow({
         gridTemplateColumns: "1fr auto",
         alignItems: "baseline",
         padding: "20px 0",
-        borderBottom: "1px solid #222222",
+        borderBottom: "1px solid var(--border)",
         gap: "24px",
       }}
     >
@@ -32,13 +32,13 @@ export function GlossaryRow({
         >
           {term.term}
         </span>
-        <span style={{ fontSize: "13px", color: "#999999" }}>{term.short}</span>
+        <span style={{ fontSize: "13px", color: "var(--ink-5)" }}>{term.short}</span>
       </div>
       <div
         style={{
           fontFamily: "var(--font-jetbrains-mono), monospace",
           fontSize: "10px",
-          color: "#555555",
+          color: "var(--ink-1)",
           letterSpacing: "0.08em",
           textTransform: "uppercase",
           whiteSpace: "nowrap",

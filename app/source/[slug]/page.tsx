@@ -34,27 +34,27 @@ export default async function SourcePage({ params }: Props) {
   const fetchedAt = group.skills.find((s) => s.stats?.fetchedAt)?.stats?.fetchedAt
 
   return (
-    <div style={{ backgroundColor: "#000000", minHeight: "100vh" }}>
+    <div style={{ backgroundColor: "var(--bg)", minHeight: "100vh" }}>
       {/* Breadcrumb */}
-      <div style={{ borderBottom: "1px solid #000000", padding: "14px 24px" }}>
+      <div style={{ borderBottom: "1px solid var(--bg)", padding: "14px 24px" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <nav
             style={{
               fontFamily: mono,
               fontSize: "11px",
-              color: "#ffffff",
+              color: "var(--fg)",
               display: "flex",
               alignItems: "center",
               gap: "6px",
             }}
           >
-            <Link href="/skills" style={{ color: "#ffffff", textDecoration: "none" }}>
+            <Link href="/skills" style={{ color: "var(--fg)", textDecoration: "none" }}>
               Skills
             </Link>
             <span>›</span>
-            <span style={{ color: "#888888" }}>Source</span>
+            <span style={{ color: "var(--ink-4)" }}>Source</span>
             <span>›</span>
-            <span style={{ color: "#ffffff" }}>{group.source}</span>
+            <span style={{ color: "var(--fg)" }}>{group.source}</span>
           </nav>
         </div>
       </div>
@@ -66,7 +66,7 @@ export default async function SourcePage({ params }: Props) {
             style={{
               fontFamily: mono,
               fontSize: "10px",
-              color: "#888888",
+              color: "var(--ink-4)",
               letterSpacing: "0.08em",
               textTransform: "uppercase",
               marginBottom: "12px",
@@ -79,7 +79,7 @@ export default async function SourcePage({ params }: Props) {
               fontFamily: mono,
               fontSize: "28px",
               fontWeight: 700,
-              color: "#ffffff",
+              color: "var(--fg)",
               letterSpacing: "-0.02em",
               margin: "0 0 16px",
             }}
@@ -91,14 +91,14 @@ export default async function SourcePage({ params }: Props) {
             style={{
               fontFamily: mono,
               fontSize: "11px",
-              color: "#888888",
+              color: "var(--ink-4)",
               display: "flex",
               flexWrap: "wrap",
               gap: "12px",
               marginBottom: "20px",
             }}
           >
-            <span style={{ color: "#ffffff" }}>{group.skills.length} skills</span>
+            <span style={{ color: "var(--fg)" }}>{group.skills.length} skills</span>
             {group.totalInstalls > 0 && (
               <>
                 <span>·</span>
@@ -118,7 +118,7 @@ export default async function SourcePage({ params }: Props) {
                   href={group.repoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ color: "#ffffff", textDecoration: "underline" }}
+                  style={{ color: "var(--fg)", textDecoration: "underline" }}
                 >
                   Source repo →
                 </a>
@@ -130,8 +130,8 @@ export default async function SourcePage({ params }: Props) {
           {group.installCommand && (
             <div
               style={{
-                backgroundColor: "#080808",
-                border: "1px solid #222222",
+                backgroundColor: "var(--bg-2)",
+                border: "1px solid var(--border)",
                 borderRadius: "6px",
                 padding: "16px 20px",
               }}
@@ -141,7 +141,7 @@ export default async function SourcePage({ params }: Props) {
                   fontFamily: mono,
                   fontSize: "10px",
                   fontWeight: 600,
-                  color: "#888888",
+                  color: "var(--ink-4)",
                   letterSpacing: "0.08em",
                   textTransform: "uppercase",
                   marginBottom: "10px",
@@ -154,7 +154,7 @@ export default async function SourcePage({ params }: Props) {
                   style={{
                     fontFamily: mono,
                     fontSize: "13px",
-                    color: "#ffffff",
+                    color: "var(--fg)",
                     flex: 1,
                     wordBreak: "break-all",
                   }}
@@ -170,7 +170,7 @@ export default async function SourcePage({ params }: Props) {
             style={{
               fontFamily: mono,
               fontSize: "11px",
-              color: "#555555",
+              color: "var(--ink-1)",
               lineHeight: 1.6,
               marginTop: "16px",
             }}

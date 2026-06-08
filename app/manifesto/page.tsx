@@ -36,21 +36,21 @@ const SECTIONS: Array<{ heading: string; body: string }> = [
 
 export default function ManifestoPage() {
   return (
-    <div style={{ backgroundColor: "#000000", minHeight: "100vh" }}>
+    <div style={{ backgroundColor: "var(--bg)", minHeight: "100vh" }}>
       {/* Header */}
       <section
         style={{
           maxWidth: "1100px",
           margin: "0 auto",
           padding: "120px 32px 80px",
-          borderBottom: "1px solid #222222",
+          borderBottom: "1px solid var(--border)",
         }}
       >
         <div
           style={{
             fontFamily: "var(--font-jetbrains-mono), monospace",
             fontSize: "11px",
-            color: "#555555",
+            color: "var(--ink-1)",
             letterSpacing: "0.16em",
             textTransform: "uppercase",
             marginBottom: "24px",
@@ -65,7 +65,7 @@ export default function ManifestoPage() {
             fontWeight: 700,
             lineHeight: 0.92,
             letterSpacing: "-0.04em",
-            color: "#ffffff",
+            color: "var(--fg)",
             marginBottom: "40px",
           }}
         >
@@ -78,7 +78,7 @@ export default function ManifestoPage() {
             fontFamily: "var(--font-inter), system-ui, sans-serif",
             fontSize: "18px",
             lineHeight: 1.6,
-            color: "#999999",
+            color: "var(--ink-5)",
             maxWidth: "640px",
           }}
         >
@@ -103,7 +103,7 @@ export default function ManifestoPage() {
               gap: "32px",
               padding: "40px 0",
               borderBottom:
-                i < SECTIONS.length - 1 ? "1px solid #222222" : "none",
+                i < SECTIONS.length - 1 ? "1px solid var(--border)" : "none",
               alignItems: "baseline",
             }}
           >
@@ -111,7 +111,7 @@ export default function ManifestoPage() {
               style={{
                 fontFamily: "var(--font-jetbrains-mono), monospace",
                 fontSize: "13px",
-                color: "#555555",
+                color: "var(--ink-1)",
                 letterSpacing: "0.04em",
               }}
             >
@@ -125,7 +125,7 @@ export default function ManifestoPage() {
                   fontWeight: 700,
                   lineHeight: 1.05,
                   letterSpacing: "-0.025em",
-                  color: "#ffffff",
+                  color: "var(--fg)",
                   marginBottom: "20px",
                 }}
               >
@@ -136,7 +136,7 @@ export default function ManifestoPage() {
                   fontFamily: "var(--font-inter), system-ui, sans-serif",
                   fontSize: "17px",
                   lineHeight: 1.65,
-                  color: "#cccccc",
+                  color: "var(--ink-8)",
                   maxWidth: "640px",
                 }}
               >
@@ -151,7 +151,7 @@ export default function ManifestoPage() {
           style={{
             marginTop: "80px",
             paddingTop: "40px",
-            borderTop: "1px solid #222222",
+            borderTop: "1px solid var(--border)",
             display: "flex",
             justifyContent: "space-between",
             flexWrap: "wrap",
@@ -163,7 +163,7 @@ export default function ManifestoPage() {
             style={{
               fontFamily: "var(--font-jetbrains-mono), monospace",
               fontSize: "12px",
-              color: "#555555",
+              color: "var(--ink-1)",
               letterSpacing: "0.08em",
               textTransform: "uppercase",
             }}
@@ -175,8 +175,8 @@ export default function ManifestoPage() {
             style={{
               fontFamily: "var(--font-jetbrains-mono), monospace",
               fontSize: "12px",
-              color: "#000000",
-              backgroundColor: "#ffffff",
+              color: "var(--bg)",
+              backgroundColor: "var(--fg)",
               padding: "12px 20px",
               letterSpacing: "0.08em",
               textTransform: "uppercase",

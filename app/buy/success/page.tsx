@@ -20,7 +20,7 @@ function SuccessInner() {
         style={{
           fontFamily: "var(--font-jetbrains-mono), monospace",
           fontSize: "11px",
-          color: "#888888",
+          color: "var(--ink-4)",
           letterSpacing: "0.1em",
           textTransform: "uppercase",
           marginBottom: "24px",
@@ -43,7 +43,7 @@ function SuccessInner() {
       <p
         style={{
           fontSize: "15px",
-          color: "#bbbbbb",
+          color: "var(--ink-7)",
           lineHeight: 1.6,
           marginBottom: "32px",
         }}
@@ -57,8 +57,8 @@ function SuccessInner() {
         style={{
           display: "inline-block",
           padding: "12px 20px",
-          border: "1px solid #ffffff",
-          color: "#ffffff",
+          border: "1px solid var(--fg)",
+          color: "var(--fg)",
           textDecoration: "none",
           fontFamily: "var(--font-jetbrains-mono), monospace",
           fontSize: "12px",
@@ -74,11 +74,11 @@ function SuccessInner() {
 
 export default function SuccessPage() {
   return (
-    <div style={{ backgroundColor: "#000000", minHeight: "100vh", color: "#ffffff" }}>
+    <div style={{ backgroundColor: "var(--bg)", minHeight: "100vh", color: "var(--fg)" }}>
       <Suspense
         fallback={
           <section style={{ maxWidth: "640px", margin: "0 auto", padding: "120px 32px" }}>
-            <div style={{ color: "#888" }}>Loading…</div>
+            <div style={{ color: "var(--ink-4)" }}>Loading…</div>
           </section>
         }
       >

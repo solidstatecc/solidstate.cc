@@ -10,11 +10,11 @@ export const metadata: Metadata = {
 
 export default function SkillsPage() {
   return (
-    <div style={{ backgroundColor: "#000000", minHeight: "100vh" }}>
+    <div style={{ backgroundColor: "var(--bg)", minHeight: "100vh" }}>
       {/* Header */}
       <div
         style={{
-          borderBottom: "1px solid #000000",
+          borderBottom: "1px solid var(--bg)",
           padding: "40px 24px 32px",
         }}
       >
@@ -24,14 +24,14 @@ export default function SkillsPage() {
               fontFamily: "var(--font-jetbrains-mono), monospace",
               fontSize: "24px",
               fontWeight: 700,
-              color: "#ffffff",
+              color: "var(--fg)",
               letterSpacing: "-0.02em",
               margin: "0 0 6px",
             }}
           >
             Browse Skills
           </h1>
-          <p style={{ fontSize: "14px", color: "#ffffff", margin: 0 }}>
+          <p style={{ fontSize: "14px", color: "var(--fg)", margin: 0 }}>
             {skills.length} skills across {PLATFORMS.length} platforms
           </p>
         </div>
@@ -46,7 +46,7 @@ export default function SkillsPage() {
               padding: "48px 24px",
               fontFamily: "var(--font-jetbrains-mono), monospace",
               fontSize: "12px",
-              color: "#ffffff",
+              color: "var(--fg)",
             }}
           >
             Loading…

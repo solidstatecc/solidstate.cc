@@ -2,13 +2,13 @@ import Link from "next/link"
 
 export default function CancelPage() {
   return (
-    <div style={{ backgroundColor: "#000000", minHeight: "100vh", color: "#ffffff" }}>
+    <div style={{ backgroundColor: "var(--bg)", minHeight: "100vh", color: "var(--fg)" }}>
       <section style={{ maxWidth: "640px", margin: "0 auto", padding: "120px 32px" }}>
         <div
           style={{
             fontFamily: "var(--font-jetbrains-mono), monospace",
             fontSize: "11px",
-            color: "#888888",
+            color: "var(--ink-4)",
             letterSpacing: "0.1em",
             textTransform: "uppercase",
             marginBottom: "24px",
@@ -28,7 +28,7 @@ export default function CancelPage() {
         >
           No charge.
         </h1>
-        <p style={{ fontSize: "15px", color: "#bbbbbb", lineHeight: 1.6, marginBottom: "32px" }}>
+        <p style={{ fontSize: "15px", color: "var(--ink-7)", lineHeight: 1.6, marginBottom: "32px" }}>
           Cart cleared. Try again whenever.
         </p>
         <Link
@@ -36,8 +36,8 @@ export default function CancelPage() {
           style={{
             display: "inline-block",
             padding: "12px 20px",
-            border: "1px solid #ffffff",
-            color: "#ffffff",
+            border: "1px solid var(--fg)",
+            color: "var(--fg)",
             textDecoration: "none",
             fontFamily: "var(--font-jetbrains-mono), monospace",
             fontSize: "12px",

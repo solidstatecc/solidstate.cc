@@ -84,7 +84,7 @@ export default function BuyPage() {
   }
 
   return (
-    <div style={{ backgroundColor: "#000000", minHeight: "100vh", color: "#ffffff" }}>
+    <div style={{ backgroundColor: "var(--bg)", minHeight: "100vh", color: "var(--fg)" }}>
       <section style={{ maxWidth: "1100px", margin: "0 auto", padding: "96px 32px 48px" }}>
         <h1
           style={{
@@ -102,7 +102,7 @@ export default function BuyPage() {
           style={{
             fontFamily: "var(--font-jetbrains-mono), monospace",
             fontSize: "14px",
-            color: "#888888",
+            color: "var(--ink-4)",
             letterSpacing: "0.04em",
             margin: 0,
             marginBottom: "48px",
@@ -116,8 +116,8 @@ export default function BuyPage() {
         {error && (
           <div
             style={{
-              border: "1px solid #ffffff",
-              color: "#ffffff",
+              border: "1px solid var(--fg)",
+              color: "var(--fg)",
               padding: "12px 16px",
               marginBottom: "32px",
               fontFamily: "var(--font-jetbrains-mono), monospace",
@@ -133,7 +133,7 @@ export default function BuyPage() {
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
             gap: "0",
-            border: "1px solid #222222",
+            border: "1px solid var(--border)",
           }}
         >
           {SKUS.map((s, i) => (
@@ -141,15 +141,15 @@ export default function BuyPage() {
               key={s.id}
               style={{
                 padding: "32px",
-                borderRight: i < SKUS.length - 1 ? "1px solid #222222" : "none",
-                background: s.primary ? "#0a0a0a" : "transparent",
+                borderRight: i < SKUS.length - 1 ? "1px solid var(--border)" : "none",
+                background: s.primary ? "var(--bg-2)" : "transparent",
               }}
             >
               <div
                 style={{
                   fontFamily: "var(--font-jetbrains-mono), monospace",
                   fontSize: "11px",
-                  color: "#888888",
+                  color: "var(--ink-4)",
                   letterSpacing: "0.1em",
                   textTransform: "uppercase",
                   marginBottom: "16px",
@@ -183,14 +183,14 @@ export default function BuyPage() {
                 style={{
                   fontFamily: "var(--font-jetbrains-mono), monospace",
                   fontSize: "11px",
-                  color: "#888888",
+                  color: "var(--ink-4)",
                   marginBottom: "20px",
                   letterSpacing: "0.04em",
                 }}
               >
                 {s.cadence}
               </div>
-              <p style={{ fontSize: "14px", color: "#bbbbbb", lineHeight: 1.6, marginBottom: "20px" }}>
+              <p style={{ fontSize: "14px", color: "var(--ink-7)", lineHeight: 1.6, marginBottom: "20px" }}>
                 {s.hook}
               </p>
               <ul style={{ paddingLeft: "0", listStyle: "none", marginBottom: "28px" }}>
@@ -199,14 +199,14 @@ export default function BuyPage() {
                     key={b}
                     style={{
                       fontSize: "13px",
-                      color: "#888888",
+                      color: "var(--ink-4)",
                       lineHeight: 1.6,
                       marginBottom: "8px",
                       paddingLeft: "16px",
                       position: "relative",
                     }}
                   >
-                    <span style={{ position: "absolute", left: 0, color: "#555" }}>—</span>
+                    <span style={{ position: "absolute", left: 0, color: "var(--ink-1)" }}>—</span>
                     {b}
                   </li>
                 ))}
@@ -217,9 +217,9 @@ export default function BuyPage() {
                 style={{
                   width: "100%",
                   padding: "12px 16px",
-                  background: s.primary ? "#ffffff" : "transparent",
-                  color: s.primary ? "#000000" : "#ffffff",
-                  border: `1px solid ${s.primary ? "#ffffff" : "#333333"}`,
+                  background: s.primary ? "var(--fg)" : "transparent",
+                  color: s.primary ? "var(--bg)" : "var(--fg)",
+                  border: `1px solid ${s.primary ? "var(--fg)" : "var(--border-2)"}`,
                   fontFamily: "var(--font-jetbrains-mono), monospace",
                   fontSize: "12px",
                   fontWeight: 600,
@@ -240,7 +240,7 @@ export default function BuyPage() {
             marginTop: "32px",
             fontFamily: "var(--font-jetbrains-mono), monospace",
             fontSize: "11px",
-            color: "#555555",
+            color: "var(--ink-1)",
             letterSpacing: "0.04em",
           }}
         >

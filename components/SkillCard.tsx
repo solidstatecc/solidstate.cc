@@ -13,12 +13,12 @@ export function SkillCard({ skill }: { skill: Skill }) {
     <Link href={`/skills/${skill.slug}`} style={{
       display: "block",
       padding: "28px",
-      border: "1px solid #222222",
+      border: "1px solid var(--border)",
       textDecoration: "none",
       transition: "border-color 0.1s",
     }}
-    onMouseEnter={e => (e.currentTarget.style.borderColor = "#ffffff")}
-    onMouseLeave={e => (e.currentTarget.style.borderColor = "#222222")}
+    onMouseEnter={e => (e.currentTarget.style.borderColor = "var(--fg)")}
+    onMouseLeave={e => (e.currentTarget.style.borderColor = "var(--border)")}
     >
       <div style={{
         display: "flex",
@@ -37,7 +37,7 @@ export function SkillCard({ skill }: { skill: Skill }) {
         <span style={{
           fontFamily: "monospace",
           fontSize: "11px",
-          color: isFree ? "#ffffff" : unpriced ? "#8a8a8a" : "#a3a3a3",
+          color: isFree ? "var(--fg)" : unpriced ? "var(--muted-dim)" : "var(--muted)",
           letterSpacing: "0.06em",
           textTransform: "uppercase",
           marginLeft: "12px",
@@ -50,7 +50,7 @@ export function SkillCard({ skill }: { skill: Skill }) {
       <div style={{
         fontFamily: "monospace",
         fontSize: "10px",
-        color: "#888888",
+        color: "var(--ink-4)",
         letterSpacing: "0.04em",
         marginBottom: "12px",
       }}>
@@ -59,7 +59,7 @@ export function SkillCard({ skill }: { skill: Skill }) {
 
       <p style={{
         fontSize: "13px",
-        color: "#a3a3a3",
+        color: "var(--muted)",
         lineHeight: 1.6,
         marginBottom: "20px",
       }}>
@@ -69,8 +69,8 @@ export function SkillCard({ skill }: { skill: Skill }) {
       <div style={{
         fontFamily: "monospace",
         fontSize: "11px",
-        color: "#8a8a8a",
-        backgroundColor: "#080808",
+        color: "var(--muted-dim)",
+        backgroundColor: "var(--bg-2)",
         padding: "7px 10px",
         overflow: "hidden",
         textOverflow: "ellipsis",
@@ -89,7 +89,7 @@ export function SkillCard({ skill }: { skill: Skill }) {
           <span key={p} style={{
             fontFamily: "monospace",
             fontSize: "10px",
-            color: "#8a8a8a",
+            color: "var(--muted-dim)",
             letterSpacing: "0.04em",
             textTransform: "uppercase",
           }}>
@@ -105,15 +105,15 @@ export function SkillCard({ skill }: { skill: Skill }) {
           justifyContent: "space-between",
           marginTop: "16px",
           paddingTop: "14px",
-          borderTop: "1px solid #161616",
+          borderTop: "1px solid var(--bg-4)",
         }}>
           <span>
             {skill.trending && (
               <span style={{
                 fontFamily: "monospace",
                 fontSize: "10px",
-                color: "#ffffff",
-                border: "1px solid #333333",
+                color: "var(--fg)",
+                border: "1px solid var(--border-2)",
                 borderRadius: "3px",
                 padding: "2px 6px",
                 letterSpacing: "0.04em",
@@ -128,7 +128,7 @@ export function SkillCard({ skill }: { skill: Skill }) {
             gap: "10px",
             fontFamily: "monospace",
             fontSize: "11px",
-            color: "#888888",
+            color: "var(--ink-4)",
           }}>
             {skill.stats?.stars ? (
               <span title="ClawHub stars">★ {formatInstalls(skill.stats.stars)}</span>

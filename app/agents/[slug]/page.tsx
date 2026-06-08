@@ -36,25 +36,25 @@ export default async function AgentPage({ params }: Props) {
   )
 
   return (
-    <div style={{ backgroundColor: "#000000", minHeight: "100vh" }}>
+    <div style={{ backgroundColor: "var(--bg)", minHeight: "100vh" }}>
       {/* Breadcrumb */}
-      <div style={{ borderBottom: "1px solid #222222", padding: "14px 24px" }}>
+      <div style={{ borderBottom: "1px solid var(--border)", padding: "14px 24px" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <nav
             style={{
               fontFamily: mono,
               fontSize: "11px",
-              color: "#555555",
+              color: "var(--ink-1)",
               display: "flex",
               alignItems: "center",
               gap: "8px",
             }}
           >
-            <Link href="/agents" style={{ color: "#ffffff" }}>
+            <Link href="/agents" style={{ color: "var(--fg)" }}>
               Agents
             </Link>
             <span>›</span>
-            <span style={{ color: "#999999" }}>{agent.name}</span>
+            <span style={{ color: "var(--ink-5)" }}>{agent.name}</span>
           </nav>
         </div>
       </div>
@@ -76,7 +76,7 @@ export default async function AgentPage({ params }: Props) {
             style={{
               fontFamily: mono,
               fontSize: "11px",
-              color: "#555555",
+              color: "var(--ink-1)",
               letterSpacing: "0.16em",
               textTransform: "uppercase",
               marginBottom: "16px",
@@ -92,7 +92,7 @@ export default async function AgentPage({ params }: Props) {
               fontWeight: 700,
               lineHeight: 1,
               letterSpacing: "-0.03em",
-              color: "#ffffff",
+              color: "var(--fg)",
               marginBottom: "24px",
             }}
           >
@@ -102,7 +102,7 @@ export default async function AgentPage({ params }: Props) {
             style={{
               fontFamily: sans,
               fontSize: "16px",
-              color: "#cccccc",
+              color: "var(--ink-8)",
               lineHeight: 1.8,
               marginBottom: "48px",
               maxWidth: "640px",
@@ -116,7 +116,7 @@ export default async function AgentPage({ params }: Props) {
               fontFamily: mono,
               fontSize: "13px",
               fontWeight: 700,
-              color: "#ffffff",
+              color: "var(--fg)",
               letterSpacing: "0.08em",
               textTransform: "uppercase",
               marginBottom: "16px",
@@ -128,7 +128,7 @@ export default async function AgentPage({ params }: Props) {
             style={{
               fontFamily: sans,
               fontSize: "14px",
-              color: "#999999",
+              color: "var(--ink-5)",
               lineHeight: 1.8,
               marginBottom: agent.skillsDir ? "24px" : "48px",
               maxWidth: "640px",
@@ -141,9 +141,9 @@ export default async function AgentPage({ params }: Props) {
               style={{
                 fontFamily: mono,
                 fontSize: "13px",
-                color: "#ffffff",
-                backgroundColor: "#111111",
-                border: "1px solid #222222",
+                color: "var(--fg)",
+                backgroundColor: "var(--bg-3)",
+                border: "1px solid var(--border)",
                 padding: "16px 20px",
                 marginBottom: "48px",
                 maxWidth: "640px",
@@ -158,7 +158,7 @@ export default async function AgentPage({ params }: Props) {
               fontFamily: mono,
               fontSize: "13px",
               fontWeight: 700,
-              color: "#ffffff",
+              color: "var(--fg)",
               letterSpacing: "0.08em",
               textTransform: "uppercase",
               marginBottom: "16px",
@@ -170,7 +170,7 @@ export default async function AgentPage({ params }: Props) {
             style={{
               fontFamily: sans,
               fontSize: "14px",
-              color: "#999999",
+              color: "var(--ink-5)",
               lineHeight: 1.8,
               marginBottom: "24px",
               maxWidth: "640px",
@@ -185,8 +185,8 @@ export default async function AgentPage({ params }: Props) {
               display: "inline-block",
               fontFamily: mono,
               fontSize: "12px",
-              color: "#000000",
-              backgroundColor: "#ffffff",
+              color: "var(--bg)",
+              backgroundColor: "var(--fg)",
               letterSpacing: "0.08em",
               textTransform: "uppercase",
               padding: "12px 20px",
@@ -200,7 +200,7 @@ export default async function AgentPage({ params }: Props) {
         {/* Sidebar */}
         <aside
           style={{
-            border: "1px solid #222222",
+            border: "1px solid var(--border)",
             padding: "24px",
             position: "sticky",
             top: "80px",
@@ -210,7 +210,7 @@ export default async function AgentPage({ params }: Props) {
             style={{
               fontFamily: mono,
               fontSize: "10px",
-              color: "#555555",
+              color: "var(--ink-1)",
               letterSpacing: "0.12em",
               textTransform: "uppercase",
               marginBottom: "16px",
@@ -225,7 +225,7 @@ export default async function AgentPage({ params }: Props) {
                   href={agent.siteUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ fontFamily: sans, fontSize: "13px", color: "#ffffff" }}
+                  style={{ fontFamily: sans, fontSize: "13px", color: "var(--fg)" }}
                 >
                   Website ↗
                 </a>
@@ -237,7 +237,7 @@ export default async function AgentPage({ params }: Props) {
                   href={agent.repoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ fontFamily: sans, fontSize: "13px", color: "#ffffff" }}
+                  style={{ fontFamily: sans, fontSize: "13px", color: "var(--fg)" }}
                 >
                   Source ↗
                 </a>
@@ -249,7 +249,7 @@ export default async function AgentPage({ params }: Props) {
                   href={agent.docsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ fontFamily: sans, fontSize: "13px", color: "#ffffff" }}
+                  style={{ fontFamily: sans, fontSize: "13px", color: "var(--fg)" }}
                 >
                   Docs ↗
                 </a>
@@ -260,7 +260,7 @@ export default async function AgentPage({ params }: Props) {
                 href="https://agentskills.io"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ fontFamily: sans, fontSize: "13px", color: "#ffffff" }}
+                style={{ fontFamily: sans, fontSize: "13px", color: "var(--fg)" }}
               >
                 Agent Skills spec ↗
               </a>
@@ -271,7 +271,7 @@ export default async function AgentPage({ params }: Props) {
             style={{
               fontFamily: mono,
               fontSize: "10px",
-              color: "#555555",
+              color: "var(--ink-1)",
               letterSpacing: "0.12em",
               textTransform: "uppercase",
               margin: "24px 0 16px",
@@ -286,7 +286,7 @@ export default async function AgentPage({ params }: Props) {
                 <li key={a.id} style={{ marginBottom: "10px" }}>
                   <Link
                     href={`/agents/${a.slug}`}
-                    style={{ fontFamily: sans, fontSize: "13px", color: "#999999" }}
+                    style={{ fontFamily: sans, fontSize: "13px", color: "var(--ink-5)" }}
                   >
                     {a.name}
                   </Link>

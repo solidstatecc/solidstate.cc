@@ -15,12 +15,12 @@ export default function HomePage() {
     .filter(b => b.top.length >= 3)
 
   return (
-    <div style={{ backgroundColor: "#000000", minHeight: "100vh" }}>
+    <div style={{ backgroundColor: "var(--bg)", minHeight: "100vh" }}>
 
       {/* Hero */}
       <section style={{
         padding: "120px 32px 80px",
-        borderBottom: "1px solid #222222",
+        borderBottom: "1px solid var(--border)",
         maxWidth: "1200px",
         margin: "0 auto",
       }}>
@@ -31,7 +31,7 @@ export default function HomePage() {
           lineHeight: 0.95,
           letterSpacing: "-0.03em",
           marginBottom: "48px",
-          color: "#ffffff",
+          color: "var(--fg)",
         }}>
           Solid<br />State
         </h1>
@@ -53,7 +53,7 @@ export default function HomePage() {
         <div className="ss-stats" style={{
           display: "flex",
           gap: "0",
-          borderTop: "1px solid #222222",
+          borderTop: "1px solid var(--border)",
         }}>
           {[
             { n: STATS.totalSkills, label: "skills" },
@@ -64,7 +64,7 @@ export default function HomePage() {
             <div key={i} className="ss-stat" style={{
               flex: 1,
               padding: "24px 0",
-              borderRight: i < arr.length - 1 ? "1px solid #222222" : "none",
+              borderRight: i < arr.length - 1 ? "1px solid var(--border)" : "none",
               paddingRight: i < arr.length - 1 ? "32px" : "0",
               paddingLeft: i > 0 ? "32px" : "0",
             }}>
@@ -72,7 +72,7 @@ export default function HomePage() {
                 fontFamily: "monospace",
                 fontSize: "clamp(24px, 4vw, 48px)",
                 fontWeight: 700,
-                color: "#ffffff",
+                color: "var(--fg)",
                 letterSpacing: "-0.02em",
               }}>
                 {s.n}
@@ -97,7 +97,7 @@ export default function HomePage() {
         maxWidth: "1200px",
         margin: "0 auto",
         padding: "64px 32px",
-        borderBottom: "1px solid #222222",
+        borderBottom: "1px solid var(--border)",
       }}>
         <div style={{
           fontFamily: "monospace",
@@ -119,12 +119,12 @@ export default function HomePage() {
             <Link key={skill.id} href={`/skills/${skill.slug}`} style={{
               display: "block",
               padding: "32px",
-              borderRight: "1px solid #222222",
-              borderBottom: "1px solid #222222",
-              borderLeft: i === 0 ? "1px solid #222222" : "none",
+              borderRight: "1px solid var(--border)",
+              borderBottom: "1px solid var(--border)",
+              borderLeft: i === 0 ? "1px solid var(--border)" : "none",
               transition: "background 0.1s",
             }}
-            onMouseEnter={e => (e.currentTarget.style.background = "#0a0a0a")}
+            onMouseEnter={e => (e.currentTarget.style.background = "var(--bg-2)")}
             onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
             >
               <div style={{
@@ -139,7 +139,7 @@ export default function HomePage() {
               <div style={{
                 fontFamily: "monospace",
                 fontSize: "10px",
-                color: "#888888",
+                color: "var(--ink-4)",
                 letterSpacing: "0.04em",
                 marginBottom: "16px",
               }}>
@@ -157,7 +157,7 @@ export default function HomePage() {
                 fontFamily: "monospace",
                 fontSize: "11px",
                 color: "var(--muted-dim)",
-                backgroundColor: "#0d0d0d",
+                backgroundColor: "var(--bg-2)",
                 padding: "8px 12px",
                 letterSpacing: "0.02em",
                 overflow: "hidden",
@@ -173,7 +173,7 @@ export default function HomePage() {
                   <div style={{
                     fontFamily: "monospace",
                     fontSize: "11px",
-                    color: label === "Free" ? "#ffffff" : label === "—" ? "var(--muted-dim)" : "var(--muted)",
+                    color: label === "Free" ? "var(--fg)" : label === "—" ? "var(--muted-dim)" : "var(--muted)",
                     letterSpacing: "0.06em",
                     textTransform: "uppercase",
                   }}>
@@ -191,7 +191,7 @@ export default function HomePage() {
         maxWidth: "1200px",
         margin: "0 auto",
         padding: "64px 32px",
-        borderBottom: "1px solid #222222",
+        borderBottom: "1px solid var(--border)",
       }}>
         <div style={{
           display: "flex",
@@ -224,24 +224,24 @@ export default function HomePage() {
           display: "grid",
           gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))",
           gap: "1px",
-          backgroundColor: "#222222",
-          border: "1px solid #222222",
+          backgroundColor: "var(--border)",
+          border: "1px solid var(--border)",
           marginBottom: "48px",
         }}>
           {heroAgents.map(({ agent, skillCount }) => (
             <Link key={agent.id} href={`/agents/${agent.slug}`} style={{
               display: "block",
-              backgroundColor: "#000000",
+              backgroundColor: "var(--bg)",
               padding: "24px",
               transition: "background 0.1s",
             }}
-            onMouseEnter={e => (e.currentTarget.style.background = "#0a0a0a")}
-            onMouseLeave={e => (e.currentTarget.style.background = "#000000")}
+            onMouseEnter={e => (e.currentTarget.style.background = "var(--bg-2)")}
+            onMouseLeave={e => (e.currentTarget.style.background = "var(--bg)")}
             >
               <div style={{
                 fontFamily: "monospace",
                 fontSize: "10px",
-                color: "#555555",
+                color: "var(--ink-1)",
                 letterSpacing: "0.12em",
                 textTransform: "uppercase",
                 marginBottom: "12px",
@@ -252,7 +252,7 @@ export default function HomePage() {
                 fontFamily: "monospace",
                 fontSize: "16px",
                 fontWeight: 700,
-                color: "#ffffff",
+                color: "var(--fg)",
                 letterSpacing: "-0.01em",
                 marginBottom: "8px",
               }}>
@@ -295,10 +295,10 @@ export default function HomePage() {
               alignItems: "baseline",
               gap: "16px",
               padding: "16px 0",
-              borderBottom: "1px solid #222222",
+              borderBottom: "1px solid var(--border)",
               transition: "background 0.1s",
             }}
-            onMouseEnter={e => (e.currentTarget.style.background = "#0a0a0a")}
+            onMouseEnter={e => (e.currentTarget.style.background = "var(--bg-2)")}
             onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
             >
               <span style={{
@@ -313,7 +313,7 @@ export default function HomePage() {
                   fontFamily: "monospace",
                   fontSize: "14px",
                   fontWeight: 600,
-                  color: "#ffffff",
+                  color: "var(--fg)",
                   marginRight: "12px",
                 }}>
                   {agent.name}
@@ -321,7 +321,7 @@ export default function HomePage() {
                 <span style={{
                   fontFamily: "monospace",
                   fontSize: "10px",
-                  color: "#888888",
+                  color: "var(--ink-4)",
                   letterSpacing: "0.04em",
                 }}>
                   {agent.vendor} · {agent.surfaces.map(s => SURFACE_LABEL[s]).join(" · ")}
@@ -356,7 +356,7 @@ export default function HomePage() {
         maxWidth: "1200px",
         margin: "0 auto",
         padding: "64px 32px",
-        borderBottom: "1px solid #222222",
+        borderBottom: "1px solid var(--border)",
       }}>
         <div style={{
           fontFamily: "monospace",
@@ -373,11 +373,11 @@ export default function HomePage() {
           display: "grid",
           gridTemplateColumns: "repeat(auto-fill, minmax(420px, 1fr))",
           gap: "1px",
-          backgroundColor: "#222222",
-          border: "1px solid #222222",
+          backgroundColor: "var(--border)",
+          border: "1px solid var(--border)",
         }}>
           {boards.map(({ category, top }) => (
-            <div key={category} style={{ backgroundColor: "#000000", padding: "32px" }}>
+            <div key={category} style={{ backgroundColor: "var(--bg)", padding: "32px" }}>
               <div style={{
                 display: "flex",
                 justifyContent: "space-between",
@@ -388,7 +388,7 @@ export default function HomePage() {
                   fontFamily: "monospace",
                   fontSize: "13px",
                   fontWeight: 700,
-                  color: "#ffffff",
+                  color: "var(--fg)",
                   letterSpacing: "0.02em",
                 }}>
                   Top {category}
@@ -410,10 +410,10 @@ export default function HomePage() {
                   alignItems: "baseline",
                   gap: "12px",
                   padding: "10px 0",
-                  borderBottom: i < top.length - 1 ? "1px solid #1a1a1a" : "none",
+                  borderBottom: i < top.length - 1 ? "1px solid var(--bg-4)" : "none",
                   transition: "background 0.1s",
                 }}
-                onMouseEnter={e => (e.currentTarget.style.background = "#0a0a0a")}
+                onMouseEnter={e => (e.currentTarget.style.background = "var(--bg-2)")}
                 onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
                 >
                   <span style={{
@@ -428,7 +428,7 @@ export default function HomePage() {
                       fontFamily: "monospace",
                       fontSize: "13px",
                       fontWeight: 600,
-                      color: "#ffffff",
+                      color: "var(--fg)",
                       marginRight: "10px",
                     }}>
                       {skill.name}
@@ -436,7 +436,7 @@ export default function HomePage() {
                     <span style={{
                       fontFamily: "monospace",
                       fontSize: "10px",
-                      color: "#888888",
+                      color: "var(--ink-4)",
                     }}>
                       {skill.author}
                     </span>
@@ -491,7 +491,7 @@ export default function HomePage() {
               gridTemplateColumns: "1fr auto",
               alignItems: "baseline",
               padding: "20px 0",
-              borderBottom: "1px solid #222222",
+              borderBottom: "1px solid var(--border)",
               gap: "24px",
             }}>
               <div>
@@ -506,7 +506,7 @@ export default function HomePage() {
                 <span style={{
                   fontFamily: "monospace",
                   fontSize: "11px",
-                  color: "#888888",
+                  color: "var(--ink-4)",
                   marginRight: "16px",
                 }}>
                   by {skill.author}
@@ -524,7 +524,7 @@ export default function HomePage() {
                   <div style={{
                     fontFamily: "monospace",
                     fontSize: "11px",
-                    color: label === "Free" ? "#bbbbbb" : label === "—" ? "var(--muted-dim)" : "var(--muted)",
+                    color: label === "Free" ? "var(--ink-7)" : label === "—" ? "var(--muted-dim)" : "var(--muted)",
                     letterSpacing: "0.06em",
                     whiteSpace: "nowrap",
                   }}>

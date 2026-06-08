@@ -41,9 +41,9 @@ export function Footer() {
   return (
     <footer
       style={{
-        borderTop: "1px solid #222222",
-        backgroundColor: "#000000",
-        color: "#ffffff",
+        borderTop: "1px solid var(--border)",
+        backgroundColor: "var(--bg)",
+        color: "var(--fg)",
       }}
     >
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "56px 32px 32px" }}>
@@ -74,7 +74,7 @@ export function Footer() {
                 width="16"
                 height="16"
                 viewBox="0 0 32 32"
-                fill="#ffffff"
+                fill="currentColor"
                 xmlns="http://www.w3.org/2000/svg"
                 style={{ display: "block", flexShrink: 0 }}
               >
@@ -83,7 +83,7 @@ export function Footer() {
                 <rect x="22" y="6" width="6" height="20" rx="1" />
               </svg>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logo-white.png" alt="Solid State" style={{ display: "block", height: "15px", width: "auto" }} />
+              <img src="/logo-white.png" alt="Solid State" className="ss-invertible" style={{ display: "block", height: "15px", width: "auto" }} />
             </div>
             <p
               style={{
@@ -99,7 +99,7 @@ export function Footer() {
                 href="https://visionaire.co"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ color: "#ffffff", textDecoration: "none" }}
+                style={{ color: "var(--fg)", textDecoration: "none" }}
               >
                 Visionaire Labs
               </a>.
@@ -127,7 +127,7 @@ export function Footer() {
                       href={l.href}
                       target={l.external ? "_blank" : undefined}
                       rel={l.external ? "noopener noreferrer" : undefined}
-                      style={{ fontSize: "13px", color: "#ffffff" }}
+                      style={{ fontSize: "13px", color: "var(--fg)" }}
                     >
                       {l.label} {l.external ? "↗" : ""}
                     </Link>
@@ -140,7 +140,7 @@ export function Footer() {
 
         <div
           style={{
-            borderTop: "1px solid #222222",
+            borderTop: "1px solid var(--border)",
             paddingTop: "24px",
             display: "flex",
             justifyContent: "space-between",

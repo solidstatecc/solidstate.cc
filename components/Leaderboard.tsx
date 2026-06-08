@@ -11,7 +11,7 @@ import { formatInstalls } from "@/lib/format"
  */
 export function Leaderboard({ skills }: { skills: Skill[] }) {
   return (
-    <div className="ss-lb" style={{ border: "1px solid #222222" }}>
+    <div className="ss-lb" style={{ border: "1px solid var(--border)" }}>
       <div
         className="ss-lb-row"
         style={{
@@ -20,12 +20,12 @@ export function Leaderboard({ skills }: { skills: Skill[] }) {
           gap: "12px",
           alignItems: "center",
           padding: "10px 16px",
-          borderBottom: "1px solid #222222",
+          borderBottom: "1px solid var(--border)",
           fontFamily: "var(--font-jetbrains-mono), monospace",
           fontSize: "10px",
           letterSpacing: "0.08em",
           textTransform: "uppercase",
-          color: "#666666",
+          color: "var(--ink-2)",
         }}
       >
         <span>#</span>
@@ -47,19 +47,19 @@ export function Leaderboard({ skills }: { skills: Skill[] }) {
               gap: "12px",
               alignItems: "center",
               padding: "11px 16px",
-              borderBottom: i === skills.length - 1 ? "none" : "1px solid #161616",
+              borderBottom: i === skills.length - 1 ? "none" : "1px solid var(--bg-4)",
               textDecoration: "none",
               color: "inherit",
               transition: "background-color 0.1s",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#0d0d0d")}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "var(--bg-2)")}
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
           >
             <span
               style={{
                 fontFamily: "var(--font-jetbrains-mono), monospace",
                 fontSize: "12px",
-                color: i < 3 ? "#ffffff" : "#555555",
+                color: i < 3 ? "var(--fg)" : "var(--ink-1)",
                 fontWeight: i < 3 ? 700 : 400,
               }}
             >
@@ -73,7 +73,7 @@ export function Leaderboard({ skills }: { skills: Skill[] }) {
                   fontFamily: "var(--font-jetbrains-mono), monospace",
                   fontSize: "13px",
                   fontWeight: 600,
-                  color: "#ffffff",
+                  color: "var(--fg)",
                   overflow: "hidden",
                   textOverflow: "ellipsis",
                   whiteSpace: "nowrap",
@@ -86,7 +86,7 @@ export function Leaderboard({ skills }: { skills: Skill[] }) {
                   display: "block",
                   fontFamily: "var(--font-jetbrains-mono), monospace",
                   fontSize: "11px",
-                  color: "#666666",
+                  color: "var(--ink-2)",
                   overflow: "hidden",
                   textOverflow: "ellipsis",
                   whiteSpace: "nowrap",
@@ -102,8 +102,8 @@ export function Leaderboard({ skills }: { skills: Skill[] }) {
                   style={{
                     fontFamily: "var(--font-jetbrains-mono), monospace",
                     fontSize: "10px",
-                    color: "#ffffff",
-                    border: "1px solid #333333",
+                    color: "var(--fg)",
+                    border: "1px solid var(--border-2)",
                     borderRadius: "3px",
                     padding: "2px 6px",
                     letterSpacing: "0.04em",
@@ -113,7 +113,7 @@ export function Leaderboard({ skills }: { skills: Skill[] }) {
                   ↑<span className="ss-lb-trendword"> Trending</span>
                 </span>
               ) : (
-                <span style={{ color: "#333333", fontSize: "11px" }}>—</span>
+                <span style={{ color: "var(--border-2)", fontSize: "11px" }}>—</span>
               )}
             </span>
 
@@ -121,7 +121,7 @@ export function Leaderboard({ skills }: { skills: Skill[] }) {
               style={{
                 fontFamily: "var(--font-jetbrains-mono), monospace",
                 fontSize: "13px",
-                color: installs ? "#ffffff" : "#444444",
+                color: installs ? "var(--fg)" : "var(--border-3)",
                 textAlign: "right",
                 fontVariantNumeric: "tabular-nums",
               }}

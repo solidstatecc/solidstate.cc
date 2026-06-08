@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "",
     "/skills",
     "/agents",
+    "/models",
     "/glossary",
     "/official",
     "/audits",
