@@ -1,16 +1,34 @@
 /* Solid State — match solidstate.cc
-   bg #000 · fg #fff · border #222 · muted #a3a3a3
+   Dark (default): bg #000 · fg #fff · border #222 · muted #a3a3a3
+   Light: bg #fff · fg #000 · border #dedede · muted #595959
    JetBrains Mono labels, uppercase, tracked */
 
-:root {
+:root,
+html.dark {
   --ss-border: #222222;
   --ss-muted: #a3a3a3;
+  --ss-fg: #ffffff;
+  --ss-bg: #000000;
+  --ss-pre-bg: #0a0a0a;
+  /* footer replica (footer.js) */
+  --ss-f-muted: #8a8a8a;
+  --ss-f-dim: #555555;
 }
 
-/* Selection: inverse, like the main site */
+html.light {
+  --ss-border: #dedede;
+  --ss-muted: #595959;
+  --ss-fg: #000000;
+  --ss-bg: #ffffff;
+  --ss-pre-bg: #f7f7f7;
+  --ss-f-muted: #6e6e6e;
+  --ss-f-dim: #a6a6a6;
+}
+
+/* Selection: inverse, like the main site (flips with the theme) */
 ::selection {
-  background: #ffffff;
-  color: #000000;
+  background: var(--ss-fg);
+  color: var(--ss-bg);
 }
 
 /* Navbar + sidebar labels: mono, uppercase, tracked — the site's nav grammar */
@@ -32,33 +50,33 @@
   color: var(--ss-muted);
 }
 
-/* Borders: the site's #222 hairline */
-html.dark #navbar,
-html.dark #sidebar {
+/* Borders: the site's hairline */
+#navbar,
+#sidebar {
   border-color: var(--ss-border);
 }
 
-html.dark hr {
+hr {
   border-color: var(--ss-border);
 }
 
 /* Tables: hairline borders, no zebra fills */
-html.dark table,
-html.dark th,
-html.dark td {
+table,
+th,
+td {
   border-color: var(--ss-border);
 }
 
-/* Code blocks: near-black surface, hairline border */
-html.dark pre {
-  background-color: #0a0a0a;
+/* Code blocks: raised surface, hairline border */
+pre {
+  background-color: var(--ss-pre-bg);
   border: 1px solid var(--ss-border);
 }
 
 /* Monochrome: flatten syntax-highlight hues to grayscale.
    Luminance survives, so token hierarchy stays readable. */
-html.dark pre,
-html.dark :not(pre) > code {
+pre,
+:not(pre) > code {
   filter: grayscale(1);
 }
 
@@ -68,24 +86,29 @@ html.dark :not(pre) > code {
   line-height: 1.7;
 }
 
-html.dark pre code {
+pre code {
   font-size: 13px;
 }
 
-/* Links in prose: white, dim on hover — site behavior */
-html.dark .prose a {
-  color: #ffffff;
+/* Links in prose: foreground, dim on hover — site behavior */
+.prose a {
+  color: var(--ss-fg);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
-html.dark .prose a:hover {
+.prose a:hover {
   opacity: 0.7;
 }
 
-/* Focus ring: white, like the site */
+/* Focus ring: foreground color, like the site */
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid #ffffff;
+  outline: 2px solid var(--ss-fg);
   outline-offset: 2px;
+}
+
+/* Footer replica: white assets flip in light mode */
+html.light #footer .ss-invertible {
+  filter: invert(1);
 }

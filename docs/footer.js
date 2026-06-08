@@ -40,13 +40,13 @@
         return (
           '<li style="margin-bottom:8px"><a href="' + l[0] + '"' +
           (l[2] ? ' target="_blank" rel="noopener noreferrer"' : '') +
-          ' style="font-size:13px;color:#ffffff;text-decoration:none">' +
+          ' style="font-size:13px;color:var(--ss-fg);text-decoration:none">' +
           l[1] + (l[2] ? EXT : '') + '</a></li>'
         );
       })
       .join('');
     return (
-      '<div><div style="font-family:\'JetBrains Mono\',monospace;font-size:10px;color:#8a8a8a;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:16px">' +
+      '<div><div style="font-family:\'JetBrains Mono\',monospace;font-size:10px;color:var(--ss-f-muted);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:16px">' +
       col.title +
       '</div><ul style="list-style:none;padding:0;margin:0">' + links + '</ul></div>'
     );
@@ -55,26 +55,26 @@
   function footerHtml() {
     var year = new Date().getFullYear();
     return (
-      '<div style="border-top:1px solid #222222;background:#000000;color:#ffffff;width:100%">' +
+      '<div style="border-top:1px solid var(--ss-border);background:var(--ss-bg);color:var(--ss-fg);width:100%">' +
       '<div style="max-width:1200px;margin:0 auto;padding:56px 32px 32px">' +
       '<div class="ss-footer-grid" style="display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:32px;margin-bottom:48px">' +
       // brand block
-      '<div><div style="display:flex;align-items:center;gap:10px">' +
-      '<svg aria-hidden="true" width="16" height="16" viewBox="0 0 32 32" fill="#ffffff" xmlns="http://www.w3.org/2000/svg" style="display:block;flex-shrink:0">' +
+      '<div><div style="display:flex;align-items:center;gap:10px;color:var(--ss-fg)">' +
+      '<svg aria-hidden="true" width="16" height="16" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="display:block;flex-shrink:0">' +
       '<rect x="4" y="6" width="6" height="20" rx="1"></rect><rect x="13" y="6" width="6" height="20" rx="1"></rect><rect x="22" y="6" width="6" height="20" rx="1"></rect></svg>' +
-      '<img src="https://solidstate.cc/logo-white.png" alt="Solid State" style="display:block;height:15px;width:auto">' +
+      '<img src="https://solidstate.cc/logo-white.png" alt="Solid State" class="ss-invertible" style="display:block;height:15px;width:auto">' +
       '</div>' +
-      '<p style="font-size:13px;color:#8a8a8a;line-height:1.7;margin-top:16px;max-width:300px">Working skills for AI agents. Verified. Operator-grade. Built by ' +
-      '<a href="https://visionaire.co" target="_blank" rel="noopener noreferrer" style="color:#ffffff;text-decoration:none">Visionaire Labs</a>.</p></div>' +
+      '<p style="font-size:13px;color:var(--ss-f-muted);line-height:1.7;margin-top:16px;max-width:300px">Working skills for AI agents. Verified. Operator-grade. Built by ' +
+      '<a href="https://visionaire.co" target="_blank" rel="noopener noreferrer" style="color:var(--ss-fg);text-decoration:none">Visionaire Labs</a>.</p></div>' +
       COLS.map(colHtml).join('') +
       '</div>' +
       // bottom bar
-      '<div style="border-top:1px solid #222222;padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px">' +
-      '<span style="font-family:\'JetBrains Mono\',monospace;font-size:11px;color:#8a8a8a;letter-spacing:0.06em;text-transform:uppercase">© ' + year + ' Solid State · ' +
+      '<div style="border-top:1px solid var(--ss-border);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px">' +
+      '<span style="font-family:\'JetBrains Mono\',monospace;font-size:11px;color:var(--ss-f-muted);letter-spacing:0.06em;text-transform:uppercase">© ' + year + ' Solid State · ' +
       '<a href="https://visionaire.co" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none">Visionaire Labs ↗</a></span>' +
-      '<span style="font-family:\'JetBrains Mono\',monospace;font-size:11px;color:#8a8a8a;letter-spacing:0.06em;text-transform:uppercase">solidstate.cc</span>' +
+      '<span style="font-family:\'JetBrains Mono\',monospace;font-size:11px;color:var(--ss-f-muted);letter-spacing:0.06em;text-transform:uppercase">solidstate.cc</span>' +
       '</div>' +
-      '<div style="padding-top:16px"><a href="https://mintlify.com" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:#555555;text-decoration:none">Powered by Mintlify</a></div>' +
+      '<div style="padding-top:16px"><a href="https://mintlify.com" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:var(--ss-f-dim);text-decoration:none">Powered by Mintlify</a></div>' +
       '</div></div>'
     );
   }
