@@ -218,7 +218,10 @@ summary:focus-visible {
 /* Mobile-only slot for the theme toggle (desktop row has its own) */
 .ss-nav-mobile-toggle { display: none; }
 
-@media (max-width: 768px) {
+/* The desktop nav (logo + 8 links + submit + toggle) needs ~1027px; below
+   that the wordmark collides with the links. Switch to the disclosure menu
+   up to 1080px so tablets get the menu instead of an overlapping row. */
+@media (max-width: 1080px) {
   .ss-nav-desktop { display: none; }
   .ss-nav-mobile { display: block; }
   .ss-nav-mobile-toggle { display: inline-flex; }
