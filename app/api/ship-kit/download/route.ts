@@ -52,7 +52,20 @@ export async function GET(req: Request) {
       (li) => li.price?.id === shipKitPrice
     )
     paid = session.payment_status === "paid" && hasShipKit
-  } catch {
+    if (!paid) {
+      console.error(
+        "[ship-kit/download] verification failed:",
+        JSON.stringify({
+          payment_status: session.payment_status,
+          line_prices: (session.line_items?.data ?? []).map((li) => li.price?.id),
+          expected_price: shipKitPrice,
+        })
+      )
+    }
+  } catch (e) {
+    // Logged server-side only (Vercel runtime logs); response stays generic.
+    const msg = e instanceof Error ? `${e.name}: ${e.message}` : String(e)
+    console.error("[ship-kit/download] session retrieve failed:", msg)
     return NextResponse.json({ error: "Unknown checkout session" }, { status: 403 })
   }
 
