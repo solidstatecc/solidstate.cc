@@ -99,20 +99,21 @@ export default function HomePage() {
         padding: "64px 32px",
         borderBottom: "1px solid var(--border)",
       }}>
-        <div style={{
+        <h2 style={{
           fontFamily: "monospace",
           fontSize: "11px",
+          fontWeight: 400,
           color: "var(--muted)",
           letterSpacing: "0.1em",
           textTransform: "uppercase",
           marginBottom: "32px",
         }}>
           Featured
-        </div>
+        </h2>
 
         <div style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 320px), 1fr))",
           gap: "0",
         }}>
           {featured.map((skill, i) => (
@@ -153,20 +154,22 @@ export default function HomePage() {
               }}>
                 {skill.description}
               </div>
-              <div style={{
-                fontFamily: "monospace",
-                fontSize: "11px",
-                color: "var(--muted-dim)",
-                backgroundColor: "var(--bg-2)",
-                padding: "8px 12px",
-                letterSpacing: "0.02em",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-                whiteSpace: "nowrap",
-                marginBottom: "16px",
-              }}>
-                {skill.installCommand}
-              </div>
+              {skill.installCommand && (
+                <div style={{
+                  fontFamily: "monospace",
+                  fontSize: "11px",
+                  color: "var(--muted-dim)",
+                  backgroundColor: "var(--bg-2)",
+                  padding: "8px 12px",
+                  letterSpacing: "0.02em",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  whiteSpace: "nowrap",
+                  marginBottom: "16px",
+                }}>
+                  {skill.installCommand}
+                </div>
+              )}
               {(() => {
                 const label = priceDisplay(skill)
                 return (
@@ -199,15 +202,16 @@ export default function HomePage() {
           alignItems: "baseline",
           marginBottom: "32px",
         }}>
-          <div style={{
+          <h2 style={{
             fontFamily: "monospace",
             fontSize: "11px",
+            fontWeight: 400,
             color: "var(--muted)",
             letterSpacing: "0.1em",
             textTransform: "uppercase",
           }}>
             Agents — ranked by catalog coverage
-          </div>
+          </h2>
           <Link href="/agents" style={{
             fontFamily: "monospace",
             fontSize: "11px",
@@ -222,7 +226,7 @@ export default function HomePage() {
         {/* Hero cards — top 4 runtimes */}
         <div style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 240px), 1fr))",
           gap: "1px",
           backgroundColor: "var(--border)",
           border: "1px solid var(--border)",
@@ -284,7 +288,7 @@ export default function HomePage() {
 
         <div style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(420px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 420px), 1fr))",
           columnGap: "64px",
           rowGap: "0",
         }}>
@@ -358,20 +362,21 @@ export default function HomePage() {
         padding: "64px 32px",
         borderBottom: "1px solid var(--border)",
       }}>
-        <div style={{
+        <h2 style={{
           fontFamily: "monospace",
           fontSize: "11px",
+          fontWeight: 400,
           color: "var(--muted)",
           letterSpacing: "0.1em",
           textTransform: "uppercase",
           marginBottom: "32px",
         }}>
           Top skills by category — skills.sh installs
-        </div>
+        </h2>
 
         <div style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(420px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 420px), 1fr))",
           gap: "1px",
           backgroundColor: "var(--border)",
           border: "1px solid var(--border)",
@@ -472,16 +477,17 @@ export default function HomePage() {
         margin: "0 auto",
         padding: "64px 32px",
       }}>
-        <div style={{
+        <h2 style={{
           fontFamily: "monospace",
           fontSize: "11px",
+          fontWeight: 400,
           color: "var(--muted)",
           letterSpacing: "0.1em",
           textTransform: "uppercase",
           marginBottom: "32px",
         }}>
           More
-        </div>
+        </h2>
 
         <ul role="list" style={{ listStyle: "none", margin: 0, padding: 0 }}>
           {skills.filter(s => !s.featured).map((skill, i) => (

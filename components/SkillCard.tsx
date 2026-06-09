@@ -66,19 +66,21 @@ export function SkillCard({ skill }: { skill: Skill }) {
         {skill.description}
       </p>
 
-      <div style={{
-        fontFamily: "monospace",
-        fontSize: "11px",
-        color: "var(--muted-dim)",
-        backgroundColor: "var(--bg-2)",
-        padding: "7px 10px",
-        overflow: "hidden",
-        textOverflow: "ellipsis",
-        whiteSpace: "nowrap",
-        marginBottom: "16px",
-      }}>
-        {skill.installCommand}
-      </div>
+      {skill.installCommand && (
+        <div style={{
+          fontFamily: "monospace",
+          fontSize: "11px",
+          color: "var(--muted-dim)",
+          backgroundColor: "var(--bg-2)",
+          padding: "7px 10px",
+          overflow: "hidden",
+          textOverflow: "ellipsis",
+          whiteSpace: "nowrap",
+          marginBottom: "16px",
+        }}>
+          {skill.installCommand}
+        </div>
+      )}
 
       <div style={{
         display: "flex",

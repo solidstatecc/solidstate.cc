@@ -209,6 +209,12 @@ summary:focus-visible {
   }
 }
 
+/* Touch devices: expand the toggle to a 44px hit target. The glyph stays
+   14px; only the tappable button grows, so the desktop look is unchanged. */
+@media (pointer: coarse) {
+  .ss-theme-toggle { width: 44px; height: 44px; }
+}
+
 /* Mobile-only slot for the theme toggle (desktop row has its own) */
 .ss-nav-mobile-toggle { display: none; }
 

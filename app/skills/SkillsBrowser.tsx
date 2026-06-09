@@ -428,7 +428,7 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(270px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 270px), 1fr))",
               gap: "12px",
             }}
           >

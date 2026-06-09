@@ -72,7 +72,7 @@ export default function AgentsPage() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 320px), 1fr))",
             gap: "1px",
             backgroundColor: "var(--border)",
             border: "1px solid var(--border)",
