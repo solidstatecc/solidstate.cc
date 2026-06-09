@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { useRef } from "react"
 import { ThemeToggle } from "@/components/ThemeToggle"
 
 const LINKS = [
@@ -35,6 +36,11 @@ const ctaStyle = {
 } as const
 
 export function Nav() {
+  const menuRef = useRef<HTMLDetailsElement>(null)
+  const closeMenu = () => {
+    if (menuRef.current) menuRef.current.open = false
+  }
+
   return (
     <header
       style={{
@@ -96,15 +102,15 @@ export function Nav() {
         </div>
 
         {/* Mobile: toggle sits beside the disclosure menu (shown ≤768px) */}
-        <details className="ss-nav-mobile">
+        <details className="ss-nav-mobile" ref={menuRef}>
           <summary aria-label="Open menu">Menu</summary>
           <div className="ss-nav-menu">
             {LINKS.map((l) => (
-              <Link key={l.href} href={l.href}>
+              <Link key={l.href} href={l.href} onClick={closeMenu}>
                 {l.label}
               </Link>
             ))}
-            <Link href="/submit">Submit →</Link>
+            <Link href="/submit" onClick={closeMenu}>Submit →</Link>
           </div>
         </details>
         <span className="ss-nav-mobile-toggle">

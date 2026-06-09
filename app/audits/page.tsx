@@ -76,8 +76,9 @@ export default function AuditsPage() {
       {/* Table */}
       <section style={{ maxWidth: "1100px", margin: "0 auto", padding: "32px 24px 96px" }}>
         <div className="ss-table-scroll">
-        <div style={{ border: "1px solid var(--border)", minWidth: "560px" }}>
+        <div className="ss-audit-table" style={{ border: "1px solid var(--border)", minWidth: "560px" }}>
           <div
+            className="ss-audit-head"
             style={{
               display: "grid",
               gridTemplateColumns: "40px 1fr 120px 110px 120px",
@@ -105,6 +106,7 @@ export default function AuditsPage() {
               href={a.url}
               target="_blank"
               rel="noreferrer"
+              className="ss-audit-row"
               style={{
                 display: "grid",
                 gridTemplateColumns: "40px 1fr 120px 110px 120px",
@@ -116,7 +118,7 @@ export default function AuditsPage() {
                 color: "inherit",
               }}
             >
-              <span style={{ fontFamily: mono, fontSize: "12px", color: "var(--ink-1)" }}>{i + 1}</span>
+              <span className="ss-audit-rank" style={{ fontFamily: mono, fontSize: "12px", color: "var(--ink-1)" }}>{i + 1}</span>
 
               <span style={{ minWidth: 0 }}>
                 <span
@@ -138,13 +140,13 @@ export default function AuditsPage() {
                 </span>
               </span>
 
-              <span style={{ fontFamily: mono, fontSize: "12px", color: genColor(a.gen) }}>{a.gen}</span>
+              <span data-label="Gen Trust" style={{ fontFamily: mono, fontSize: "12px", color: genColor(a.gen) }}>{a.gen}</span>
 
-              <span style={{ fontFamily: mono, fontSize: "12px", color: a.socketAlerts === 0 ? "var(--ink-3)" : "var(--fg)" }}>
+              <span data-label="Socket" style={{ fontFamily: mono, fontSize: "12px", color: a.socketAlerts === 0 ? "var(--ink-3)" : "var(--fg)" }}>
                 {a.socketAlerts} {a.socketAlerts === 1 ? "alert" : "alerts"}
               </span>
 
-              <span style={{ fontFamily: mono, fontSize: "12px", color: RISK_COLOR[a.snykRisk] }}>{a.snyk}</span>
+              <span data-label="Snyk" style={{ fontFamily: mono, fontSize: "12px", color: RISK_COLOR[a.snykRisk] }}>{a.snyk}</span>
             </a>
           ))}
         </div>

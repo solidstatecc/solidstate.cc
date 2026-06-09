@@ -250,13 +250,13 @@ summary:focus-visible {
 
 /* Browse Skills: filter sidebar stacks above results */
 @media (max-width: 768px) {
-  .ss-browse-grid { grid-template-columns: 1fr !important; }
+  .ss-browse-grid { grid-template-columns: minmax(0, 1fr) !important; }
   .ss-browse-grid > aside { position: static !important; }
 }
 
 /* Skill detail: meta sidebar drops below the main content */
 @media (max-width: 900px) {
-  .ss-detail-grid { grid-template-columns: 1fr !important; }
+  .ss-detail-grid { grid-template-columns: minmax(0, 1fr) !important; }
 }
 
 /* Submit "how it works" steps stack */
@@ -274,6 +274,23 @@ summary:focus-visible {
 /* Audits hero stays inside the viewport on the smallest screens */
 @media (max-width: 480px) {
   .ss-audits-h1 { font-size: 34px !important; }
+}
+
+/* Audits table: stack each row into a labelled card on phones instead of
+   forcing a 560px-wide horizontal scroll. */
+@media (max-width: 640px) {
+  .ss-audit-table { min-width: 0 !important; }
+  .ss-audit-head { display: none !important; }
+  .ss-audit-row {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 4px !important;
+    padding: 16px !important;
+  }
+  .ss-audit-row > .ss-audit-rank { display: none !important; }
+  .ss-audit-row > [data-label]::before {
+    content: attr(data-label) ": ";
+    color: var(--ink-2);
+  }
 }
 
 /* Leaderboard (Board view): fit the phone instead of scrolling sideways.

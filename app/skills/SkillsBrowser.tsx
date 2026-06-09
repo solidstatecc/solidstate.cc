@@ -146,7 +146,7 @@ export function SkillsBrowser({ skills, categories, platforms }: SkillsBrowserPr
         margin: "0 auto",
         padding: "32px 24px",
         display: "grid",
-        gridTemplateColumns: "220px 1fr",
+        gridTemplateColumns: "220px minmax(0, 1fr)",
         gap: "32px",
         alignItems: "start",
       }}
