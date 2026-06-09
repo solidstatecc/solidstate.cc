@@ -8,6 +8,9 @@ function applyTheme(theme: Theme) {
   document.documentElement.dataset.theme = theme
   try {
     localStorage.setItem("ss-theme", theme)
+    // Mintlify docs (/docs, same origin) read their theme from "isDarkMode".
+    // Mirror our choice so the docs follow the site's dark/light mode.
+    localStorage.setItem("isDarkMode", theme)
   } catch {
     /* private mode — theme still applies for the session */
   }
