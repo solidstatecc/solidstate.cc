@@ -3,9 +3,8 @@
 import { useState, useMemo, useEffect } from "react"
 
 interface ModelRow {
-  provider: string
-  providerName: string
-  id: string
+  id: string // canonical `{lab}/{id}` — e.g. anthropic/claude-opus-4-8
+  lab: string
   name: string
   family: string | null
   reasoning: boolean
@@ -21,16 +20,19 @@ interface ModelRow {
   knowledge: string | null
   modIn: string[]
   modOut: string[]
+  benchmarks?: number
 }
 
 interface ModelsData {
   captured: string
+  labs: string[]
   providers: string[]
   rows: ModelRow[]
 }
 
 const mono = "var(--font-jetbrains-mono), monospace"
 const PAGE = 100
+const DEV = "https://models.dev"
 
 function fmtContext(n: number | null): string {
   if (!n) return "—"
@@ -90,7 +92,7 @@ export function ModelsBrowser() {
   const [data, setData] = useState<ModelsData | null>(null)
   const [error, setError] = useState(false)
   const [search, setSearch] = useState("")
-  const [provider, setProvider] = useState("")
+  const [lab, setLab] = useState("")
   const [reasoningOnly, setReasoningOnly] = useState(false)
   const [toolsOnly, setToolsOnly] = useState(false)
   const [openOnly, setOpenOnly] = useState(false)
@@ -114,11 +116,11 @@ export function ModelsBrowser() {
         (m) =>
           m.name.toLowerCase().includes(q) ||
           m.id.toLowerCase().includes(q) ||
-          m.providerName.toLowerCase().includes(q) ||
+          m.lab.toLowerCase().includes(q) ||
           (m.family ?? "").toLowerCase().includes(q)
       )
     }
-    if (provider) result = result.filter((m) => m.providerName === provider)
+    if (lab) result = result.filter((m) => m.lab === lab)
     if (reasoningOnly) result = result.filter((m) => m.reasoning)
     if (toolsOnly) result = result.filter((m) => m.toolCall)
     if (openOnly) result = result.filter((m) => m.openWeights)
@@ -127,14 +129,12 @@ export function ModelsBrowser() {
       result = [...result]
       if (sortBy === "context") result.sort((a, b) => (b.context ?? 0) - (a.context ?? 0))
       if (sortBy === "cheapest")
-        result.sort(
-          (a, b) => (a.costIn ?? Infinity) - (b.costIn ?? Infinity)
-        )
+        result.sort((a, b) => (a.costIn ?? Infinity) - (b.costIn ?? Infinity))
       if (sortBy === "priciest") result.sort((a, b) => (b.costIn ?? 0) - (a.costIn ?? 0))
       if (sortBy === "name") result.sort((a, b) => a.name.localeCompare(b.name))
     }
     return result
-  }, [data, search, provider, reasoningOnly, toolsOnly, openOnly, sortBy])
+  }, [data, search, lab, reasoningOnly, toolsOnly, openOnly, sortBy])
 
   // Any filter change resets paging.
   function setAndReset<T>(setter: (v: T) => void) {
@@ -144,7 +144,7 @@ export function ModelsBrowser() {
     }
   }
   const updateSearch = setAndReset(setSearch)
-  const updateProvider = setAndReset(setProvider)
+  const updateLab = setAndReset(setLab)
   const updateSort = setAndReset(setSortBy)
   const toggleReasoning = () => {
     setReasoningOnly(!reasoningOnly)
@@ -199,20 +199,28 @@ export function ModelsBrowser() {
 
   return (
     <div>
+      {/* Outbound links open models.dev in a new tab; hover underline for affordance. */}
+      <style>{`
+        a.ms-link { color: inherit; text-decoration: none; }
+        a.ms-link:hover { text-decoration: underline; text-underline-offset: 2px; }
+        a.ms-out { color: var(--ink-1); text-decoration: none; }
+        a.ms-out:hover { color: var(--fg); }
+      `}</style>
+
       {/* Controls */}
       <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginBottom: "24px" }}>
         <input
           type="text"
-          placeholder="Search models, providers, families…"
+          placeholder="Search models, labs, families…"
           value={search}
           onChange={(e) => updateSearch(e.target.value)}
           style={{ ...inputStyle, flex: "1 1 260px", borderColor: "var(--border)" }}
         />
-        <select value={provider} onChange={(e) => updateProvider(e.target.value)} style={selectStyle}>
-          <option value="">All providers</option>
-          {data.providers.map((p) => (
-            <option key={p} value={p}>
-              {p}
+        <select value={lab} onChange={(e) => updateLab(e.target.value)} style={selectStyle}>
+          <option value="">All labs</option>
+          {data.labs.map((l) => (
+            <option key={l} value={l}>
+              {l}
             </option>
           ))}
         </select>
@@ -248,25 +256,44 @@ export function ModelsBrowser() {
           <thead>
             <tr>
               <th style={th}>Model</th>
-              <th style={th}>Provider</th>
+              <th style={th}>Lab</th>
               <th style={th}>Context</th>
               <th style={th}>In $/M</th>
               <th style={th}>Out $/M</th>
               <th style={th}>Caps</th>
               <th style={th}>Modalities</th>
               <th style={th}>Released</th>
+              <th style={th}>Providers</th>
             </tr>
           </thead>
           <tbody>
             {visible.map((m) => (
-              <tr key={`${m.provider}/${m.id}`}>
+              <tr key={m.id}>
                 <td style={{ ...td, color: "var(--fg)", maxWidth: "320px", overflow: "hidden", textOverflow: "ellipsis" }}>
-                  {m.name}
+                  <a
+                    className="ms-link"
+                    href={`${DEV}/models/${m.id}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={`${m.name} on models.dev`}
+                  >
+                    {m.name}
+                  </a>
                   {m.openWeights && (
                     <span style={{ color: "var(--ink-1)", marginLeft: "8px", fontSize: "10px" }}>OW</span>
                   )}
                 </td>
-                <td style={{ ...td, color: "var(--ink-4)" }}>{m.providerName}</td>
+                <td style={{ ...td, color: "var(--ink-4)" }}>
+                  <a
+                    className="ms-link"
+                    href={`${DEV}/labs/${m.lab}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={`${m.lab} on models.dev`}
+                  >
+                    {m.lab}
+                  </a>
+                </td>
                 <td style={td}>{fmtContext(m.context)}</td>
                 <td style={td}>{fmtCost(m.costIn)}</td>
                 <td style={td}>{fmtCost(m.costOut)}</td>
@@ -279,6 +306,17 @@ export function ModelsBrowser() {
                   {m.modIn.join("+")}→{m.modOut.join("+")}
                 </td>
                 <td style={{ ...td, color: "var(--ink-4)" }}>{m.released ?? "—"}</td>
+                <td style={td}>
+                  <a
+                    className="ms-out"
+                    href={`${DEV}/models/${m.id}#providers`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="View every provider & price on models.dev"
+                  >
+                    all ↗
+                  </a>
+                </td>
               </tr>
             ))}
           </tbody>

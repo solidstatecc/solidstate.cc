@@ -1,9 +1,19 @@
-// Regenerate the models index from https://models.dev/api.json.
+// Regenerate the models index from https://models.dev/catalog.json.
 //
-// models.dev is the open-source model database by the Anomaly/SST team
-// (github.com/anomalyco/models.dev). We flatten provider→models into rows,
-// keep only the fields the /models page renders, and write:
-//   public/data/models.json  — the row data (fetched client-side)
+// models.dev is the open-source model database by the SST team
+// (github.com/sst/models.dev — formerly anomalyco/models.dev). We index the
+// MODEL-CENTRIC catalog: one row per canonical model (not per provider serving),
+// matching models.dev's own /models view. catalog.json gives us:
+//   catalog.models    — ~205 canonical models, keyed `{lab}/{id}` (provider-agnostic)
+//   catalog.providers — ~140 serving endpoints (npm pkg, api url, docs)
+//
+// Canonical models carry no price (pricing is provider-specific), so each row's
+// cost is the model maker's FIRST-PARTY price — the lab's own API serving, where
+// model ids are clean. ~84% of models have one; the rest show "—" and link out
+// to models.dev/models/{id}#providers, where every provider + price is listed.
+//
+// Writes:
+//   public/data/models.json  — rows + lab/provider lists (fetched client-side)
 //   lib/modelsMeta.ts        — counts + capture date for the page header
 //
 // Usage:  node scripts/refresh-models.mjs
@@ -14,7 +24,7 @@
 
 import { writeFileSync, mkdirSync } from "node:fs"
 
-const API = "https://models.dev/api.json"
+const API = "https://models.dev/catalog.json"
 const DRY = process.argv.includes("--dry")
 const OUT_JSON = new URL("../public/data/models.json", import.meta.url)
 const OUT_META = new URL("../lib/modelsMeta.ts", import.meta.url)
@@ -25,38 +35,48 @@ if (!res.ok) {
   process.exit(1)
 }
 const db = await res.json()
+const models = db.models ?? {}
+const providers = db.providers ?? {}
 
-const rows = []
-for (const provider of Object.values(db)) {
-  const providerId = provider.id
-  const providerName = provider.name ?? provider.id
-  for (const m of Object.values(provider.models ?? {})) {
-    if (m.status === "retired" || m.status === "deprecated") continue
-    rows.push({
-      provider: providerId,
-      providerName,
-      id: m.id,
-      name: m.name ?? m.id,
-      family: m.family ?? null,
-      reasoning: !!m.reasoning,
-      toolCall: !!m.tool_call,
-      attachment: !!m.attachment,
-      openWeights: !!m.open_weights,
-      context: m.limit?.context ?? null,
-      maxOutput: m.limit?.output ?? null,
-      costIn: m.cost?.input ?? null,
-      costOut: m.cost?.output ?? null,
-      released: m.release_date ?? null,
-      updated: m.last_updated ?? null,
-      knowledge: m.knowledge ?? null,
-      modIn: m.modalities?.input ?? ["text"],
-      modOut: m.modalities?.output ?? ["text"],
-    })
-  }
+// First-party price = the lab's own API serving of this model, when the lab is
+// itself a provider and serves the model under its clean (un-prefixed) id.
+function firstPartyCost(lab, shortId) {
+  const prov = providers[lab]
+  if (!prov || !prov.models) return null
+  const served = prov.models[shortId] || Object.values(prov.models).find((s) => s.id === shortId)
+  return served?.cost ?? null
 }
 
-// Sanity guard — if the feed shrinks dramatically, the format probably changed.
-if (rows.length < 2000) {
+const rows = []
+for (const [key, m] of Object.entries(models)) {
+  const slash = key.indexOf("/")
+  const lab = slash === -1 ? key : key.slice(0, slash)
+  const shortId = slash === -1 ? key : key.slice(slash + 1)
+  const cost = firstPartyCost(lab, shortId)
+  rows.push({
+    id: key,                 // canonical `{lab}/{id}` → models.dev/models/{id}
+    lab,                     // model maker → models.dev/labs/{lab}
+    name: m.name ?? shortId,
+    family: m.family ?? null,
+    reasoning: !!m.reasoning,
+    toolCall: !!m.tool_call,
+    attachment: !!m.attachment,
+    openWeights: !!m.open_weights,
+    context: m.limit?.context ?? null,
+    maxOutput: m.limit?.output ?? null,
+    costIn: cost?.input ?? null,
+    costOut: cost?.output ?? null,
+    released: m.release_date ?? null,
+    updated: m.last_updated ?? null,
+    knowledge: m.knowledge ?? null,
+    modIn: m.modalities?.input ?? ["text"],
+    modOut: m.modalities?.output ?? ["text"],
+    benchmarks: Array.isArray(m.benchmarks) ? m.benchmarks.length : 0,
+  })
+}
+
+// Sanity guard — if the catalog shrinks dramatically, the format probably changed.
+if (rows.length < 150) {
   console.error(`Only ${rows.length} models parsed — feed format probably changed. Aborting, nothing written.`)
   process.exit(1)
 }
@@ -64,27 +84,35 @@ if (rows.length < 2000) {
 // Newest first by release date (unknown dates last).
 rows.sort((a, b) => String(b.released ?? "").localeCompare(String(a.released ?? "")))
 
-const providers = [...new Set(rows.map((r) => r.providerName))].sort((a, b) =>
+const labs = [...new Set(rows.map((r) => r.lab))].sort((a, b) => a.localeCompare(b))
+const providerNames = [...new Set(Object.values(providers).map((p) => p.name ?? p.id))].sort((a, b) =>
   a.localeCompare(b)
 )
 const today = new Date().toISOString().slice(0, 10)
 
 const meta = `// AUTO-GENERATED by scripts/refresh-models.mjs — do not edit by hand.
-// Source: https://models.dev/api.json (open data, github.com/anomalyco/models.dev).
+// Source: https://models.dev/catalog.json (open data, github.com/sst/models.dev).
 // Captured ${today}.
 export const MODELS_META = {
   captured: ${JSON.stringify(today)},
   models: ${rows.length},
-  providers: ${providers.length},
+  providers: ${Object.keys(providers).length},
+  labs: ${labs.length},
 }
 `
 
 if (DRY) {
-  console.log(`[dry] ${rows.length} models across ${providers.length} providers (captured ${today})`)
+  const priced = rows.filter((r) => r.costIn != null || r.costOut != null).length
+  console.log(
+    `[dry] ${rows.length} models · ${Object.keys(providers).length} providers · ${labs.length} labs ` +
+      `(${priced} with first-party price, captured ${today})`
+  )
   process.exit(0)
 }
 
 mkdirSync(new URL("../public/data/", import.meta.url), { recursive: true })
-writeFileSync(OUT_JSON, JSON.stringify({ captured: today, providers, rows }))
+writeFileSync(OUT_JSON, JSON.stringify({ captured: today, labs, providers: providerNames, rows }))
 writeFileSync(OUT_META, meta)
-console.log(`Wrote ${rows.length} models / ${providers.length} providers → public/data/models.json + lib/modelsMeta.ts`)
+console.log(
+  `Wrote ${rows.length} models / ${labs.length} labs / ${Object.keys(providers).length} providers → public/data/models.json + lib/modelsMeta.ts`
+)

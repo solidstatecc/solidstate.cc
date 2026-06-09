@@ -49,14 +49,15 @@ export default function ModelsPage() {
           <br />
           one table.
         </h1>
-        <p style={{ fontSize: "15px", color: "var(--ink-4)", maxWidth: "560px", lineHeight: 1.6, margin: 0 }}>
-          Skills run on models. Here is what your agent can run them on —{" "}
-          {MODELS_META.models.toLocaleString("en-US")} models across {MODELS_META.providers}{" "}
-          providers, with context, pricing, and capabilities. Indexed from the open{" "}
+        <p style={{ fontSize: "15px", color: "var(--ink-4)", maxWidth: "580px", lineHeight: 1.6, margin: 0 }}>
+          Skills run on models. This is the catalog —{" "}
+          {MODELS_META.models.toLocaleString("en-US")} models from {MODELS_META.labs} labs,
+          served across {MODELS_META.providers} providers. Context, capabilities, and the
+          maker&apos;s first-party price. Every row links to{" "}
           <a href="https://models.dev" style={{ color: "var(--ink-8)" }}>
             models.dev
           </a>{" "}
-          database. Refreshed weekly — last capture {MODELS_META.captured}.
+          for full provider pricing. Refreshed weekly — last capture {MODELS_META.captured}.
         </p>
       </section>
 
