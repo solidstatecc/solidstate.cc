@@ -133,6 +133,44 @@ Live on [ClawHub](https://clawhub.ai/solidstate/publish-audit). Free, MIT-0.`,
     tags: ["audit", "publish", "clawhub", "trust", "meta"],
     createdAt: "2026-06-04",
   },
+  {
+    id: "ship-kit",
+    name: "Ship Kit",
+    slug: "ship-kit",
+    kind: "original",
+    description:
+      "A system, not a pile of skills. Six skills + orchestrator + shared project memory: validate, position, audit (write-mode), launch. $99 once.",
+    longDescription: `The Ship Kit is Solid State's first system-class original — the difference between owning ten tools and running one workflow.
+
+**The glue:** a \`/ship-start\` orchestrator (two intake questions, eight-step gap analysis, four chains) and a \`.solidstate/\` project memory — four plain-markdown files every skill reads and writes. Your agent stops asking what you're building.
+
+**The skills:** ship-positioning (the angle, contrast pairs, the not-for list), ship-audit (write mode — patches what it flags, re-runs until READY), launch-list (fit-ranked venues + 14-day measurement window), niche-hunter, hyper-rational-brief — with competitor-brief and geo-audit folding in on release, included.
+
+Parts sold separately: $106+. The kit: $99, one-time, updates through v1.x. Delivered as a zip; installs in Claude Code, Cowork, Cursor, OpenClaw in ~2 minutes.
+
+The free skills stay free. This is the system around them, not a paywall in front of them.`,
+    author: "Solid State",
+    version: "1.0.0",
+    platforms: ["claude", "openclaw", "nemoclaw", "generic"],
+    categories: ["DevOps", "Marketing", "Research"],
+    docsUrl: "https://solidstate.cc/ship-kit",
+    license: "proprietary",
+    status: "stable",
+    provenance: "first-party",
+    channels: [
+      {
+        channel: "self",
+        url: "https://solidstate.cc/ship-kit",
+        price: 99,
+        unit: "one-time",
+        label: "$99 once · updates through v1.x",
+      },
+    ],
+    price: 99,
+    featured: true,
+    tags: ["system", "orchestrator", "memory", "shipping", "bundle"],
+    createdAt: "2026-06-10",
+  },
 ]
 
 // ---------------------------------------------------------------------------

@@ -12,7 +12,7 @@
 import { NextResponse } from "next/server"
 import { stripe, getSku, type SkuId } from "@/lib/stripe"
 
-const ALLOWED_SKUS: SkuId[] = ["operator-pack", "front-door-pdf", "founder-briefing"]
+const ALLOWED_SKUS: SkuId[] = ["operator-pack", "front-door-pdf", "founder-briefing", "ship-kit"]
 
 export async function POST(req: Request) {
   if (!stripe) {

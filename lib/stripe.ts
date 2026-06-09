@@ -33,6 +33,7 @@ export type SkuId =
   | "operator-pack"      // $200 prepaid, 10,000 oracle calls
   | "front-door-pdf"     // $29 PDF
   | "founder-briefing"   // x402 bundle, one-time fallback purchase
+  | "ship-kit"           // $99 one-time, Ship Kit system (zip delivery)
 
 export const STRIPE_PRICES: Record<SkuId, {
   /** Live mode price ID (Stripe Dashboard → Products) */
@@ -67,7 +68,19 @@ export const STRIPE_PRICES: Record<SkuId, {
     mode: "payment",
     description: "forest + audit + oracle. One run. One dollar.",
   },
+  "ship-kit": {
+    // Live price created 2026-06-10 (prod_UftoYcHRsKecSU). Env overrides; literal
+    // fallback so the download route verifies even before Vercel env is set.
+    priceId: process.env.STRIPE_PRICE_SHIP_KIT ?? "price_1TgY0iGoBHY0B6fVc6HZJyw2",
+    name: "Solid State Ship Kit",
+    amountUsd: 99,
+    mode: "payment",
+    description: "A system, not a pile of skills. Six skills + orchestrator + project memory.",
+  },
 }
+
+/** Hosted payment link for ship-kit (live, redirects to /ship-kit/thanks). */
+export const SHIP_KIT_PAYMENT_LINK = "https://buy.stripe.com/aFa6oH4UI7gJgkC2Vu9fW00"
 
 export function getSku(sku: SkuId) {
   return STRIPE_PRICES[sku]

@@ -1,0 +1,91 @@
+/**
+ * GET /api/ship-kit/download?session_id=cs_...
+ *
+ * Verifies a Stripe Checkout session (works for both the hosted payment
+ * link and /api/checkout sessions), then 302-redirects to a short-lived
+ * Supabase signed URL for the Ship Kit zip.
+ *
+ * Verification: session exists, payment_status === "paid", and a line item
+ * matches the ship-kit price ID. No accounts, no cookies — the session id
+ * in the buyer's redirect URL is the proof of purchase. Sessions are
+ * retrievable long-term, so the download link in the receipt keeps working.
+ *
+ * Env (Vercel, server-only):
+ *   STRIPE_SECRET_KEY          — already required by the checkout rail
+ *   SUPABASE_SERVICE_ROLE_KEY  — storage signing (private bucket)
+ *   NEXT_PUBLIC_SUPABASE_URL   — already set
+ *
+ * Storage object: products/ship-kit/ship-kit-v1.0.0.zip (private bucket
+ * "products" — see scripts/upload-ship-kit.mjs).
+ */
+
+import { NextResponse } from "next/server"
+import { createClient } from "@supabase/supabase-js"
+import { stripe, getSku } from "@/lib/stripe"
+
+const OBJECT_PATH = "ship-kit/ship-kit-v1.0.0.zip"
+const BUCKET = "products"
+const SIGNED_URL_TTL_SECONDS = 60 * 10 // 10 minutes; the page link re-signs on every click
+
+export async function GET(req: Request) {
+  if (!stripe) {
+    return NextResponse.json(
+      { error: "Stripe is not configured. Set STRIPE_SECRET_KEY in Vercel env." },
+      { status: 500 }
+    )
+  }
+
+  const url = new URL(req.url)
+  const sessionId = url.searchParams.get("session_id")
+  if (!sessionId || !sessionId.startsWith("cs_")) {
+    return NextResponse.json({ error: "Missing or invalid session_id" }, { status: 400 })
+  }
+
+  // 1) Verify the purchase with Stripe.
+  let paid = false
+  try {
+    const session = await stripe.checkout.sessions.retrieve(sessionId, {
+      expand: ["line_items"],
+    })
+    const shipKitPrice = getSku("ship-kit").priceId
+    const hasShipKit = (session.line_items?.data ?? []).some(
+      (li) => li.price?.id === shipKitPrice
+    )
+    paid = session.payment_status === "paid" && hasShipKit
+  } catch {
+    return NextResponse.json({ error: "Unknown checkout session" }, { status: 403 })
+  }
+
+  if (!paid) {
+    return NextResponse.json(
+      { error: "Session not paid or not a Ship Kit purchase" },
+      { status: 403 }
+    )
+  }
+
+  // 2) Sign a short-lived download URL from the private bucket.
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY
+  if (!supabaseUrl || !serviceKey) {
+    return NextResponse.json(
+      { error: "Delivery not configured. Set SUPABASE_SERVICE_ROLE_KEY in Vercel env." },
+      { status: 500 }
+    )
+  }
+
+  const admin = createClient(supabaseUrl, serviceKey, { auth: { persistSession: false } })
+  const { data, error } = await admin.storage
+    .from(BUCKET)
+    .createSignedUrl(OBJECT_PATH, SIGNED_URL_TTL_SECONDS, {
+      download: "ship-kit-v1.0.0.zip",
+    })
+
+  if (error || !data?.signedUrl) {
+    return NextResponse.json(
+      { error: `Could not sign download URL: ${error?.message ?? "unknown"}` },
+      { status: 500 }
+    )
+  }
+
+  return NextResponse.redirect(data.signedUrl, 302)
+}
