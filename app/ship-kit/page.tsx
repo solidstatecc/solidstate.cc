@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { SHIP_KIT_PAYMENT_LINK } from "@/lib/stripe"
+import { BuyButton } from "./BuyButton"
 
 export const metadata: Metadata = {
   title: "Ship Kit — a system, not a pile of skills",
@@ -38,18 +38,6 @@ const body15: React.CSSProperties = {
   fontSize: "15px",
   color: "var(--ink-7)",
   lineHeight: 1.65,
-}
-
-const buyButton: React.CSSProperties = {
-  display: "inline-block",
-  padding: "16px 28px",
-  backgroundColor: "var(--fg)",
-  color: "var(--bg)",
-  textDecoration: "none",
-  fontFamily: mono,
-  fontSize: "13px",
-  letterSpacing: "0.08em",
-  textTransform: "uppercase",
 }
 
 const skills: Array<{ name: string; job: string; alone: string }> = [
@@ -128,9 +116,7 @@ Gap: artifact exists, never audited.
         </pre>
 
         <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "20px", marginBottom: "8px" }}>
-          <a href={SHIP_KIT_PAYMENT_LINK} style={buyButton}>
-            Get the kit — $99
-          </a>
+          <BuyButton label="Get the kit — $99" />
           <span style={{ fontFamily: mono, fontSize: "12px", color: "var(--ink-4)" }}>
             once · updates through v1.x · 2-min install
           </span>
@@ -265,9 +251,7 @@ Gap: artifact exists, never audited.
             <div style={{ fontFamily: mono, fontSize: "12px", color: "var(--ink-4)", marginBottom: "24px" }}>
               once · updates through v1.x · no subscription
             </div>
-            <a href={SHIP_KIT_PAYMENT_LINK} style={buyButton}>
-              Get the kit
-            </a>
+            <BuyButton label="Get the kit" />
             <div style={{ fontFamily: mono, fontSize: "11px", color: "var(--ink-4)", marginTop: "16px" }}>
               Stripe checkout → instant zip download. One purchase, one operator,{" "}
               <Link href="/ship-kit/license" style={{ color: "var(--ink-6)" }}>

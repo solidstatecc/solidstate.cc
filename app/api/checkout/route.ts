@@ -44,16 +44,36 @@ export async function POST(req: Request) {
 
   const origin = req.headers.get("origin") ?? "https://solidstate.cc"
 
+  // Per-SKU post-purchase routing + extras. Ship Kit delivers via its own
+  // thanks page (download verify) and issues an invoice PDF like the
+  // payment-link rail does.
+  const isShipKit = sku === "ship-kit"
+  const successUrl = isShipKit
+    ? `${origin}/ship-kit/thanks?session_id={CHECKOUT_SESSION_ID}`
+    : `${origin}/buy/success?session_id={CHECKOUT_SESSION_ID}&sku=${sku}`
+  const cancelUrl = isShipKit ? `${origin}/ship-kit` : `${origin}/buy/cancel?sku=${sku}`
+
   try {
     const session = await stripe.checkout.sessions.create({
       mode: product.mode,
       line_items: [{ price: product.priceId, quantity: 1 }],
       customer_email: body.email,
-      success_url: `${origin}/buy/success?session_id={CHECKOUT_SESSION_ID}&sku=${sku}`,
-      cancel_url: `${origin}/buy/cancel?sku=${sku}`,
+      success_url: successUrl,
+      cancel_url: cancelUrl,
       metadata: { sku },
       allow_promotion_codes: true,
       billing_address_collection: "auto",
+      ...(isShipKit
+        ? {
+            invoice_creation: {
+              enabled: true,
+              invoice_data: {
+                description: "Solid State Ship Kit — one-time purchase, updates through v1.x",
+                footer: "Solid State / Visionaire Labs — solidstate.cc · hi@solidstate.cc",
+              },
+            },
+          }
+        : {}),
     })
 
     if (!session.url) {
