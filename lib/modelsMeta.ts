@@ -3,7 +3,7 @@
 // Captured 2026-06-10.
 export const MODELS_META = {
   captured: "2026-06-10",
-  models: 209,
+  models: 210,
   providers: 140,
   labs: 17,
 }

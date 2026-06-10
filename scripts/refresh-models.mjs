@@ -75,6 +75,26 @@ for (const [key, m] of Object.entries(models)) {
   })
 }
 
+// Gated models — real, announced, publicly priced, but with no public provider,
+// so models.dev's catalog (publicly servable models) doesn't carry them. Curated
+// here and merged with a `gated` flag. Specs CLONE from a donor row (same
+// underlying model) so they track models.dev automatically — never hand-typed.
+// Source for Mythos 5: anthropic.com/news/claude-fable-5-mythos-5 (2026-06-09):
+// "the same underlying model as Fable 5", same $10/$50 pricing, trusted access only.
+const GATED = [
+  {
+    id: "anthropic/claude-mythos-5",
+    name: "Claude Mythos 5",
+    specsFrom: "anthropic/claude-fable-5",
+    link: "https://www.anthropic.com/claude/mythos",
+  },
+]
+for (const g of GATED) {
+  const base = rows.find((r) => r.id === g.specsFrom)
+  if (!base) continue // donor row missing — skip rather than fabricate specs
+  rows.push({ ...base, id: g.id, name: g.name, gated: true, gatedLink: g.link })
+}
+
 // Sanity guard — if the catalog shrinks dramatically, the format probably changed.
 if (rows.length < 150) {
   console.error(`Only ${rows.length} models parsed — feed format probably changed. Aborting, nothing written.`)

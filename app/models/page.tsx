@@ -53,7 +53,7 @@ export default function ModelsPage() {
           Skills run on models. This is the catalog —{" "}
           {MODELS_META.models.toLocaleString("en-US")} models from {MODELS_META.labs} labs,
           served across {MODELS_META.providers} providers. Context, capabilities, and the
-          maker&apos;s first-party price. Every row links to{" "}
+          maker&apos;s first-party price. Rows link to{" "}
           <a href="https://models.dev" style={{ color: "var(--ink-8)" }}>
             models.dev
           </a>{" "}

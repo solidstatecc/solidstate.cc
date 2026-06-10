@@ -21,6 +21,8 @@ interface ModelRow {
   modIn: string[]
   modOut: string[]
   benchmarks?: number
+  gated?: boolean // no public provider — curated row, specs cloned from its donor model
+  gatedLink?: string
 }
 
 interface ModelsData {
@@ -272,15 +274,18 @@ export function ModelsBrowser() {
                 <td style={{ ...td, color: "var(--fg)", maxWidth: "320px", overflow: "hidden", textOverflow: "ellipsis" }}>
                   <a
                     className="ms-link"
-                    href={`${DEV}/models/${m.id}`}
+                    href={m.gated && m.gatedLink ? m.gatedLink : `${DEV}/models/${m.id}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    title={`${m.name} on models.dev`}
+                    title={m.gated ? `${m.name} — trusted access only` : `${m.name} on models.dev`}
                   >
                     {m.name}
                   </a>
                   {m.openWeights && (
                     <span style={{ color: "var(--ink-1)", marginLeft: "8px", fontSize: "10px" }}>OW</span>
+                  )}
+                  {m.gated && (
+                    <span style={{ color: "var(--ink-1)", marginLeft: "8px", fontSize: "10px", letterSpacing: "0.08em" }}>GATED</span>
                   )}
                 </td>
                 <td style={{ ...td, color: "var(--ink-4)" }}>
@@ -307,15 +312,27 @@ export function ModelsBrowser() {
                 </td>
                 <td style={{ ...td, color: "var(--ink-4)" }}>{m.released ?? "—"}</td>
                 <td style={td}>
-                  <a
-                    className="ms-out"
-                    href={`${DEV}/models/${m.id}#providers`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title="View every provider & price on models.dev"
-                  >
-                    all ↗
-                  </a>
+                  {m.gated ? (
+                    <a
+                      className="ms-out"
+                      href={m.gatedLink ?? "#"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="No public provider — trusted access program only"
+                    >
+                      gated ↗
+                    </a>
+                  ) : (
+                    <a
+                      className="ms-out"
+                      href={`${DEV}/models/${m.id}#providers`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="View every provider & price on models.dev"
+                    >
+                      all ↗
+                    </a>
+                  )}
                 </td>
               </tr>
             ))}
