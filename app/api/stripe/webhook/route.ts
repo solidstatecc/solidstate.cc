@@ -73,20 +73,27 @@ export async function POST(req: Request) {
       )
     }
 
-    // Ship Kit delivery email. Payment-link sessions carry no metadata.sku,
-    // so also detect by line-item price. Failure here never fails the webhook —
-    // the buyer's thanks-page link still works.
+    // Zip-product delivery email (Ship Kit, fable-ready). Payment-link
+    // sessions carry no metadata.sku, so also detect by line-item price.
+    // Failure here never fails the webhook — the buyer's thanks-page link
+    // still works.
     try {
-      const shipKitPrice = getSku("ship-kit").priceId
       const items = await stripe.checkout.sessions.listLineItems(session.id, { limit: 10 })
-      const isShipKit =
-        sku === "ship-kit" || items.data.some((li) => li.price?.id === shipKitPrice)
-      if (isShipKit && email) {
-        await sendShipKitDeliveryEmail(email, session.id)
+      const bought = (zip: ZipSku) => {
+        const priceId = getSku(zip).priceId
+        return (
+          sku === zip ||
+          items.data.some((li) => Boolean(li.price?.id) && li.price?.id === priceId)
+        )
+      }
+      for (const zip of Object.keys(DELIVERY) as ZipSku[]) {
+        if (email && bought(zip)) {
+          await sendDeliveryEmail(zip, email, session.id)
+        }
       }
     } catch (e) {
       console.error(
-        "[webhook] ship-kit delivery email failed:",
+        "[webhook] delivery email failed:",
         e instanceof Error ? e.message : String(e)
       )
     }
@@ -101,26 +108,51 @@ export async function POST(req: Request) {
  * Requires the solidstate.cc domain verified in Resend; DELIVERY_FROM
  * overrides the sender.
  */
-async function sendShipKitDeliveryEmail(to: string, sessionId: string) {
+type ZipSku = "ship-kit" | "fable-ready"
+
+const DELIVERY: Record<
+  ZipSku,
+  { subject: string; title: string; blurb: string; cta: string; path: string; firstRun: string }
+> = {
+  "ship-kit": {
+    subject: "Ship Kit — your download",
+    title: "Ship Kit is yours.",
+    blurb: "One zip. Six skills, the orchestrator, the memory spec.",
+    cta: "Download Ship Kit",
+    path: "/ship-kit/thanks",
+    firstRun: "Unzip into your tool, run <code>/ship-start</code>, answer two questions.",
+  },
+  "fable-ready": {
+    subject: "fable-ready — your download",
+    title: "fable-ready is yours.",
+    blurb: "One zip. The skill, the rules, the scanner.",
+    cta: "Download fable-ready",
+    path: "/fable-ready/thanks",
+    firstRun: "Unzip into your tool, point it at your repo, approve the patches.",
+  },
+}
+
+async function sendDeliveryEmail(zip: ZipSku, to: string, sessionId: string) {
   const key = process.env.RESEND_API_KEY?.trim()
   if (!key) {
     console.error("[webhook] RESEND_API_KEY missing — delivery email skipped")
     return
   }
+  const d = DELIVERY[zip]
   const from = process.env.DELIVERY_FROM?.trim() || "Solid State <ship@solidstate.cc>"
-  const link = `https://solidstate.cc/ship-kit/thanks?session_id=${encodeURIComponent(sessionId)}`
+  const link = `https://solidstate.cc${d.path}?session_id=${encodeURIComponent(sessionId)}`
 
   const html = `
     <div style="font-family:ui-monospace,Menlo,monospace;max-width:560px;margin:0 auto;color:#111">
       <p style="margin:0 0 20px"><img src="https://solidstate.cc/logo-white.png" alt="SOLID STATE" width="150" style="display:block;background:#0a0a0a;padding:10px 12px"/></p>
-      <h1 style="font-size:22px;margin:8px 0 16px">Ship Kit is yours.</h1>
-      <p style="font-size:14px;line-height:1.6">One zip. Six skills, the orchestrator, the memory spec.</p>
+      <h1 style="font-size:22px;margin:8px 0 16px">${d.title}</h1>
+      <p style="font-size:14px;line-height:1.6">${d.blurb}</p>
       <p style="margin:24px 0">
-        <a href="${link}" style="background:#111;color:#fff;text-decoration:none;padding:14px 22px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;display:inline-block">Download Ship Kit</a>
+        <a href="${link}" style="background:#111;color:#fff;text-decoration:none;padding:14px 22px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;display:inline-block">${d.cta}</a>
       </p>
       <p style="font-size:13px;line-height:1.6;color:#444">
         Keep this email — the link is permanent and always serves the current v1.x build.<br/>
-        Unzip into your tool, run <code>/ship-start</code>, answer two questions.<br/>
+        ${d.firstRun}<br/>
         Install help: INSTALL.md in the zip (Claude Code, Cowork, Cursor, OpenClaw, Hermes).<br/>
         Your library (re-downloads, future versions): <a href="https://solidstate.cc/account" style="color:#444">solidstate.cc/account</a> — sign in with this email.
       </p>
@@ -134,7 +166,7 @@ async function sendShipKitDeliveryEmail(to: string, sessionId: string) {
       from,
       to: [to],
       reply_to: "hi@solidstate.cc",
-      subject: "Ship Kit — your download",
+      subject: d.subject,
       html,
     }),
   })

@@ -28,6 +28,11 @@ const SKU_INFO: Record<
     version: "v1.0.0",
     downloadPath: (sid) => `/api/ship-kit/download?session_id=${encodeURIComponent(sid)}`,
   },
+  "fable-ready": {
+    name: "Solid State fable-ready",
+    version: "v1.0.0",
+    downloadPath: (sid) => `/api/fable-ready/download?session_id=${encodeURIComponent(sid)}`,
+  },
 }
 
 type Sale = {

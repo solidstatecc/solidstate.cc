@@ -174,6 +174,45 @@ The free skills stay free. This is the system around them, not a paywall in fron
     tags: ["system", "orchestrator", "memory", "shipping", "bundle"],
     createdAt: "2026-06-10",
   },
+  {
+    id: "fable-ready",
+    name: "fable-ready",
+    slug: "fable-ready",
+    kind: "original",
+    description:
+      "Write-mode readiness audit for Claude Fable 5. Scans CLAUDE.md + skills + configs for the five documented breakage families, patches what you approve, stamps a dated FABLE-READY verdict. $49 once.",
+    longDescription: `Fable 5 changed the rules underneath Opus-era setups. Prescriptive CLAUDE.md files degrade output. "Show your reasoning" prompts end in refusals that return HTTP 200 and look like success. Old configs carry params the API now rejects.
+
+**The five rule families:** reasoning-display triggers (refusal risk), prescriptive step-lists (quality), missing output discipline (cost), missing boundaries (surprises), mechanics drift (rejected params, stale model strings, timeout assumptions). Every rule in rules.md carries an evidence grade and a source.
+
+**The split:** a deterministic stdlib scanner catches what regexes can catch — reproducibly. The model judges what regexes can't. Patches are approval-gated; meaning-changing patches are never auto-applied. Ends in a dated FABLE-READY verdict; re-run after patching and the verdict updates.
+
+Also inside: effort-map.md (task type → effort level, with the cost math), long-run.md (verifier subagents, anti-fabrication), memory-bootstrap.md (the lesson-file system).
+
+Built, validated, and audited via Ship Kit on the Solid State production line — Fable 5 patched its own migration. The full run is published as a case study. Rules dated 2026-06; v1.x updates included.`,
+    author: "Solid State",
+    version: "1.0.0",
+    platforms: ["claude", "hermes", "openclaw", "nemoclaw", "generic"],
+    categories: ["DevOps", "AI"],
+    installCommand: "unzip fable-ready-v1.0.0.zip -d ~/.claude/skills/  # delivered instantly after purchase",
+    docsUrl: "https://solidstate.cc/fable-ready",
+    license: "proprietary",
+    status: "stable",
+    provenance: "first-party",
+    channels: [
+      {
+        channel: "self",
+        url: "https://solidstate.cc/fable-ready",
+        price: 49,
+        unit: "one-time",
+        label: "$49 once · rules updates through v1.x",
+      },
+    ],
+    price: 49,
+    featured: true,
+    tags: ["fable-5", "migration", "audit", "claude-md", "write-mode"],
+    createdAt: "2026-06-10",
+  },
 ]
 
 // ---------------------------------------------------------------------------

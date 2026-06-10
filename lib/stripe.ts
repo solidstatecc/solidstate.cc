@@ -39,6 +39,7 @@ export type SkuId =
   | "front-door-pdf"     // $29 PDF
   | "founder-briefing"   // x402 bundle, one-time fallback purchase
   | "ship-kit"           // $99 one-time, Ship Kit system (zip delivery)
+  | "fable-ready"        // $49 one-time, Fable 5 readiness audit (zip delivery)
 
 export const STRIPE_PRICES: Record<SkuId, {
   /** Live mode price ID (Stripe Dashboard → Products) */
@@ -82,10 +83,23 @@ export const STRIPE_PRICES: Record<SkuId, {
     mode: "payment",
     description: "A system, not a pile of skills. Six skills + orchestrator + project memory.",
   },
+  "fable-ready": {
+    // Create the product + price in Stripe Dashboard, then set
+    // STRIPE_PRICE_FABLE_READY in Vercel env (all environments).
+    priceId: process.env.STRIPE_PRICE_FABLE_READY,
+    name: "Solid State fable-ready",
+    amountUsd: 49,
+    mode: "payment",
+    description: "Your setup, ready for Fable 5. The patch, not the reading list.",
+  },
 }
 
 /** Hosted payment link for ship-kit (live, redirects to /ship-kit/thanks). */
 export const SHIP_KIT_PAYMENT_LINK = "https://buy.stripe.com/aFa6oH4UI7gJgkC2Vu9fW00"
+
+/** Hosted payment link fallback for fable-ready. TODO(Thor): create in Stripe
+ *  Dashboard (redirect to /fable-ready/thanks) and paste here before launch. */
+export const FABLE_READY_PAYMENT_LINK = ""
 
 export function getSku(sku: SkuId) {
   return STRIPE_PRICES[sku]

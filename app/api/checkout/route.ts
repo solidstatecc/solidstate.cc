@@ -12,7 +12,7 @@
 import { NextResponse } from "next/server"
 import { stripe, getSku, type SkuId } from "@/lib/stripe"
 
-const ALLOWED_SKUS: SkuId[] = ["operator-pack", "front-door-pdf", "founder-briefing", "ship-kit"]
+const ALLOWED_SKUS: SkuId[] = ["operator-pack", "front-door-pdf", "founder-briefing", "ship-kit", "fable-ready"]
 
 export async function POST(req: Request) {
   if (!stripe) {
@@ -44,14 +44,15 @@ export async function POST(req: Request) {
 
   const origin = req.headers.get("origin") ?? "https://solidstate.cc"
 
-  // Per-SKU post-purchase routing + extras. Ship Kit delivers via its own
-  // thanks page (download verify) and issues an invoice PDF like the
-  // payment-link rail does.
-  const isShipKit = sku === "ship-kit"
-  const successUrl = isShipKit
-    ? `${origin}/ship-kit/thanks?session_id={CHECKOUT_SESSION_ID}`
+  // Per-SKU post-purchase routing + extras. Zip-delivered products (Ship Kit,
+  // fable-ready) verify on their own thanks pages and issue an invoice PDF
+  // like the payment-link rail does.
+  const ZIP_SKUS: SkuId[] = ["ship-kit", "fable-ready"]
+  const isZipProduct = ZIP_SKUS.includes(sku)
+  const successUrl = isZipProduct
+    ? `${origin}/${sku}/thanks?session_id={CHECKOUT_SESSION_ID}`
     : `${origin}/buy/success?session_id={CHECKOUT_SESSION_ID}&sku=${sku}`
-  const cancelUrl = isShipKit ? `${origin}/ship-kit` : `${origin}/buy/cancel?sku=${sku}`
+  const cancelUrl = isZipProduct ? `${origin}/${sku}` : `${origin}/buy/cancel?sku=${sku}`
 
   try {
     const session = await stripe.checkout.sessions.create({
@@ -65,12 +66,15 @@ export async function POST(req: Request) {
       billing_address_collection: "auto",
       // USD only — buyer-local currency display muddies the $99 anchor.
       adaptive_pricing: { enabled: false },
-      ...(isShipKit
+      ...(isZipProduct
         ? {
             invoice_creation: {
               enabled: true,
               invoice_data: {
-                description: "Solid State Ship Kit — one-time purchase, updates through v1.x",
+                description:
+                  sku === "ship-kit"
+                    ? "Solid State Ship Kit — one-time purchase, updates through v1.x"
+                    : "Solid State fable-ready — one-time purchase, rules updates through v1.x",
                 footer: "Solid State / Visionaire Labs — solidstate.cc · hi@solidstate.cc",
               },
             },
