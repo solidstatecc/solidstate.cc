@@ -84,9 +84,10 @@ export const STRIPE_PRICES: Record<SkuId, {
     description: "A system, not a pile of skills. Six skills + orchestrator + project memory.",
   },
   "fable-ready": {
-    // Create the product + price in Stripe Dashboard, then set
-    // STRIPE_PRICE_FABLE_READY in Vercel env (all environments).
-    priceId: process.env.STRIPE_PRICE_FABLE_READY,
+    // Live price created 2026-06-10 (prod_UgGQkSbzcIXR2t, tax txcd_10202003).
+    // Env overrides; literal fallback so the download route verifies even
+    // before Vercel env is set (same pattern as ship-kit).
+    priceId: process.env.STRIPE_PRICE_FABLE_READY ?? "price_1TgttqGoBHY0B6fVjhdkvCsH",
     name: "Solid State fable-ready",
     amountUsd: 49,
     mode: "payment",
@@ -97,9 +98,9 @@ export const STRIPE_PRICES: Record<SkuId, {
 /** Hosted payment link for ship-kit (live, redirects to /ship-kit/thanks). */
 export const SHIP_KIT_PAYMENT_LINK = "https://buy.stripe.com/aFa6oH4UI7gJgkC2Vu9fW00"
 
-/** Hosted payment link fallback for fable-ready. TODO(Thor): create in Stripe
- *  Dashboard (redirect to /fable-ready/thanks) and paste here before launch. */
-export const FABLE_READY_PAYMENT_LINK = ""
+/** Hosted payment link for fable-ready (live, redirects to /fable-ready/thanks,
+ *  invoice PDF on). plink_1Tgtv6GoBHY0B6fVJgQlCLUW, created 2026-06-10. */
+export const FABLE_READY_PAYMENT_LINK = "https://buy.stripe.com/fZudR91Iw6cF7O61Rq9fW01"
 
 export function getSku(sku: SkuId) {
   return STRIPE_PRICES[sku]
