@@ -7,22 +7,31 @@ export const metadata: Metadata = {
     "Solid State exists to put AI to work. Not in a deck. Not in a pilot. In production, today.",
 }
 
+// Provenance, not decoration. FOUNDED never changes. Bump REVISED only when
+// the words above the sign-off change — same commit, every time.
+const FOUNDED = "Apr 2026"
+const REVISED = "Jun 2026"
+
 const SECTIONS: Array<{ heading: string; body: string }> = [
+  {
+    heading: "Agent-first is happening.",
+    body: "Software was desktop-first, then mobile-first. Now it is agent-first. We don't argue the shift. We build on it, the way 2010 built on mobile.",
+  },
+  {
+    heading: "A skill is packaged judgment.",
+    body: "Instructions that teach an agent how to think when it hits a task it has seen before. Physically: a folder with a SKILL.md inside. The judgment is the product. The format is open.",
+  },
   {
     heading: "Working code, not wrappers.",
     body: "AI is a tool. The job is to ship work. Solid State packages narrow, working capabilities. Each one does one thing, costs what it costs, and runs today.",
-  },
-  {
-    heading: "No theater.",
-    body: "No mysticism, no manifesto theater inside a skill. The agent shows up, does the work, returns a result. If it cannot, it says so and stops.",
   },
   {
     heading: "Compute is cheap. Bad output is not.",
     body: "Agents that ship wrong work cost more than agents that admit they cannot. Every Solid State skill is built around verification first, capability second.",
   },
   {
-    heading: "Buy or install.",
-    body: "Install free skills from the directory. Buy the Ship Kit when you want the system around them. One brand, no lock-in.",
+    heading: "No theater.",
+    body: "No mysticism, no manifesto theater inside a skill. The agent shows up, does the work, returns a result. If it cannot, it says so and stops.",
   },
   {
     heading: "Operators, not users.",
@@ -30,7 +39,7 @@ const SECTIONS: Array<{ heading: string; body: string }> = [
   },
   {
     heading: "Open where it's free. Paid where it isn't.",
-    body: "Open formats, open sources cited, open data where we can. Commercial pricing where the value is real. We will not pretend a thing is free that costs us to run.",
+    body: "Install free skills from the directory. Buy the Ship Kit when you want the system around them. Open formats, open sources cited, open data where we can. We will not pretend a thing is free that costs us to run. One brand, no lock-in.",
   },
 ]
 
@@ -168,7 +177,7 @@ export default function ManifestoPage() {
               textTransform: "uppercase",
             }}
           >
-            Solid State · Visionaire Labs · Apr 2026
+            Solid State · Visionaire Labs · {FOUNDED} · rev {REVISED}
           </div>
           <Link
             href="/skills"

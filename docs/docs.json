@@ -31,7 +31,12 @@
   },
   "favicon": "/favicon.svg",
   "contextual": {
-    "options": ["copy", "view", "chatgpt", "claude"]
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude"
+    ]
   },
   "feedback": {
     "thumbsRating": true
@@ -76,30 +81,88 @@
       {
         "header": "Product",
         "items": [
-          { "label": "Skills directory", "href": "https://solidstate.cc/skills" },
-          { "label": "Agent directory", "href": "https://solidstate.cc/agents" },
-          { "label": "Glossary", "href": "https://solidstate.cc/glossary" },
-          { "label": "Manifesto", "href": "https://solidstate.cc/manifesto" },
-          { "label": "Submit a skill", "href": "https://solidstate.cc/submit" },
-          { "label": "Terms", "href": "https://solidstate.cc/docs/terms" }
+          {
+            "label": "Skills directory",
+            "href": "https://solidstate.cc/skills"
+          },
+          {
+            "label": "Ship Kit",
+            "href": "https://solidstate.cc/ship-kit"
+          },
+          {
+            "label": "Agent directory",
+            "href": "https://solidstate.cc/agents"
+          },
+          {
+            "label": "Docs",
+            "href": "https://solidstate.cc/docs"
+          },
+          {
+            "label": "Glossary",
+            "href": "https://solidstate.cc/glossary"
+          },
+          {
+            "label": "Manifesto",
+            "href": "https://solidstate.cc/manifesto"
+          },
+          {
+            "label": "Submit a skill",
+            "href": "https://solidstate.cc/submit"
+          },
+          {
+            "label": "Your library",
+            "href": "https://solidstate.cc/account"
+          },
+          {
+            "label": "Terms",
+            "href": "https://solidstate.cc/docs/terms"
+          }
         ]
       },
       {
         "header": "Channels",
         "items": [
-          { "label": "Agentic Market", "href": "https://agentic.market/" },
-          { "label": "Claw Mart", "href": "https://www.shopclawmart.com/" },
-          { "label": "ClawHub", "href": "https://clawhub.ai/user/solidstate" },
-          { "label": "GitHub", "href": "https://github.com/solidstatecc" }
+          {
+            "label": "Agentic Market",
+            "href": "https://agentic.market/"
+          },
+          {
+            "label": "Claw Mart",
+            "href": "https://www.shopclawmart.com/"
+          },
+          {
+            "label": "ClawHub",
+            "href": "https://clawhub.ai/user/solidstate"
+          },
+          {
+            "label": "GitHub",
+            "href": "https://github.com/solidstatecc"
+          }
         ]
       },
       {
         "header": "Signal",
         "items": [
-          { "label": "Newsletter", "href": "https://solidstate.beehiiv.com/subscribe" },
-          { "label": "hi@solidstate.cc", "href": "mailto:hi@solidstate.cc" },
-          { "label": "llms.txt", "href": "https://solidstate.cc/llms.txt" },
-          { "label": "llms-full.txt", "href": "https://solidstate.cc/llms-full.txt" }
+          {
+            "label": "X",
+            "href": "https://x.com/solidstate_cc"
+          },
+          {
+            "label": "Newsletter",
+            "href": "https://solidstate.beehiiv.com/subscribe"
+          },
+          {
+            "label": "hi@solidstate.cc",
+            "href": "mailto:hi@solidstate.cc"
+          },
+          {
+            "label": "llms.txt",
+            "href": "https://solidstate.cc/llms.txt"
+          },
+          {
+            "label": "llms-full.txt",
+            "href": "https://solidstate.cc/llms-full.txt"
+          }
         ]
       }
     ]

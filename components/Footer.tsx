@@ -1,43 +1,11 @@
 import Link from "next/link"
+import footerData from "@/lib/footer-links.json"
 
-const COLS: Array<{
-  title: string
-  links: Array<{ href: string; label: string; external?: boolean }>
-}> = [
-  {
-    title: "Product",
-    links: [
-      { href: "/skills", label: "Skills directory" },
-      { href: "/ship-kit", label: "Ship Kit" },
-      { href: "/agents", label: "Agent directory" },
-      { href: "/docs", label: "Docs" },
-      { href: "/glossary", label: "Glossary" },
-      { href: "/manifesto", label: "Manifesto" },
-      { href: "/submit", label: "Submit a skill" },
-      { href: "/account", label: "Your library" },
-      { href: "/docs/terms", label: "Terms" },
-    ],
-  },
-  {
-    title: "Channels",
-    links: [
-      { href: "https://agentic.market/", label: "Agentic Market", external: true },
-      { href: "https://www.shopclawmart.com/", label: "Claw Mart", external: true },
-      { href: "https://clawhub.ai/user/solidstate", label: "ClawHub", external: true },
-      { href: "https://github.com/solidstatecc", label: "GitHub", external: true },
-    ],
-  },
-  {
-    title: "Signal",
-    links: [
-      { href: "https://x.com/solidstate_cc", label: "X", external: true },
-      { href: "https://solidstate.beehiiv.com/subscribe", label: "Newsletter", external: true },
-      { href: "mailto:hi@solidstate.cc", label: "hi@solidstate.cc" },
-      { href: "/llms.txt", label: "llms.txt", external: true },
-      { href: "/llms-full.txt", label: "llms-full.txt", external: true },
-    ],
-  },
-]
+// SINGLE SOURCE: lib/footer-links.json. The docs footers (Mintlify) are
+// generated from the same file — after editing it, run
+// `node scripts/refresh-docs-footer.mjs` and commit all three.
+type FooterLink = { href: string; label: string; external?: boolean }
+const COLS = footerData.cols as Array<{ title: string; links: FooterLink[] }>
 
 export function Footer() {
   return (
@@ -96,14 +64,14 @@ export function Footer() {
                 maxWidth: "300px",
               }}
             >
-              Working skills for AI agents. Sourced, licensed, no fake installs. Built by{" "}
+              {footerData.tagline} Built by{" "}
               <a
-                href="https://visionaire.co"
+                href={footerData.builtBy.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ color: "var(--fg)", textDecoration: "none" }}
               >
-                Visionaire Labs
+                {footerData.builtBy.label}
               </a>.
             </p>
           </div>

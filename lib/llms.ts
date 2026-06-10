@@ -19,12 +19,13 @@ const BASE = "https://solidstate.cc"
 // components, so we mirror it here. The catalog (skills + glossary) is the
 // part that grows; it's pulled live from the data above.
 const MANIFESTO: Array<[string, string]> = [
+  ["Agent-first is happening.", "Software was desktop-first, then mobile-first. Now it is agent-first. We don't argue the shift. We build on it, the way 2010 built on mobile."],
+  ["A skill is packaged judgment.", "Instructions that teach an agent how to think when it hits a task it has seen before. Physically: a folder with a SKILL.md inside. The judgment is the product. The format is open."],
   ["Working code, not wrappers.", "AI is a tool. The job is to ship work. Solid State packages narrow, working capabilities. Each one does one thing, costs what it costs, and runs today."],
-  ["No theater.", "No mysticism, no manifesto theater inside a skill. The agent shows up, does the work, returns a result. If it cannot, it says so and stops."],
   ["Compute is cheap. Bad output is not.", "Agents that ship wrong work cost more than agents that admit they cannot. Every Solid State skill is built around verification first, capability second."],
-  ["Buy or install.", "Install free skills from the directory. Buy the Ship Kit when you want the system around them. One brand, no lock-in."],
+  ["No theater.", "No mysticism, no manifesto theater inside a skill. The agent shows up, does the work, returns a result. If it cannot, it says so and stops."],
   ["Operators, not users.", "We build for the people who run the work, not the people who watch the work. Founders, ops leads, solo operators, lean teams. The brief is always: get to ship."],
-  ["Open where it's free. Paid where it isn't.", "Open formats, open sources cited, open data where we can. Commercial pricing where the value is real. We will not pretend a thing is free that costs us to run."],
+  ["Open where it's free. Paid where it isn't.", "Install free skills from the directory. Buy the Ship Kit when you want the system around them. Open formats, open sources cited, open data where we can. We will not pretend a thing is free that costs us to run. One brand, no lock-in."],
 ]
 
 const SKUS: Array<[string, string, string]> = [
