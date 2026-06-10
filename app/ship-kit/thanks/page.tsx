@@ -66,6 +66,8 @@ function ThanksInner() {
           <p style={{ fontSize: "13px", color: "var(--ink-4)", lineHeight: 1.6, marginTop: "24px" }}>
             Install help: INSTALL.md in the zip covers Claude Code, Cowork, Cursor, OpenClaw, Hermes.
             <br />
+            Re-downloads and future versions: <Link href="/account" style={{ color: "var(--ink-6)" }}>your library</Link> — sign in with your checkout email.
+            <br />
             Stuck? hi@solidstate.cc — include your tool and OS.
           </p>
         </>

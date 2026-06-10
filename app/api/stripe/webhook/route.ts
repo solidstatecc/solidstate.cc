@@ -55,7 +55,8 @@ export async function POST(req: Request) {
     const session = event.data.object
     const amount = session.amount_total ?? 0
     const sku = (session.metadata?.sku as string) ?? "unknown"
-    const email = session.customer_details?.email ?? null
+    // Lowercased so the /account RLS email match never misses on casing.
+    const email = session.customer_details?.email?.toLowerCase() ?? null
 
     if (supabaseAdmin) {
       await supabaseAdmin.from("sales").upsert(
@@ -120,7 +121,8 @@ async function sendShipKitDeliveryEmail(to: string, sessionId: string) {
       <p style="font-size:13px;line-height:1.6;color:#444">
         Keep this email — the link is permanent and always serves the current v1.x build.<br/>
         Unzip into your tool, run <code>/ship-start</code>, answer two questions.<br/>
-        Install help: INSTALL.md in the zip (Claude Code, Cowork, Cursor, OpenClaw, Hermes).
+        Install help: INSTALL.md in the zip (Claude Code, Cowork, Cursor, OpenClaw, Hermes).<br/>
+        Your library (re-downloads, future versions): <a href="https://solidstate.cc/account" style="color:#444">solidstate.cc/account</a> — sign in with this email.
       </p>
       <p style="font-size:12px;color:#888">Stuck? Reply, or hi@solidstate.cc — include your tool and OS.</p>
     </div>`
