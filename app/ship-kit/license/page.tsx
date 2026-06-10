@@ -86,7 +86,7 @@ export default function ShipKitLicensePage() {
         </p>
 
         <p style={{ ...p, fontFamily: mono, fontSize: "13px", marginTop: "32px" }}>
-          Questions: hello@solidstate.cc
+          Questions: hi@solidstate.cc
         </p>
       </div>
     </div>

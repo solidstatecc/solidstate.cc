@@ -45,7 +45,7 @@ function ThanksInner() {
             <br />
             Unzip into your tool, run <code style={{ fontFamily: mono }}>/ship-start</code>, answer two questions.
             <br />
-            This page is in your receipt email — the download works whenever you need it again.
+            We also emailed you this download link — it works whenever you need it again.
           </p>
           <a
             href={`/api/ship-kit/download?session_id=${encodeURIComponent(sessionId)}`}
@@ -66,7 +66,7 @@ function ThanksInner() {
           <p style={{ fontSize: "13px", color: "var(--ink-4)", lineHeight: 1.6, marginTop: "24px" }}>
             Install help: INSTALL.md in the zip covers Claude Code, Cowork, Cursor, OpenClaw.
             <br />
-            Stuck? hello@solidstate.cc — include your tool and OS.
+            Stuck? hi@solidstate.cc — include your tool and OS.
           </p>
         </>
       ) : (
