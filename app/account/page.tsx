@@ -87,6 +87,13 @@ export default function AccountPage() {
   const [err, setErr] = useState<string | null>(null)
   const [sales, setSales] = useState<Sale[] | null>(null)
 
+  // Footer links land here from the bottom of long pages. The page renders a
+  // short loading state first, so the browser clamps scroll to its bottom and
+  // stays there once content loads. Force top on mount.
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   useEffect(() => {
     if (!supabase) return
     supabase.auth.getSession().then(({ data }) => {

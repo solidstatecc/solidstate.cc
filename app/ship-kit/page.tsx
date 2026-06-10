@@ -137,6 +137,7 @@ Gap: artifact exists, never audited.
             {skills.map((s, i) => (
               <div
                 key={s.name}
+                className="ss-kit-row"
                 style={{
                   display: "grid",
                   gridTemplateColumns: "minmax(0, 200px) minmax(0, 1fr) minmax(0, 56px)",
@@ -170,6 +171,7 @@ Gap: artifact exists, never audited.
             {chains.map((c) => (
               <div
                 key={c.say}
+                className="ss-kit-chain"
                 style={{
                   display: "grid",
                   gridTemplateColumns: "minmax(0, 220px) minmax(0, 1fr)",

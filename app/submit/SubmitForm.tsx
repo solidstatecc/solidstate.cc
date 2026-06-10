@@ -192,7 +192,7 @@ export function SubmitForm() {
         />
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "24px" }}>
+      <div className="ss-form-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "24px" }}>
         <div>
           <label style={labelStyle}>Your name / handle *</label>
           <input
@@ -270,7 +270,7 @@ export function SubmitForm() {
         Technical Details
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "24px" }}>
+      <div className="ss-form-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "24px" }}>
         <div>
           <label style={labelStyle}>Version *</label>
           <input
@@ -345,7 +345,7 @@ export function SubmitForm() {
         </div>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "24px" }}>
+      <div className="ss-form-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "24px" }}>
         <div>
           <label style={labelStyle}>Repository URL</label>
           <input
@@ -387,7 +387,7 @@ export function SubmitForm() {
         Pricing
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "32px" }}>
+      <div className="ss-form-2col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "32px" }}>
         <div>
           <label style={labelStyle}>Pricing model *</label>
           <select
