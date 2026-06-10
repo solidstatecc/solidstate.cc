@@ -63,6 +63,8 @@ export async function POST(req: Request) {
       metadata: { sku },
       allow_promotion_codes: true,
       billing_address_collection: "auto",
+      // USD only — buyer-local currency display muddies the $99 anchor.
+      adaptive_pricing: { enabled: false },
       ...(isShipKit
         ? {
             invoice_creation: {
