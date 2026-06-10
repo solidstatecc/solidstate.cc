@@ -14,6 +14,7 @@ const COLS: Array<{
       { href: "/glossary", label: "Glossary" },
       { href: "/manifesto", label: "Manifesto" },
       { href: "/submit", label: "Submit a skill" },
+      { href: "/account", label: "Your library" },
       { href: "/docs/terms", label: "Terms" },
     ],
   },
