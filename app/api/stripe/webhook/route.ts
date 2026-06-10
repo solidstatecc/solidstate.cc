@@ -144,7 +144,7 @@ async function sendDeliveryEmail(zip: ZipSku, to: string, sessionId: string) {
 
   const html = `
     <div style="font-family:ui-monospace,Menlo,monospace;max-width:560px;margin:0 auto;color:#111">
-      <p style="margin:0 0 20px"><img src="https://solidstate.cc/logo-white.png" alt="SOLID STATE" width="150" style="display:block;background:#0a0a0a;padding:10px 12px"/></p>
+      <p style="margin:0 0 20px"><img src="https://solidstate.b-cdn.net/BRANDING/logo_white.png" alt="SOLID STATE" width="150" style="display:block;background:#0a0a0a;padding:10px 12px"/></p>
       <h1 style="font-size:22px;margin:8px 0 16px">${d.title}</h1>
       <p style="font-size:14px;line-height:1.6">${d.blurb}</p>
       <p style="margin:24px 0">
