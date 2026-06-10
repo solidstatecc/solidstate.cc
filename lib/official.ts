@@ -1,4 +1,4 @@
-// AUTO-GENERATED — official makers indexed on skills.sh (captured 2026-06-06).
+// AUTO-GENERATED — official makers indexed on skills.sh (captured 2026-06-08).
 // 'The makers teaching you how to use their product.' Counts are real, from skills.sh.
 // Regenerate: node scripts/refresh-official.mjs <capture.txt>
 export interface OfficialMaker {

@@ -23,6 +23,10 @@
   ],
   "rewrites": [
     {
+      "source": "/.well-known/agent-skills/:path*",
+      "destination": "/.well-known/skills/:path*"
+    },
+    {
       "source": "/docs",
       "destination": "https://solidstate.mintlify.dev/docs"
     },

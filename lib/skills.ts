@@ -146,13 +146,16 @@ Live on [ClawHub](https://clawhub.ai/solidstate/publish-audit). Free, MIT-0.`,
 
 **The skills:** ship-positioning (the angle, contrast pairs, the not-for list), ship-audit (write mode — patches what it flags, re-runs until READY), launch-list (fit-ranked venues + 14-day measurement window), niche-hunter, hyper-rational-brief — with competitor-brief and geo-audit folding in on release, included.
 
-Parts sold separately: $106+. The kit: $99, one-time, updates through v1.x. Delivered as a zip; installs in Claude Code, Cowork, Cursor, OpenClaw in ~2 minutes.
+Parts sold separately: $106+. The kit: $99, one-time, updates through v1.x. Delivered as a zip; installs in Claude Code, Cowork, Cursor, OpenClaw, and Hermes.
+
+Written and audited by Claude (Fable 5) on Solid State's production line; every bundled script ran before shipping, and the purchase rail was tested end-to-end with a real card. The four-agent Skill Production Squad (research → engineer → auditor → tester) maintains the kit.
 
 The free skills stay free. This is the system around them, not a paywall in front of them.`,
     author: "Solid State",
     version: "1.0.0",
-    platforms: ["claude", "openclaw", "nemoclaw", "generic"],
+    platforms: ["claude", "hermes", "openclaw", "nemoclaw", "generic"],
     categories: ["DevOps", "Marketing", "Research"],
+    installCommand: "unzip ship-kit-v1.0.0.zip -d ~/.claude/skills/  # delivered instantly after purchase",
     docsUrl: "https://solidstate.cc/ship-kit",
     license: "proprietary",
     status: "stable",

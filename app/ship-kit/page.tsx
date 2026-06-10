@@ -62,7 +62,7 @@ const chains = [
 const notFor = [
   "You want marketing prompts. This is a shipping workflow, not a copy library.",
   "You want autopilot. You make the calls; the skills carry frameworks and memory.",
-  "Your tool can't read and write files. The memory needs Claude Code, Cowork, Cursor, or OpenClaw — paste-only chat runs a degraded mode.",
+  "Your tool can't read and write files. The memory needs Claude Code, Cowork, Cursor, OpenClaw, or Hermes — paste-only chat runs a degraded mode.",
 ]
 
 export default function ShipKitPage() {
@@ -87,8 +87,8 @@ export default function ShipKitPage() {
           not a pile of skills.
         </h1>
         <p style={{ ...body15, fontSize: "16px", maxWidth: "560px", marginBottom: "40px" }}>
-          Six skills, one orchestrator, one shared project memory. Install once. Every session
-          after that, your agent already knows what you&apos;re shipping, who it&apos;s for, and
+          Six skills, one orchestrator, one shared project memory. The kit lives in your repo —
+          every session, your agent already knows what you&apos;re shipping, who it&apos;s for, and
           what&apos;s blocking it.
         </p>
 
@@ -118,7 +118,7 @@ Gap: artifact exists, never audited.
         <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "20px", marginBottom: "8px" }}>
           <BuyButton label="Get the kit — $99" />
           <span style={{ fontFamily: mono, fontSize: "12px", color: "var(--ink-4)" }}>
-            once · updates through v1.x · 2-min install
+            once · updates through v1.x · zip → unzip → shipping
           </span>
         </div>
       </div>
@@ -192,18 +192,21 @@ Gap: artifact exists, never audited.
         </div>
       </div>
 
-      {/* Ten minutes */}
+      {/* First session */}
       <div style={{ borderTop: "1px solid var(--border)" }}>
         <div style={{ maxWidth: "880px", margin: "0 auto", padding: "64px 24px" }}>
-          <div style={kicker}>03 — First run</div>
-          <h2 style={h2}>Ten minutes to first artifact.</h2>
+          <div style={kicker}>03 — First session</div>
+          <h2 style={h2}>The first run ends with an artifact.</h2>
           <div style={{ fontFamily: mono, fontSize: "13px", lineHeight: 2.1, color: "var(--ink-7)", marginTop: "16px" }}>
-            <div>0:00 — unzip into your tool (Claude Code, Cowork, Cursor, OpenClaw)</div>
-            <div>0:02 — run /ship-start in your project</div>
-            <div>0:03 — answer two questions: what are you shipping, what&apos;s the goal</div>
-            <div>0:04 — .solidstate/ memory written, gap named, route announced</div>
-            <div>0:10 — first artifact: positioning brief, patched audit, or launch plan</div>
+            <div>unzip into your tool — Claude Code, Cowork, Cursor, OpenClaw, Hermes</div>
+            <div>run /ship-start in your project</div>
+            <div>answer two questions: what are you shipping, what&apos;s the goal</div>
+            <div>.solidstate/ memory written · gap named · route announced</div>
+            <div>→ positioning brief, patched audit, or dated launch plan. On disk.</div>
           </div>
+          <p style={{ ...body15, marginTop: "20px", maxWidth: "560px" }}>
+            Not a tutorial. Not a setup wizard. The session ends with something you can ship.
+          </p>
         </div>
       </div>
 
@@ -228,9 +231,11 @@ Gap: artifact exists, never audited.
           <div style={kicker}>05 — Provenance</div>
           <h2 style={h2}>No borrowed testimonials. Receipts instead.</h2>
           <p style={{ ...body15, maxWidth: "600px", marginBottom: "8px" }}>
-            Built by the production line behind solidstate.cc. The free Skill Auditor that came out
-            of this pipeline passed ClawHub&apos;s security scan on its first upload. Every skill in
-            this kit went through the same auditor→tester gate before it earned a place here.
+            Written and audited by Claude (Fable 5) on the production line behind solidstate.cc —
+            the pipeline whose free Skill Auditor passed ClawHub&apos;s security scan on its first
+            upload. Every bundled script ran before it shipped; the purchase rail was tested
+            end-to-end with a real card. Solid State&apos;s four-agent Skill Production Squad
+            maintains the kit from here.
           </p>
           <p style={{ ...body15, maxWidth: "600px", marginBottom: "40px" }}>
             The arithmetic is the pitch: $106+ of parts, $99 for the system, and the orchestrator +

@@ -120,7 +120,7 @@ async function sendShipKitDeliveryEmail(to: string, sessionId: string) {
       <p style="font-size:13px;line-height:1.6;color:#444">
         Keep this email — the link is permanent and always serves the current v1.x build.<br/>
         Unzip into your tool, run <code>/ship-start</code>, answer two questions.<br/>
-        Install help: INSTALL.md in the zip (Claude Code, Cowork, Cursor, OpenClaw).
+        Install help: INSTALL.md in the zip (Claude Code, Cowork, Cursor, OpenClaw, Hermes).
       </p>
       <p style="font-size:12px;color:#888">Stuck? Reply, or hi@solidstate.cc — include your tool and OS.</p>
     </div>`

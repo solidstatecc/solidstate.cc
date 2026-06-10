@@ -64,7 +64,7 @@ function ThanksInner() {
             Download ship-kit-v1.0.0.zip
           </a>
           <p style={{ fontSize: "13px", color: "var(--ink-4)", lineHeight: 1.6, marginTop: "24px" }}>
-            Install help: INSTALL.md in the zip covers Claude Code, Cowork, Cursor, OpenClaw.
+            Install help: INSTALL.md in the zip covers Claude Code, Cowork, Cursor, OpenClaw, Hermes.
             <br />
             Stuck? hi@solidstate.cc — include your tool and OS.
           </p>
