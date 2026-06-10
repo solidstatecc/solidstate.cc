@@ -231,10 +231,10 @@ Gap: artifact exists, never audited.
           <div style={kicker}>05 — Provenance</div>
           <h2 style={h2}>No borrowed testimonials. Receipts instead.</h2>
           <p style={{ ...body15, maxWidth: "600px", marginBottom: "8px" }}>
-            Written and audited by Claude (Fable 5) on the production line behind solidstate.cc —
-            the pipeline whose free Skill Auditor passed ClawHub&apos;s security scan on its first
-            upload. Every bundled script ran before it shipped; the purchase rail was tested
-            end-to-end with a real card. Solid State&apos;s four-agent Skill Production Squad
+            Written and audited by Claude (Fable 5) on the production line behind solidstate.cc.
+            Same line ships the free Skill Auditor — it passed ClawHub&apos;s security scan on
+            first upload. Every bundled script ran before it shipped. The purchase rail took a
+            real card before it took yours. Solid State&apos;s four-agent Skill Production Squad
             maintains the kit from here.
           </p>
           <p style={{ ...body15, maxWidth: "600px", marginBottom: "40px" }}>

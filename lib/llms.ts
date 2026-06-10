@@ -22,15 +22,13 @@ const MANIFESTO: Array<[string, string]> = [
   ["Working code, not wrappers.", "AI is a tool. The job is to ship work. Solid State packages narrow, working capabilities. Each one does one thing, costs what it costs, and runs today."],
   ["No theater.", "No mysticism, no manifesto theater inside a skill. The agent shows up, does the work, returns a result. If it cannot, it says so and stops."],
   ["Compute is cheap. Bad output is not.", "Agents that ship wrong work cost more than agents that admit they cannot. Every Solid State skill is built around verification first, capability second."],
-  ["Buy or install.", "Every skill runs direct on solidstate.cc. Free where it's free, paid where it isn't. One brand, no lock-in."],
+  ["Buy or install.", "Install free skills from the directory. Buy the Ship Kit when you want the system around them. One brand, no lock-in."],
   ["Operators, not users.", "We build for the people who run the work, not the people who watch the work. Founders, ops leads, solo operators, lean teams. The brief is always: get to ship."],
   ["Open where it's free. Paid where it isn't.", "Open formats, open sources cited, open data where we can. Commercial pricing where the value is real. We will not pretend a thing is free that costs us to run."],
 ]
 
 const SKUS: Array<[string, string, string]> = [
-  ["Operator Pack", "$200", "10,000 oracle calls. No subscription. No token. Prepaid credit, routed through Solid State's runtime."],
-  ["Run an Agent Without Buying a Course", "$29", "The whole playbook. 20 pages. No upsell. How to ship one agent on Base."],
-  ["Founder Briefing", "$1", "forest + audit + oracle. One run. One dollar. Run it before pitching anything."],
+  ["Ship Kit", "$99 once", "Six skills, one orchestrator, one shared project memory. A system, not a pile of skills. Updates through v1.x."],
 ]
 
 /** Concise, llms.txt-spec index. */
@@ -41,7 +39,7 @@ export function buildLlmsIndex(): string {
   const lines: string[] = []
   lines.push("# Solid State", "")
   lines.push(
-    "> The skills marketplace for AI agents. Browse, install, and publish skills for Claude Code, Hermes Agent, OpenClaw, NemoClaw, Google Antigravity, Codex, Cursor, OpenCode, and Cline. Multi-platform. Verified. Operator-grade.",
+    "> A skill is packaged judgment. Browse, install, and publish skills for Claude Code, Hermes Agent, OpenClaw, NemoClaw, Google Antigravity, Codex, Cursor, OpenCode, and Cline. Sourced, licensed, no fake installs.",
     ""
   )
   lines.push(
@@ -72,7 +70,7 @@ export function buildLlmsIndex(): string {
   lines.push(`- [Manifesto](${BASE}/manifesto): Why Solid State exists. Working code, not wrappers.`, "")
 
   lines.push("## Buy", "")
-  for (const [n, p, d] of SKUS) lines.push(`- [${n} — ${p}](${BASE}/buy): ${d}`)
+  for (const [n, p, d] of SKUS) lines.push(`- [${n} — ${p}](${BASE}/ship-kit): ${d}`)
   lines.push("")
 
   lines.push("## Optional", "")
@@ -93,7 +91,7 @@ export function buildLlmsFull(): string {
   const lines: string[] = []
   lines.push("# Solid State — Full Index", "")
   lines.push(
-    "> The skills marketplace for AI agents. Browse, install, and publish skills for Claude, OpenClaw, NemoClaw, Google Antigravity, and any agent runtime.",
+    "> A skill is packaged judgment. Browse, install, and publish skills for any agent runtime. Sourced, licensed, no fake installs.",
     ""
   )
   lines.push(`Generated ${today}. Source: solidstate.cc. ${totalSkills} skill records, ${glossary.length} glossary terms.`, "")
@@ -117,7 +115,7 @@ export function buildLlmsFull(): string {
   for (const s of originals) lines.push(`### ${s.name}`, "", oneLine(s.description), "", `${BASE}/skills/${s.slug}`, "")
 
   lines.push("## Pricing", "")
-  for (const [n, p, d] of SKUS) lines.push(`### ${n} — ${p}`, "", d, "", `${BASE}/buy`, "")
+  for (const [n, p, d] of SKUS) lines.push(`### ${n} — ${p}`, "", d, "", `${BASE}/ship-kit`, "")
 
   lines.push("## Glossary", "")
   lines.push("A working glossary of AI terms, leveled beginner to expert.", "")

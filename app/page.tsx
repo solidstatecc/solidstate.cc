@@ -45,8 +45,8 @@ export default function HomePage() {
           maxWidth: "480px",
           lineHeight: 1.7,
         }}>
-          The skills marketplace for AI agents.<br />
-          Real sources. Verified. No fake installs.
+          A skill is packaged judgment.<br />
+          The marketplace: sourced, licensed, no fake installs.
         </p>
 
         {/* Stats */}
@@ -90,6 +90,57 @@ export default function HomePage() {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* Ship Kit — the system SKU */}
+      <section style={{
+        maxWidth: "1200px",
+        margin: "0 auto",
+        padding: "40px 32px",
+        borderBottom: "1px solid var(--border)",
+        display: "flex",
+        flexWrap: "wrap",
+        alignItems: "baseline",
+        justifyContent: "space-between",
+        gap: "20px",
+      }}>
+        <div>
+          <div style={{
+            fontFamily: "monospace",
+            fontSize: "10px",
+            color: "var(--muted-dim)",
+            letterSpacing: "0.12em",
+            textTransform: "uppercase",
+            marginBottom: "10px",
+          }}>
+            Solid State Original · System
+          </div>
+          <div style={{
+            fontFamily: "monospace",
+            fontSize: "18px",
+            fontWeight: 700,
+            color: "var(--fg)",
+            letterSpacing: "-0.01em",
+            marginBottom: "6px",
+          }}>
+            Ship Kit. A system, not a pile of skills.
+          </div>
+          <div style={{ fontSize: "13px", color: "var(--muted)", lineHeight: 1.6 }}>
+            Six skills, one orchestrator, one shared memory. $99 once.
+          </div>
+        </div>
+        <Link href="/ship-kit" style={{
+          fontFamily: "monospace",
+          fontSize: "12px",
+          color: "var(--bg)",
+          backgroundColor: "var(--fg)",
+          padding: "12px 20px",
+          letterSpacing: "0.08em",
+          textTransform: "uppercase",
+          whiteSpace: "nowrap",
+        }}>
+          Get the kit →
+        </Link>
       </section>
 
       {/* Featured */}

@@ -21,19 +21,19 @@ export const metadata: Metadata = {
     template: "%s | Solid State",
   },
   description:
-    "The skills marketplace for AI agents. Browse, install, and publish skills for Claude, OpenClaw, NemoClaw, Google Antigravity, and any agent runtime.",
+    "A skill is packaged judgment. Browse, install, and publish skills for any agent runtime — Claude Code, OpenClaw, NemoClaw, Antigravity. No fake installs.",
   keywords: ["AI agent skills", "Claude skills", "Claude Code", "OpenClaw", "NemoClaw", "Antigravity", "skills marketplace", "agent tools"],
   metadataBase: new URL("https://solidstate.cc"),
   openGraph: {
     type: "website",
     siteName: "Solid State",
     title: "Solid State — AI Agent Skills Marketplace",
-    description: "The skills marketplace for AI agents. Multi-platform. Verified. Operator-grade.",
+    description: "A skill is packaged judgment. The marketplace: sourced, licensed, no fake installs.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Solid State — AI Agent Skills Marketplace",
-    description: "The skills marketplace for AI agents. Multi-platform. Verified. Operator-grade.",
+    description: "A skill is packaged judgment. The marketplace: sourced, licensed, no fake installs.",
   },
 }
 

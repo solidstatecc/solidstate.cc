@@ -8,6 +8,7 @@ const COLS: Array<{
     title: "Product",
     links: [
       { href: "/skills", label: "Skills directory" },
+      { href: "/ship-kit", label: "Ship Kit" },
       { href: "/agents", label: "Agent directory" },
       { href: "/docs", label: "Docs" },
       { href: "/glossary", label: "Glossary" },
@@ -94,7 +95,7 @@ export function Footer() {
                 maxWidth: "300px",
               }}
             >
-              Working skills for AI agents. Verified. Operator-grade. Built by{" "}
+              Working skills for AI agents. Sourced, licensed, no fake installs. Built by{" "}
               <a
                 href="https://visionaire.co"
                 target="_blank"

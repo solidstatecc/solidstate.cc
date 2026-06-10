@@ -22,7 +22,7 @@ const SECTIONS: Array<{ heading: string; body: string }> = [
   },
   {
     heading: "Buy or install.",
-    body: "Every skill runs direct on solidstate.cc. Free where it's free, paid where it isn't. One brand, no lock-in.",
+    body: "Install free skills from the directory. Buy the Ship Kit when you want the system around them. One brand, no lock-in.",
   },
   {
     heading: "Operators, not users.",
