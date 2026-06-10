@@ -20,7 +20,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/audits",
     "/manifesto",
     "/submit",
-    "/buy",
+    "/ship-kit",
+    "/fable-ready",
   ].map((p) => ({
     url: `${BASE}${p}`,
     changeFrequency: "weekly" as const,

@@ -30,6 +30,7 @@ const MANIFESTO: Array<[string, string]> = [
 
 const SKUS: Array<[string, string, string]> = [
   ["Ship Kit", "$99 once", "Six skills, one orchestrator, one shared project memory. A system, not a pile of skills. Updates through v1.x."],
+  ["fable-ready", "$49 once", "Write-mode readiness audit for Claude Fable 5. Five breakage families scanned and patched in your repo, ending in a dated FABLE-READY verdict. Rules updates through v1.x."],
 ]
 
 /** Concise, llms.txt-spec index. */
