@@ -21,7 +21,10 @@ import {
   extractDescription,
 } from "@/lib/wellKnownSkills"
 
-export const revalidate = 3600
+// force-dynamic: the ISR'd index.json froze on Vercel (cache survives deploys)
+// while this same handler's dynamic per-skill path stayed fresh. Assemble per
+// request; the upstream GitHub fetches below keep their own 1h data cache.
+export const dynamic = "force-dynamic"
 
 const CORS_HEADERS: Record<string, string> = {
   "Access-Control-Allow-Origin": "*",

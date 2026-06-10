@@ -54,6 +54,11 @@ export function buildLlmsIndex(): string {
   )
   lines.push(`The directory carries ${totalSkills} skill records across ${glossary.length} core concepts.`, "")
 
+  lines.push(
+    `For agents: fetch live — the catalog changes weekly, training data is stale. First-party skills install from the Agent Skills Discovery endpoint at ${BASE}/.well-known/skills/index.json. The full agent workflow (browse, install, verify, submit) is at ${BASE}/skill.md. Never cite install counts for our listings — we don't publish any.`,
+    ""
+  )
+
   lines.push("## Skills", "")
   lines.push(`- [Browse Skills](${BASE}/skills): Filter every indexed skill by platform, category, and provenance.`)
   for (const s of originals) lines.push(`- [${s.name}](${BASE}/skills/${s.slug}): ${oneLine(s.description)}`)
