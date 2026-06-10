@@ -75,6 +75,11 @@
         true
       ],
       [
+        "https://hermes-agent.nousresearch.com/docs/skills",
+        "Hermes Skills Hub",
+        true
+      ],
+      [
         "https://github.com/solidstatecc",
         "GitHub",
         true
@@ -92,6 +97,11 @@
       [
         "https://solidstate.beehiiv.com/subscribe",
         "Newsletter",
+        true
+      ],
+      [
+        "https://linktr.ee/solidstate.cc",
+        "Linktree",
         true
       ],
       [

@@ -135,6 +135,10 @@
             "href": "https://clawhub.ai/user/solidstate"
           },
           {
+            "label": "Hermes Skills Hub",
+            "href": "https://hermes-agent.nousresearch.com/docs/skills"
+          },
+          {
             "label": "GitHub",
             "href": "https://github.com/solidstatecc"
           }
@@ -150,6 +154,10 @@
           {
             "label": "Newsletter",
             "href": "https://solidstate.beehiiv.com/subscribe"
+          },
+          {
+            "label": "Linktree",
+            "href": "https://linktr.ee/solidstate.cc"
           },
           {
             "label": "hi@solidstate.cc",

@@ -23,6 +23,7 @@
         { "href": "https://agentic.market/", "label": "Agentic Market", "external": true },
         { "href": "https://www.shopclawmart.com/", "label": "Claw Mart", "external": true },
         { "href": "https://clawhub.ai/user/solidstate", "label": "ClawHub", "external": true },
+        { "href": "https://hermes-agent.nousresearch.com/docs/skills", "label": "Hermes Skills Hub", "external": true },
         { "href": "https://github.com/solidstatecc", "label": "GitHub", "external": true }
       ]
     },
@@ -31,6 +32,7 @@
       "links": [
         { "href": "https://x.com/solidstate_cc", "label": "X", "external": true },
         { "href": "https://solidstate.beehiiv.com/subscribe", "label": "Newsletter", "external": true },
+        { "href": "https://linktr.ee/solidstate.cc", "label": "Linktree", "external": true },
         { "href": "mailto:hi@solidstate.cc", "label": "hi@solidstate.cc" },
         { "href": "/llms.txt", "label": "llms.txt", "external": true },
         { "href": "/llms-full.txt", "label": "llms-full.txt", "external": true }
