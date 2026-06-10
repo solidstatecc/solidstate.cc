@@ -15,12 +15,17 @@
 
 import Stripe from "stripe"
 
-const secretKey = process.env.STRIPE_SECRET_KEY
+// trim(): env values pasted into dashboards routinely pick up a trailing
+// newline, which corrupts the Authorization header and surfaces as
+// "An error occurred with our connection to Stripe".
+const secretKey = process.env.STRIPE_SECRET_KEY?.trim()
 
 export const stripe = secretKey
   ? new Stripe(secretKey, {
       apiVersion: "2025-02-24.acacia",
       typescript: true,
+      maxNetworkRetries: 2,
+      timeout: 8000,
     })
   : null
 
