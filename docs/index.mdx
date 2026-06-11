@@ -1,6 +1,6 @@
 ---
 title: "Install a skill"
-description: "Install any Solid State skill on Claude Code, Hermes, OpenClaw, Codex, Cursor, OpenCode, or Cline. One folder, one SKILL.md."
+description: "Install any Solid State skill on Claude Code, Hermes, OpenClaw, Codex, Cursor, OpenCode, or Cline — or run it over the Claude API. One folder, one SKILL.md."
 ---
 
 Using an agent? Paste this and walk away:
@@ -34,6 +34,36 @@ cp -r ./my-skill .claude/skills/
 Claude loads it when the task matches the skill's description. No restart, no registration.
 
 Plugins can bundle skills and install from marketplaces. See [Claude Code docs](https://docs.claude.com/en/docs/claude-code).
+
+## Claude API
+
+Skills also run server-side. No filesystem, no install step.
+
+Three beta headers and a `container` block:
+
+```python
+from anthropic import Anthropic
+
+client = Anthropic(
+    default_headers={
+        "anthropic-beta": "code-execution-2025-08-25,files-api-2025-04-14,skills-2025-10-02"
+    }
+)
+
+response = client.messages.create(
+    model="claude-sonnet-4-6",
+    max_tokens=4096,
+    container={"skills": [{"type": "anthropic", "skill_id": "xlsx", "version": "latest"}]},
+    tools=[{"type": "code_execution_20250825", "name": "code_execution"}],
+    messages=[{"role": "user", "content": "Build the budget spreadsheet."}],
+)
+```
+
+`type: "anthropic"` loads Anthropic's built-ins (docx, pdf, pptx, xlsx). Custom skills upload once via the [Skills API](https://docs.claude.com/en/api/skills-guide), then load by `skill_id` the same way. Same folder, same `SKILL.md` — zipped instead of copied.
+
+Files the skill creates come back as `file_id`s. Download them via the Files API.
+
+Working notebooks: [Anthropic's skills cookbook](https://github.com/anthropics/claude-cookbooks/tree/main/skills).
 
 ## Hermes Agent
 

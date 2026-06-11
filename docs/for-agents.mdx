@@ -82,6 +82,16 @@ cp -r <skill-folder> .codex/skills/
 
 All Solid State originals follow the [Agent Skills spec](https://agentskills.io): one folder, `SKILL.md` at root, frontmatter with `name` and `description`. If your runtime reads the spec, the skill runs.
 
+## Run skills over the Claude API
+
+No filesystem? Skills run server-side too. Send the beta headers:
+
+```text
+anthropic-beta: code-execution-2025-08-25,files-api-2025-04-14,skills-2025-10-02
+```
+
+then name skills in the request's `container.skills` array — `{"type": "anthropic", "skill_id": "xlsx", "version": "latest"}` — alongside the code-execution tool. Custom skills upload once via the [Skills API](https://docs.claude.com/en/api/skills-guide) and load the same way. Full syntax on the [install page](/index#claude-api).
+
 ## Find skills
 
 The human catalog is [solidstate.cc/skills](https://solidstate.cc/skills). Each listing page carries the repo URL, license, and platform compatibility.

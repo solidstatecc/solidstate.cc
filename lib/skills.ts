@@ -186,7 +186,7 @@ The free skills stay free. This is the system around them, not a paywall in fron
       "Write-mode readiness audit for Claude Fable 5. Scans CLAUDE.md + skills + configs for the five documented breakage families, patches what you approve, stamps a dated FABLE-READY verdict. $49 once.",
     longDescription: `Fable 5 changed the rules underneath Opus-era setups. Prescriptive CLAUDE.md files degrade output. "Show your reasoning" prompts end in refusals that return HTTP 200 and look like success. Old configs carry params the API now rejects.
 
-**The five rule families:** reasoning-display triggers (refusal risk), prescriptive step-lists (quality), missing output discipline (cost), missing boundaries (surprises), mechanics drift (rejected params, stale model strings, timeout assumptions). Every rule in rules.md carries an evidence grade and a source.
+**The five rule families:** reasoning-display triggers (refusal risk), prescriptive step-lists (quality), missing output discipline (cost), missing boundaries (surprises), mechanics drift (rejected params, stale model strings, timeout assumptions). Every rule in rules.md carries an evidence grade and a source. Diffed against Anthropic's own migration guide and Fable fallback cookbook.
 
 **The split:** a deterministic stdlib scanner catches what regexes can catch — reproducibly. The model judges what regexes can't. Patches are approval-gated; meaning-changing patches are never auto-applied. Ends in a dated FABLE-READY verdict; re-run after patching and the verdict updates.
 
@@ -666,9 +666,9 @@ const listings: Skill[] = [
     slug: "anthropic-claude-cookbooks",
     kind: "listing",
     description:
-      "MIT-licensed Jupyter cookbooks covering RAG, classification, summarization, tool use, vision, evals, prompt caching, and more. ~40k stars.",
+      "MIT-licensed Jupyter cookbooks: agent patterns, Agent SDK tutorials, Managed Agents, tool use, RAG, evals, the Fable 5 fallback guide. 45K+ stars.",
     longDescription:
-      "Anthropic's official recipe collection. Fully MIT — every notebook is a candidate for wrapping into a packaged Solid State skill. The cookbook also has its own skills/ subfolder demonstrating the SKILL.md pattern with reference utilities. Good base for liberation work.",
+      "Anthropic's official recipe collection — ~80 notebooks, fully MIT. The 2026 layer is the value: the Agent SDK tutorial series (00–06), the Managed Agents series (Outcomes self-grading, multiagent coordination, vault credentials), context engineering, programmatic tool calling, and the Fable 5 fallback-and-billing guide. A skills/ subfolder teaches running skills over the Messages API. registry.yaml is a machine-readable catalog of every recipe — title, path, date, categories — consumable as a feed. Every notebook is a wrap candidate.",
     author: "anthropics",
     version: "see upstream",
     platforms: ["claude", "generic"],
@@ -678,7 +678,7 @@ const listings: Skill[] = [
     status: "stable",
     provenance: "indexed",
     featured: false,
-    tags: ["cookbook", "rag", "tool-use", "vision", "evals", "anthropic"],
+    tags: ["cookbook", "agent-patterns", "agent-sdk", "managed-agents", "tool-use", "evals", "fable", "anthropic"],
     createdAt: "2026-04-27",
   },
 
