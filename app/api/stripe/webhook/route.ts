@@ -149,7 +149,7 @@ async function sendDeliveryEmail(zip: ZipSku, to: string, sessionId: string) {
 <html>
 <head><meta charset="utf-8"></head>
 <body style="margin:0;padding:0;background-color:#0a0a0a">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#0a0a0a" style="background-color:#0a0a0a">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#0a0a0a" style="background-color:#0a0a0a;min-height:100vh">
   <tr>
     <td align="center" style="padding:48px 24px">
       <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="520" style="max-width:520px;width:100%">
