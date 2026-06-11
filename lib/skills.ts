@@ -191,10 +191,10 @@ Also inside: effort-map.md (task type → effort level, with the cost math), lon
 
 Built, validated, and audited via Ship Kit on the Solid State production line — Fable 5 patched its own migration. The full run is published as a case study. Rules dated 2026-06; v1.x updates included.`,
     author: "Solid State",
-    version: "1.0.0",
+    version: "1.0.1",
     platforms: ["claude", "hermes", "openclaw", "nemoclaw", "generic"],
     categories: ["DevOps", "AI"],
-    installCommand: "unzip fable-ready-v1.0.0.zip -d ~/.claude/skills/  # delivered instantly after purchase",
+    installCommand: "unzip fable-ready-v1.0.1.zip -d ~/.claude/skills/  # delivered instantly after purchase",
     docsUrl: "https://solidstate.cc/fable-ready",
     license: "proprietary",
     status: "stable",

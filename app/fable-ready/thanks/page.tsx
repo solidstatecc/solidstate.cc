@@ -61,7 +61,7 @@ function ThanksInner() {
               textTransform: "uppercase",
             }}
           >
-            Download fable-ready-v1.0.0.zip
+            Download fable-ready-v1.0.1.zip
           </a>
           <p style={{ fontSize: "13px", color: "var(--ink-4)", lineHeight: 1.6, marginTop: "24px" }}>
             Install help: INSTALL.md in the zip covers Claude Code, Cowork, Cursor, OpenClaw, Hermes.

@@ -30,7 +30,7 @@ const SKU_INFO: Record<
   },
   "fable-ready": {
     name: "Solid State fable-ready",
-    version: "v1.0.0",
+    version: "v1.0.1",
     downloadPath: (sid) => `/api/fable-ready/download?session_id=${encodeURIComponent(sid)}`,
   },
 }

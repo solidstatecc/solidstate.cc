@@ -13,15 +13,15 @@
  *   SUPABASE_SERVICE_ROLE_KEY    — storage signing (private bucket)
  *   NEXT_PUBLIC_SUPABASE_URL     — already set
  *
- * Storage object: products/fable-ready/fable-ready-v1.0.0.zip (private
- * bucket "products" — upload mirrors scripts/upload-ship-kit.mjs).
+ * Storage object: products/fable-ready/fable-ready-v1.0.1.zip (private
+ * bucket "products" — upload via one-shot edge-function relay).
  */
 
 import { NextResponse } from "next/server"
 import { createClient } from "@supabase/supabase-js"
 import { stripe, getSku } from "@/lib/stripe"
 
-const OBJECT_PATH = "fable-ready/fable-ready-v1.0.0.zip"
+const OBJECT_PATH = "fable-ready/fable-ready-v1.0.1.zip"
 const BUCKET = "products"
 const SIGNED_URL_TTL_SECONDS = 60 * 10 // 10 minutes; the page link re-signs on every click
 
@@ -85,7 +85,7 @@ export async function GET(req: Request) {
   const { data, error } = await admin.storage
     .from(BUCKET)
     .createSignedUrl(OBJECT_PATH, SIGNED_URL_TTL_SECONDS, {
-      download: "fable-ready-v1.0.0.zip",
+      download: "fable-ready-v1.0.1.zip",
     })
 
   if (error || !data?.signedUrl) {
