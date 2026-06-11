@@ -142,21 +142,24 @@ async function sendDeliveryEmail(zip: ZipSku, to: string, sessionId: string) {
   const from = process.env.DELIVERY_FROM?.trim() || "Solid State <ship@solidstate.cc>"
   const link = `https://solidstate.cc${d.path}?session_id=${encodeURIComponent(sessionId)}`
 
+  // Skin matches the /account sign-in email: dark card, mono, white CTA.
   const html = `
-    <div style="font-family:ui-monospace,Menlo,monospace;max-width:560px;margin:0 auto;color:#111">
-      <p style="margin:0 0 20px"><img src="https://solidstate.b-cdn.net/BRANDING/logo_white.png" alt="SOLID STATE" width="150" style="display:block;background:#0a0a0a;padding:10px 12px"/></p>
-      <h1 style="font-size:22px;margin:8px 0 16px">${d.title}</h1>
-      <p style="font-size:14px;line-height:1.6">${d.blurb}</p>
-      <p style="margin:24px 0">
-        <a href="${link}" style="background:#111;color:#fff;text-decoration:none;padding:14px 22px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;display:inline-block">${d.cta}</a>
+    <div style="background:#0a0a0a;padding:40px 32px;font-family:ui-monospace,Menlo,monospace;max-width:560px;margin:0 auto;color:#e8e8e8">
+      <p style="margin:0 0 28px"><img src="https://solidstate.b-cdn.net/BRANDING/logo_white.png" alt="SOLID STATE" width="150" style="display:block"/></p>
+      <h1 style="font-size:24px;line-height:1.3;color:#ffffff;margin:0 0 12px">${d.title}</h1>
+      <p style="font-size:14px;line-height:1.6;color:#bdbdbd;margin:0 0 28px">${d.blurb}</p>
+      <p style="margin:0 0 32px">
+        <a href="${link}" style="background:#ffffff;color:#0a0a0a;text-decoration:none;padding:14px 24px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;display:inline-block;font-family:ui-monospace,Menlo,monospace">${d.cta} →</a>
       </p>
-      <p style="font-size:13px;line-height:1.6;color:#444">
+      <hr style="border:none;border-top:1px solid #2a2a2a;margin:0 0 24px"/>
+      <p style="font-size:13px;line-height:1.7;color:#9a9a9a;margin:0 0 16px">
         Keep this email — the link is permanent and always serves the current v1.x build.<br/>
         ${d.firstRun}<br/>
         Install help: INSTALL.md in the zip (Claude Code, Cowork, Cursor, OpenClaw, Hermes).<br/>
-        Your library (re-downloads, future versions): <a href="https://solidstate.cc/account" style="color:#444">solidstate.cc/account</a> — sign in with this email.
+        Your library (re-downloads, future versions): <a href="https://solidstate.cc/account" style="color:#e8e8e8">solidstate.cc/account</a> — sign in with this email.
       </p>
-      <p style="font-size:12px;color:#888">Stuck? Reply, or hi@solidstate.cc — include your tool and OS.</p>
+      <p style="font-size:12px;color:#7a7a7a;margin:0 0 16px">Stuck? Reply, or <a href="mailto:hi@solidstate.cc" style="color:#9a9a9a">hi@solidstate.cc</a> — include your tool and OS.</p>
+      <p style="font-size:12px;margin:0"><strong style="color:#bdbdbd">solidstate.cc</strong> <span style="color:#555">·</span> <a href="mailto:hi@solidstate.cc" style="color:#9a9a9a;text-decoration:none">hi@solidstate.cc</a></p>
     </div>`
 
   const res = await fetch("https://api.resend.com/emails", {
