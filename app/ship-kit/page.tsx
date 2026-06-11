@@ -1,18 +1,30 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { BuyButton } from "./BuyButton"
+import { JsonLd } from "@/components/JsonLd"
+import { productJsonLd } from "@/lib/seo"
 
 export const metadata: Metadata = {
   title: "Ship Kit — a system, not a pile of skills",
   description:
     "Six skills, one orchestrator, one shared project memory. Your agent learns what you're shipping and routes you to done. $99 once, updates through v1.x.",
+  alternates: { canonical: "/ship-kit" },
   openGraph: {
     title: "Solid State Ship Kit",
     description:
       "Turn an agent into a product team that ships. Orchestrator + project memory + six skills. $99 once.",
     url: "https://solidstate.cc/ship-kit",
+    images: ["/opengraph-image.png"],
   },
 }
+
+const shipKitProduct = productJsonLd({
+  name: "Solid State Ship Kit",
+  description:
+    "Six skills, one orchestrator, one shared project memory. Turn an agent into a product team that ships. $99 once, updates through v1.x.",
+  path: "/ship-kit",
+  price: 99,
+})
 
 const mono = "var(--font-jetbrains-mono), monospace"
 
@@ -68,6 +80,7 @@ const notFor = [
 export default function ShipKitPage() {
   return (
     <div style={{ backgroundColor: "var(--bg)", minHeight: "100vh", color: "var(--fg)" }}>
+      <JsonLd data={shipKitProduct} />
       <div style={{ maxWidth: "880px", margin: "0 auto", padding: "96px 24px 64px" }}>
         {/* Hero */}
         <div style={kicker}>Solid State Original · System</div>

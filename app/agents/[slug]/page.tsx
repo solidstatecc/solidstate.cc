@@ -19,9 +19,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const agent = getAgentBySlug(slug)
   if (!agent) return {}
+  const title = `${agent.name} skills`
+  const description = `How skills install on ${agent.name}, and which Solid State catalog skills run there. ${agent.description}`
   return {
-    title: `${agent.name} skills`,
-    description: `How skills install on ${agent.name}, and which Solid State catalog skills run there. ${agent.description}`,
+    title,
+    description,
+    alternates: { canonical: `/agents/${agent.slug}` },
+    openGraph: {
+      type: "website",
+      siteName: "Solid State",
+      url: `https://solidstate.cc/agents/${agent.slug}`,
+      title,
+      description,
+      images: ["/opengraph-image.png"],
+    },
   }
 }
 

@@ -3,6 +3,8 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { glossary, getTermBySlug } from "@/lib/glossary"
 import { LEVEL_LABEL, LEVEL_NAME } from "@/lib/types"
+import { JsonLd } from "@/components/JsonLd"
+import { termJsonLd, breadcrumbsJsonLd } from "@/lib/seo"
 
 type Props = {
   params: Promise<{ slug: string }>
@@ -16,9 +18,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const term = getTermBySlug(slug)
   if (!term) return {}
+  const title = `What is ${term.term}?`
   return {
-    title: term.term,
+    title,
     description: term.short,
+    alternates: { canonical: `/glossary/${term.slug}` },
+    openGraph: {
+      type: "article",
+      siteName: "Solid State",
+      url: `https://solidstate.cc/glossary/${term.slug}`,
+      title,
+      description: term.short,
+      images: ["/opengraph-image.png"],
+    },
   }
 }
 
@@ -33,6 +45,15 @@ export default async function GlossaryTermPage({ params }: Props) {
 
   return (
     <div style={{ backgroundColor: "var(--bg)", minHeight: "100vh" }}>
+      <JsonLd
+        data={[
+          termJsonLd(term),
+          breadcrumbsJsonLd([
+            ["Glossary", "/glossary"],
+            [term.term],
+          ]),
+        ]}
+      />
       {/* Breadcrumb */}
       <div
         style={{

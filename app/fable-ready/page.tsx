@@ -1,18 +1,30 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { BuyButton } from "./BuyButton"
+import { JsonLd } from "@/components/JsonLd"
+import { productJsonLd } from "@/lib/seo"
 
 export const metadata: Metadata = {
   title: "fable-ready — your setup, ready for Fable 5",
   description:
     "Write-mode readiness audit for Claude Fable 5. Five documented breakage families, scanned and patched in your repo, ending in a dated FABLE-READY verdict. $49 once.",
+  alternates: { canonical: "/fable-ready" },
   openGraph: {
     title: "Solid State fable-ready",
     description:
       "Fable 5 changed the rules underneath your setup. The patch, not the reading list. $49 once.",
     url: "https://solidstate.cc/fable-ready",
+    images: ["/opengraph-image.png"],
   },
 }
+
+const fableReadyProduct = productJsonLd({
+  name: "Solid State fable-ready",
+  description:
+    "Write-mode readiness audit for Claude Fable 5. Five documented breakage families, scanned and patched in your repo, ending in a dated FABLE-READY verdict. $49 once.",
+  path: "/fable-ready",
+  price: 49,
+})
 
 const mono = "var(--font-jetbrains-mono), monospace"
 
@@ -57,6 +69,7 @@ const notFor = [
 export default function FableReadyPage() {
   return (
     <div style={{ backgroundColor: "var(--bg)", minHeight: "100vh", color: "var(--fg)" }}>
+      <JsonLd data={fableReadyProduct} />
       <div style={{ maxWidth: "880px", margin: "0 auto", padding: "96px 24px 64px" }}>
         {/* Hero */}
         <div style={kicker}>Solid State Original · Write-mode audit</div>

@@ -28,9 +28,9 @@ const MANIFESTO: Array<[string, string]> = [
   ["Open where it's free. Paid where it isn't.", "Install free skills from the directory. Buy the Ship Kit when you want the system around them. Open formats, open sources cited, open data where we can. We will not pretend a thing is free that costs us to run. One brand, no lock-in."],
 ]
 
-const SKUS: Array<[string, string, string]> = [
-  ["Ship Kit", "$99 once", "Six skills, one orchestrator, one shared project memory. A system, not a pile of skills. Updates through v1.x."],
-  ["fable-ready", "$49 once", "Write-mode readiness audit for Claude Fable 5. Five breakage families scanned and patched in your repo, ending in a dated FABLE-READY verdict. Rules updates through v1.x."],
+const SKUS: Array<[string, string, string, string]> = [
+  ["Ship Kit", "$99 once", "Six skills, one orchestrator, one shared project memory. A system, not a pile of skills. Updates through v1.x.", "/ship-kit"],
+  ["fable-ready", "$49 once", "Write-mode readiness audit for Claude Fable 5. Five breakage families scanned and patched in your repo, ending in a dated FABLE-READY verdict. Rules updates through v1.x.", "/fable-ready"],
 ]
 
 /** Concise, llms.txt-spec index. */
@@ -72,7 +72,8 @@ export function buildLlmsIndex(): string {
   lines.push(`- [Manifesto](${BASE}/manifesto): Why Solid State exists. Working code, not wrappers.`, "")
 
   lines.push("## Buy", "")
-  for (const [n, p, d] of SKUS) lines.push(`- [${n} — ${p}](${BASE}/ship-kit): ${d}`)
+  for (const [n, p, d, path] of SKUS) lines.push(`- [${n} — ${p}](${BASE}${path}): ${d}`)
+  lines.push(`- [Pricing (machine-readable)](${BASE}/pricing.md): Every price in one markdown file. USD, one-time, parseable.`)
   lines.push("")
 
   lines.push("## Optional", "")
@@ -117,7 +118,8 @@ export function buildLlmsFull(): string {
   for (const s of originals) lines.push(`### ${s.name}`, "", oneLine(s.description), "", `${BASE}/skills/${s.slug}`, "")
 
   lines.push("## Pricing", "")
-  for (const [n, p, d] of SKUS) lines.push(`### ${n} — ${p}`, "", d, "", `${BASE}/ship-kit`, "")
+  lines.push(`Machine-readable version: ${BASE}/pricing.md`, "")
+  for (const [n, p, d, path] of SKUS) lines.push(`### ${n} — ${p}`, "", d, "", `${BASE}${path}`, "")
 
   lines.push("## Glossary", "")
   lines.push("A working glossary of AI terms, leveled beginner to expert.", "")

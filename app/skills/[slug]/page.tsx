@@ -8,6 +8,8 @@ import { priceDisplay } from "@/lib/x402"
 import { PlatformBadge } from "@/components/PlatformBadge"
 import { CopyButton } from "@/components/CopyButton"
 import { SkillCard } from "@/components/SkillCard"
+import { JsonLd } from "@/components/JsonLd"
+import { skillJsonLd, breadcrumbsJsonLd } from "@/lib/seo"
 
 type Props = {
   params: Promise<{ slug: string }>
@@ -21,9 +23,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const skill = getSkillBySlug(slug)
   if (!skill) return {}
+  const title = `${skill.name} — AI agent skill`
   return {
-    title: skill.name,
+    title,
     description: skill.description,
+    alternates: { canonical: `/skills/${skill.slug}` },
+    openGraph: {
+      type: "website",
+      siteName: "Solid State",
+      url: `https://solidstate.cc/skills/${skill.slug}`,
+      title,
+      description: skill.description,
+      images: ["/opengraph-image.png"],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: skill.description,
+      images: ["/opengraph-image.png"],
+    },
   }
 }
 
@@ -57,6 +75,15 @@ export default async function SkillDetailPage({ params }: Props) {
 
   return (
     <div style={{ backgroundColor: "var(--bg)", minHeight: "100vh" }}>
+      <JsonLd
+        data={[
+          skillJsonLd(skill),
+          breadcrumbsJsonLd([
+            ["Skills", "/skills"],
+            [skill.name],
+          ]),
+        ]}
+      />
       {/* Breadcrumb */}
       <div
         style={{

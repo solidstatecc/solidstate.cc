@@ -5,6 +5,8 @@ import { sourceGroups, getSourceBySlug } from "@/lib/sources"
 import { formatInstalls } from "@/lib/format"
 import { CopyButton } from "@/components/CopyButton"
 import { SkillCard } from "@/components/SkillCard"
+import { JsonLd } from "@/components/JsonLd"
+import { skillListJsonLd } from "@/lib/seo"
 
 type Props = {
   params: Promise<{ slug: string }>
@@ -18,9 +20,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const group = getSourceBySlug(slug)
   if (!group) return {}
+  const title = `${group.source} — skill pack`
+  const description = `All ${group.skills.length} agent skills from ${group.source}, indexed on Solid State. One install command, every skill listed.`
   return {
-    title: `${group.source} — skill pack`,
-    description: `All ${group.skills.length} agent skills from ${group.source}, indexed on Solid State. One install command, every skill listed.`,
+    title,
+    description,
+    alternates: { canonical: `/source/${group.slug}` },
+    openGraph: {
+      type: "website",
+      siteName: "Solid State",
+      url: `https://solidstate.cc/source/${group.slug}`,
+      title,
+      description,
+      images: ["/opengraph-image.png"],
+    },
   }
 }
 
@@ -35,6 +48,13 @@ export default async function SourcePage({ params }: Props) {
 
   return (
     <div style={{ backgroundColor: "var(--bg)", minHeight: "100vh" }}>
+      <JsonLd
+        data={skillListJsonLd(
+          `${group.source} — skill pack`,
+          `/source/${group.slug}`,
+          group.skills
+        )}
+      />
       {/* Breadcrumb */}
       <div style={{ borderBottom: "1px solid var(--bg)", padding: "14px 24px" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>

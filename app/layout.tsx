@@ -3,6 +3,8 @@ import { JetBrains_Mono, Inter } from "next/font/google"
 import "./globals.css"
 import { Nav } from "@/components/Nav"
 import { Footer } from "@/components/Footer"
+import { JsonLd } from "@/components/JsonLd"
+import { orgJsonLd, websiteJsonLd } from "@/lib/seo"
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
@@ -24,9 +26,15 @@ export const metadata: Metadata = {
     "A skill is packaged judgment. Browse, install, and publish skills for any agent runtime — Claude Code, OpenClaw, NemoClaw, Antigravity. No fake installs.",
   keywords: ["AI agent skills", "Claude skills", "Claude Code", "OpenClaw", "NemoClaw", "Antigravity", "skills marketplace", "agent tools"],
   metadataBase: new URL("https://solidstate.cc"),
+  alternates: {
+    // Self-referencing canonical on every route. Relative "./" resolves
+    // against metadataBase + the rendered route's path.
+    canonical: "./",
+  },
   openGraph: {
     type: "website",
     siteName: "Solid State",
+    url: "https://solidstate.cc",
     title: "Solid State — AI Agent Skills Marketplace",
     description: "A skill is packaged judgment. The marketplace: sourced, licensed, no fake installs.",
   },
@@ -61,6 +69,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col" style={{ backgroundColor: "var(--bg)", color: "var(--fg)" }}>
+        <JsonLd data={[orgJsonLd(), websiteJsonLd()]} />
         <a className="ss-skip-link" href="#main">Skip to content</a>
         <Nav />
         <main id="main" className="flex-1">{children}</main>
