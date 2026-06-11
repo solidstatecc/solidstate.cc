@@ -257,9 +257,12 @@ summary:focus-visible {
   .ss-browse-grid > aside { position: static !important; }
 }
 
-/* Skill detail: meta sidebar drops below the main content */
+/* Skill detail: meta sidebar drops below the main content. The aside must
+   also lose its sticky here — stacked single-column, iOS WebKit pins it and
+   the rest of the page scrolls behind it (same guard as .ss-browse-grid). */
 @media (max-width: 900px) {
   .ss-detail-grid { grid-template-columns: minmax(0, 1fr) !important; }
+  .ss-detail-grid > aside { position: static !important; }
 }
 
 /* Skill detail sidebar sits second in source order (header → sidebar → body)
