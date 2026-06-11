@@ -169,7 +169,8 @@ export default function HomePage() {
         }}>
           {featured.map((skill, i) => (
             <Link key={skill.id} href={`/skills/${skill.slug}`} style={{
-              display: "block",
+              display: "flex",
+              flexDirection: "column",
               padding: "32px",
               borderRight: "1px solid var(--border)",
               borderBottom: "1px solid var(--border)",
@@ -205,22 +206,9 @@ export default function HomePage() {
               }}>
                 {skill.description}
               </div>
-              {skill.installCommand && (
-                <div style={{
-                  fontFamily: "monospace",
-                  fontSize: "11px",
-                  color: "var(--muted-dim)",
-                  backgroundColor: "var(--bg-2)",
-                  padding: "8px 12px",
-                  letterSpacing: "0.02em",
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                  whiteSpace: "nowrap",
-                  marginBottom: "16px",
-                }}>
-                  {skill.installCommand}
-                </div>
-              )}
+              {/* Install command lives on the detail page — cards stay
+                  uniform: name / author / description / price. Price pins
+                  to the card's bottom edge so the row shares one baseline. */}
               {(() => {
                 const label = priceDisplay(skill)
                 return (
@@ -230,6 +218,7 @@ export default function HomePage() {
                     color: label === "Free" ? "var(--fg)" : label === "—" ? "var(--muted-dim)" : "var(--muted)",
                     letterSpacing: "0.06em",
                     textTransform: "uppercase",
+                    marginTop: "auto",
                   }}>
                     {label}
                   </div>

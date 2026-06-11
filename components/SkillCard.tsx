@@ -66,22 +66,9 @@ export function SkillCard({ skill }: { skill: Skill }) {
         {skill.description}
       </p>
 
-      {skill.installCommand && (
-        <div style={{
-          fontFamily: "monospace",
-          fontSize: "11px",
-          color: "var(--muted-dim)",
-          backgroundColor: "var(--bg-2)",
-          padding: "7px 10px",
-          overflow: "hidden",
-          textOverflow: "ellipsis",
-          whiteSpace: "nowrap",
-          marginBottom: "16px",
-        }}>
-          {skill.installCommand}
-        </div>
-      )}
-
+      {/* Install command intentionally not shown on cards — it lives on the
+          detail page. Cards stay uniform: name+price / author / description /
+          platforms. */}
       <div style={{
         display: "flex",
         gap: "6px",
