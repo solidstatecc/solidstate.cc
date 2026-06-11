@@ -142,25 +142,61 @@ async function sendDeliveryEmail(zip: ZipSku, to: string, sessionId: string) {
   const from = process.env.DELIVERY_FROM?.trim() || "Solid State <ship@solidstate.cc>"
   const link = `https://solidstate.cc${d.path}?session_id=${encodeURIComponent(sessionId)}`
 
-  // Skin matches the /account sign-in email: dark card, mono, white CTA.
-  const html = `
-    <div style="background:#0a0a0a;padding:40px 32px;font-family:ui-monospace,Menlo,monospace;max-width:560px;margin:0 auto;color:#e8e8e8">
-      <p style="margin:0 0 28px"><img src="https://solidstate.b-cdn.net/BRANDING/logo_white.png" alt="SOLID STATE" width="150" style="display:block"/></p>
-      <h1 style="font-size:24px;line-height:1.3;color:#ffffff;margin:0 0 12px">${d.title}</h1>
-      <p style="font-size:14px;line-height:1.6;color:#bdbdbd;margin:0 0 28px">${d.blurb}</p>
-      <p style="margin:0 0 32px">
-        <a href="${link}" style="background:#ffffff;color:#0a0a0a;text-decoration:none;padding:14px 24px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;display:inline-block;font-family:ui-monospace,Menlo,monospace">${d.cta} →</a>
-      </p>
-      <hr style="border:none;border-top:1px solid #2a2a2a;margin:0 0 24px"/>
-      <p style="font-size:13px;line-height:1.7;color:#9a9a9a;margin:0 0 16px">
-        Keep this email — the link is permanent and always serves the current v1.x build.<br/>
-        ${d.firstRun}<br/>
-        Install help: INSTALL.md in the zip (Claude Code, Cowork, Cursor, OpenClaw, Hermes).<br/>
-        Your library (re-downloads, future versions): <a href="https://solidstate.cc/account" style="color:#e8e8e8">solidstate.cc/account</a> — sign in with this email.
-      </p>
-      <p style="font-size:12px;color:#7a7a7a;margin:0 0 16px">Stuck? Reply, or <a href="mailto:hi@solidstate.cc" style="color:#9a9a9a">hi@solidstate.cc</a> — include your tool and OS.</p>
-      <p style="font-size:12px;margin:0"><strong style="color:#bdbdbd">solidstate.cc</strong> <span style="color:#555">·</span> <a href="mailto:hi@solidstate.cc" style="color:#9a9a9a;text-decoration:none">hi@solidstate.cc</a></p>
-    </div>`
+  // Skin matches the /account sign-in email (emails/supabase/*): full HTML doc,
+  // full-bleed #0a0a0a body+table (no white frame in any client), all bare URLs
+  // wrapped in styled anchors so Apple Mail's data detector can't paint them blue.
+  const html = `<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"></head>
+<body style="margin:0;padding:0;background-color:#0a0a0a">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#0a0a0a" style="background-color:#0a0a0a">
+  <tr>
+    <td align="center" style="padding:48px 24px">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="520" style="max-width:520px;width:100%">
+        <tr>
+          <td style="padding:0 0 28px">
+            <img src="https://solidstate.b-cdn.net/BRANDING/logo_white.png" alt="SOLID STATE" width="150" style="display:block;border:0" />
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family:ui-monospace,Menlo,Consolas,monospace;font-size:24px;font-weight:700;color:#ffffff;letter-spacing:-0.02em;padding:0 0 12px">${d.title}</td>
+        </tr>
+        <tr>
+          <td style="font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px;line-height:1.6;color:#aaaaaa;padding:0 0 28px">${d.blurb}</td>
+        </tr>
+        <tr>
+          <td style="padding:0 0 32px">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td bgcolor="#ffffff">
+                  <a href="${link}" style="display:inline-block;padding:14px 24px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#0a0a0a;text-decoration:none">${d.cta} &rarr;</a>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;line-height:1.7;color:#9a9a9a;border-top:1px solid #262626;padding:20px 0 16px">
+            Keep this email &mdash; the link is permanent and always serves the current v1.x build.<br />
+            ${d.firstRun}<br />
+            Install help: INSTALL.md in the zip (Claude Code, Cowork, Cursor, OpenClaw, Hermes).<br />
+            Your library (re-downloads, future versions): <a href="https://solidstate.cc/account" style="color:#ffffff">solidstate.cc/account</a> &mdash; sign in with this email.
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;line-height:1.7;color:#7a7a7a;padding:0 0 16px">Stuck? Reply, or <a href="mailto:hi@solidstate.cc" style="color:#9a9a9a">hi@solidstate.cc</a> &mdash; include your tool and OS.</td>
+        </tr>
+        <tr>
+          <td style="font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;color:#666666">
+            <a href="https://solidstate.cc" style="color:#ffffff;text-decoration:none">solidstate.cc</a> &middot; <a href="mailto:hi@solidstate.cc" style="color:#ffffff;text-decoration:none">hi@solidstate.cc</a>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>`
 
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
