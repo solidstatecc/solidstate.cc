@@ -262,6 +262,13 @@ summary:focus-visible {
   .ss-detail-grid { grid-template-columns: minmax(0, 1fr) !important; }
 }
 
+/* Skill detail sidebar sits second in source order (header → sidebar → body)
+   so phones get price + CTA right under the header instead of below Related.
+   On desktop, pin it to column 2 spanning the header and body rows. */
+@media (min-width: 901px) {
+  .ss-detail-aside { grid-column: 2; grid-row: 1 / span 2; }
+}
+
 /* Submit "how it works" steps stack */
 @media (max-width: 640px) {
   .ss-steps-grid { grid-template-columns: 1fr !important; }

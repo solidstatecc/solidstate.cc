@@ -92,14 +92,14 @@ export default async function SkillDetailPage({ params }: Props) {
           padding: "40px 24px",
           display: "grid",
           gridTemplateColumns: "1fr 300px",
-          gap: "48px",
+          gap: "32px 48px",
           alignItems: "start",
         }}
       >
-        {/* Main content */}
+        {/* Header — own grid child so the sidebar can follow it in source
+            order: on phones the buy box stacks right under the header
+            instead of below Related. */}
         <div>
-          {/* Header */}
-          <div style={{ marginBottom: "32px" }}>
             <div
               style={{
                 display: "flex",
@@ -199,6 +199,199 @@ export default async function SkillDetailPage({ params }: Props) {
             </div>
           </div>
 
+        {/* Sidebar — second in source order so price + CTA stack right
+            under the header on phones. Desktop pins it to column 2
+            spanning both rows (.ss-detail-aside in globals.css). */}
+        <aside className="ss-detail-aside" style={{ position: "sticky", top: "72px" }}>
+          {/* Price card */}
+          <div
+            style={{
+              backgroundColor: "var(--bg)",
+              border: "1px solid var(--bg)",
+              borderRadius: "6px",
+              padding: "24px",
+              marginBottom: "16px",
+            }}
+          >
+            <div
+              style={{
+                fontFamily: "var(--font-jetbrains-mono), monospace",
+                fontSize: "28px",
+                fontWeight: 700,
+                color: priceColor,
+                marginBottom: "16px",
+                letterSpacing: "-0.02em",
+              }}
+            >
+              {priceDisplayLabel}
+            </div>
+
+            <a
+              href={ctaHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "block",
+                textAlign: "center",
+                backgroundColor: "var(--fg)",
+                color: "var(--bg)",
+                fontFamily: "var(--font-jetbrains-mono), monospace",
+                fontSize: "12px",
+                fontWeight: 700,
+                padding: "10px",
+                borderRadius: "4px",
+                textDecoration: "none",
+                letterSpacing: "0.06em",
+                textTransform: "uppercase",
+                marginBottom: "12px",
+              }}
+            >
+              {isFreeLabel ? "Install Free →" : "View Source →"}
+            </a>
+
+            <div
+              style={{
+                fontFamily: "var(--font-jetbrains-mono), monospace",
+                fontSize: "10px",
+                color: "var(--fg)",
+                textAlign: "center",
+              }}
+            >
+              {isFreeLabel
+                ? "No account required"
+                : isUnpricedLabel
+                ? "Hosted upstream · follow repo for install"
+                : "One-time purchase · unlimited installs"}
+            </div>
+          </div>
+
+          {/* Metadata */}
+          <div
+            style={{
+              backgroundColor: "var(--bg)",
+              border: "1px solid var(--bg)",
+              borderRadius: "6px",
+              padding: "20px",
+            }}
+          >
+            {[
+              { label: "Author", value: skill.author },
+              { label: "Version", value: `v${skill.version}` },
+              { label: "Category", value: skill.categories.join(", ") },
+              { label: "License", value: LICENSE_LABEL[skill.license] },
+              {
+                label: "Installs",
+                value: skill.stats?.installs?.toLocaleString() ?? "—",
+              },
+              { label: "Stars", value: skill.stats?.stars?.toLocaleString() ?? "—" },
+              {
+                label: "Published",
+                value: new Date(skill.createdAt).toLocaleDateString("en-US", {
+                  month: "short",
+                  day: "numeric",
+                  year: "numeric",
+                }),
+              },
+            ].map(({ label, value }) => (
+              <div
+                key={label}
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "flex-start",
+                  gap: "8px",
+                  padding: "8px 0",
+                  borderBottom: "1px solid var(--bg)",
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: "var(--font-jetbrains-mono), monospace",
+                    fontSize: "10px",
+                    color: "var(--fg)",
+                    letterSpacing: "0.06em",
+                    textTransform: "uppercase",
+                    flexShrink: 0,
+                  }}
+                >
+                  {label}
+                </span>
+                <span
+                  style={{
+                    fontFamily: "var(--font-jetbrains-mono), monospace",
+                    fontSize: "11px",
+                    color: "var(--fg)",
+                    textAlign: "right",
+                  }}
+                >
+                  {value}
+                </span>
+              </div>
+            ))}
+
+            {skill.stats?.fetchedAt && (
+              <div
+                style={{
+                  marginTop: "10px",
+                  fontFamily: "var(--font-jetbrains-mono), monospace",
+                  fontSize: "9px",
+                  color: "var(--ink-2)",
+                  letterSpacing: "0.04em",
+                }}
+              >
+                Stats as of{" "}
+                {new Date(skill.stats.fetchedAt).toLocaleDateString("en-US", {
+                  month: "short",
+                  day: "numeric",
+                  year: "numeric",
+                })}
+              </div>
+            )}
+
+            {/* Links */}
+            <div style={{ marginTop: "12px", display: "flex", flexDirection: "column", gap: "6px" }}>
+              {skill.repoUrl && (
+                <a
+                  href={skill.repoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    fontFamily: "var(--font-jetbrains-mono), monospace",
+                    fontSize: "11px",
+                    color: "var(--fg)",
+                    textDecoration: "none",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "4px",
+                  }}
+                >
+                  ↗ Repository
+                </a>
+              )}
+              {skill.docsUrl && (
+                <a
+                  href={skill.docsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    fontFamily: "var(--font-jetbrains-mono), monospace",
+                    fontSize: "11px",
+                    color: "var(--fg)",
+                    textDecoration: "none",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "4px",
+                  }}
+                >
+                  ↗ {isClawhub ? "ClawHub listing" : "Documentation"}
+                </a>
+              )}
+            </div>
+          </div>
+        </aside>
+
+        {/* Main body */}
+        <div>
           {/* Install command */}
           <div
             style={{
@@ -427,194 +620,6 @@ export default async function SkillDetailPage({ params }: Props) {
           )}
         </div>
 
-        {/* Sidebar */}
-        <aside style={{ position: "sticky", top: "72px" }}>
-          {/* Price card */}
-          <div
-            style={{
-              backgroundColor: "var(--bg)",
-              border: "1px solid var(--bg)",
-              borderRadius: "6px",
-              padding: "24px",
-              marginBottom: "16px",
-            }}
-          >
-            <div
-              style={{
-                fontFamily: "var(--font-jetbrains-mono), monospace",
-                fontSize: "28px",
-                fontWeight: 700,
-                color: priceColor,
-                marginBottom: "16px",
-                letterSpacing: "-0.02em",
-              }}
-            >
-              {priceDisplayLabel}
-            </div>
-
-            <a
-              href={ctaHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "block",
-                textAlign: "center",
-                backgroundColor: "var(--fg)",
-                color: "var(--bg)",
-                fontFamily: "var(--font-jetbrains-mono), monospace",
-                fontSize: "12px",
-                fontWeight: 700,
-                padding: "10px",
-                borderRadius: "4px",
-                textDecoration: "none",
-                letterSpacing: "0.06em",
-                textTransform: "uppercase",
-                marginBottom: "12px",
-              }}
-            >
-              {isFreeLabel ? "Install Free →" : "View Source →"}
-            </a>
-
-            <div
-              style={{
-                fontFamily: "var(--font-jetbrains-mono), monospace",
-                fontSize: "10px",
-                color: "var(--fg)",
-                textAlign: "center",
-              }}
-            >
-              {isFreeLabel
-                ? "No account required"
-                : isUnpricedLabel
-                ? "Hosted upstream · follow repo for install"
-                : "One-time purchase · unlimited installs"}
-            </div>
-          </div>
-
-          {/* Metadata */}
-          <div
-            style={{
-              backgroundColor: "var(--bg)",
-              border: "1px solid var(--bg)",
-              borderRadius: "6px",
-              padding: "20px",
-            }}
-          >
-            {[
-              { label: "Author", value: skill.author },
-              { label: "Version", value: `v${skill.version}` },
-              { label: "Category", value: skill.categories.join(", ") },
-              { label: "License", value: LICENSE_LABEL[skill.license] },
-              {
-                label: "Installs",
-                value: skill.stats?.installs?.toLocaleString() ?? "—",
-              },
-              { label: "Stars", value: skill.stats?.stars?.toLocaleString() ?? "—" },
-              {
-                label: "Published",
-                value: new Date(skill.createdAt).toLocaleDateString("en-US", {
-                  month: "short",
-                  day: "numeric",
-                  year: "numeric",
-                }),
-              },
-            ].map(({ label, value }) => (
-              <div
-                key={label}
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "flex-start",
-                  gap: "8px",
-                  padding: "8px 0",
-                  borderBottom: "1px solid var(--bg)",
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: "var(--font-jetbrains-mono), monospace",
-                    fontSize: "10px",
-                    color: "var(--fg)",
-                    letterSpacing: "0.06em",
-                    textTransform: "uppercase",
-                    flexShrink: 0,
-                  }}
-                >
-                  {label}
-                </span>
-                <span
-                  style={{
-                    fontFamily: "var(--font-jetbrains-mono), monospace",
-                    fontSize: "11px",
-                    color: "var(--fg)",
-                    textAlign: "right",
-                  }}
-                >
-                  {value}
-                </span>
-              </div>
-            ))}
-
-            {skill.stats?.fetchedAt && (
-              <div
-                style={{
-                  marginTop: "10px",
-                  fontFamily: "var(--font-jetbrains-mono), monospace",
-                  fontSize: "9px",
-                  color: "var(--ink-2)",
-                  letterSpacing: "0.04em",
-                }}
-              >
-                Stats as of{" "}
-                {new Date(skill.stats.fetchedAt).toLocaleDateString("en-US", {
-                  month: "short",
-                  day: "numeric",
-                  year: "numeric",
-                })}
-              </div>
-            )}
-
-            {/* Links */}
-            <div style={{ marginTop: "12px", display: "flex", flexDirection: "column", gap: "6px" }}>
-              {skill.repoUrl && (
-                <a
-                  href={skill.repoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    fontFamily: "var(--font-jetbrains-mono), monospace",
-                    fontSize: "11px",
-                    color: "var(--fg)",
-                    textDecoration: "none",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "4px",
-                  }}
-                >
-                  ↗ Repository
-                </a>
-              )}
-              {skill.docsUrl && (
-                <a
-                  href={skill.docsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    fontFamily: "var(--font-jetbrains-mono), monospace",
-                    fontSize: "11px",
-                    color: "var(--fg)",
-                    textDecoration: "none",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "4px",
-                  }}
-                >
-                  ↗ {isClawhub ? "ClawHub listing" : "Documentation"}
-                </a>
-              )}
-            </div>
-          </div>
-        </aside>
       </div>
     </div>
   )
