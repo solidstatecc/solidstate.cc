@@ -57,6 +57,23 @@ export const agents: AgentRuntime[] = [
     openSource: false,
   },
   {
+    id: "grok-build",
+    slug: "grok-build",
+    name: "Grok Build",
+    vendor: "xAI",
+    surfaces: ["terminal"],
+    description:
+      "xAI's coding agent. Interactive TUI, headless mode, and ACP support. Fully Claude Code-compatible with zero configuration: it reads Claude Code marketplaces, plugins, skills, MCPs, agents, and CLAUDE.md alongside its own .grok/ directories. Built-in plugin marketplace shipped 2026-06-11.",
+    skillInstall:
+      "Zero config if you already use Claude Code — Grok automatically reads ~/.claude/skills/ and Claude marketplaces from ~/.claude/plugins/known_marketplaces.json (xAI Build docs, 2026-06-12). Native: drop a skill folder into ~/.grok/skills/ (personal) or .grok/skills/ (project). Marketplace sources are also configurable via [[marketplace.sources]] in ~/.grok/config.toml. Verify discovery with `grok inspect`.",
+    skillsDir: "~/.grok/skills/ · .grok/skills/ · ~/.claude/skills/",
+    catalogPlatform: "grok",
+    specCompliant: true,
+    siteUrl: "https://x.ai",
+    docsUrl: "https://docs.x.ai/build/features/skills-plugins-marketplaces",
+    openSource: false,
+  },
+  {
     id: "hermes",
     slug: "hermes",
     name: "Hermes Agent",

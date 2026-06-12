@@ -1007,7 +1007,22 @@ const listings: Skill[] = [
 // + the ClawHub top-50 (rec=list) indexed listings + the Hermes Agent
 // first-party curated 15 + the self-evolution tool (lib/hermes.ts, indexed
 // 2026-06-07), ranked together.
-export const skills: Skill[] = [...originals, ...listings, ...skillsSh, ...clawhubListings, ...hermesListings, ...mcpServers]
+
+/**
+ * Grok Build is fully Claude Code-compatible with zero configuration — it
+ * reads ~/.claude/skills/, Claude plugins, and Claude marketplaces as-is
+ * (docs.x.ai/build/features/skills-plugins-marketplaces, verified 2026-06-12).
+ * So every skill that runs on Claude Code runs on Grok Build. Derived here,
+ * not hand-tagged on 200+ records.
+ */
+const withGrok = (list: Skill[]): Skill[] =>
+  list.map((s) =>
+    s.platforms.includes("claude") && !s.platforms.includes("grok")
+      ? { ...s, platforms: [...s.platforms, "grok" as const] }
+      : s
+  )
+
+export const skills: Skill[] = withGrok([...originals, ...listings, ...skillsSh, ...clawhubListings, ...hermesListings, ...mcpServers])
 
 export function getSkillBySlug(slug: string): Skill | undefined {
   return skills.find((s) => s.slug === slug)
@@ -1062,12 +1077,13 @@ export const CATEGORIES = Array.from(
 ).sort()
 
 /**
- * The 9 agent runtimes from lib/agents.ts, in directory order.
+ * The 10 agent runtimes from lib/agents.ts, in directory order.
  * "generic" is intentionally not listed here — it's a skill tag meaning
  * "any spec-compliant runtime", and generic skills match every platform filter.
  */
 export const PLATFORMS = [
   "claude",
+  "grok",
   "hermes",
   "openclaw",
   "nemoclaw",

@@ -36,6 +36,16 @@ const mono = "var(--font-jetbrains-mono), monospace"
 const PAGE = 100
 const DEV = "https://models.dev"
 
+/**
+ * Labs whose first-party agent runtime runs skills from this directory.
+ * anthropic → Claude Code; xai → Grok Build (zero-config Claude Code compat,
+ * docs.x.ai/build/features/skills-plugins-marketplaces, verified 2026-06-12).
+ */
+const LAB_SKILLS: Record<string, string> = {
+  anthropic: "/skills?platform=claude",
+  xai: "/skills?platform=grok",
+}
+
 function fmtContext(n: number | null): string {
   if (!n) return "—"
   if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(n % 1_000_000 === 0 ? 0 : 1)}M`
@@ -298,6 +308,16 @@ export function ModelsBrowser() {
                   >
                     {m.lab}
                   </a>
+                  {LAB_SKILLS[m.lab] && (
+                    <a
+                      className="ms-link"
+                      href={LAB_SKILLS[m.lab]}
+                      title={`Skills that run on ${m.lab}'s agent runtime`}
+                      style={{ color: "var(--ink-1)", marginLeft: "8px", fontSize: "10px", letterSpacing: "0.08em" }}
+                    >
+                      SKILLS
+                    </a>
+                  )}
                 </td>
                 <td style={td}>{fmtContext(m.context)}</td>
                 <td style={td}>{fmtCost(m.costIn)}</td>

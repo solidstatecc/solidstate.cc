@@ -58,6 +58,11 @@ export default function ModelsPage() {
             models.dev
           </a>{" "}
           for full provider pricing. Refreshed weekly — last capture {MODELS_META.captured}.
+          Labs with a skills-capable runtime carry a SKILLS link —{" "}
+          <a href="/skills?platform=grok" style={{ color: "var(--ink-8)" }}>
+            Grok Build
+          </a>{" "}
+          runs Claude Code skills unchanged.
         </p>
       </section>
 
