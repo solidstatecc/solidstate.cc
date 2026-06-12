@@ -165,20 +165,21 @@ export default function HomePage() {
         <div style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 320px), 1fr))",
-          gap: "0",
+          gap: "1px",
+          backgroundColor: "var(--bg)",
+          border: "1px solid var(--border)",
         }}>
-          {featured.map((skill, i) => (
+          {featured.map((skill) => (
             <Link key={skill.id} href={`/skills/${skill.slug}`} style={{
               display: "flex",
               flexDirection: "column",
               padding: "32px",
-              borderRight: "1px solid var(--border)",
-              borderBottom: "1px solid var(--border)",
-              borderLeft: i === 0 ? "1px solid var(--border)" : "none",
+              backgroundColor: "var(--bg)",
+              boxShadow: "0 0 0 1px var(--border)",
               transition: "background 0.1s",
             }}
             onMouseEnter={e => (e.currentTarget.style.background = "var(--bg-2)")}
-            onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
+            onMouseLeave={e => (e.currentTarget.style.background = "var(--bg)")}
             >
               <div style={{
                 fontFamily: "monospace",
@@ -268,7 +269,7 @@ export default function HomePage() {
           display: "grid",
           gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 240px), 1fr))",
           gap: "1px",
-          backgroundColor: "var(--border)",
+          backgroundColor: "var(--bg)",
           border: "1px solid var(--border)",
           marginBottom: "48px",
         }}>
@@ -276,6 +277,7 @@ export default function HomePage() {
             <Link key={agent.id} href={`/agents/${agent.slug}`} style={{
               display: "block",
               backgroundColor: "var(--bg)",
+              boxShadow: "0 0 0 1px var(--border)",
               padding: "24px",
               transition: "background 0.1s",
             }}
@@ -418,11 +420,11 @@ export default function HomePage() {
           display: "grid",
           gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 420px), 1fr))",
           gap: "1px",
-          backgroundColor: "var(--border)",
+          backgroundColor: "var(--bg)",
           border: "1px solid var(--border)",
         }}>
           {boards.map(({ category, top }) => (
-            <div key={category} style={{ backgroundColor: "var(--bg)", padding: "32px" }}>
+            <div key={category} style={{ backgroundColor: "var(--bg)", boxShadow: "0 0 0 1px var(--border)", padding: "32px" }}>
               <div style={{
                 display: "flex",
                 justifyContent: "space-between",
