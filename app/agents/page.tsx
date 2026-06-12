@@ -74,7 +74,9 @@ export default function AgentsPage() {
             display: "grid",
             gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 320px), 1fr))",
             gap: "1px",
-            backgroundColor: "var(--border)",
+            // Page bg, not border-grey: with uneven card counts the empty
+            // slots stay black. Hairlines come from per-cell box-shadows.
+            backgroundColor: "var(--bg)",
             border: "1px solid var(--border)",
           }}
         >
@@ -85,6 +87,7 @@ export default function AgentsPage() {
               style={{
                 display: "block",
                 backgroundColor: "var(--bg)",
+                boxShadow: "0 0 0 1px var(--border)",
                 padding: "32px",
                 textDecoration: "none",
               }}
