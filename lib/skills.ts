@@ -222,8 +222,8 @@ Built, validated, and audited via Ship Kit on the Solid State production line �
     slug: "ai-seo-kit",
     kind: "original",
     description:
-      "Nine skills that make a site legible to AI engines. Audit, patch, verify — dated verdicts, every output re-checkable, zero API keys. $149 once.",
-    longDescription: `AI engines don't rank pages — they cite sources they can read, trust, and verify. The AI SEO Kit audits your site against that standard, patches the gaps, and stamps a dated verdict.
+      "Answer and generative engine optimization (AEO / GEO). Nine skills make a site legible to AI engines: audit, patch, verify — dated verdicts, every output re-checkable, zero API keys. $149 once.",
+    longDescription: `AI engines don't rank pages — they cite sources they can read, trust, and verify. Some call this AEO or GEO — answer engine optimization, generative engine optimization. Same goal: get cited. The AI SEO Kit audits your site against that standard, patches the gaps, and stamps a dated verdict.
 
 **The nine skills:** seo-orchestrator (routes and sequences the work), ai-seo-audit (evidence-tiered findings, every row re-checkable), schema-patcher (writes JSON-LD in your stack's idiom), agent-files (llms.txt, llms-full.txt, pricing.md, AI bot groups), ai-visibility-check (runs money queries across five AI engines + recommendation strength column), index-rail (sitemap, canonicals, GSC, IndexNow), brand-clarity-check (diagnoses the gap between what AI says you are and what you are), authority-map (identifies which third-party sources AI cites in your category), ninety-day-rail (turns findings into a dated 90-day operating plan).
 
@@ -233,7 +233,7 @@ Built, validated, and audited via Ship Kit on the Solid State production line �
 
 **The rules:** evidence tiers on every platform claim. No fabrication. No FAQ schema without a visible FAQ. No ratings we don't have. These are hard rules inside the skills.
 
-What it does not do: content writing, keyword research, backlinks, rank tracking. Narrow tools, done properly.`,
+What it does not do: content writing, keyword research, backlinks, rank tracking. That's traditional SEO. This is the AI-visibility layer above it.`,
     author: "Solid State",
     version: "1.0.0",
     platforms: ["claude", "hermes", "openclaw", "nemoclaw", "generic"],
@@ -254,7 +254,7 @@ What it does not do: content writing, keyword research, backlinks, rank tracking
     ],
     price: 149,
     featured: true,
-    tags: ["seo", "ai-seo", "schema", "llms-txt", "visibility", "audit", "agent-files"],
+    tags: ["seo", "ai-seo", "aeo", "geo", "schema", "llms-txt", "visibility", "audit", "agent-files"],
     createdAt: "2026-06-12",
   },
 ]

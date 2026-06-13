@@ -5,9 +5,9 @@ import { JsonLd } from "@/components/JsonLd"
 import { productJsonLd } from "@/lib/seo"
 
 export const metadata: Metadata = {
-  title: "AI SEO Kit — nine skills for AI engine visibility",
+  title: "AI SEO Kit — AEO & GEO for AI engine visibility",
   description:
-    "Nine agent skills that make a site legible to AI engines. Audit, patch, verify. Every output dated and re-checkable. Zero API keys. $149 once.",
+    "Answer and generative engine optimization (AEO / GEO) for any site. Nine agent skills make you legible to AI engines: audit, patch, verify. Dated verdicts, zero API keys. $149 once.",
   alternates: { canonical: "/ai-seo-kit" },
   openGraph: {
     title: "Solid State AI SEO Kit",
@@ -139,8 +139,9 @@ export default function AiSeoKitPage() {
         </h1>
         <p style={{ ...body15, fontSize: "16px", maxWidth: "560px", marginBottom: "40px" }}>
           AI engines don&apos;t rank pages — they cite sources they can read, trust, and verify.
-          This kit audits your site against that standard, patches the gaps, and stamps a dated
-          verdict. Audit, patch, verify. Every output re-checkable with one command.
+          Some call this AEO or GEO — answer engine optimization, generative engine optimization.
+          Same goal: get cited. This kit audits your site against that standard, patches the gaps,
+          and stamps a dated verdict. Audit, patch, verify. Every output re-checkable with one command.
         </p>
 
         {/* Artifact before explanation */}
@@ -203,14 +204,14 @@ Saved → visibility-verdict-2026-06-11.md`}
                 className="ss-kit-row"
                 style={{
                   display: "grid",
-                  gridTemplateColumns: "minmax(0, 180px) minmax(0, 1fr) minmax(0, 200px)",
+                  gridTemplateColumns: "minmax(0, 210px) minmax(0, 1fr) minmax(0, 200px)",
                   gap: "16px",
                   padding: "14px 0",
                   borderTop: "1px solid var(--border)",
                   alignItems: "baseline",
                 }}
               >
-                <span style={{ fontFamily: mono, fontSize: "13px", color: "var(--fg)" }}>
+                <span style={{ fontFamily: mono, fontSize: "13px", color: "var(--fg)", whiteSpace: "nowrap" }}>
                   {s.id} · {s.name}
                 </span>
                 <span style={{ fontSize: "14px", color: "var(--ink-6)", lineHeight: 1.5 }}>{s.job}</span>
