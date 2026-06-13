@@ -27,7 +27,7 @@ export function orgJsonLd() {
     url: SITE_URL,
     logo: {
       "@type": "ImageObject",
-      url: `${SITE_URL}/Solid_State_mark.png`,
+      url: `${SITE_URL}/logo-mark.png`,
       width: 400,
       height: 400,
     },
@@ -130,7 +130,7 @@ export function productJsonLd(p: {
     name: p.name,
     description: p.description,
     url: `${SITE_URL}${p.path}`,
-    image: `${SITE_URL}/Solid_State_mark.png`,
+    image: `${SITE_URL}/logo-mark.png`,
     brand: { "@type": "Brand", name: SITE_NAME },
     offers: {
       "@type": "Offer",
