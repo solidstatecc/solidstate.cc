@@ -264,6 +264,12 @@ Saved → visibility-verdict-2026-06-11.md`}
             Same-day runs can&apos;t measure those. The structural state is verified.
             Outcomes take weeks and a follow-up ai-visibility-check run.
           </p>
+
+          <p style={{ ...body15, maxWidth: "600px", marginTop: "24px" }}>
+            We also ran the visibility check on ourselves and published the result, unedited:{" "}
+            <Link href="/ai-visibility" style={{ color: "var(--ink-6)" }}>0 of 20 discovery citations</Link>{" "}
+            across five AI engines. The honest scorecard — same skill, any site.
+          </p>
         </div>
       </div>
 
