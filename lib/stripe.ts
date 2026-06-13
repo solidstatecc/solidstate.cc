@@ -40,6 +40,7 @@ export type SkuId =
   | "founder-briefing"   // x402 bundle, one-time fallback purchase
   | "ship-kit"           // $99 one-time, Ship Kit system (zip delivery)
   | "fable-ready"        // $49 one-time, Fable 5 readiness audit (zip delivery)
+  | "ai-seo-kit"         // $149 one-time, AI SEO Kit — nine skills (zip delivery)
 
 export const STRIPE_PRICES: Record<SkuId, {
   /** Live mode price ID (Stripe Dashboard → Products) */
@@ -93,6 +94,17 @@ export const STRIPE_PRICES: Record<SkuId, {
     mode: "payment",
     description: "Your setup, ready for Fable 5. The patch, not the reading list.",
   },
+  "ai-seo-kit": {
+    // Live price created 2026-06-12 (prod_Ugs7t7F3iCobZ5, tax txcd_10202003).
+    // tax_behavior: exclusive — AU GST adds on top, same as other paid SKUs.
+    // Env overrides; literal fallback so the download route verifies even
+    // before Vercel env is set (same pattern as ship-kit and fable-ready).
+    priceId: process.env.STRIPE_PRICE_AI_SEO_KIT ?? "price_1ThUN5GoBHY0B6fVmgqyfzKD",
+    name: "Solid State AI SEO Kit",
+    amountUsd: 149,
+    mode: "payment",
+    description: "Nine skills. Audit, patch, verify. Your site, legible to AI engines.",
+  },
 }
 
 /** Hosted payment link for ship-kit (live, redirects to /ship-kit/thanks). */
@@ -101,6 +113,12 @@ export const SHIP_KIT_PAYMENT_LINK = "https://buy.stripe.com/aFa6oH4UI7gJgkC2Vu9
 /** Hosted payment link for fable-ready (live, redirects to /fable-ready/thanks,
  *  invoice PDF on). plink_1Tgtv6GoBHY0B6fVJgQlCLUW, created 2026-06-10. */
 export const FABLE_READY_PAYMENT_LINK = "https://buy.stripe.com/fZudR91Iw6cF7O61Rq9fW01"
+
+/** Hosted payment link for ai-seo-kit.
+ *  TODO: create in Dashboard → Payment Links, set success URL to
+ *  https://solidstate.cc/ai-seo-kit/thanks?session_id={CHECKOUT_SESSION_ID},
+ *  then paste the plink_... URL here. See SOL-68 thread. */
+export const AI_SEO_KIT_PAYMENT_LINK = ""
 
 export function getSku(sku: SkuId) {
   return STRIPE_PRICES[sku]

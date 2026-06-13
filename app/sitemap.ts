@@ -27,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/ship-kit",
     "/ship-kit/license",
     "/fable-ready",
+    "/ai-seo-kit",
     "/docs",
   ].map((p) => ({
     url: `${BASE}${p}`,

@@ -31,6 +31,7 @@ const MANIFESTO: Array<[string, string]> = [
 const SKUS: Array<[string, string, string, string]> = [
   ["Ship Kit", "$99 once", "Six skills, one orchestrator, one shared project memory. A system, not a pile of skills. Updates through v1.x.", "/ship-kit"],
   ["fable-ready", "$49 once", "Write-mode readiness audit for Claude Fable 5. Five breakage families scanned and patched in your repo, ending in a dated FABLE-READY verdict. Rules updates through v1.x.", "/fable-ready"],
+  ["AI SEO Kit", "$149 once", "Nine skills that make a site legible to AI engines. Audit, patch, verify — evidence-tiered findings, schema patching, visibility checks across five AI engines, dated verdicts. Zero API keys. Updates through v1.x.", "/ai-seo-kit"],
 ]
 
 /** Concise, llms.txt-spec index. */

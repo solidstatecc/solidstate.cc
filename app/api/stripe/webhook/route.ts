@@ -108,7 +108,7 @@ export async function POST(req: Request) {
  * Requires the solidstate.cc domain verified in Resend; DELIVERY_FROM
  * overrides the sender.
  */
-type ZipSku = "ship-kit" | "fable-ready"
+type ZipSku = "ship-kit" | "fable-ready" | "ai-seo-kit"
 
 const DELIVERY: Record<
   ZipSku,
@@ -129,6 +129,14 @@ const DELIVERY: Record<
     cta: "Download fable-ready",
     path: "/fable-ready/thanks",
     firstRun: "Unzip into your tool, point it at your repo, approve the patches.",
+  },
+  "ai-seo-kit": {
+    subject: "AI SEO Kit — your download",
+    title: "AI SEO Kit is yours.",
+    blurb: "Nine skills. Audit, patch, verify. Dated verdict. Zero API keys.",
+    cta: "Download AI SEO Kit",
+    path: "/ai-seo-kit/thanks",
+    firstRun: "Unzip into your skills directory. Say \"audit my AI SEO\" — the orchestrator routes the rest.",
   },
 }
 

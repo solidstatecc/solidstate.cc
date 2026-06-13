@@ -216,6 +216,47 @@ Built, validated, and audited via Ship Kit on the Solid State production line �
     tags: ["fable-5", "migration", "audit", "claude-md", "write-mode"],
     createdAt: "2026-06-10",
   },
+  {
+    id: "ai-seo-kit",
+    name: "AI SEO Kit",
+    slug: "ai-seo-kit",
+    kind: "original",
+    description:
+      "Nine skills that make a site legible to AI engines. Audit, patch, verify — dated verdicts, every output re-checkable, zero API keys. $149 once.",
+    longDescription: `AI engines don't rank pages — they cite sources they can read, trust, and verify. The AI SEO Kit audits your site against that standard, patches the gaps, and stamps a dated verdict.
+
+**The nine skills:** seo-orchestrator (routes and sequences the work), ai-seo-audit (evidence-tiered findings, every row re-checkable), schema-patcher (writes JSON-LD in your stack's idiom), agent-files (llms.txt, llms-full.txt, pricing.md, AI bot groups), ai-visibility-check (runs money queries across five AI engines + recommendation strength column), index-rail (sitemap, canonicals, GSC, IndexNow), brand-clarity-check (diagnoses the gap between what AI says you are and what you are), authority-map (identifies which third-party sources AI cites in your category), ninety-day-rail (turns findings into a dated 90-day operating plan).
+
+**The framework:** Discoverability, Clarity, Authority, Trust (DCAT) — the AI Search OS model published by Semrush. Their courses sell a Semrush stack. This kit needs none of it.
+
+**The proof run:** solidstate.cc, 2026-06-11. Ten faults found, fourteen fixes shipped same session. 431/431 pages built clean. The eval fixtures ship with the kit — same ten faults seeded in a mini-site, a clean twin, and canned engine transcripts.
+
+**The rules:** evidence tiers on every platform claim. No fabrication. No FAQ schema without a visible FAQ. No ratings we don't have. These are hard rules inside the skills.
+
+What it does not do: content writing, keyword research, backlinks, rank tracking. Narrow tools, done properly.`,
+    author: "Solid State",
+    version: "1.0.0",
+    platforms: ["claude", "hermes", "openclaw", "nemoclaw", "generic"],
+    categories: ["Marketing", "DevOps"],
+    installCommand: "unzip ai-seo-kit-v1.0.0.zip -d ~/.claude/skills/  # delivered instantly after purchase",
+    docsUrl: "https://solidstate.cc/ai-seo-kit",
+    license: "proprietary",
+    status: "stable",
+    provenance: "first-party",
+    channels: [
+      {
+        channel: "self",
+        url: "https://solidstate.cc/ai-seo-kit",
+        price: 149,
+        unit: "one-time",
+        label: "$149 once · updates through v1.x",
+      },
+    ],
+    price: 149,
+    featured: true,
+    tags: ["seo", "ai-seo", "schema", "llms-txt", "visibility", "audit", "agent-files"],
+    createdAt: "2026-06-12",
+  },
 ]
 
 // ---------------------------------------------------------------------------
