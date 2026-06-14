@@ -26,18 +26,18 @@ const originals: Skill[] = [
     slug: "skill-provenance",
     kind: "original",
     description:
-      "Vet a third-party agent skill before you install or run it. Checks provenance, license, pinning, hidden or injected instructions, and dangerous capabilities — then returns RUN / REVIEW / DO NOT RUN.",
+      "Vet a third-party agent skill before you install or run it. Checks provenance, license, pinning, hidden or injected instructions, dependency/supply-chain risks, and dangerous capabilities — then returns RUN / REVIEW / DO NOT RUN.",
     longDescription: `Skill Provenance reads a third-party skill before it runs with your agent's hands — and tells you whether to trust it.
 
 **Inputs:** a skill folder (the one with SKILL.md) or a repo you've already cloned.
 
-**Checks:** provenance (real, reachable source; pinned to a commit or floating), license (declared, a recognized SPDX id), capabilities / blast radius (shell, network, secrets, file writes), declared-vs-actual (does the code do more than the description admits), exfiltration paths (a secret read plus an outbound call), and trigger scope.
+**Checks:** provenance (real, reachable source; pinned to a commit or floating), license (declared, a recognized SPDX id), instruction integrity (injected or override directives in the skill's own text), hidden & obfuscated text (zero-width characters, encoded payloads), capabilities / blast radius (shell, network, secrets, file writes), dependencies & supply chain (install hooks, typosquats, unpinned or off-registry deps), declared-vs-actual (does the code do more than the description admits), exfiltration paths (a secret read plus an outbound call), and trigger scope.
 
-**Output:** a line-per-check report and one verdict — RUN / REVIEW / DO NOT RUN — with the exact reasons and what to resolve first. Read-only: no network, no credentials.
+**Output:** a line-per-check report and one verdict — RUN / REVIEW / DO NOT RUN — with the exact reasons and what to resolve first, plus a machine-readable JSON verdict for CI. Read-only: no network, no credentials.
 
 The install-side gate; its sibling publish-audit is the publish-side one. Marketplaces rank by stars — this ranks by what the code actually does. Read the skill before you run it.`,
     author: "Solid State",
-    version: "0.2.0",
+    version: "0.3.0",
     platforms: ["claude", "openclaw", "nemoclaw", "antigravity", "generic"],
     categories: ["Security", "Provenance"],
     repoUrl: "https://github.com/solidstatecc/skill-provenance",
@@ -46,8 +46,37 @@ The install-side gate; its sibling publish-audit is the publish-side one. Market
     provenance: "first-party",
     price: "free",
     featured: true,
-    tags: ["security", "provenance", "audit", "supply-chain", "trust", "vetting"],
+    tags: ["security", "provenance", "audit", "supply-chain", "trust", "vetting", "ci"],
     createdAt: "2026-06-14",
+  },
+  {
+    id: "spacex-daily-briefing",
+    name: "SpaceX Daily Briefing",
+    slug: "spacex-daily-briefing",
+    kind: "original",
+    description:
+      "A daily investor-grade briefing on SpaceX — now public as SPCX after the June 2026 IPO. Pulls live X and web search, applies a price-moving lens, and returns a tiered brief: headline, TL;DR, key metrics, catalysts, and sources.",
+    longDescription: `SpaceX Daily Briefing turns Grok (or any Claude-compatible agent) into a daily intelligence desk for SpaceX, post-IPO ticker **SPCX**.
+
+**Scope:** the full combined entity after the February 2026 xAI merger — launch & Starship, Starlink, Starshield, Dragon, the Terafab chip effort, plus xAI/Grok and X.
+
+**Sources:** a live X scrape (\`x_keyword_search\` / \`x_semantic_search\`), web search for the SPCX quote and news, Nasdaq + Yahoo Finance for analyst targets, the YouTube hashtag feeds, and SEC EDGAR (8-K / Form 4 / lockup). Background from spacex.com and Wikipedia.
+
+**Output:** a tiered, price-moving-first brief — one-line read, a ≤5-bullet TL;DR, a scannable key-metrics block, what-moved-today, segment watch (Starlink leads), social & video pulse, catalysts & risks, and linked sources. It reads yesterday's brief and reports only the delta.
+
+Built with an anti-fabrication rule: it states only numbers it sourced that run, separates confirmed facts from chatter, and never invents a quote. Informational only — not financial advice. Discloses that Grok/xAI now sits inside the SPCX entity.`,
+    author: "Solid State",
+    version: "1.1.0",
+    platforms: ["claude", "openclaw", "nemoclaw", "antigravity", "generic"],
+    categories: ["Finance", "Research"],
+    repoUrl: "https://github.com/solidstatecc/spacex-daily-briefing",
+    license: "MIT",
+    status: "beta",
+    provenance: "first-party",
+    price: "free",
+    featured: false,
+    tags: ["spacex", "spcx", "investing", "starlink", "x-search", "daily-briefing", "grok"],
+    createdAt: "2026-06-15",
   },
   {
     id: "niche-hunter",
