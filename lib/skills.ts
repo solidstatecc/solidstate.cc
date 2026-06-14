@@ -55,18 +55,18 @@ The install-side gate; its sibling publish-audit is the publish-side one. Market
     slug: "spacex-daily-briefing",
     kind: "original",
     description:
-      "A daily investor-grade briefing on SpaceX — now public as SPCX after the June 2026 IPO. Pulls live X and web search, applies a price-moving lens, and returns a tiered brief: headline, TL;DR, key metrics, catalysts, and sources.",
+      "A daily investor-grade briefing on SpaceX (now public as SPCX, merged with xAI). Live X + web search across the stock, Starlink, and the xAI/Grok AI segment — with Nasdaq/Yahoo analyst targets, SEC filings, and Kalshi prediction-market odds — distilled into a tight, price-moving, sourced brief.",
     longDescription: `SpaceX Daily Briefing turns Grok (or any Claude-compatible agent) into a daily intelligence desk for SpaceX, post-IPO ticker **SPCX**.
 
 **Scope:** the full combined entity after the February 2026 xAI merger — launch & Starship, Starlink, Starshield, Dragon, the Terafab chip effort, plus xAI/Grok and X.
 
-**Sources:** a live X scrape (\`x_keyword_search\` / \`x_semantic_search\`), web search for the SPCX quote and news, Nasdaq + Yahoo Finance for analyst targets, the YouTube hashtag feeds, and SEC EDGAR (8-K / Form 4 / lockup). Background from spacex.com and Wikipedia.
+**Sources:** a live X scrape (\`x_keyword_search\` / \`x_semantic_search\`), web search for the SPCX quote and news, Nasdaq + Yahoo Finance for analyst targets, the YouTube hashtag feeds, SEC EDGAR (8-K / Form 4 / lockup), and Kalshi prediction-market odds. Background from spacex.com and Wikipedia.
 
-**Output:** a tiered, price-moving-first brief — one-line read, a ≤5-bullet TL;DR, a scannable key-metrics block, what-moved-today, segment watch (Starlink leads), social & video pulse, catalysts & risks, and linked sources. It reads yesterday's brief and reports only the delta.
+**Output:** a tiered, price-moving-first brief — one-line read (≤18 words), a ≤5-bullet TL;DR, a scannable key-metrics block, what-moved-today, segment watch (Starlink and xAI/Grok lead), social & video pulse, catalysts & risks, and inline-cited sources — tight enough to read in ~2 minutes. It reads yesterday's brief and reports only the delta.
 
 Built with an anti-fabrication rule: it states only numbers it sourced that run, separates confirmed facts from chatter, and never invents a quote. Informational only — not financial advice. Discloses that Grok/xAI now sits inside the SPCX entity.`,
     author: "Solid State",
-    version: "1.2.0",
+    version: "1.3.0",
     platforms: ["claude", "openclaw", "nemoclaw", "antigravity", "generic"],
     categories: ["Finance", "Research"],
     repoUrl: "https://github.com/solidstatecc/spacex-daily-briefing",
