@@ -21,13 +21,13 @@ import { mcpServers } from "./mcp"
 
 const originals: Skill[] = [
   {
-    id: "skill-vetter",
-    name: "Skill Vetter",
-    slug: "skill-vetter",
+    id: "skill-provenance",
+    name: "Skill Provenance",
+    slug: "skill-provenance",
     kind: "original",
     description:
       "Vet a third-party agent skill before you install or run it. Checks provenance, license, pinning, and dangerous capabilities — then returns RUN / REVIEW / DO NOT RUN.",
-    longDescription: `Skill Vetter reads a third-party skill before it runs with your agent's hands — and tells you whether to trust it.
+    longDescription: `Skill Provenance reads a third-party skill before it runs with your agent's hands — and tells you whether to trust it.
 
 **Inputs:** a skill folder (the one with SKILL.md) or a repo you've already cloned.
 
@@ -40,7 +40,7 @@ The install-side gate; its sibling publish-audit is the publish-side one. Market
     version: "0.1.0",
     platforms: ["claude", "openclaw", "nemoclaw", "antigravity", "generic"],
     categories: ["Security", "Provenance"],
-    repoUrl: "https://github.com/solidstatecc/skill-vetter",
+    repoUrl: "https://github.com/solidstatecc/skill-provenance",
     license: "MIT",
     status: "beta",
     provenance: "first-party",
