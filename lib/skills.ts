@@ -26,7 +26,7 @@ const originals: Skill[] = [
     slug: "skill-provenance",
     kind: "original",
     description:
-      "Vet a third-party agent skill before you install or run it. Checks provenance, license, pinning, and dangerous capabilities — then returns RUN / REVIEW / DO NOT RUN.",
+      "Vet a third-party agent skill before you install or run it. Checks provenance, license, pinning, hidden or injected instructions, and dangerous capabilities — then returns RUN / REVIEW / DO NOT RUN.",
     longDescription: `Skill Provenance reads a third-party skill before it runs with your agent's hands — and tells you whether to trust it.
 
 **Inputs:** a skill folder (the one with SKILL.md) or a repo you've already cloned.
@@ -37,7 +37,7 @@ const originals: Skill[] = [
 
 The install-side gate; its sibling publish-audit is the publish-side one. Marketplaces rank by stars — this ranks by what the code actually does. Read the skill before you run it.`,
     author: "Solid State",
-    version: "0.1.0",
+    version: "0.2.0",
     platforms: ["claude", "openclaw", "nemoclaw", "antigravity", "generic"],
     categories: ["Security", "Provenance"],
     repoUrl: "https://github.com/solidstatecc/skill-provenance",
