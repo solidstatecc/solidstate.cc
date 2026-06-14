@@ -34,6 +34,15 @@ export interface AgentRuntime {
   siteUrl?: string
   repoUrl?: string
   docsUrl?: string
+  /** First-party Solid State marketplace/source for this runtime, if shipped + verified. */
+  ssMarketplace?: {
+    /** The marketplace source to add (git URL or path). */
+    source: string
+    /** How to add it on this runtime, one line. */
+    how: string
+    /** Honest scope note — what installs, and when it was verified. */
+    note: string
+  }
   /** Open source? Informational only. */
   openSource: boolean
 }
@@ -71,6 +80,11 @@ export const agents: AgentRuntime[] = [
     specCompliant: true,
     siteUrl: "https://x.ai",
     docsUrl: "https://docs.x.ai/build/features/skills-plugins-marketplaces",
+    ssMarketplace: {
+      source: "github.com/solidstatecc/solid-state",
+      how: "In the TUI: /plugins → Marketplace → add source",
+      note: "Installs the Solid State plugin — 5 voice skills (voice-check, anti-buzzword, contrast-pair, reframe, compress). Verified live in Grok Build 2026-06-14. The full indexed catalog above runs via Claude-compat, no install needed.",
+    },
     openSource: false,
   },
   {

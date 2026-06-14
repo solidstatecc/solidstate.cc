@@ -165,6 +165,63 @@ export default async function AgentPage({ params }: Props) {
             </div>
           )}
 
+          {agent.ssMarketplace && (
+            <>
+              <h2
+                style={{
+                  fontFamily: mono,
+                  fontSize: "13px",
+                  fontWeight: 700,
+                  color: "var(--fg)",
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                  marginBottom: "16px",
+                }}
+              >
+                Add Solid State
+              </h2>
+              <p
+                style={{
+                  fontFamily: sans,
+                  fontSize: "14px",
+                  color: "var(--ink-5)",
+                  lineHeight: 1.8,
+                  marginBottom: "16px",
+                  maxWidth: "640px",
+                }}
+              >
+                {agent.ssMarketplace.how}:
+              </p>
+              <div
+                style={{
+                  fontFamily: mono,
+                  fontSize: "13px",
+                  color: "var(--fg)",
+                  backgroundColor: "var(--bg-3)",
+                  border: "1px solid var(--border)",
+                  padding: "16px 20px",
+                  marginBottom: "16px",
+                  maxWidth: "640px",
+                  wordBreak: "break-all",
+                }}
+              >
+                {agent.ssMarketplace.source}
+              </div>
+              <p
+                style={{
+                  fontFamily: sans,
+                  fontSize: "13px",
+                  color: "var(--ink-1)",
+                  lineHeight: 1.7,
+                  marginBottom: "48px",
+                  maxWidth: "640px",
+                }}
+              >
+                {agent.ssMarketplace.note}
+              </p>
+            </>
+          )}
+
           <h2
             style={{
               fontFamily: mono,
