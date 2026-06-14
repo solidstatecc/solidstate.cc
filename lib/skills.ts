@@ -21,6 +21,35 @@ import { mcpServers } from "./mcp"
 
 const originals: Skill[] = [
   {
+    id: "skill-vetter",
+    name: "Skill Vetter",
+    slug: "skill-vetter",
+    kind: "original",
+    description:
+      "Vet a third-party agent skill before you install or run it. Checks provenance, license, pinning, and dangerous capabilities — then returns RUN / REVIEW / DO NOT RUN.",
+    longDescription: `Skill Vetter reads a third-party skill before it runs with your agent's hands — and tells you whether to trust it.
+
+**Inputs:** a skill folder (the one with SKILL.md) or a repo you've already cloned.
+
+**Checks:** provenance (real, reachable source; pinned to a commit or floating), license (declared, a recognized SPDX id), capabilities / blast radius (shell, network, secrets, file writes), declared-vs-actual (does the code do more than the description admits), exfiltration paths (a secret read plus an outbound call), and trigger scope.
+
+**Output:** a line-per-check report and one verdict — RUN / REVIEW / DO NOT RUN — with the exact reasons and what to resolve first. Read-only: no network, no credentials.
+
+The install-side gate; its sibling publish-audit is the publish-side one. Marketplaces rank by stars — this ranks by what the code actually does. Read the skill before you run it.`,
+    author: "Solid State",
+    version: "0.1.0",
+    platforms: ["claude", "openclaw", "nemoclaw", "antigravity", "generic"],
+    categories: ["Security", "Provenance"],
+    repoUrl: "https://github.com/solidstatecc/skill-vetter",
+    license: "MIT",
+    status: "beta",
+    provenance: "first-party",
+    price: "free",
+    featured: true,
+    tags: ["security", "provenance", "audit", "supply-chain", "trust", "vetting"],
+    createdAt: "2026-06-14",
+  },
+  {
     id: "niche-hunter",
     name: "Niche Hunter",
     slug: "niche-hunter",
