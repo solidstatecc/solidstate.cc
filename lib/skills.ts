@@ -66,7 +66,7 @@ The install-side gate; its sibling publish-audit is the publish-side one. Market
 
 Built with an anti-fabrication rule: it states only numbers it sourced that run, separates confirmed facts from chatter, and never invents a quote. Informational only — not financial advice. Discloses that Grok/xAI now sits inside the SPCX entity.`,
     author: "Solid State",
-    version: "1.3.0",
+    version: "1.3.1",
     platforms: ["claude", "openclaw", "nemoclaw", "antigravity", "generic"],
     categories: ["Finance", "Research"],
     repoUrl: "https://github.com/solidstatecc/spacex-daily-briefing",
