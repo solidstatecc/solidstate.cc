@@ -195,6 +195,35 @@ Live on [ClawHub](https://clawhub.ai/solidstate/publish-audit). Free, MIT-0.`,
     createdAt: "2026-06-04",
   },
   {
+    id: "paper-scout",
+    name: "Paper Scout",
+    slug: "paper-scout",
+    kind: "original",
+    description:
+      "Find and verify real research papers through a keyless index — no login, no API key. Search by topic or method, map a field's citation graph, pull the in-body passages that prove a claim, or scan GitHub for engineering prior art. Grounds every answer in papers the index actually returns — never invents titles or arXiv IDs.",
+    longDescription: `Agents hallucinate citations. Paper Scout reads the papers first.
+
+**Five moves over one keyless index:** \`search\` (semantic search over abstracts), \`similar\` (turn one hit into its family — references, citers, or neighbours), \`inspect\` (canonical metadata for one paper), \`read\` (the in-body passages that answer a specific question — this is how you verify), and \`github\` (issues / PRs / READMEs for engineering prior art).
+
+**Six use cases:** find the paper, map a field or related-work, ground a claim before you assert it (the anti-hallucination move for any writing agent), find prior art, scan what's new, and build a reading list — references are the prerequisites, citers are the frontier.
+
+**Honest by construction:** stdlib Python, one file, no dependencies. It returns only ids, titles, and numbers the index actually returned — never an invented arXiv id. Passages come back scored, and a low score is treated as unconfirmed, not laundered into a citation. When the index can't answer, \`search\` degrades out loud to the public arXiv API with a stderr banner; the other moves print the error instead of guessing.
+
+**Keyless by default.** The research index answers over plain HTTP with no login and no API key, capped per IP per day; an optional free \`FIRECRAWL_API_KEY\` lifts the ceiling, never gates it. Data backend is Firecrawl's public research index — the skill, method, engine, and voice are Solid State's own.`,
+    author: "Solid State",
+    version: "0.1.0",
+    platforms: ["claude", "openclaw", "nemoclaw", "antigravity", "generic"],
+    categories: ["Research", "AI"],
+    repoUrl: "https://github.com/solidstatecc/skill-paper-scout",
+    license: "MIT",
+    status: "beta",
+    provenance: "first-party",
+    price: "free",
+    featured: true,
+    tags: ["research", "papers", "arxiv", "citations", "anti-hallucination", "keyless", "literature"],
+    createdAt: "2026-06-18",
+  },
+  {
     id: "ship-kit",
     name: "Ship Kit",
     slug: "ship-kit",
