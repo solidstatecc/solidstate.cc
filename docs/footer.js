@@ -70,6 +70,11 @@
         true
       ],
       [
+        "https://apify.com/solidstate",
+        "Apify",
+        true
+      ],
+      [
         "https://clawhub.ai/user/solidstate",
         "ClawHub",
         true
