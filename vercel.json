@@ -34,5 +34,11 @@
       "source": "/docs/:match*",
       "destination": "https://solidstate.mintlify.dev/docs/:match*"
     }
+  ],
+  "crons": [
+    {
+      "path": "/api/keepalive",
+      "schedule": "0 8 * * *"
+    }
   ]
 }
