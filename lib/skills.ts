@@ -1143,9 +1143,10 @@ const listings: Skill[] = [
  * So every skill that runs on Claude Code runs on Grok Build. Derived here,
  * not hand-tagged on 200+ records.
  */
+const GROK_EXCLUDE = new Set<string>(["paper-scout"]) // script-bearing; engine doesn't run on consumer Grok
 const withGrok = (list: Skill[]): Skill[] =>
   list.map((s) =>
-    s.platforms.includes("claude") && !s.platforms.includes("grok")
+    s.platforms.includes("claude") && !s.platforms.includes("grok") && !GROK_EXCLUDE.has(s.slug)
       ? { ...s, platforms: [...s.platforms, "grok" as const] }
       : s
   )
