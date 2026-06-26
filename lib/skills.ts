@@ -200,7 +200,7 @@ Live on [ClawHub](https://clawhub.ai/solidstate/publish-audit). Free, MIT-0.`,
     slug: "paper-scout",
     kind: "original",
     description:
-      "Find and verify real research papers through a keyless index — no login, no API key. Search by topic or method, map a field's citation graph, pull the in-body passages that prove a claim, or scan GitHub for engineering prior art. Grounds every answer in papers the index actually returns — never invents titles or arXiv IDs.",
+      "Find and verify real research papers through a keyless index — no login or API key from a normal IP. Search by topic or method, map a field's citation graph, pull the in-body passages that prove a claim, or scan GitHub for engineering prior art. Grounds every answer in papers the index actually returns — never invents titles or arXiv IDs.",
     longDescription: `Agents hallucinate citations. Paper Scout reads the papers first.
 
 **Five moves over one keyless index:** \`search\` (semantic search over abstracts), \`similar\` (turn one hit into its family — references, citers, or neighbours), \`inspect\` (canonical metadata for one paper), \`read\` (the in-body passages that answer a specific question — this is how you verify), and \`github\` (issues / PRs / READMEs for engineering prior art).
@@ -209,7 +209,7 @@ Live on [ClawHub](https://clawhub.ai/solidstate/publish-audit). Free, MIT-0.`,
 
 **Honest by construction:** stdlib Python, one file, no dependencies. It returns only ids, titles, and numbers the index actually returned — never an invented arXiv id. Passages come back scored, and a low score is treated as unconfirmed, not laundered into a citation. When the index can't answer, \`search\` degrades out loud to the public arXiv API with a stderr banner; the other moves print the error instead of guessing.
 
-**Keyless by default.** The research index answers over plain HTTP with no login and no API key, capped per IP per day; an optional free \`FIRECRAWL_API_KEY\` lifts the ceiling, never gates it. Data backend is Firecrawl's public research index — the skill, method, engine, and voice are Solid State's own.`,
+**Keyless from a normal IP.** The research index answers over plain HTTP — no login, no API key — capped per IP per day. From a datacenter or agent host it may return a 403 and ask for a key; set the free FIRECRAWL_API_KEY env var (no card) and the script adds it automatically. Optional, never a paywall. Data backend is Firecrawl's public research index — the skill, method, engine, and voice are Solid State's own.`,
     author: "Solid State",
     version: "0.1.0",
     platforms: ["claude", "openclaw", "nemoclaw", "antigravity", "generic"],
@@ -1143,7 +1143,7 @@ const listings: Skill[] = [
  * So every skill that runs on Claude Code runs on Grok Build. Derived here,
  * not hand-tagged on 200+ records.
  */
-const GROK_EXCLUDE = new Set<string>(["paper-scout"]) // script-bearing; engine doesn't run on consumer Grok
+const GROK_EXCLUDE = new Set<string>(["paper-scout", "skill-provenance"]) // script-bearing; engine doesn't run on consumer Grok
 const withGrok = (list: Skill[]): Skill[] =>
   list.map((s) =>
     s.platforms.includes("claude") && !s.platforms.includes("grok") && !GROK_EXCLUDE.has(s.slug)
