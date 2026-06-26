@@ -31,7 +31,7 @@ export type Platform =
  */
 export const PLATFORM_LABEL: Record<Platform, string> = {
   claude: "Claude Code",
-  grok: "Grok Build",
+  grok: "Grok",
   hermes: "Hermes Agent",
   openclaw: "OpenClaw",
   nemoclaw: "NemoClaw",
