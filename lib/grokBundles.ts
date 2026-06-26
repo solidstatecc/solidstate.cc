@@ -16,6 +16,8 @@ export const grokBundles: Record<string, GrokBundle> = {
   "niche-hunter": { owner: "solidstatecc", repo: "skill-niche-hunter", ref: "main", dir: "" },
   "ai-tool-compare": { owner: "solidstatecc", repo: "skill-ai-tool-compare", ref: "main", dir: "" },
   "hyper-rational-brief": { owner: "solidstatecc", repo: "skill-hyper-rational-brief", ref: "main", dir: "" },
+  "paper-scout": { owner: "solidstatecc", repo: "skill-paper-scout", ref: "main", dir: "" },
+  "skill-provenance": { owner: "solidstatecc", repo: "skill-provenance", ref: "main", dir: "skills/skill-provenance" },
 }
 
 export function getGrokBundle(slug: string): GrokBundle | undefined {
