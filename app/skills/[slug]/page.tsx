@@ -505,8 +505,11 @@ export default async function SkillDetailPage({ params }: Props) {
               <a href={`/skills/${skill.slug}/grok.skill`} download style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: "13px", color: "var(--fg)", textDecoration: "none" }}>
                 Download .skill &#8595;
               </a>
-              <div style={{ fontSize: "12px", color: "var(--ink-4)", marginTop: "10px", lineHeight: 1.6 }}>
-                Then in the Grok app: grok.com/skills &rarr; New Skill &rarr; Upload skill file &rarr; drop the file. Runs on web, iOS, and Android. Skills is a paid feature (SuperGrok / X Premium+).
+              <div style={{ fontSize: "12px", color: "var(--ink-4)", marginTop: "12px", lineHeight: 1.7 }}>
+                Then in the Grok app: grok.com/skills &rarr; New Skill &rarr; Upload skill file &rarr; drop the file.
+              </div>
+              <div style={{ fontSize: "12px", color: "var(--ink-4)", marginTop: "8px", lineHeight: 1.7 }}>
+                Runs in the Grok app &mdash; web, iOS, and Android.
               </div>
             </div>
           )}
