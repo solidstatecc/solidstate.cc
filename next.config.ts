@@ -11,6 +11,11 @@ const nextConfig: NextConfig = {
     // stay reachable for old receipt links.
     return [
       {
+        source: "/agents/grok-build",
+        destination: "/agents/grok",
+        permanent: true,
+      },
+      {
         source: "/buy",
         destination: "/ship-kit",
         permanent: true,

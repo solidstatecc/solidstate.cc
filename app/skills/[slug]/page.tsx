@@ -4,6 +4,7 @@ import Link from "next/link"
 import { skills, getSkillBySlug } from "@/lib/skills"
 import { getSourceForSkill } from "@/lib/sources"
 import { LICENSE_LABEL } from "@/lib/types"
+import { getGrokBundle } from "@/lib/grokBundles"
 import { priceDisplay } from "@/lib/x402"
 import { PlatformBadge } from "@/components/PlatformBadge"
 import { CopyButton } from "@/components/CopyButton"
@@ -494,6 +495,21 @@ export default async function SkillDetailPage({ params }: Props) {
               )}
             </div>
           </div>
+
+          {/* Add to Grok -- consumer app install (flat .skill upload) */}
+          {getGrokBundle(skill.slug) && (
+            <div style={{ backgroundColor: "var(--bg)", border: "1px solid var(--bg)", borderRadius: "6px", padding: "16px 20px", marginBottom: "32px" }}>
+              <div style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: "10px", fontWeight: 600, color: "var(--fg)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "10px" }}>
+                Add to Grok
+              </div>
+              <a href={`/skills/${skill.slug}/grok.skill`} download style={{ fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: "13px", color: "var(--fg)", textDecoration: "none" }}>
+                Download .skill &#8595;
+              </a>
+              <div style={{ fontSize: "12px", color: "var(--ink-4)", marginTop: "10px", lineHeight: 1.6 }}>
+                Then in the Grok app: grok.com/skills &rarr; New Skill &rarr; Upload skill file &rarr; drop the file. Runs on web, iOS, and Android. Skills is a paid feature (SuperGrok / X Premium+).
+              </div>
+            </div>
+          )}
 
           {/* Provenance / license honesty note (indexed third-party skills) */}
           {showProvenanceNote && (
