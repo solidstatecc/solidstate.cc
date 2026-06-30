@@ -552,7 +552,7 @@ export const mcpServers: Skill[] = [
     platforms: ["generic"],
     categories: ["MCP", "Social"],
     installCommand: "https://api.x.com/mcp",
-    repoUrl: "https://github.com/xdevplatform/xurl",
+    repoUrl: "https://github.com/xdevplatform/xmcp",
     docsUrl: "https://docs.x.com/tools/mcp",
     license: "proprietary",
     status: "stable",
