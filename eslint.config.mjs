@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Unit tests run via `npm test` (node --test); not part of the app lint surface.
+    "test/**",
   ]),
 ]);
 
