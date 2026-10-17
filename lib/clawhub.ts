@@ -6,7 +6,7 @@
 // Held entries (gamed download counts / ToS or capability concerns) are intentionally excluded;
 // see drafts/clawhub-candidates for the full top-50 review.
 
-import { Skill } from "./types"
+import type { Skill } from "./types"
 
 export const clawhubListings: Skill[] = [
   {
