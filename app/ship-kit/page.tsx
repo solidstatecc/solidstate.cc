@@ -58,10 +58,8 @@ const skills: Array<{ name: string; job: string; alone: string }> = [
   { name: "ship-positioning", job: "The angle, contrast pairs, the not-for list, hero lines.", alone: "—" },
   { name: "ship-audit", job: "Write-mode audit. Checks, patches, re-runs until READY.", alone: "—" },
   { name: "launch-list", job: "Dated venue plan, announcement, 14-day measurement window.", alone: "—" },
-  { name: "niche-hunter", job: "Ranked sub-niches: commission, SERP gap, trend, difficulty.", alone: "$19" },
-  { name: "hyper-rational-brief", job: "Evidence-graded decision memos. Anti-slop filtered.", alone: "$29" },
-  { name: "competitor-brief", job: "Graded competitive intel. Folds in on release — included.", alone: "$29" },
-  { name: "geo-audit", job: "AI-citation visibility report. Folds in on release — included.", alone: "$29" },
+  { name: "niche-hunter", job: "Ranked sub-niches: commission, SERP gap, trend, difficulty.", alone: "free" },
+  { name: "hyper-rational-brief", job: "Evidence-graded decision memos. Anti-slop filtered.", alone: "free" },
 ]
 
 const chains = [
@@ -170,7 +168,7 @@ Gap: artifact exists, never audited.
           </div>
 
           <p style={{ fontFamily: mono, fontSize: "13px", color: "var(--ink-7)", marginTop: "24px" }}>
-            Parts sold separately: $106+. The kit: $99 — with the glue the parts don&apos;t have.
+            Two parts are free on their own. The other five ship only here. The kit: $99.
           </p>
         </div>
       </div>
@@ -253,8 +251,8 @@ Gap: artifact exists, never audited.
             maintains the kit from here.
           </p>
           <p style={{ ...body15, maxWidth: "600px", marginBottom: "40px" }}>
-            The arithmetic is the pitch: $106+ of parts, $99 for the system, and the orchestrator +
-            memory layer exist nowhere else.
+            Two of the skills are free on their own. The orchestrator, the memory layer, and the
+            three ship skills exist nowhere else. That is the $99.
           </p>
 
           <div
@@ -282,7 +280,7 @@ Gap: artifact exists, never audited.
           </div>
 
           <p style={{ fontFamily: mono, fontSize: "12px", color: "var(--ink-4)", marginTop: "40px" }}>
-            The free skills (geo-check, install-triage, the voice tools) stay free —{" "}
+            The free skills (niche-hunter, hyper-rational-brief, the auditor) stay free —{" "}
             <Link href="/skills" style={{ color: "var(--ink-6)" }}>
               in the directory
             </Link>

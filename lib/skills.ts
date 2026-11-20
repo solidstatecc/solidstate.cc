@@ -234,9 +234,9 @@ Live on [ClawHub](https://clawhub.ai/solidstate/publish-audit). Free, MIT-0.`,
 
 **The glue:** a \`/ship-start\` orchestrator (two intake questions, eight-step gap analysis, four chains) and a \`.solidstate/\` project memory — four plain-markdown files every skill reads and writes. Your agent stops asking what you're building.
 
-**The skills:** ship-positioning (the angle, contrast pairs, the not-for list), ship-audit (write mode — patches what it flags, re-runs until READY), launch-list (fit-ranked venues + 14-day measurement window), niche-hunter, hyper-rational-brief — with competitor-brief and geo-audit folding in on release, included.
+**The skills:** ship-positioning (the angle, contrast pairs, the not-for list), ship-audit (write mode — patches what it flags, re-runs until READY), launch-list (fit-ranked venues + 14-day measurement window), niche-hunter, hyper-rational-brief.
 
-Parts sold separately: $106+. The kit: $99, one-time, updates through v1.x. Delivered as a zip; installs in Claude Code, Cowork, Cursor, OpenClaw, and Hermes.
+niche-hunter and hyper-rational-brief are free on their own; the rest ships only in the kit. $99, one-time, updates through v1.x. Delivered as a zip; installs in Claude Code, Cowork, Cursor, OpenClaw, and Hermes.
 
 Written and audited by Claude (Fable 5) on Solid State's production line; every bundled script ran before shipping, and the purchase rail was tested end-to-end with a real card. The four-agent Skill Production Squad (research → engineer → auditor → tester) maintains the kit.
 
@@ -1174,8 +1174,13 @@ export function getListings(): Skill[] {
  * Only skills with real install counts qualify — no telemetry, no rank.
  */
 export function getTopByCategory(category: string, n = 5): Skill[] {
-  return skills
-    .filter((s) => (s.stats?.installs ?? 0) > 0 && s.categories.includes(category))
+  // Rank on a skill's PRIMARY category. Secondary tags from the skills.sh
+  // compile are loose (Azure skills carry "Marketing") and polluted the boards.
+  // A category too thin on primaries to fill the board falls back to any-tag match.
+  const measured = skills.filter((s) => (s.stats?.installs ?? 0) > 0)
+  const primary = measured.filter((s) => s.categories[0] === category)
+  const pool = primary.length >= n ? primary : measured.filter((s) => s.categories.includes(category))
+  return pool
     .sort((a, b) => (b.stats!.installs ?? 0) - (a.stats!.installs ?? 0))
     .slice(0, n)
 }

@@ -171,7 +171,7 @@ export default async function SkillDetailPage({ params }: Props) {
                     marginTop: "4px",
                   }}
                 >
-                  ✓ VERIFIED
+                  {skill.provenance === "first-party" ? "FIRST-PARTY" : "AUDITED"}
                 </div>
               )}
             </div>
@@ -629,6 +629,32 @@ export default async function SkillDetailPage({ params }: Props) {
                     {tag}
                   </span>
                 ))}
+              </div>
+            </div>
+          )}
+
+          {/* Kits — only on our own free skills */}
+          {isFreeLabel && skill.kind === "original" && (
+            <div style={{ border: "1px solid var(--border)", padding: "24px", marginBottom: "32px" }}>
+              <div
+                style={{
+                  fontFamily: "var(--font-jetbrains-mono), monospace",
+                  fontSize: "10px",
+                  letterSpacing: "0.12em",
+                  textTransform: "uppercase",
+                  color: "var(--ink-2)",
+                  marginBottom: "12px",
+                }}
+              >
+                From the same line
+              </div>
+              <p style={{ fontSize: "14px", color: "var(--ink-6)", lineHeight: 1.6, margin: "0 0 16px" }}>
+                This one is free. The kits are the systems around it.
+              </p>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "8px 24px", fontFamily: "var(--font-jetbrains-mono), monospace", fontSize: "13px" }}>
+                <Link href="/ship-kit" style={{ color: "var(--fg)" }}>Ship Kit · $99 →</Link>
+                <Link href="/ai-seo-kit" style={{ color: "var(--fg)" }}>AI SEO Kit · $149 →</Link>
+                <Link href="/fable-ready" style={{ color: "var(--fg)" }}>fable-ready · $49 →</Link>
               </div>
             </div>
           )}

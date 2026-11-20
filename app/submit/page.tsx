@@ -30,8 +30,8 @@ export default function SubmitPage() {
             Submit a Skill
           </h1>
           <p style={{ fontSize: "14px", color: "var(--fg)", margin: 0, lineHeight: "1.6" }}>
-            Every submission gets reviewed. Approved skills get the ✓ badge and a featured slot.
-            Two to five business days.
+            Every submission gets read. We check source, license, and provenance.
+            A reply within five business days.
           </p>
         </div>
       </div>
@@ -63,12 +63,12 @@ export default function SubmitPage() {
             {
               step: "02",
               label: "Review",
-              desc: "Our team tests on live platforms, checks security.",
+              desc: "We read the source, check the license, record provenance.",
             },
             {
               step: "03",
               label: "Publish",
-              desc: "Approved skills go live within 5 business days.",
+              desc: "Approved skills are listed with their provenance stated.",
             },
           ].map(({ step, label, desc }) => (
             <div key={step}>

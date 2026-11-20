@@ -1,5 +1,6 @@
 import Link from "next/link"
 import footerData from "@/lib/footer-links.json"
+import { Subscribe } from "@/components/Subscribe"
 
 // SINGLE SOURCE: lib/footer-links.json. The docs footers (Mintlify) are
 // generated from the same file — after editing it, run
@@ -17,6 +18,9 @@ export function Footer() {
       }}
     >
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "56px 32px 32px" }}>
+        <div style={{ marginBottom: "48px" }}>
+          <Subscribe />
+        </div>
         <div
           className="ss-footer-grid"
           style={{

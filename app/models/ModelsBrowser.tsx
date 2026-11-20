@@ -100,8 +100,10 @@ function Toggle({
   )
 }
 
-export function ModelsBrowser() {
-  const [data, setData] = useState<ModelsData | null>(null)
+export function ModelsBrowser({ initial }: { initial?: ModelsData }) {
+  // `initial` is the first page, rendered on the server so the table exists
+  // without JS. The full index replaces it on mount.
+  const [data, setData] = useState<ModelsData | null>(initial ?? null)
   const [error, setError] = useState(false)
   const [search, setSearch] = useState("")
   const [lab, setLab] = useState("")
@@ -115,7 +117,8 @@ export function ModelsBrowser() {
     fetch("/data/models.json")
       .then((r) => r.json())
       .then(setData)
-      .catch(() => setError(true))
+      .catch(() => { if (!initial) setError(true) })
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- initial is a build-time constant
   }, [])
 
   const filtered = useMemo(() => {

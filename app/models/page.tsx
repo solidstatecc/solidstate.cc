@@ -1,6 +1,12 @@
 import type { Metadata } from "next"
 import { MODELS_META } from "@/lib/modelsMeta"
 import { ModelsBrowser } from "./ModelsBrowser"
+import { readFileSync } from "node:fs"
+import { join } from "node:path"
+
+// First page of the index, read at build time so the table is in the HTML.
+const full = JSON.parse(readFileSync(join(process.cwd(), "public/data/models.json"), "utf8"))
+const initial = { ...full, rows: full.rows.slice(0, 100) }
 
 export const metadata: Metadata = {
   title: "Model Index",
@@ -57,7 +63,7 @@ export default function ModelsPage() {
           <a href="https://models.dev" style={{ color: "var(--ink-8)" }}>
             models.dev
           </a>{" "}
-          for full provider pricing. Refreshed weekly — last capture {MODELS_META.captured}.
+          for full provider pricing. Last capture {MODELS_META.captured}.
           Labs with a skills-capable runtime carry a SKILLS link —{" "}
           <a href="/skills?platform=grok" style={{ color: "var(--ink-8)" }}>
             Grok
@@ -68,7 +74,7 @@ export default function ModelsPage() {
 
       {/* Browser */}
       <section style={{ maxWidth: "1200px", margin: "0 auto", padding: "40px 32px 96px" }}>
-        <ModelsBrowser />
+        <ModelsBrowser initial={initial} />
       </section>
     </div>
   )

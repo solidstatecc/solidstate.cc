@@ -47,7 +47,7 @@ export default function AiVisibilityPage() {
           Where five AI engines cite us — and where they don&apos;t.
         </h1>
         <p style={{ fontFamily: mono, fontSize: "13px", color: "var(--ink-4)", marginBottom: "40px" }}>
-          Snapshot 2026-06-13 · 6 queries × 5 engines · run with our own AI SEO Kit · re-run monthly
+          Snapshot 2026-06-13 · 6 queries × 5 engines · run with our own AI SEO Kit · not re-run since
         </p>
 
         <div style={{ border: "1px solid var(--border)", backgroundColor: "var(--bg-2)", borderRadius: "8px", padding: "28px", marginBottom: "40px" }}>

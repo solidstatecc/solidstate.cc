@@ -216,7 +216,8 @@ VERDICT: FABLE-READY (2026-06-12) → FABLE-READY.md`}
             The full run is published as a case study, receipts included.
           </p>
           <p style={{ ...body15, maxWidth: "600px", marginBottom: "40px" }}>
-            Dated honesty: the rules are graded against the Fable 5 docs of 2026-06. Rules move;
+            Dated honesty: the rules are graded against the Fable 5 docs of 2026-06. Fable 5.1 and
+            5.2 have shipped since; the rules have not been re-graded against them yet. Rules move;
             v1.x updates are included, and every report prints its rules version.
           </p>
 

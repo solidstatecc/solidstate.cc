@@ -92,6 +92,7 @@ const GATED = [
 for (const g of GATED) {
   const base = rows.find((r) => r.id === g.specsFrom)
   if (!base) continue // donor row missing — skip rather than fabricate specs
+  if (rows.some((r) => r.id === g.id)) continue // upstream carries it natively now — theirs wins
   rows.push({ ...base, id: g.id, name: g.name, gated: true, gatedLink: g.link })
 }
 

@@ -3,6 +3,7 @@ import { JetBrains_Mono, Inter } from "next/font/google"
 import "./globals.css"
 import { Nav } from "@/components/Nav"
 import { Footer } from "@/components/Footer"
+import { Analytics } from "@vercel/analytics/next"
 import { JsonLd } from "@/components/JsonLd"
 import { orgJsonLd, websiteJsonLd } from "@/lib/seo"
 
@@ -74,6 +75,7 @@ export default function RootLayout({
         <Nav />
         <main id="main" className="flex-1">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   )
