@@ -20,25 +20,25 @@ export interface OfficialExtra extends OfficialMaker {
 export const officialExtras: OfficialExtra[] = [
   {
     owner: "NousResearch",
-    repos: 2,
-    skills: 183,
+    repos: 10,
+    skills: 297,
     avatar: "https://github.com/NousResearch.png?size=80",
     url: "https://www.skills.sh/nousresearch",
     site: "https://nousresearch.com",
     product: { label: "Hermes Agent", url: "https://hermes-agent.nousresearch.com/desktop" },
-    verified: "2026-06-08",
+    verified: "2026-11-24",
   },
   {
-    // First-party count only: the openclaw/openclaw repo (122 skills, 54.3K installs).
-    // The owner page shows 2,229 skills, but ~2,071 sit in openclaw/skills — the
+    // First-party count only: the openclaw/openclaw repo (159 skills, 319.4K installs
+    // on 2026-11-24). The owner page shows 2,411 skills, but ~2,063 sit in the
     // community ClawHub mirror, not maker-authored. Honest > full.
     owner: "openclaw",
     repos: 1,
-    skills: 122,
+    skills: 159,
     avatar: "https://github.com/openclaw.png?size=80",
     url: "https://www.skills.sh/openclaw/openclaw",
     site: "https://openclaw.ai",
-    verified: "2026-06-08",
+    verified: "2026-11-24",
   },
 ]
 
