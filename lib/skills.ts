@@ -794,7 +794,7 @@ const listings: Skill[] = [
     slug: "anthropic-claude-cookbooks",
     kind: "listing",
     description:
-      "MIT-licensed Jupyter cookbooks: agent patterns, Agent SDK tutorials, Managed Agents, tool use, RAG, evals, the Fable 5 fallback guide. 45K+ stars.",
+      "MIT-licensed Jupyter cookbooks: agent patterns, Agent SDK tutorials, Managed Agents, tool use, RAG, evals, the Fable 5 fallback guide. 55K+ stars (2026-11-24).",
     longDescription:
       "Anthropic's official recipe collection — ~80 notebooks, fully MIT. The 2026 layer is the value: the Agent SDK tutorial series (00–06), the Managed Agents series (Outcomes self-grading, multiagent coordination, vault credentials), context engineering, programmatic tool calling, and the Fable 5 fallback-and-billing guide. A skills/ subfolder teaches running skills over the Messages API. registry.yaml is a machine-readable catalog of every recipe — title, path, date, categories — consumable as a feed. Every notebook is a wrap candidate.",
     author: "anthropics",
@@ -839,7 +839,7 @@ const listings: Skill[] = [
     slug: "anthropic-claude-plugins-official",
     kind: "listing",
     description:
-      "Anthropic's official directory of high-quality Claude Code plugins. ~18k stars. 33 internal plugins + external_plugins folder. Per-plugin licenses vary.",
+      "Anthropic's official directory of high-quality Claude Code plugins. ~48k stars (2026-11-24). Internal plugins plus an external_plugins folder. Per-plugin licenses vary.",
     longDescription:
       "Internal plugins built by Anthropic (agent-sdk-dev, code-review, feature-dev, mcp-server-dev, plugin-dev, pr-review-toolkit, security-guidance, skill-creator, math-olympiad, plus a full set of LSP plugins for major languages). README explicitly notes there is no top-level LICENSE — read each linked plugin's LICENSE before mirroring or installing.",
     author: "anthropics",
@@ -861,9 +861,9 @@ const listings: Skill[] = [
     slug: "anthropic-knowledge-work-plugins",
     kind: "listing",
     description:
-      "Apache 2.0 role-based plugin bundles (sales, marketing, legal, finance, data, design, etc.) for Claude Cowork. ~11.5k stars.",
+      "Apache 2.0 role-based plugin bundles (sales, marketing, legal, finance, data, design, etc.) for Claude Cowork. ~36.7k stars (2026-11-24).",
     longDescription:
-      "11 role-based plugins — each bundles skills, MCP connectors, and slash commands for a specific function: productivity, sales, customer-support, product-management, marketing, legal, finance, data, enterprise-search, bio-research, cowork-plugin-management. Plus design, engineering, HR, operations, partner-built, pdf-viewer subdirectories. Apache 2.0, fork-friendly. These are the upstream of most plugins running in Cowork sessions today.",
+      "17 plugins (counted 2026-11-24) — each bundles skills, MCP connectors, and slash commands for a specific function: productivity, sales, customer-support, product-management, marketing, legal, finance, data, enterprise-search, bio-research, cowork-plugin-management, design, engineering, human-resources, operations, small-business, pdf-viewer. Plus a partner-built subdirectory. Apache 2.0, fork-friendly. These are the upstream of most plugins running in Cowork sessions today.",
     author: "anthropics",
     version: "see upstream",
     platforms: ["claude", "generic"],
@@ -880,36 +880,14 @@ const listings: Skill[] = [
   // -------- OpenClaw (the other side of the ecosystem) --------
 
   {
-    id: "openclaw-skills-archive",
-    name: "OpenClaw Skills Archive",
-    slug: "openclaw-skills-archive",
-    kind: "listing",
-    description:
-      "MIT-licensed full archive of every version of every skill ever published to clawhub.ai. ~4.4k stars, ~1MB+ of skill metadata.",
-    longDescription:
-      "The mirrorable backup of the entire ClawHub registry. MIT means you can clone, repackage, re-host, or build derivative search/discovery experiences on top with zero licensing friction. If Solid State wants to ship a 'browse 50,000 skills' experience day one, this is the seed.",
-    author: "openclaw",
-    version: "see upstream",
-    platforms: ["openclaw", "nemoclaw"],
-    categories: ["AI"],
-    repoUrl: "https://github.com/openclaw/skills",
-    docsUrl: "https://clawhub.ai",
-    license: "MIT",
-    status: "stable",
-    provenance: "indexed",
-    featured: false,
-    tags: ["openclaw", "clawhub", "archive", "skills", "registry"],
-    createdAt: "2026-04-27",
-  },
-  {
     id: "openclaw-clawhub-live",
     name: "ClawHub (live registry)",
     slug: "openclaw-clawhub-live",
     kind: "listing",
     description:
-      "Live OpenClaw registry. 52.7k tools, 180k users, 12M downloads, 4.8 avg rating. Vector-search-backed discovery for skills + plugins.",
+      "Live OpenClaw registry for skills and plugins, with vector-search discovery and owner-qualified installs (@owner/slug).",
     longDescription:
-      "The production ClawHub site at clawhub.ai. Powered by Convex with vector search. Open publishing via GitHub OAuth. Solid State can index live state via the ClawHub API/registry repo, while the openclaw/skills archive is the offline backup. Together they're the OpenClaw layer of Solid State's directory.",
+      "The production ClawHub site at clawhub.ai. Powered by Convex with vector search. Open publishing via GitHub OAuth. Solid State indexes live state through the public ClawHub API. It is the OpenClaw layer of Solid State's directory.",
     author: "openclaw",
     version: "live",
     platforms: ["openclaw", "nemoclaw"],
@@ -947,18 +925,18 @@ const listings: Skill[] = [
   },
   {
     id: "sickn33-antigravity-awesome",
-    name: "Antigravity Awesome Skills (sickn33)",
+    name: "Agentic Awesome Skills (sickn33)",
     slug: "sickn33-antigravity-awesome",
     kind: "listing",
     description:
-      "1,400+ cross-platform agent skills with installer CLI. Targets Claude Code, Cursor, Codex CLI, Gemini CLI, Antigravity.",
+      "3,000+ reusable agent skills with an installer CLI, MCP and plugins. Targets Claude Code, Codex, Cursor and Gemini CLI. Renamed upstream from antigravity-awesome-skills.",
     longDescription:
       "Curated multi-platform skill catalog with bundles, workflows, and an install CLI. Useful as a discovery index for cross-runtime skills.",
     author: "sickn33",
     version: "see upstream",
     platforms: ["antigravity", "generic"],
     categories: ["AI"],
-    repoUrl: "https://github.com/sickn33/antigravity-awesome-skills",
+    repoUrl: "https://github.com/sickn33/agentic-awesome-skills",
     license: "MIT", // verified 2026-04-27 via GitHub API
     status: "stable",
     provenance: "indexed",
@@ -972,7 +950,7 @@ const listings: Skill[] = [
     slug: "openclaw-clawhub",
     kind: "listing",
     description:
-      "OpenClaw's official skill registry. Browse and install ~13,729 community skills. MIT.",
+      "OpenClaw's official skill and plugin registry. Browse and install community skills. MIT.",
     longDescription:
       "ClawHub is the upstream registry for OpenClaw skills — the canonical source-of-truth. Solid State indexes it; we are not it.",
     author: "openclaw",

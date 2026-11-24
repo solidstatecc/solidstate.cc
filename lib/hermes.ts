@@ -1,4 +1,6 @@
-// Solid State — Hermes Agent first-party skills, indexed 2026-06-07.
+// Solid State — Hermes Agent first-party skills, indexed 2026-06-07; paths re-verified 2026-11-24
+// against hermes-agent@b9b36c9 (excalidraw moved to optional; ocr-and-documents and
+// duckduckgo-search removed upstream, so dropped here).
 // Source: github.com/NousResearch/hermes-agent (184K★, #1 OpenRouter app).
 // License MIT verified against the repo's actual LICENSE file (Copyright (c) 2025
 // Nous Research) — not a badge. All skills below live in that repo, so the
@@ -103,13 +105,14 @@ export const hermesListings: Skill[] = [
     kind: "listing",
     description: "Hand-drawn-style Excalidraw JSON diagrams: architecture, flow, sequence.",
     longDescription:
-      "Generates hand-drawn-style Excalidraw JSON diagrams — architecture, flowcharts, sequence diagrams — ready to open or embed. Bundled with Hermes Agent; portable to other agentskills.io-compliant runtimes. Indexed from the NousResearch/hermes-agent repo for discovery — Solid State has not audited this skill.",
+      "Generates hand-drawn-style Excalidraw JSON diagrams — architecture, flowcharts, sequence diagrams — ready to open or embed. Optional Hermes skill (moved out of the bundled set upstream): `hermes skills install official/creative/excalidraw`. Portable to other agentskills.io-compliant runtimes. Indexed from the NousResearch/hermes-agent repo for discovery — Solid State has not audited this skill.",
     author: "NousResearch",
     version: "0.0.0",
     platforms: ["hermes", "generic"],
     categories: ["Creative", "Engineering"],
-    repoUrl: `${REPO}/skills/creative/excalidraw`,
-    docsUrl: `${HERMES}/bundled/creative/creative-excalidraw`,
+    installCommand: "hermes skills install official/creative/excalidraw",
+    repoUrl: `${REPO}/optional-skills/creative/excalidraw`,
+    docsUrl: `${HERMES}/optional/creative/creative-excalidraw`,
     license: "MIT",
     status: "stable",
     provenance: "indexed",
@@ -169,30 +172,6 @@ export const hermesListings: Skill[] = [
     external: true,
   },
   {
-    id: "hermes-ocr-and-documents",
-    name: "OCR & Documents",
-    slug: "hermes-ocr-and-documents",
-    kind: "listing",
-    description: "Extract text from PDFs and scans via pymupdf and marker-pdf.",
-    longDescription:
-      "Extracts text from PDFs and scanned documents using pymupdf and marker-pdf. Bundled with Hermes Agent; portable to other agentskills.io-compliant runtimes. Indexed from the NousResearch/hermes-agent repo for discovery — Solid State has not audited this skill.",
-    author: "NousResearch",
-    version: "0.0.0",
-    platforms: ["hermes", "generic"],
-    categories: ["Productivity", "Documents"],
-    repoUrl: `${REPO}/skills/productivity/ocr-and-documents`,
-    docsUrl: `${HERMES}/bundled/productivity/productivity-ocr-and-documents`,
-    license: "MIT",
-    status: "stable",
-    provenance: "indexed",
-    price: "free",
-    featured: false,
-    tags: ["hermes", "ocr", "pdf", "documents"],
-    createdAt: "2026-06-07",
-    source: "NousResearch/hermes-agent",
-    external: true,
-  },
-  {
     id: "hermes-maps",
     name: "Maps",
     slug: "hermes-maps",
@@ -241,31 +220,6 @@ export const hermesListings: Skill[] = [
     external: true,
   },
   // ---- optional (hermes skills install official/<category>/<name>) --------
-  {
-    id: "hermes-duckduckgo-search",
-    name: "DuckDuckGo Search",
-    slug: "hermes-duckduckgo-search",
-    kind: "listing",
-    description: "Free web search via DuckDuckGo — text, news, images, videos. No API key.",
-    longDescription:
-      "Free web search via DuckDuckGo — text, news, images, and videos with no API key. Optional Hermes skill: `hermes skills install official/research/duckduckgo-search`. Portable to other agentskills.io-compliant runtimes. Indexed from the NousResearch/hermes-agent repo for discovery — Solid State has not audited this skill.",
-    author: "NousResearch",
-    version: "0.0.0",
-    platforms: ["hermes", "generic"],
-    categories: ["Research"],
-    installCommand: "hermes skills install official/research/duckduckgo-search",
-    repoUrl: `${REPO}/optional-skills/research/duckduckgo-search`,
-    docsUrl: `${HERMES}/optional/research/research-duckduckgo-search`,
-    license: "MIT",
-    status: "stable",
-    provenance: "indexed",
-    price: "free",
-    featured: false,
-    tags: ["hermes", "search", "duckduckgo", "research"],
-    createdAt: "2026-06-07",
-    source: "NousResearch/hermes-agent",
-    external: true,
-  },
   {
     id: "hermes-domain-intel",
     name: "Domain Intel",
