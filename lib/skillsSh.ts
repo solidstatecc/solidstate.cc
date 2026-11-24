@@ -1,8 +1,9 @@
 // AUTO-GENERATED — top 200 skills indexed from the public skills.sh leaderboard
 // (captured 2026-05-29). Install counts are real, from skills.sh telemetry.
+// Stats (installs, trending) refreshed 2026-11-24 by scripts/refresh-skillssh-stats.mjs.
 // `trending` = present on skills.sh's live 24h board at capture time (a real fact,
 // not a modeled curve). kind=listing / provenance=indexed per the honest-directory rules.
-// Regenerate via outputs/compile_skills.py.
+// Membership: regenerate via outputs/compile_skills.py (not in this repo). Stats only: node scripts/refresh-skillssh-stats.mjs
 import { Skill } from "./types"
 
 export const skillsSh: Skill[] = [
@@ -43,8 +44,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 1700000,
-      "fetchedAt": "2026-05-29"
+      "installs": 4510269,
+      "fetchedAt": "2026-11-24"
     },
     "source": "vercel-labs/skills",
     "external": true,
@@ -81,8 +82,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 474400,
-      "fetchedAt": "2026-05-29"
+      "installs": 1160345,
+      "fetchedAt": "2026-11-24"
     },
     "source": "anthropics/skills",
     "external": true,
@@ -121,8 +122,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 435200,
-      "fetchedAt": "2026-05-29"
+      "installs": 927937,
+      "fetchedAt": "2026-11-24"
     },
     "source": "vercel-labs/agent-skills",
     "external": true,
@@ -163,8 +164,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 351200,
-      "fetchedAt": "2026-05-29"
+      "installs": 899110,
+      "fetchedAt": "2026-11-24"
     },
     "source": "vercel-labs/agent-skills",
     "external": true,
@@ -203,8 +204,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 336100,
-      "fetchedAt": "2026-05-29"
+      "installs": 901448,
+      "fetchedAt": "2026-11-24"
     },
     "source": "remotion-dev/skills",
     "external": true,
@@ -245,12 +246,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 329900,
-      "fetchedAt": "2026-05-29"
+      "installs": 780107,
+      "fetchedAt": "2026-11-24"
     },
     "source": "microsoft/azure-skills",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "microsoft-azure-skills-azure-ai",
@@ -287,8 +288,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 328300,
-      "fetchedAt": "2026-05-29"
+      "installs": 769177,
+      "fetchedAt": "2026-11-24"
     },
     "source": "microsoft/azure-skills",
     "external": true,
@@ -331,8 +332,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 328000,
-      "fetchedAt": "2026-05-29"
+      "installs": 768799,
+      "fetchedAt": "2026-11-24"
     },
     "source": "microsoft/azure-skills",
     "external": true,
@@ -373,8 +374,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 327900,
-      "fetchedAt": "2026-05-29"
+      "installs": 769841,
+      "fetchedAt": "2026-11-24"
     },
     "source": "microsoft/azure-skills",
     "external": true,
@@ -415,12 +416,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 327900,
-      "fetchedAt": "2026-05-29"
+      "installs": 770751,
+      "fetchedAt": "2026-11-24"
     },
     "source": "microsoft/azure-skills",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "microsoft-azure-skills-azure-storage",
@@ -457,8 +458,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 327700,
-      "fetchedAt": "2026-05-29"
+      "installs": 767622,
+      "fetchedAt": "2026-11-24"
     },
     "source": "microsoft/azure-skills",
     "external": true,
@@ -499,8 +500,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 327400,
-      "fetchedAt": "2026-05-29"
+      "installs": 766992,
+      "fetchedAt": "2026-11-24"
     },
     "source": "microsoft/azure-skills",
     "external": true,
@@ -541,8 +542,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 327400,
-      "fetchedAt": "2026-05-29"
+      "installs": 768492,
+      "fetchedAt": "2026-11-24"
     },
     "source": "microsoft/azure-skills",
     "external": true,
@@ -583,8 +584,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 327400,
-      "fetchedAt": "2026-05-29"
+      "installs": 766892,
+      "fetchedAt": "2026-11-24"
     },
     "source": "microsoft/azure-skills",
     "external": true,
@@ -625,8 +626,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 327300,
-      "fetchedAt": "2026-05-29"
+      "installs": 767226,
+      "fetchedAt": "2026-11-24"
     },
     "source": "microsoft/azure-skills",
     "external": true,
@@ -667,8 +668,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 327300,
-      "fetchedAt": "2026-05-29"
+      "installs": 396677,
+      "fetchedAt": "2026-11-24"
     },
     "source": "microsoft/azure-skills",
     "external": true,
@@ -709,8 +710,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 327300,
-      "fetchedAt": "2026-05-29"
+      "installs": 766952,
+      "fetchedAt": "2026-11-24"
     },
     "source": "microsoft/azure-skills",
     "external": true,
@@ -751,8 +752,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 327200,
-      "fetchedAt": "2026-05-29"
+      "installs": 766906,
+      "fetchedAt": "2026-11-24"
     },
     "source": "microsoft/azure-skills",
     "external": true,
@@ -793,8 +794,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 327200,
-      "fetchedAt": "2026-05-29"
+      "installs": 766203,
+      "fetchedAt": "2026-11-24"
     },
     "source": "microsoft/azure-skills",
     "external": true,
@@ -835,8 +836,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 327200,
-      "fetchedAt": "2026-05-29"
+      "installs": 766602,
+      "fetchedAt": "2026-11-24"
     },
     "source": "microsoft/azure-skills",
     "external": true,
@@ -877,8 +878,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 322200,
-      "fetchedAt": "2026-05-29"
+      "installs": 1673997,
+      "fetchedAt": "2026-11-24"
     },
     "source": "vercel-labs/agent-browser",
     "external": true,
@@ -919,8 +920,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 317000,
-      "fetchedAt": "2026-05-29"
+      "installs": 757858,
+      "fetchedAt": "2026-11-24"
     },
     "source": "microsoft/azure-skills",
     "external": true,
@@ -961,8 +962,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 300500,
-      "fetchedAt": "2026-05-29"
+      "installs": 355277,
+      "fetchedAt": "2026-11-24"
     },
     "source": "microsoft/azure-skills",
     "external": true,
@@ -1003,8 +1004,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 271400,
-      "fetchedAt": "2026-05-29"
+      "installs": 722688,
+      "fetchedAt": "2026-11-24"
     },
     "source": "microsoft/azure-skills",
     "external": true,
@@ -1045,8 +1046,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 261600,
-      "fetchedAt": "2026-05-29"
+      "installs": 715462,
+      "fetchedAt": "2026-11-24"
     },
     "source": "microsoft/azure-skills",
     "external": true,
@@ -1081,8 +1082,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 239700,
-      "fetchedAt": "2026-05-29"
+      "installs": 440942,
+      "fetchedAt": "2026-11-24"
     },
     "source": "anthropics/skills",
     "external": true,
@@ -1117,12 +1118,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 228600,
-      "fetchedAt": "2026-05-29"
+      "installs": 1602150,
+      "fetchedAt": "2026-11-24"
     },
     "source": "mattpocock/skills",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "microsoft-azure-skills-azure-cost-optimization",
@@ -1159,8 +1160,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 205800,
-      "fetchedAt": "2026-05-29"
+      "installs": 155407,
+      "fetchedAt": "2026-11-24"
     },
     "source": "microsoft/azure-skills",
     "external": true,
@@ -1201,12 +1202,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 198700,
-      "fetchedAt": "2026-05-29"
+      "installs": 671236,
+      "fetchedAt": "2026-11-24"
     },
     "source": "microsoft/azure-skills",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "supabase-agent-skills-supabase-postgres-best-practices",
@@ -1241,8 +1242,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 196200,
-      "fetchedAt": "2026-05-29"
+      "installs": 496317,
+      "fetchedAt": "2026-11-24"
     },
     "source": "supabase/agent-skills",
     "external": true,
@@ -1281,8 +1282,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 191600,
-      "fetchedAt": "2026-05-29"
+      "installs": 470436,
+      "fetchedAt": "2026-11-24"
     },
     "source": "vercel-labs/agent-skills",
     "external": true,
@@ -1323,8 +1324,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 191300,
-      "fetchedAt": "2026-05-29"
+      "installs": 664383,
+      "fetchedAt": "2026-11-24"
     },
     "source": "microsoft/azure-skills",
     "external": true,
@@ -1363,12 +1364,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 189700,
-      "fetchedAt": "2026-05-29"
+      "installs": 14,
+      "fetchedAt": "2026-11-24"
     },
     "source": "skills-shell/skills",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "skills-shell-skills-ai-video-generation",
@@ -1403,8 +1404,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 189000,
-      "fetchedAt": "2026-05-29"
+      "installs": 14,
+      "fetchedAt": "2026-11-24"
     },
     "source": "skills-shell/skills",
     "external": true,
@@ -1445,8 +1446,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 188900,
-      "fetchedAt": "2026-05-29"
+      "installs": 468733,
+      "fetchedAt": "2026-11-24"
     },
     "source": "nextlevelbuilder/ui-ux-pro-max-skill",
     "external": true,
@@ -1485,8 +1486,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 188800,
-      "fetchedAt": "2026-05-29"
+      "installs": 14,
+      "fetchedAt": "2026-11-24"
     },
     "source": "skills-shell/skills",
     "external": true,
@@ -1521,8 +1522,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 188300,
-      "fetchedAt": "2026-05-29"
+      "installs": 440744,
+      "fetchedAt": "2026-11-24"
     },
     "source": "obra/superpowers",
     "external": true,
@@ -1561,8 +1562,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 187800,
-      "fetchedAt": "2026-05-29"
+      "installs": 14,
+      "fetchedAt": "2026-11-24"
     },
     "source": "skills-shell/skills",
     "external": true,
@@ -1597,8 +1598,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 187700,
-      "fetchedAt": "2026-05-29"
+      "installs": 14,
+      "fetchedAt": "2026-11-24"
     },
     "source": "skills-shell/skills",
     "external": true,
@@ -1633,8 +1634,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 187100,
-      "fetchedAt": "2026-05-29"
+      "installs": 645135,
+      "fetchedAt": "2026-11-24"
     },
     "source": "juliusbrussee/caveman",
     "external": true,
@@ -1669,12 +1670,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 184000,
-      "fetchedAt": "2026-05-29"
+      "installs": 1302843,
+      "fetchedAt": "2026-11-24"
     },
     "source": "mattpocock/skills",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "sleekdotdesign-agent-skills-sleek-design-mobile-apps",
@@ -1707,12 +1708,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 182200,
-      "fetchedAt": "2026-05-29"
+      "installs": 13,
+      "fetchedAt": "2026-11-24"
     },
     "source": "sleekdotdesign/agent-skills",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "larksuite-cli-lark-doc",
@@ -1749,8 +1750,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 178900,
-      "fetchedAt": "2026-05-29"
+      "installs": 502753,
+      "fetchedAt": "2026-11-24"
     },
     "source": "larksuite/cli",
     "external": true,
@@ -1789,12 +1790,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 178600,
-      "fetchedAt": "2026-05-29"
+      "installs": 499849,
+      "fetchedAt": "2026-11-24"
     },
     "source": "larksuite/cli",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "larksuite-cli-lark-im",
@@ -1829,8 +1830,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 178300,
-      "fetchedAt": "2026-05-29"
+      "installs": 496616,
+      "fetchedAt": "2026-11-24"
     },
     "source": "larksuite/cli",
     "external": true,
@@ -1869,8 +1870,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 178000,
-      "fetchedAt": "2026-05-29"
+      "installs": 496687,
+      "fetchedAt": "2026-11-24"
     },
     "source": "larksuite/cli",
     "external": true,
@@ -1909,12 +1910,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 177800,
-      "fetchedAt": "2026-05-29"
+      "installs": 499124,
+      "fetchedAt": "2026-11-24"
     },
     "source": "larksuite/cli",
     "external": true,
-    "trending": false
+    "trending": true
   },
   {
     "id": "larksuite-cli-lark-calendar",
@@ -1949,8 +1950,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 177800,
-      "fetchedAt": "2026-05-29"
+      "installs": 492488,
+      "fetchedAt": "2026-11-24"
     },
     "source": "larksuite/cli",
     "external": true,
@@ -1989,8 +1990,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 177600,
-      "fetchedAt": "2026-05-29"
+      "installs": 495413,
+      "fetchedAt": "2026-11-24"
     },
     "source": "larksuite/cli",
     "external": true,
@@ -2029,8 +2030,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 177400,
-      "fetchedAt": "2026-05-29"
+      "installs": 493606,
+      "fetchedAt": "2026-11-24"
     },
     "source": "larksuite/cli",
     "external": true,
@@ -2071,8 +2072,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 177400,
-      "fetchedAt": "2026-05-29"
+      "installs": 495887,
+      "fetchedAt": "2026-11-24"
     },
     "source": "larksuite/cli",
     "external": true,
@@ -2111,8 +2112,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 177300,
-      "fetchedAt": "2026-05-29"
+      "installs": 493524,
+      "fetchedAt": "2026-11-24"
     },
     "source": "larksuite/cli",
     "external": true,
@@ -2151,8 +2152,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 177300,
-      "fetchedAt": "2026-05-29"
+      "installs": 490840,
+      "fetchedAt": "2026-11-24"
     },
     "source": "larksuite/cli",
     "external": true,
@@ -2191,8 +2192,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 177100,
-      "fetchedAt": "2026-05-29"
+      "installs": 478474,
+      "fetchedAt": "2026-11-24"
     },
     "source": "larksuite/cli",
     "external": true,
@@ -2231,8 +2232,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 177100,
-      "fetchedAt": "2026-05-29"
+      "installs": 478687,
+      "fetchedAt": "2026-11-24"
     },
     "source": "larksuite/cli",
     "external": true,
@@ -2271,8 +2272,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 176900,
-      "fetchedAt": "2026-05-29"
+      "installs": 490184,
+      "fetchedAt": "2026-11-24"
     },
     "source": "larksuite/cli",
     "external": true,
@@ -2311,8 +2312,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 176800,
-      "fetchedAt": "2026-05-29"
+      "installs": 489935,
+      "fetchedAt": "2026-11-24"
     },
     "source": "larksuite/cli",
     "external": true,
@@ -2355,12 +2356,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 176600,
-      "fetchedAt": "2026-05-29"
+      "installs": 13,
+      "fetchedAt": "2026-11-24"
     },
     "source": "xixu-me/skills",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "larksuite-cli-lark-workflow-meeting-summary",
@@ -2395,8 +2396,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 176600,
-      "fetchedAt": "2026-05-29"
+      "installs": 489077,
+      "fetchedAt": "2026-11-24"
     },
     "source": "larksuite/cli",
     "external": true,
@@ -2435,8 +2436,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 176400,
-      "fetchedAt": "2026-05-29"
+      "installs": 488088,
+      "fetchedAt": "2026-11-24"
     },
     "source": "larksuite/cli",
     "external": true,
@@ -2475,8 +2476,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 176400,
-      "fetchedAt": "2026-05-29"
+      "installs": 488234,
+      "fetchedAt": "2026-11-24"
     },
     "source": "larksuite/cli",
     "external": true,
@@ -2517,8 +2518,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 176300,
-      "fetchedAt": "2026-05-29"
+      "installs": 487715,
+      "fetchedAt": "2026-11-24"
     },
     "source": "larksuite/cli",
     "external": true,
@@ -2553,12 +2554,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 175900,
-      "fetchedAt": "2026-05-29"
+      "installs": 12,
+      "fetchedAt": "2026-11-24"
     },
     "source": "soultrace-ai/soultrace-skill",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "mattpocock-skills-tdd",
@@ -2593,8 +2594,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 175500,
-      "fetchedAt": "2026-05-29"
+      "installs": 1276520,
+      "fetchedAt": "2026-11-24"
     },
     "source": "mattpocock/skills",
     "external": true,
@@ -2635,12 +2636,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 174000,
-      "fetchedAt": "2026-05-29"
+      "installs": 13,
+      "fetchedAt": "2026-11-24"
     },
     "source": "xixu-me/skills",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "mattpocock-skills-grill-with-docs",
@@ -2675,12 +2676,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 172400,
-      "fetchedAt": "2026-05-29"
+      "installs": 1366883,
+      "fetchedAt": "2026-11-24"
     },
     "source": "mattpocock/skills",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "xixu-me-skills-use-my-browser",
@@ -2715,12 +2716,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 171900,
-      "fetchedAt": "2026-05-29"
+      "installs": 13,
+      "fetchedAt": "2026-11-24"
     },
     "source": "xixu-me/skills",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "microsoft-azure-skills-azure-enterprise-infra-planner",
@@ -2757,8 +2758,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 165300,
-      "fetchedAt": "2026-05-29"
+      "installs": 641016,
+      "fetchedAt": "2026-11-24"
     },
     "source": "microsoft/azure-skills",
     "external": true,
@@ -2793,12 +2794,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 164700,
-      "fetchedAt": "2026-05-29"
+      "installs": 271099,
+      "fetchedAt": "2026-11-24"
     },
     "source": "shadcn/ui",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "microsoft-azure-skills-azure-kubernetes",
@@ -2835,8 +2836,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 158200,
-      "fetchedAt": "2026-05-29"
+      "installs": 635381,
+      "fetchedAt": "2026-11-24"
     },
     "source": "microsoft/azure-skills",
     "external": true,
@@ -2871,12 +2872,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 157000,
-      "fetchedAt": "2026-05-29"
+      "installs": 351598,
+      "fetchedAt": "2026-11-24"
     },
     "source": "mattpocock/skills",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "roin-orca-skills-simple",
@@ -2912,7 +2913,7 @@ export const skillsSh: Skill[] = [
     },
     "source": "roin-orca/skills",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "mattpocock-skills-to-issues",
@@ -2943,12 +2944,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 151200,
-      "fetchedAt": "2026-05-29"
+      "installs": 339117,
+      "fetchedAt": "2026-11-24"
     },
     "source": "mattpocock/skills",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "larksuite-cli-lark-approval",
@@ -2983,8 +2984,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 150600,
-      "fetchedAt": "2026-05-29"
+      "installs": 463684,
+      "fetchedAt": "2026-11-24"
     },
     "source": "larksuite/cli",
     "external": true,
@@ -3019,12 +3020,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 150300,
-      "fetchedAt": "2026-05-29"
+      "installs": 227599,
+      "fetchedAt": "2026-11-24"
     },
     "source": "mattpocock/skills",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "agentspace-so-skills-agentspace",
@@ -3055,12 +3056,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 150100,
-      "fetchedAt": "2026-05-29"
+      "installs": 12,
+      "fetchedAt": "2026-11-24"
     },
     "source": "agentspace-so/skills",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "agentspace-so-runcomfy-agent-skills-image-to-video",
@@ -3095,8 +3096,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 148900,
-      "fetchedAt": "2026-05-29"
+      "installs": 450367,
+      "fetchedAt": "2026-11-24"
     },
     "source": "agentspace-so/runcomfy-agent-skills",
     "external": true,
@@ -3131,8 +3132,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 146200,
-      "fetchedAt": "2026-05-29"
+      "installs": 219749,
+      "fetchedAt": "2026-11-24"
     },
     "source": "mattpocock/skills",
     "external": true,
@@ -3167,12 +3168,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 145600,
-      "fetchedAt": "2026-05-29"
+      "installs": 219155,
+      "fetchedAt": "2026-11-24"
     },
     "source": "mattpocock/skills",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "mattpocock-skills-setup-matt-pocock-skills",
@@ -3203,8 +3204,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 144100,
-      "fetchedAt": "2026-05-29"
+      "installs": 1182564,
+      "fetchedAt": "2026-11-24"
     },
     "source": "mattpocock/skills",
     "external": true,
@@ -3243,8 +3244,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 143000,
-      "fetchedAt": "2026-05-29"
+      "installs": 6,
+      "fetchedAt": "2026-11-24"
     },
     "source": "agentspace-so/agent-skills",
     "external": true,
@@ -3279,8 +3280,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 140900,
-      "fetchedAt": "2026-05-29"
+      "installs": 214567,
+      "fetchedAt": "2026-11-24"
     },
     "source": "mattpocock/skills",
     "external": true,
@@ -3319,12 +3320,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 139900,
-      "fetchedAt": "2026-05-29"
+      "installs": 505556,
+      "fetchedAt": "2026-11-24"
     },
     "source": "lllllllama/ai-paper-reproduction-skill",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "pbakaus-impeccable-impeccable",
@@ -3355,8 +3356,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 137000,
-      "fetchedAt": "2026-05-29"
+      "installs": 430733,
+      "fetchedAt": "2026-11-24"
     },
     "source": "pbakaus/impeccable",
     "external": true,
@@ -3397,12 +3398,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 134000,
-      "fetchedAt": "2026-05-29"
+      "installs": 362649,
+      "fetchedAt": "2026-11-24"
     },
     "source": "microsoft/azure-skills",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "mattpocock-skills-triage",
@@ -3433,12 +3434,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 133800,
-      "fetchedAt": "2026-05-29"
+      "installs": 1106919,
+      "fetchedAt": "2026-11-24"
     },
     "source": "mattpocock/skills",
     "external": true,
-    "trending": false
+    "trending": true
   },
   {
     "id": "open-feishu-cn-lark-approval",
@@ -3471,8 +3472,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 133500,
-      "fetchedAt": "2026-05-29"
+      "installs": 933300,
+      "fetchedAt": "2026-11-24"
     },
     "source": "open.feishu.cn",
     "external": true,
@@ -3511,8 +3512,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 133400,
-      "fetchedAt": "2026-05-29"
+      "installs": 936600,
+      "fetchedAt": "2026-11-24"
     },
     "source": "open.feishu.cn",
     "external": true,
@@ -3549,8 +3550,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 133300,
-      "fetchedAt": "2026-05-29"
+      "installs": 935100,
+      "fetchedAt": "2026-11-24"
     },
     "source": "open.feishu.cn",
     "external": true,
@@ -3587,12 +3588,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 133300,
-      "fetchedAt": "2026-05-29"
+      "installs": 935500,
+      "fetchedAt": "2026-11-24"
     },
     "source": "open.feishu.cn",
     "external": true,
-    "trending": false
+    "trending": true
   },
   {
     "id": "open-feishu-cn-lark-calendar",
@@ -3625,8 +3626,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 133300,
-      "fetchedAt": "2026-05-29"
+      "installs": 933600,
+      "fetchedAt": "2026-11-24"
     },
     "source": "open.feishu.cn",
     "external": true,
@@ -3663,12 +3664,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 133300,
-      "fetchedAt": "2026-05-29"
+      "installs": 935900,
+      "fetchedAt": "2026-11-24"
     },
     "source": "open.feishu.cn",
     "external": true,
-    "trending": false
+    "trending": true
   },
   {
     "id": "open-feishu-cn-lark-im",
@@ -3701,8 +3702,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 133300,
-      "fetchedAt": "2026-05-29"
+      "installs": 934100,
+      "fetchedAt": "2026-11-24"
     },
     "source": "open.feishu.cn",
     "external": true,
@@ -3739,8 +3740,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 133300,
-      "fetchedAt": "2026-05-29"
+      "installs": 931400,
+      "fetchedAt": "2026-11-24"
     },
     "source": "open.feishu.cn",
     "external": true,
@@ -3777,8 +3778,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 133300,
-      "fetchedAt": "2026-05-29"
+      "installs": 932500,
+      "fetchedAt": "2026-11-24"
     },
     "source": "open.feishu.cn",
     "external": true,
@@ -3815,8 +3816,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 133300,
-      "fetchedAt": "2026-05-29"
+      "installs": 931800,
+      "fetchedAt": "2026-11-24"
     },
     "source": "open.feishu.cn",
     "external": true,
@@ -3853,8 +3854,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 133300,
-      "fetchedAt": "2026-05-29"
+      "installs": 931900,
+      "fetchedAt": "2026-11-24"
     },
     "source": "open.feishu.cn",
     "external": true,
@@ -3891,12 +3892,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 133300,
-      "fetchedAt": "2026-05-29"
+      "installs": 927700,
+      "fetchedAt": "2026-11-24"
     },
     "source": "open.feishu.cn",
     "external": true,
-    "trending": false
+    "trending": true
   },
   {
     "id": "open-feishu-cn-lark-mail",
@@ -3929,8 +3930,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 133300,
-      "fetchedAt": "2026-05-29"
+      "installs": 932000,
+      "fetchedAt": "2026-11-24"
     },
     "source": "open.feishu.cn",
     "external": true,
@@ -3969,12 +3970,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 133300,
-      "fetchedAt": "2026-05-29"
+      "installs": 933600,
+      "fetchedAt": "2026-11-24"
     },
     "source": "open.feishu.cn",
     "external": true,
-    "trending": false
+    "trending": true
   },
   {
     "id": "open-feishu-cn-lark-whiteboard",
@@ -4007,8 +4008,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 133300,
-      "fetchedAt": "2026-05-29"
+      "installs": 932200,
+      "fetchedAt": "2026-11-24"
     },
     "source": "open.feishu.cn",
     "external": true,
@@ -4047,8 +4048,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 133300,
-      "fetchedAt": "2026-05-29"
+      "installs": 931100,
+      "fetchedAt": "2026-11-24"
     },
     "source": "open.feishu.cn",
     "external": true,
@@ -4085,8 +4086,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 133300,
-      "fetchedAt": "2026-05-29"
+      "installs": 932200,
+      "fetchedAt": "2026-11-24"
     },
     "source": "open.feishu.cn",
     "external": true,
@@ -4123,12 +4124,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 133300,
-      "fetchedAt": "2026-05-29"
+      "installs": 933600,
+      "fetchedAt": "2026-11-24"
     },
     "source": "open.feishu.cn",
     "external": true,
-    "trending": false
+    "trending": true
   },
   {
     "id": "open-feishu-cn-lark-slides",
@@ -4163,8 +4164,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 133200,
-      "fetchedAt": "2026-05-29"
+      "installs": 932100,
+      "fetchedAt": "2026-11-24"
     },
     "source": "open.feishu.cn",
     "external": true,
@@ -4201,8 +4202,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 133200,
-      "fetchedAt": "2026-05-29"
+      "installs": 927000,
+      "fetchedAt": "2026-11-24"
     },
     "source": "open.feishu.cn",
     "external": true,
@@ -4239,8 +4240,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 133200,
-      "fetchedAt": "2026-05-29"
+      "installs": 930500,
+      "fetchedAt": "2026-11-24"
     },
     "source": "open.feishu.cn",
     "external": true,
@@ -4277,8 +4278,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 133200,
-      "fetchedAt": "2026-05-29"
+      "installs": 931100,
+      "fetchedAt": "2026-11-24"
     },
     "source": "open.feishu.cn",
     "external": true,
@@ -4319,8 +4320,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 130300,
-      "fetchedAt": "2026-05-29"
+      "installs": 444306,
+      "fetchedAt": "2026-11-24"
     },
     "source": "larksuite/cli",
     "external": true,
@@ -4359,8 +4360,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 129500,
-      "fetchedAt": "2026-05-29"
+      "installs": 441229,
+      "fetchedAt": "2026-11-24"
     },
     "source": "larksuite/cli",
     "external": true,
@@ -4399,8 +4400,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 128900,
-      "fetchedAt": "2026-05-29"
+      "installs": 288200,
+      "fetchedAt": "2026-11-24"
     },
     "source": "vercel-labs/agent-skills",
     "external": true,
@@ -4439,12 +4440,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 127700,
-      "fetchedAt": "2026-05-29"
+      "installs": 13,
+      "fetchedAt": "2026-11-24"
     },
     "source": "xixu-me/skills",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "agentspace-so-runcomfy-agent-skills-kling-3-0",
@@ -4479,8 +4480,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 124800,
-      "fetchedAt": "2026-05-29"
+      "installs": 425467,
+      "fetchedAt": "2026-11-24"
     },
     "source": "agentspace-so/runcomfy-agent-skills",
     "external": true,
@@ -4519,12 +4520,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 124600,
-      "fetchedAt": "2026-05-29"
+      "installs": 262454,
+      "fetchedAt": "2026-11-24"
     },
     "source": "anthropics/skills",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "coreyhaines31-marketingskills-seo-audit",
@@ -4557,8 +4558,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 122600,
-      "fetchedAt": "2026-05-29"
+      "installs": 264675,
+      "fetchedAt": "2026-11-24"
     },
     "source": "coreyhaines31/marketingskills",
     "external": true,
@@ -4597,12 +4598,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 120400,
-      "fetchedAt": "2026-05-29"
+      "installs": 236169,
+      "fetchedAt": "2026-11-24"
     },
     "source": "anthropics/skills",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "obra-superpowers-using-superpowers",
@@ -4633,12 +4634,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 118400,
-      "fetchedAt": "2026-05-29"
+      "installs": 296730,
+      "fetchedAt": "2026-11-24"
     },
     "source": "obra/superpowers",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "obra-superpowers-systematic-debugging",
@@ -4673,8 +4674,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 117700,
-      "fetchedAt": "2026-05-29"
+      "installs": 345820,
+      "fetchedAt": "2026-11-24"
     },
     "source": "obra/superpowers",
     "external": true,
@@ -4709,8 +4710,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 117000,
-      "fetchedAt": "2026-05-29"
+      "installs": 314214,
+      "fetchedAt": "2026-11-24"
     },
     "source": "obra/superpowers",
     "external": true,
@@ -4749,8 +4750,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 114900,
-      "fetchedAt": "2026-05-29"
+      "installs": 427410,
+      "fetchedAt": "2026-11-24"
     },
     "source": "larksuite/cli",
     "external": true,
@@ -4785,12 +4786,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 114200,
-      "fetchedAt": "2026-05-29"
+      "installs": 132015,
+      "fetchedAt": "2026-11-24"
     },
     "source": "arvindrk/extract-design-system",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "open-feishu-cn-lark-okr",
@@ -4823,8 +4824,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 114200,
-      "fetchedAt": "2026-05-29"
+      "installs": 912500,
+      "fetchedAt": "2026-11-24"
     },
     "source": "open.feishu.cn",
     "external": true,
@@ -4859,8 +4860,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 113000,
-      "fetchedAt": "2026-05-29"
+      "installs": 413807,
+      "fetchedAt": "2026-11-24"
     },
     "source": "agentspace-so/runcomfy-agent-skills",
     "external": true,
@@ -4897,8 +4898,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 112100,
-      "fetchedAt": "2026-05-29"
+      "installs": 265734,
+      "fetchedAt": "2026-11-24"
     },
     "source": "coreyhaines31/marketingskills",
     "external": true,
@@ -4933,8 +4934,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 112000,
-      "fetchedAt": "2026-05-29"
+      "installs": 446578,
+      "fetchedAt": "2026-11-24"
     },
     "source": "juliusbrussee/caveman",
     "external": true,
@@ -4973,12 +4974,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 110800,
-      "fetchedAt": "2026-05-29"
+      "installs": 442540,
+      "fetchedAt": "2026-11-24"
     },
     "source": "juliusbrussee/caveman",
     "external": true,
-    "trending": false
+    "trending": true
   },
   {
     "id": "juliusbrussee-caveman-caveman-compress",
@@ -5009,12 +5010,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 109200,
-      "fetchedAt": "2026-05-29"
+      "installs": 447429,
+      "fetchedAt": "2026-11-24"
     },
     "source": "juliusbrussee/caveman",
     "external": true,
-    "trending": false
+    "trending": true
   },
   {
     "id": "anthropics-skills-docx",
@@ -5049,12 +5050,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 106800,
-      "fetchedAt": "2026-05-29"
+      "installs": 224812,
+      "fetchedAt": "2026-11-24"
     },
     "source": "anthropics/skills",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "mattpocock-skills-prototype",
@@ -5085,12 +5086,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 105900,
-      "fetchedAt": "2026-05-29"
+      "installs": 1113561,
+      "fetchedAt": "2026-11-24"
     },
     "source": "mattpocock/skills",
     "external": true,
-    "trending": false
+    "trending": true
   },
   {
     "id": "juliusbrussee-caveman-caveman-help",
@@ -5121,12 +5122,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 105000,
-      "fetchedAt": "2026-05-29"
+      "installs": 432686,
+      "fetchedAt": "2026-11-24"
     },
     "source": "juliusbrussee/caveman",
     "external": true,
-    "trending": false
+    "trending": true
   },
   {
     "id": "obra-superpowers-requesting-code-review",
@@ -5161,8 +5162,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 104700,
-      "fetchedAt": "2026-05-29"
+      "installs": 291024,
+      "fetchedAt": "2026-11-24"
     },
     "source": "obra/superpowers",
     "external": true,
@@ -5201,8 +5202,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 103100,
-      "fetchedAt": "2026-05-29"
+      "installs": 290514,
+      "fetchedAt": "2026-11-24"
     },
     "source": "obra/superpowers",
     "external": true,
@@ -5239,8 +5240,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 98900,
-      "fetchedAt": "2026-05-29"
+      "installs": 898600,
+      "fetchedAt": "2026-11-24"
     },
     "source": "open.feishu.cn",
     "external": true,
@@ -5281,8 +5282,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 98100,
-      "fetchedAt": "2026-05-29"
+      "installs": 86214,
+      "fetchedAt": "2026-11-24"
     },
     "source": "microsoft/azure-skills",
     "external": true,
@@ -5361,12 +5362,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 94600,
-      "fetchedAt": "2026-05-29"
+      "installs": 204852,
+      "fetchedAt": "2026-11-24"
     },
     "source": "anthropics/skills",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "supabase-agent-skills-supabase",
@@ -5401,8 +5402,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 93700,
-      "fetchedAt": "2026-05-29"
+      "installs": 373980,
+      "fetchedAt": "2026-11-24"
     },
     "source": "supabase/agent-skills",
     "external": true,
@@ -5441,8 +5442,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 93200,
-      "fetchedAt": "2026-05-29"
+      "installs": 409049,
+      "fetchedAt": "2026-11-24"
     },
     "source": "larksuite/cli",
     "external": true,
@@ -5481,8 +5482,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 92200,
-      "fetchedAt": "2026-05-29"
+      "installs": 395459,
+      "fetchedAt": "2026-11-24"
     },
     "source": "agentspace-so/runcomfy-agent-skills",
     "external": true,
@@ -5521,8 +5522,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 92200,
-      "fetchedAt": "2026-05-29"
+      "installs": 395269,
+      "fetchedAt": "2026-11-24"
     },
     "source": "agentspace-so/runcomfy-agent-skills",
     "external": true,
@@ -5557,8 +5558,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 91900,
-      "fetchedAt": "2026-05-29"
+      "installs": 392399,
+      "fetchedAt": "2026-11-24"
     },
     "source": "agentspace-so/runcomfy-agent-skills",
     "external": true,
@@ -5597,8 +5598,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 91600,
-      "fetchedAt": "2026-05-29"
+      "installs": 392199,
+      "fetchedAt": "2026-11-24"
     },
     "source": "agentspace-so/runcomfy-agent-skills",
     "external": true,
@@ -5633,8 +5634,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 88900,
-      "fetchedAt": "2026-05-29"
+      "installs": 265814,
+      "fetchedAt": "2026-11-24"
     },
     "source": "obra/superpowers",
     "external": true,
@@ -5673,8 +5674,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 88600,
-      "fetchedAt": "2026-05-29"
+      "installs": 389183,
+      "fetchedAt": "2026-11-24"
     },
     "source": "agentspace-so/runcomfy-agent-skills",
     "external": true,
@@ -5713,8 +5714,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 87000,
-      "fetchedAt": "2026-05-29"
+      "installs": 288179,
+      "fetchedAt": "2026-11-24"
     },
     "source": "obra/superpowers",
     "external": true,
@@ -5751,8 +5752,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 86000,
-      "fetchedAt": "2026-05-29"
+      "installs": 819698,
+      "fetchedAt": "2026-11-24"
     },
     "source": "leonxlnx/taste-skill",
     "external": true,
@@ -5787,8 +5788,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 85700,
-      "fetchedAt": "2026-05-29"
+      "installs": 85171,
+      "fetchedAt": "2026-11-24"
     },
     "source": "pbakaus/impeccable",
     "external": true,
@@ -5827,8 +5828,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 83600,
-      "fetchedAt": "2026-05-29"
+      "installs": 248969,
+      "fetchedAt": "2026-11-24"
     },
     "source": "obra/superpowers",
     "external": true,
@@ -5863,8 +5864,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 83100,
-      "fetchedAt": "2026-05-29"
+      "installs": 82637,
+      "fetchedAt": "2026-11-24"
     },
     "source": "pbakaus/impeccable",
     "external": true,
@@ -5901,8 +5902,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 82900,
-      "fetchedAt": "2026-05-29"
+      "installs": 245017,
+      "fetchedAt": "2026-11-24"
     },
     "source": "scrapegraphai/just-scrape",
     "external": true,
@@ -5937,12 +5938,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 82900,
-      "fetchedAt": "2026-05-29"
+      "installs": 244401,
+      "fetchedAt": "2026-11-24"
     },
     "source": "obra/superpowers",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "anthropics-skills-webapp-testing",
@@ -5977,8 +5978,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 82600,
-      "fetchedAt": "2026-05-29"
+      "installs": 213101,
+      "fetchedAt": "2026-11-24"
     },
     "source": "anthropics/skills",
     "external": true,
@@ -6015,8 +6016,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 82500,
-      "fetchedAt": "2026-05-29"
+      "installs": 185305,
+      "fetchedAt": "2026-11-24"
     },
     "source": "coreyhaines31/marketingskills",
     "external": true,
@@ -6051,8 +6052,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 82300,
-      "fetchedAt": "2026-05-29"
+      "installs": 81858,
+      "fetchedAt": "2026-11-24"
     },
     "source": "pbakaus/impeccable",
     "external": true,
@@ -6087,12 +6088,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 81000,
-      "fetchedAt": "2026-05-29"
+      "installs": 244770,
+      "fetchedAt": "2026-11-24"
     },
     "source": "obra/superpowers",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "obra-superpowers-using-git-worktrees",
@@ -6123,12 +6124,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 81000,
-      "fetchedAt": "2026-05-29"
+      "installs": 243716,
+      "fetchedAt": "2026-11-24"
     },
     "source": "obra/superpowers",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "agentspace-so-runcomfy-agent-skills-ace-step",
@@ -6163,8 +6164,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 80500,
-      "fetchedAt": "2026-05-29"
+      "installs": 380650,
+      "fetchedAt": "2026-11-24"
     },
     "source": "agentspace-so/runcomfy-agent-skills",
     "external": true,
@@ -6199,8 +6200,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 80500,
-      "fetchedAt": "2026-05-29"
+      "installs": 80008,
+      "fetchedAt": "2026-11-24"
     },
     "source": "pbakaus/impeccable",
     "external": true,
@@ -6239,8 +6240,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 80400,
-      "fetchedAt": "2026-05-29"
+      "installs": 381292,
+      "fetchedAt": "2026-11-24"
     },
     "source": "agentspace-so/runcomfy-agent-skills",
     "external": true,
@@ -6275,8 +6276,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 80300,
-      "fetchedAt": "2026-05-29"
+      "installs": 79846,
+      "fetchedAt": "2026-11-24"
     },
     "source": "pbakaus/impeccable",
     "external": true,
@@ -6311,8 +6312,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 79900,
-      "fetchedAt": "2026-05-29"
+      "installs": 79457,
+      "fetchedAt": "2026-11-24"
     },
     "source": "pbakaus/impeccable",
     "external": true,
@@ -6353,8 +6354,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 79400,
-      "fetchedAt": "2026-05-29"
+      "installs": 560540,
+      "fetchedAt": "2026-11-24"
     },
     "source": "microsoft/azure-skills",
     "external": true,
@@ -6389,8 +6390,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 79100,
-      "fetchedAt": "2026-05-29"
+      "installs": 78654,
+      "fetchedAt": "2026-11-24"
     },
     "source": "pbakaus/impeccable",
     "external": true,
@@ -6425,8 +6426,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 78800,
-      "fetchedAt": "2026-05-29"
+      "installs": 241084,
+      "fetchedAt": "2026-11-24"
     },
     "source": "obra/superpowers",
     "external": true,
@@ -6463,8 +6464,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 78200,
-      "fetchedAt": "2026-05-29"
+      "installs": 871600,
+      "fetchedAt": "2026-11-24"
     },
     "source": "open.feishu.cn",
     "external": true,
@@ -6501,8 +6502,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 77900,
-      "fetchedAt": "2026-05-29"
+      "installs": 185676,
+      "fetchedAt": "2026-11-24"
     },
     "source": "coreyhaines31/marketingskills",
     "external": true,
@@ -6539,8 +6540,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 77100,
-      "fetchedAt": "2026-05-29"
+      "installs": 100279,
+      "fetchedAt": "2026-11-24"
     },
     "source": "browser-use/browser-use",
     "external": true,
@@ -6577,8 +6578,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 75700,
-      "fetchedAt": "2026-05-29"
+      "installs": 167998,
+      "fetchedAt": "2026-11-24"
     },
     "source": "coreyhaines31/marketingskills",
     "external": true,
@@ -6615,12 +6616,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 74400,
-      "fetchedAt": "2026-05-29"
+      "installs": 458917,
+      "fetchedAt": "2026-11-24"
     },
     "source": "leonxlnx/taste-skill",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "heygen-com-hyperframes-hyperframes",
@@ -6653,8 +6654,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 73300,
-      "fetchedAt": "2026-05-29"
+      "installs": 1657144,
+      "fetchedAt": "2026-11-24"
     },
     "source": "heygen-com/hyperframes",
     "external": true,
@@ -6691,8 +6692,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 73100,
-      "fetchedAt": "2026-05-29"
+      "installs": 164127,
+      "fetchedAt": "2026-11-24"
     },
     "source": "coreyhaines31/marketingskills",
     "external": true,
@@ -6729,12 +6730,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 72800,
-      "fetchedAt": "2026-05-29"
+      "installs": 458803,
+      "fetchedAt": "2026-11-24"
     },
     "source": "leonxlnx/taste-skill",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "emilkowalski-skill-emil-design-eng",
@@ -6767,12 +6768,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 70900,
-      "fetchedAt": "2026-05-29"
+      "installs": 476042,
+      "fetchedAt": "2026-11-24"
     },
     "source": "emilkowalski/skill",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "heygen-com-hyperframes-hyperframes-cli",
@@ -6805,8 +6806,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 69700,
-      "fetchedAt": "2026-05-29"
+      "installs": 1691494,
+      "fetchedAt": "2026-11-24"
     },
     "source": "heygen-com/hyperframes",
     "external": true,
@@ -6843,12 +6844,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 69500,
-      "fetchedAt": "2026-05-29"
+      "installs": 92065,
+      "fetchedAt": "2026-11-24"
     },
     "source": "heygen-com/hyperframes",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "coreyhaines31-marketingskills-copy-editing",
@@ -6881,8 +6882,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 68800,
-      "fetchedAt": "2026-05-29"
+      "installs": 169176,
+      "fetchedAt": "2026-11-24"
     },
     "source": "coreyhaines31/marketingskills",
     "external": true,
@@ -6919,12 +6920,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 68200,
-      "fetchedAt": "2026-05-29"
+      "installs": 425188,
+      "fetchedAt": "2026-11-24"
     },
     "source": "leonxlnx/taste-skill",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "heygen-com-hyperframes-website-to-hyperframes",
@@ -6957,8 +6958,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 67500,
-      "fetchedAt": "2026-05-29"
+      "installs": 89314,
+      "fetchedAt": "2026-11-24"
     },
     "source": "heygen-com/hyperframes",
     "external": true,
@@ -6995,8 +6996,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 67400,
-      "fetchedAt": "2026-05-29"
+      "installs": 1436658,
+      "fetchedAt": "2026-11-24"
     },
     "source": "heygen-com/hyperframes",
     "external": true,
@@ -7035,12 +7036,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 67200,
-      "fetchedAt": "2026-05-29"
+      "installs": 190128,
+      "fetchedAt": "2026-11-24"
     },
     "source": "firebase/agent-skills",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "coreyhaines31-marketingskills-social-content",
@@ -7073,8 +7074,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 67200,
-      "fetchedAt": "2026-05-29"
+      "installs": 67000,
+      "fetchedAt": "2026-11-24"
     },
     "source": "coreyhaines31/marketingskills",
     "external": true,
@@ -7113,8 +7114,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 66700,
-      "fetchedAt": "2026-05-29"
+      "installs": 189017,
+      "fetchedAt": "2026-11-24"
     },
     "source": "firebase/agent-skills",
     "external": true,
@@ -7153,8 +7154,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 66100,
-      "fetchedAt": "2026-05-29"
+      "installs": 366780,
+      "fetchedAt": "2026-11-24"
     },
     "source": "larksuite/cli",
     "external": true,
@@ -7191,8 +7192,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 66000,
-      "fetchedAt": "2026-05-29"
+      "installs": 401117,
+      "fetchedAt": "2026-11-24"
     },
     "source": "leonxlnx/taste-skill",
     "external": true,
@@ -7231,8 +7232,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 65100,
-      "fetchedAt": "2026-05-29"
+      "installs": 184232,
+      "fetchedAt": "2026-11-24"
     },
     "source": "firebase/agent-skills",
     "external": true,
@@ -7267,8 +7268,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 65000,
-      "fetchedAt": "2026-05-29"
+      "installs": 64700,
+      "fetchedAt": "2026-11-24"
     },
     "source": "pbakaus/impeccable",
     "external": true,
@@ -7307,8 +7308,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 64800,
-      "fetchedAt": "2026-05-29"
+      "installs": 183525,
+      "fetchedAt": "2026-11-24"
     },
     "source": "firebase/agent-skills",
     "external": true,
@@ -7347,8 +7348,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 64400,
-      "fetchedAt": "2026-05-29"
+      "installs": 182549,
+      "fetchedAt": "2026-11-24"
     },
     "source": "firebase/agent-skills",
     "external": true,
@@ -7390,12 +7391,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 64300,
-      "fetchedAt": "2026-05-29"
+      "installs": 147026,
+      "fetchedAt": "2026-11-24"
     },
     "source": "anthropics/skills",
     "external": true,
-    "trending": true
+    "trending": false
   },
   {
     "id": "anthropics-skills-canvas-design",
@@ -7428,8 +7429,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 63400,
-      "fetchedAt": "2026-05-29"
+      "installs": 138933,
+      "fetchedAt": "2026-11-24"
     },
     "source": "anthropics/skills",
     "external": true,
@@ -7466,8 +7467,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 63300,
-      "fetchedAt": "2026-05-29"
+      "installs": 396978,
+      "fetchedAt": "2026-11-24"
     },
     "source": "leonxlnx/taste-skill",
     "external": true,
@@ -7502,8 +7503,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 63100,
-      "fetchedAt": "2026-05-29"
+      "installs": 62800,
+      "fetchedAt": "2026-11-24"
     },
     "source": "pbakaus/impeccable",
     "external": true,
@@ -7540,8 +7541,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 63100,
-      "fetchedAt": "2026-05-29"
+      "installs": 394933,
+      "fetchedAt": "2026-11-24"
     },
     "source": "leonxlnx/taste-skill",
     "external": true,
@@ -7576,8 +7577,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 63100,
-      "fetchedAt": "2026-05-29"
+      "installs": 388459,
+      "fetchedAt": "2026-11-24"
     },
     "source": "juliusbrussee/caveman",
     "external": true,
@@ -7618,8 +7619,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 63000,
-      "fetchedAt": "2026-05-29"
+      "installs": 105013,
+      "fetchedAt": "2026-11-24"
     },
     "source": "firecrawl/cli",
     "external": true,
@@ -7654,8 +7655,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 62900,
-      "fetchedAt": "2026-05-29"
+      "installs": 391921,
+      "fetchedAt": "2026-11-24"
     },
     "source": "juliusbrussee/caveman",
     "external": true,
@@ -7692,12 +7693,12 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 62600,
-      "fetchedAt": "2026-05-29"
+      "installs": 173052,
+      "fetchedAt": "2026-11-24"
     },
     "source": "coreyhaines31/marketingskills",
     "external": true,
-    "trending": false
+    "trending": true
   },
   {
     "id": "firebase-agent-skills-developing-genkit-js",
@@ -7732,8 +7733,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 62100,
-      "fetchedAt": "2026-05-29"
+      "installs": 62500,
+      "fetchedAt": "2026-11-24"
     },
     "source": "firebase/agent-skills",
     "external": true,
@@ -7772,8 +7773,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 61900,
-      "fetchedAt": "2026-05-29"
+      "installs": 62200,
+      "fetchedAt": "2026-11-24"
     },
     "source": "firebase/agent-skills",
     "external": true,
@@ -7810,8 +7811,8 @@ export const skillsSh: Skill[] = [
     ],
     "createdAt": "2025-01-01",
     "stats": {
-      "installs": 61400,
-      "fetchedAt": "2026-05-29"
+      "installs": 61200,
+      "fetchedAt": "2026-11-24"
     },
     "source": "coreyhaines31/marketingskills",
     "external": true,
