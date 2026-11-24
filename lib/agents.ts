@@ -57,7 +57,7 @@ export const agents: AgentRuntime[] = [
     description:
       "Anthropic's agentic coding tool. Runs in the terminal with full project context, executes commands, edits across files. Skills are a first-class primitive: folders with a SKILL.md that Claude loads when the task matches.",
     skillInstall:
-      "Drop a skill folder into ~/.claude/skills/ (personal) or .claude/skills/ (project). Plugins bundle skills with MCP connectors and install from marketplaces, including the Claude Marketplace (live 2026-09-23).",
+      "Drop a skill folder into ~/.claude/skills/ (personal) or .claude/skills/ (project). Plugins bundle skills with MCP connectors and install from marketplaces, including the Claude directory (`/plugin directory` in Claude Code, or Customize > Plugins on claude.ai).",
     skillsDir: "~/.claude/skills/ · .claude/skills/",
     catalogPlatform: "claude",
     specCompliant: true,
