@@ -123,6 +123,10 @@
         "header": "Channels",
         "items": [
           {
+            "label": "Claude Directory",
+            "href": "https://claude.com/marketplace/plugins"
+          },
+          {
             "label": "Agentic Market",
             "href": "https://agentic.market/"
           },

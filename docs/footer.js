@@ -60,6 +60,11 @@
     "title": "Channels",
     "links": [
       [
+        "https://claude.com/marketplace/plugins",
+        "Claude Directory",
+        true
+      ],
+      [
         "https://agentic.market/",
         "Agentic Market",
         true

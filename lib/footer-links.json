@@ -20,6 +20,7 @@
     {
       "title": "Channels",
       "links": [
+        { "href": "https://claude.com/marketplace/plugins", "label": "Claude Directory", "external": true },
         { "href": "https://agentic.market/", "label": "Agentic Market", "external": true },
         { "href": "https://www.shopclawmart.com/", "label": "Claw Mart", "external": true },
         { "href": "https://apify.com/solidstate", "label": "Apify", "external": true },
